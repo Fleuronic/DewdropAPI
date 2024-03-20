@@ -18,6 +18,7 @@ let package = Package(
 	dependencies: [
 		.package(url: "https://github.com/Fleuronic/DewdropService", branch: "main"),
 		.package(url: "https://github.com/Fleuronic/Caesura", branch: "main"),
+		.package(url: "https://github.com/davidsteppenbeck/URL", branch: "main"),
 	],
 	targets: [
 		.target(
@@ -25,6 +26,7 @@ let package = Package(
 			dependencies: [
 				"DewdropService",
 				"Caesura",
+				"URL"
 			]
 		),
 	]

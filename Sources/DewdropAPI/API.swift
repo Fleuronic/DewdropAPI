@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import InitMacro
+import URL
 
 import struct Foundation.URL
 import protocol Catenary.RESTAPI
@@ -10,9 +11,10 @@ import protocol Catenary.RESTAPI
 }
 
 // MARK: -
-extension API {
+extension API: RESTAPI {
 	// MARK: API
 	public func url(for path: String) -> URL {
-		URL(string: "https://api.raindrop.io/rest/v1/\(path)")!
+		let url = #URL("https://api.raindrop.io/rest/v1/")
+		return url.appendingPathComponent(path)
 	}
 }
