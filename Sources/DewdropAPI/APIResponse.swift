@@ -1,5 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import Foundation
+
+import enum Catenary.Request
 import struct Catenary.DynamicKey
 import protocol Catenary.APIResponse
 
@@ -13,7 +16,19 @@ public extension API {
 extension API.Response: APIResponse {
 	// MARK: Response
 	public func resource<Resource: Decodable>() throws -> Resource {
-		fatalError()
+		for key in container.allKeys {
+			if let resource = try? container.decode(Resource.self, forKey: key) {
+				return resource
+			}
+		}
+		
+		throw Request.Error<API.Error>.network(
+			NSError(
+				domain: .domain,
+				code: NSURLErrorCannotDecodeContentData,
+				userInfo: [:]
+			)
+		)
 	}
 	
 	// MARK: Decodable
@@ -21,4 +36,9 @@ extension API.Response: APIResponse {
 		if let error = try? API.Error(from: decoder) { throw error }
 		container = try decoder.container(keyedBy: DynamicKey.self)
 	}
+}
+
+// MARK -
+private extension String {
+	static let domain = "api.randrop.io"
 }
