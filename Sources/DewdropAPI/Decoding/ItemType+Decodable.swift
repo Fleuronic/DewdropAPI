@@ -15,7 +15,7 @@ extension Raindrop.ItemType: Decodable {
 		case "video": .video
 		case "document": .document
 		case "audio": .audio
-		default: fatalError()
+		default: throw DecodingError.dataCorruptedError(in: container, debugDescription: .init())
 		}
 	}
 }

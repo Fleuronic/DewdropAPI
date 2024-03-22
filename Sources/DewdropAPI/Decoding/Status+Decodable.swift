@@ -15,7 +15,7 @@ extension Cache.Status: Decodable {
 		case "invalid-origin": .invalid(.origin)
 		case "invalid-timeout": .invalid(.timeout)
 		case "invalid-size": .invalid(.size)
-		default: fatalError()
+		default: throw DecodingError.dataCorruptedError(in: container, debugDescription: .init())
 		}
 	}
 }
