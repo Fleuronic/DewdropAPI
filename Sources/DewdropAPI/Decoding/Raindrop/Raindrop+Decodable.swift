@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Raindrop
+import struct Dewdrop.Media
 import struct Dewdrop.Cache
 import struct Foundation.URL
 import struct Foundation.Date
@@ -17,6 +18,7 @@ extension Raindrop: Decodable {
 			excerpt: try container.decode(String.self, forKey: .excerpt).filledValue,
 			domain: try container.decode(String.self, forKey: .domain),
 			coverURL: try container.decode(URL.self, forKey: .coverURL),
+			media: try container.decode([Media].self, forKey: .media),
 			note: try container.decode(String.self, forKey: .note).filledValue,
 			tags: try container.decode([String].self, forKey: .tags),
 			cache: try container.decode(Cache.self, forKey: .cache),
@@ -37,6 +39,7 @@ private extension Raindrop {
 		case excerpt
 		case domain
 		case coverURL = "cover"
+		case media
 		case note
 		case tags
 		case cache
