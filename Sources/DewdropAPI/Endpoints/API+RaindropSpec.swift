@@ -4,7 +4,7 @@ import struct Dewdrop.Raindrop
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.RaindropHighlightListFields
 import protocol DewdropService.RaindropSpec
-import protocol Catenary.API
+//import protocol Catenary.API
 
 extension API: RaindropSpec {
 	public func fetchRaindropDetails(with id: Raindrop.ID) async -> Self.Result<RaindropDetailsFields> {
@@ -15,4 +15,8 @@ extension API: RaindropSpec {
 	public func fetchRaindropHighlights(with id: Raindrop.ID) async -> Self.Result<RaindropHighlightListFields> {
 		await fetchRaindropDetails(with: id).map(RaindropHighlightListFields.init)
 	}
+}
+
+public extension API {
+
 }
