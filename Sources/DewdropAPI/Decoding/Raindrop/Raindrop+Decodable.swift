@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Media
+import struct Dewdrop.Tag
 import struct Dewdrop.Cache
 import struct Foundation.URL
 import struct Foundation.Date
@@ -20,7 +21,6 @@ extension Raindrop: Decodable {
 			coverURL: try container.decode(URL.self, forKey: .coverURL),
 			media: try container.decode([Media].self, forKey: .media),
 			note: try container.decode(String.self, forKey: .note).filledValue,
-			tags: try container.decode([String].self, forKey: .tags),
 			cache: try container.decode(Cache.self, forKey: .cache),
 			isFavorite: try container.decode(Bool.self, forKey: .isFavorite),
 			isBroken: try container.decode(Bool.self, forKey: .isBroken),
@@ -41,7 +41,6 @@ private extension Raindrop {
 		case coverURL = "cover"
 		case media
 		case note
-		case tags
 		case cache
 		case isFavorite = "important"
 		case isBroken = "broken"
