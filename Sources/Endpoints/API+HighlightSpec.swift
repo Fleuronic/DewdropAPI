@@ -14,10 +14,4 @@ extension API: HighlightSpec {
 		let path = "highlights" + collectionPath
 		return await getResource(at: path)
 	}
-	
-	public func fetchRaindropHighlights(with id: Raindrop.ID) async -> Self.Result<RaindropHighlightListFields> {
-		let path = "raindrop/\(id)"
-		let result: Self.Result<RaindropDetailsFields> = await getResource(at: path)
-		return result.map(RaindropHighlightListFields.init)
-	}
 }
