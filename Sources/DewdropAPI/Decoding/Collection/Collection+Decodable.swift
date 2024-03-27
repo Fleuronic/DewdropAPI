@@ -18,6 +18,7 @@ extension Collection: Decodable {
 			access: try container.decode(Access.self, forKey: .access),
 			sortIndex: try container.decode(Int.self, forKey: .sortIndex),
 			isPublic: try container.decode(Bool.self, forKey: .isPublic),
+			isShared: container.contains(.isShared),
 			isExpanded: try container.decode(Bool.self, forKey: .isExpanded),
 			creationDate: try container.decode(Date.self, forKey: .creationDate),
 			updateDate: try container.decode(Date.self, forKey: .updateDate)
@@ -36,6 +37,7 @@ private extension Collection {
 		case access
 		case sortIndex = "sort"
 		case isPublic = "public"
+		case isShared = "collaborators"
 		case isExpanded = "expanded"
 		case creationDate = "created"
 		case updateDate = "lastUpdate"
