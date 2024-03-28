@@ -1,6 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Account
+import struct Dewdrop.Network
+import struct Dewdrop.FileStorage
+import struct Foundation.Date
 
 extension Account: Decodable {
 	// MARK: Decodable
@@ -8,7 +11,18 @@ extension Account: Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self.init(
-			email: try container.decode(String.self, forKey: .email)
+			user: try .init(from: decoder),
+			email: try container.decode(String.self, forKey: .email),
+			hasPassword: try container.decode(Bool.self, forKey: .hasPassword),
+			fileStorage: try container.decode(FileStorage.self, forKey: .fileStorage),
+			registrationDate: try container.decode(Date.self, forKey: .registrationDate),
+			proSubscriptionExpirationDate: try container.decodeIfPresent(Date.self, forKey: .proSubscriptionExpirationDate),
+			facebook: try container.decodeIfPresent(Network.self, forKey: .facebook),
+			twitter: try container.decodeIfPresent(Network.self, forKey: .twitter),
+			vkontakte: try container.decodeIfPresent(Network.self, forKey: .vkontakte),
+			google: try container.decodeIfPresent(Network.self, forKey: .google),
+			dropbox: try container.decodeIfPresent(Network.self, forKey: .dropbox),
+			gdrive: try container.decodeIfPresent(Network.self, forKey: .gdrive)
 		)
 	}
 }
@@ -17,5 +31,15 @@ extension Account: Decodable {
 private extension Account {
 	enum CodingKeys: String, CodingKey {
 		case email
+		case hasPassword = "password"
+		case fileStorage = "files"
+		case registrationDate = "registered"
+		case proSubscriptionExpirationDate = "proExpire"
+		case facebook
+		case twitter
+		case vkontakte
+		case google
+		case dropbox
+		case gdrive
 	}
 }
