@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
-import struct DewdropService.CollectionListFields
+import struct DewdropService.CollectionFields
 import struct DewdropService.CollectionDetailsFields
-import struct DewdropService.CollaboratorListFields
+import struct DewdropService.CollaboratorFields
 import protocol DewdropService.CollectionSpec
 import protocol Catenary.API
 
@@ -13,17 +13,17 @@ extension API: CollectionSpec {
 		return await getResource(at: path)
 	}
 
-	public func listRootCollections() async -> Self.Result<[CollectionListFields]> {
+	public func listRootCollections() async -> Self.Result<[CollectionFields]> {
 		let path = "collections"
 		return await getResource(at: path)
 	}
 
-	public func listChildCollections() async -> Self.Result<[CollectionListFields]> {
+	public func listChildCollections() async -> Self.Result<[CollectionFields]> {
 		let path = "collections/childrens"
 		return await getResource(at: path)
 	}
 
-	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Self.Result<[CollaboratorListFields]> {
+	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Self.Result<[CollaboratorFields]> {
 		let path = "collection/\(id)/sharing"
 		return await getResource(at: path)
 	}

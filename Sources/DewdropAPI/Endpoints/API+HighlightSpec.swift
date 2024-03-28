@@ -3,13 +3,13 @@
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct DewdropService.RaindropDetailsFields
-import struct DewdropService.RaindropHighlightListFields
-import struct DewdropService.HighlightListFields
+import struct DewdropService.RaindropHighlightFields
+import struct DewdropService.HighlightFields
 import protocol DewdropService.HighlightSpec
 import protocol Catenary.API
 
 extension API: HighlightSpec {
-	public func listHighlights(inCollectionWith id: Collection.ID? = nil) async -> Self.Result<[HighlightListFields]> {
+	public func listHighlights(inCollectionWith id: Collection.ID? = nil) async -> Self.Result<[HighlightFields]> {
 		let collectionPath = id.map { "/\($0)" } ?? .init()
 		let path = "highlights" + collectionPath
 		return await getResource(at: path)
