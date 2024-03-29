@@ -4,7 +4,7 @@ import struct Dewdrop.User
 
 extension User.Config.FontColor {
 	// MARK: Decodable
-	public init?(string value: String) throws {
+	public init?(string value: String) {
 		switch value {
 		case "sunset": self = .sunset
 		case "night": self = .night
