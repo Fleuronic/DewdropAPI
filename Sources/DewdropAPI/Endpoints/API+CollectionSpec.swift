@@ -4,6 +4,7 @@ import struct Dewdrop.Collection
 import struct DewdropService.CollectionFields
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.CollaboratorFields
+import struct DewdropService.CoverFields
 import protocol DewdropService.CollectionSpec
 import protocol Catenary.API
 
@@ -25,6 +26,16 @@ extension API: CollectionSpec {
 
 	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Self.Result<[CollaboratorFields]> {
 		let path = "collection/\(id)/sharing"
+		return await getResource(at: path)
+	}
+
+	public func searchForCovers(with text: String) async -> Self.Result<[CoverFields]> {
+		let path = "collections/covers/\(text)"
+		return await getResource(at: path)
+	}
+
+	public func listFeaturedCovers() async -> Self.Result<[CoverFields]> {
+		let path = "collections/covers"
 		return await getResource(at: path)
 	}
 }

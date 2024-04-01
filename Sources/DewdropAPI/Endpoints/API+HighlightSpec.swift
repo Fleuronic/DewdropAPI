@@ -3,7 +3,7 @@
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct DewdropService.RaindropDetailsFields
-import struct DewdropService.RaindropHighlightFields
+import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.HighlightFields
 import protocol DewdropService.HighlightSpec
 import protocol Catenary.API

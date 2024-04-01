@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Raindrop
 import struct DewdropService.RaindropDetailsFields
-import struct DewdropService.RaindropHighlightFields
+import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.RaindropSuggestionListFields
 import protocol DewdropService.RaindropSpec
 import protocol Catenary.API
@@ -13,8 +13,8 @@ extension API: RaindropSpec {
 		return await getResource(at: path)
 	}
 
-	public func fetchRaindropHighlights(with id: Raindrop.ID) async -> Self.Result<RaindropHighlightFields> {
-		await fetchRaindropDetails(with: id).map(RaindropHighlightFields.init)
+	public func fetchRaindropHighlights(with id: Raindrop.ID) async -> Self.Result<RaindropHighlightsFields> {
+		await fetchRaindropDetails(with: id).map(RaindropHighlightsFields.init)
 	}
 
 	public func listSuggestions(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropSuggestionListFields> {
