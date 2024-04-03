@@ -8,7 +8,7 @@ import protocol Catenary.APIResponse
 
 public extension API {
 	struct Response {
-		private let container: KeyedDecodingContainer<DynamicKey>
+		private let decoder: Decoder
 	}
 }
 
@@ -16,6 +16,9 @@ public extension API {
 extension API.Response: APIResponse {
 	// MARK: Response
 	public func resource<Resource: Decodable>() throws -> Resource {
+		if let resource = try? Resource(from: decoder) { return resource }
+
+		let container = try decoder.container(keyedBy: DynamicKey.self)
 		for key in container.allKeys {
 			if let resource = try? container.decode(Resource.self, forKey: key) {
 				return resource
@@ -34,7 +37,7 @@ extension API.Response: APIResponse {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		if let error = try? API.Error(from: decoder) { throw error }
-		container = try decoder.container(keyedBy: DynamicKey.self)
+		self.decoder = decoder
 	}
 }
 
