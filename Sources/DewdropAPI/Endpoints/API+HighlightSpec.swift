@@ -9,9 +9,13 @@ import protocol DewdropService.HighlightSpec
 import protocol Catenary.API
 
 extension API: HighlightSpec {
-	public func listHighlights(inCollectionWith id: Collection.ID? = nil) async -> Self.Result<[HighlightFields]> {
-		let collectionPath = id.map { "/\($0)" } ?? .init()
-		let path = "highlights" + collectionPath
+	public func listHighlights() async -> Self.Result<[HighlightFields]> {
+		let path = "highlights"
+		return await getResource(at: path)		
+	}
+
+	public func listHighlights(inCollectionWith id: Collection.ID) async -> Self.Result<[HighlightFields]> {
+		let path = "highlights/\(id)"
 		return await getResource(at: path)
 	}
 }
