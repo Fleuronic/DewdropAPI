@@ -1,5 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import enum Dewdrop.ItemType
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Media
 import struct Dewdrop.Tag

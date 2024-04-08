@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.FilterCountFields
+import struct DewdropService.CountFields
 
-extension FilterCountFields {
+extension CountFields {
 	enum CodingKeys: String, CodingKey {
 		case count
 	}

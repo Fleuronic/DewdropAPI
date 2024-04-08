@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Filter
-import struct DewdropService.FilterCountFields
+import struct DewdropService.CountFields
 
-extension FilterCountFields: Decodable {
+extension CountFields: Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
