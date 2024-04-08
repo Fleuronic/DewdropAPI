@@ -4,6 +4,7 @@ import struct Dewdrop.Collection
 import struct DewdropService.CollectionFields
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.CollectionCountFields
+import struct DewdropService.CountFields
 import struct DewdropService.CollaboratorFields
 import struct DewdropService.CoverFields
 import protocol DewdropService.CollectionSpec
@@ -38,6 +39,15 @@ extension API: CollectionSpec {
 	public func removeCollection(with id: Collection.ID) async -> Self.Result<Void> {
 		let path = "collection/\(id)"
 		return await deleteResource(at: path)		
+	}
+	
+	public func removeEmptyCollections() async -> Self.Result<CountFields> {
+		let path = "collections/clean"
+		return await put(at: path)
+	}
+
+	public func emptyTrash() async -> Self.Result<Void> {
+		await removeCollection(with: .trash)
 	}
 
 	public func searchForCovers(with text: String) async -> Self.Result<[CoverFields]> {
