@@ -9,13 +9,23 @@ import protocol DewdropService.HighlightSpec
 import protocol Catenary.API
 
 extension API: HighlightSpec {
-	public func listHighlights() async -> Self.Result<[HighlightFields]> {
+	public func listHighlights(onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<[HighlightFields]> {
 		let path = "highlights"
-		return await getResource(at: path)		
+		let parameters = HighlightListParameters(
+			page: page, 
+			highlightsPerPage: highlightsPerPage
+		)
+
+		return await getResource(at: path, with: parameters)
 	}
 
-	public func listHighlights(inCollectionWith id: Collection.ID) async -> Self.Result<[HighlightFields]> {
+	public func listHighlights(inCollectionWith id: Collection.ID, onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<[HighlightFields]> {
 		let path = "highlights/\(id)"
-		return await getResource(at: path)
+		let parameters = HighlightListParameters(
+			page: page, 
+			highlightsPerPage: highlightsPerPage
+		)
+		
+		return await getResource(at: path, with: parameters)
 	}
 }
