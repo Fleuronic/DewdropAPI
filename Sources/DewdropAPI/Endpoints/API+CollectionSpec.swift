@@ -36,6 +36,12 @@ extension API: CollectionSpec {
 		return await getResource(at: path)
 	}
 	
+	public func expandCollections(_ expanded: Bool) async -> Self.Result<Void> {
+		let path = "collections"
+		let parameters = CollectionExpansionParameters(expanded: expanded)
+		return await put(at: path, with: parameters)
+	}
+	
 	public func removeCollection(with id: Collection.ID) async -> Self.Result<Void> {
 		let path = "collection/\(id)"
 		return await deleteResource(at: path)		
