@@ -22,8 +22,8 @@ extension Raindrop: Decodable {
 			coverURL: try container.decode(URL.self, forKey: .coverURL),
 			media: try container.decode([Media].self, forKey: .media),
 			note: try container.decode(String.self, forKey: .note).filledValue,
-			cache: try container.decode(Cache.self, forKey: .cache),
-			isFavorite: try container.decode(Bool.self, forKey: .isFavorite),
+			cache: try container.decodeIfPresent(Cache.self, forKey: .cache),
+			isFavorite: try container.decodeIfPresent(Bool.self, forKey: .isFavorite) ?? false,
 			isBroken: try container.decode(Bool.self, forKey: .isBroken),
 			creationDate: try container.decode(Date.self, forKey: .creationDate),
 			updateDate: try container.decode(Date.self, forKey: .updateDate)
