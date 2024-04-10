@@ -16,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "bc496a825475f837d9eb7ac288f91555f13a99a2"
+        "revision" : "37ef0f9226a958cb7f5f8a71ee4b6ea544702709"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/Fleuronic/Catenary",
       "state" : {
         "branch" : "main",
-        "revision" : "584c8a3caf7ab742e44794c826218c2c188bb8c6"
+        "revision" : "dc4e5bf60775d6488669b852c4c611d2cc75d9cb"
       }
     },
     {
@@ -44,6 +44,15 @@
       "state" : {
         "revision" : "b4f23e24b5a1bff301efc5e70871083ca029ff95",
         "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "dictionarycoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/almazrafi/DictionaryCoder.git",
+      "state" : {
+        "revision" : "ebcbaeb20ca5f62ed0365fa7f0473e0d480b931e",
+        "version" : "1.2.0"
       }
     },
     {
