@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
+import struct Dewdrop.User
 import struct DewdropService.CollectionFields
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.CollectionCountFields
@@ -40,6 +41,16 @@ extension API: CollectionSpec {
 		let path = "collections"
 		let parameters = CollectionExpansionParameters(expanded: expanded)
 		return await put(at: path, with: parameters)
+	}
+	
+	public func unshareLeaveCollection(with id: Collection.ID) async -> Self.Result<Void> {
+		let path = "collection/\(id)/sharing"
+		return await deleteResource(at: path)
+	}
+	
+	public func deleteCollaborator(with id: User.ID, fromCollectionWith collectionID: Collection.ID) async -> Self.Result<Void> {
+		let path = "collection/\(collectionID)/sharing/\(id)"
+		return await deleteResource(at: path)
 	}
 	
 	public func removeCollection(with id: Collection.ID) async -> Self.Result<Void> {
