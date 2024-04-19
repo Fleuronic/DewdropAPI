@@ -48,7 +48,7 @@ extension API: CollectionSpec {
 		return await deleteResource(at: path)
 	}
 	
-	public func deleteCollaborator(with id: User.ID, fromCollectionWith collectionID: Collection.ID) async -> Self.Result<Void> {
+	public func removeCollaborator(with id: User.ID, fromCollectionWith collectionID: Collection.ID) async -> Self.Result<Void> {
 		let path = "collection/\(collectionID)/sharing/\(id)"
 		return await deleteResource(at: path)
 	}
@@ -56,6 +56,12 @@ extension API: CollectionSpec {
 	public func removeCollection(with id: Collection.ID) async -> Self.Result<Void> {
 		let path = "collection/\(id)"
 		return await deleteResource(at: path)		
+	}
+	
+	public func removeCollections(with ids: [Collection.ID]) async -> Self.Result<Void> {
+		let path = "collections"
+		let payload = CollectionRemovalPayload(ids: ids)
+		return await deleteResource(at: path, using: payload)
 	}
 	
 	public func removeEmptyCollections() async -> Self.Result<CountFields> {

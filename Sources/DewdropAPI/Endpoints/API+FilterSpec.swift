@@ -7,7 +7,7 @@ import protocol DewdropService.FilterSpec
 import protocol Catenary.API
 
 extension API: FilterSpec {
-	public func listFilters(forCollectionWith id: Collection.ID = .all, search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterListFields> {
+	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterListFields> {
 		let path = "filters/\(id)"
 		let parameters = FilterListParameters(
 			search: search, 

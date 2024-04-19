@@ -8,18 +8,6 @@ struct RaindropListParameters: Parameters {
 	let page: Int?
 	let raindropsPerPage: Int?
 	let search: String?
-	
-	init(
-		sort: Raindrop.Sort?,
-		page: Int?,
-		raindropsPerPage: Int?,
-		search: String?
-	) {
-		self.sort = sort
-		self.page = page
-		self.raindropsPerPage = raindropsPerPage
-		self.search = search
-	}
 }
 
 extension RaindropListParameters {

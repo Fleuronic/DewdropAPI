@@ -46,4 +46,17 @@ extension API: RaindropSpec {
 		let path = "raindrop/\(id)"
 		return await deleteResource(at: path)
 	}
+	
+	public func removeRaindrops(fromCollectionWith id: Collection.ID? = nil, matching ids: [Raindrop.ID]? = nil, searchingFor search: String? = nil) async -> Self.Result<Void> {
+		let collectionPath = id.map { "/\($0)" } ?? .init()
+		let path = "raindrops" + collectionPath
+		let parameters = RaindropParameters(search: search)
+		
+		return await ids.asyncMap { ids in
+			let payload = RaindropRemovalPayload(ids: ids)
+			return await deleteResource(at: path, using: payload, with: parameters)
+		}.asyncMapNil { 
+			await deleteResource(at: path, with: parameters)
+		}
+	}
 }
