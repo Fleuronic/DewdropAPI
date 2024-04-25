@@ -17,7 +17,7 @@ let package = Package(
 	],
 	dependencies: [
 		.package(path: "../DewdropService"),
-		.package(url: "https://github.com/Fleuronic/Caesura", branch: "main"),
+		.package(url: "https://github.com/Fleuronic/Catena", branch: "main"),
 		.package(url: "https://github.com/davidsteppenbeck/URL", branch: "main"),
 	],
 	targets: [
@@ -25,7 +25,7 @@ let package = Package(
 			name: "DewdropAPI",
 			dependencies: [
 				"DewdropService",
-				"Caesura",
+				"Catena",
 				"URL"
 			]
 		),

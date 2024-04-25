@@ -4,7 +4,7 @@ import struct Dewdrop.Tag
 import struct Dewdrop.Collection
 import struct DewdropService.TagFields
 import protocol DewdropService.TagSpec
-import protocol Catenary.API
+import protocol Catena.API
 
 extension API: TagSpec {
 	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Self.Result<[TagFields]> {

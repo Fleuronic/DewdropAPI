@@ -2,9 +2,9 @@
 
 import Foundation
 
-import enum Catenary.Request
-import struct Catenary.DynamicKey
-import protocol Catenary.APIResponse
+import enum Catena.Request
+import struct Catena.DynamicKey
+import protocol Catena.APIResponse
 
 public extension API {
 	struct Response {

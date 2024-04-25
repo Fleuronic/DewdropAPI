@@ -7,7 +7,7 @@ import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.HighlightFields
 import protocol DewdropService.HighlightSpec
-import protocol Catenary.API
+import protocol Catena.API
 
 extension API: HighlightSpec {
 	public func listHighlights(onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<[HighlightFields]> {

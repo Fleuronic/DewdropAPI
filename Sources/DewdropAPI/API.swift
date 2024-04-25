@@ -2,13 +2,13 @@
 
 import URL
 
-import enum Catenary.Request
+import enum Catena.REST
+import enum Catena.Request
 import struct Foundation.URL
 import struct Foundation.Date
 import class Foundation.JSONDecoder
 import class Foundation.JSONEncoder
 import class Foundation.ISO8601DateFormatter
-import protocol Catenary.RESTAPI
 
 public struct API {
 	private let apiKey: String
@@ -23,7 +23,7 @@ public struct API {
 }
 
 // MARK: -
-extension API: RESTAPI {
+extension API: REST.API {
 	// MARK: API
 	public var decoder: JSONDecoder {
 		let decoder = JSONDecoder()

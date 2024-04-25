@@ -5,8 +5,8 @@ import struct DewdropService.InfoFields
 import struct DewdropService.IDListFields
 import struct Foundation.URL
 import protocol DewdropService.ImportSpec
-import protocol Catenary.API
-import protocol Catenary.Parameters
+import protocol Catena.API
+import protocol Catena.Parameters
 
 extension API: ImportSpec {
 	public func parseInfo(from url: URL) async -> Self.Result<InfoFields> {

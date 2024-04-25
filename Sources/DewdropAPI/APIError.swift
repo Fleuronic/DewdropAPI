@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import protocol Catenary.APIError
+import protocol Catena.APIError
 
 public extension API {
 	struct Error: APIError {

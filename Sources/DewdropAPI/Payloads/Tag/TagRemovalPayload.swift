@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import protocol Catenary.Payload
+import protocol Catena.Payload
 
 struct TagRemovalPayload: Payload {
 	let tagNames: [String]

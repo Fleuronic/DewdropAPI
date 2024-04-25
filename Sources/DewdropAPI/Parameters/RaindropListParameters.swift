@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Raindrop
-import protocol Catenary.Parameters
+import protocol Catena.Parameters
 
 struct RaindropListParameters: Parameters {
 	let sort: Raindrop.Sort?

@@ -5,7 +5,7 @@ import struct Dewdrop.Backup
 import struct DewdropService.BackupFields
 import struct Foundation.Data
 import protocol DewdropService.BackupSpec
-import protocol Catenary.API
+import protocol Catena.API
 
 extension API: BackupSpec {
 	public func listBackups() async -> Self.Result<[BackupFields]> {

@@ -13,7 +13,7 @@ import struct DewdropService.CollaboratorEmailListFields
 import struct DewdropService.CollaboratorRoleFields
 import struct DewdropService.CoverFields
 import protocol DewdropService.CollectionSpec
-import protocol Catenary.API
+import protocol Catena.API
 
 extension API: CollectionSpec {
 	public func listRootCollections() async -> Self.Result<[CollectionFields]> {

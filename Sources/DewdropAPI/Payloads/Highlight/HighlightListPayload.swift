@@ -1,10 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Highlight
-import protocol Catenary.Payload
+import protocol Catena.Payload
 
 struct HighlightListPayload {
-	// TODO: ModelPayload
 	let ids: [Highlight.ID]
 	let contents: [Highlight.Content]
 }

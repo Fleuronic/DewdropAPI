@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Tag
-import protocol Catenary.Parameters
+import protocol Catena.Parameters
 
 struct FilterListParameters: Parameters {
 	let search: String?

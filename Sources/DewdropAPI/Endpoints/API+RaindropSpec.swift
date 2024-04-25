@@ -9,7 +9,7 @@ import struct DewdropService.RaindropSuggestionListFields
 import struct Foundation.URL
 import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
-import protocol Catenary.API
+import protocol Catena.API
 
 extension API: RaindropSpec {
 	public func listRaindrops(inCollectionWith id: Collection.ID, searchingFor search: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropFields]> {

@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import protocol Catenary.Parameters
+import protocol Catena.Parameters
 
 struct HighlightListParameters: Parameters {
 	let page: Int?

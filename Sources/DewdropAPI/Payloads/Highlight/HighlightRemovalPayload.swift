@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Highlight
-import protocol Catenary.Payload
+import protocol Catena.Payload
 
 struct HighlightRemovalPayload {
 	let ids: [Highlight.ID]

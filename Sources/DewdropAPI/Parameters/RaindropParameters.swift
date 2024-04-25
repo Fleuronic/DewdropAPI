@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import protocol Catenary.Parameters
+import protocol Catena.Parameters
 
 struct RaindropParameters: Parameters {
 	let search: String?
