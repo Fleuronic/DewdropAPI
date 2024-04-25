@@ -6,6 +6,7 @@ import struct DewdropService.RaindropFields
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.RaindropSuggestionListFields
+import struct Foundation.URL
 import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
 import protocol Catenary.API
@@ -35,6 +36,12 @@ extension API: RaindropSpec {
 	public func listSuggestions(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropSuggestionListFields> {
 		let path = "raindrop/\(id)/suggest"
 		return await getResource(at: path)
+	}
+	
+	public func listSuggestionsForNewRaindrop(with url: URL) async -> Self.Result<RaindropSuggestionListFields> {
+		let path = "raindrop/suggest"
+		let payload = RaindropSuggestionPayload(url: url)
+		return await post(payload, to: path)
 	}
 	
 	public func downloadPermanentCopy(ofRaindropWith id: Raindrop.ID) async -> Self.Result<Data> {

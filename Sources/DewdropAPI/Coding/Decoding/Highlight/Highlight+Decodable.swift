@@ -10,9 +10,11 @@ extension Highlight: Decodable {
 		let fields = try HighlightInRaindropFields(from: decoder)
 
 		self = .init(
-			text: fields.text,
-			color: fields.color,
-			note: fields.note,
+			content: .init(
+				text: fields.text,
+				color: fields.color,
+				note: fields.note
+			),
 			title: try container.decode(String.self, forKey: .title).filledValue,
 			raindropURL: try container.decode(URL.self, forKey: .raindropURL),
 			creationDate: fields.creationDate

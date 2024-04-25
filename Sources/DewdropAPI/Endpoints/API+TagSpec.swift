@@ -25,7 +25,7 @@ extension API: TagSpec {
 			updatedTagName: tagName
 		)
 		
-		return await put(at: path, using: payload)
+		return await put(payload, at: path)
 	}
 	
 	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> Self.Result<Void> {

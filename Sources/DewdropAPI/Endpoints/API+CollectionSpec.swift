@@ -1,12 +1,16 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
+import struct Dewdrop.Collaborator
 import struct Dewdrop.User
 import struct DewdropService.CollectionFields
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.CollectionCountFields
+import struct DewdropService.CollectionMergeFields
 import struct DewdropService.CountFields
 import struct DewdropService.CollaboratorFields
+import struct DewdropService.CollaboratorEmailListFields
+import struct DewdropService.CollaboratorRoleFields
 import struct DewdropService.CoverFields
 import protocol DewdropService.CollectionSpec
 import protocol Catenary.API
@@ -81,5 +85,43 @@ extension API: CollectionSpec {
 	public func listFeaturedCovers() async -> Self.Result<[CoverFields]> {
 		let path = "collections/covers"
 		return await getResource(at: path)
+	}
+	
+	public func reorderCollections(by sort: Collection.Sort) async -> Self.Result<Void> {
+		let path = "collections"
+		let payload = CollectionReorderPayload(sort: sort)
+		return await put(payload, at: path)
+	}
+	
+	public func mergeCollections(with ids: [Collection.ID], intoCollectionWith id: Collection.ID) async -> Self.Result<CollectionMergeFields> {
+		let path = "collections/merge"
+		let payload = CollectionMergePayload(
+			sourceIDs: ids,
+			destinationID: id
+		)
+		
+		return await put(payload, at: path)
+	}
+	
+	public func shareCollection(with id: Collection.ID, toUsersWithEmails emails: [String], as role: Collaborator.Role) async -> Self.Result<CollaboratorEmailListFields> {
+		let path = "collections/\(id)/sharing"
+		let payload = CollectionSharePayload(
+			role: role,
+			emails: emails
+		)
+
+		return await post(payload, to: path)
+	}
+	
+	public func acceptInvitation(toJoinCollectionWith id: Collection.ID, viaEmailWithToken token: String) async -> Self.Result<CollaboratorRoleFields> {
+		let path = "collections/\(id)/join"
+		let payload = CollectionJoinPayload(token: token)
+		return await post(payload, to: path)
+	}
+	
+	public func changeAccessLevelOfCollaborator(with id: User.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> Self.Result<Void> {
+		let path = "collection/\(collectionID)/sharing/\(id)"
+		let payload = CollaboratorUpdatePayload(role: role)
+		return await put(payload, at: path)
 	}
 }

@@ -6,6 +6,7 @@ import enum Catenary.Request
 import struct Foundation.URL
 import struct Foundation.Date
 import class Foundation.JSONDecoder
+import class Foundation.JSONEncoder
 import class Foundation.ISO8601DateFormatter
 import protocol Catenary.RESTAPI
 
@@ -34,6 +35,12 @@ extension API: RESTAPI {
 		}
 		
 		return decoder
+	}
+
+	public var encoder: JSONEncoder {
+		let encoder = JSONEncoder()
+		encoder.keyEncodingStrategy = .useDefaultKeys
+		return encoder
 	}
 
 	public var authenticationHeader: Request.Header? {

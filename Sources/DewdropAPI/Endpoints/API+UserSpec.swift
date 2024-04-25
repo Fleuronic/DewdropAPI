@@ -16,4 +16,21 @@ extension API: UserSpec {
 		let path = "user/\(id)"
 		return await getResource(at: path)
 	}
+	
+	public func updateUser(
+		email: String? = nil,
+		fullName: String? = nil,
+		oldPassword: String? = nil,
+		newPassword: String? = nil
+	) async -> Self.Result<UserAuthenticatedFields> {
+		let path = "user"
+		let payload = UserUpdatePayload(
+			email: email,
+			fullName: fullName,
+			oldPassword: oldPassword,
+			newPassword: newPassword
+		)
+
+		return await put(payload, at: path)
+	}
 }

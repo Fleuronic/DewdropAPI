@@ -3,6 +3,6 @@
 import struct Dewdrop.Collection
 import protocol Catenary.Payload
 
-struct CollectionRemovalPayload: Payload {
-	let ids: [Collection.ID]
+struct CollectionReorderPayload: Payload {
+	let sort: Collection.Sort
 }

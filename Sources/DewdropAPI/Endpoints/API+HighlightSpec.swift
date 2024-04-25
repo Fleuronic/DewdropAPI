@@ -1,5 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import struct Dewdrop.Highlight
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct DewdropService.RaindropDetailsFields
@@ -27,5 +28,27 @@ extension API: HighlightSpec {
 		)
 		
 		return await getResource(at: path, with: parameters)
+	}
+	
+	public func addHighlights(with contents: [Highlight.Content], toRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropHighlightsFields> {
+		let path = "raindrop/\(id)"
+		let payload = HighlightAdditionPayload(contents: contents)
+		return await put(payload, at: path).map(RaindropHighlightsFields.init)
+	}
+	
+	public func updateHighlights(with ids: [Highlight.ID], ofRaindropWith id: Raindrop.ID, to contents: [Highlight.Content]) async -> Self.Result<RaindropHighlightsFields> {
+		let path = "raindrop/\(id)"
+		let payload = HighlightListPayload(
+			ids: ids,
+			contents: contents
+		)
+		
+		return await put(payload, at: path).map(RaindropHighlightsFields.init)
+	}
+	
+	public func removeHighlights(with ids: [Highlight.ID], fromRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropHighlightsFields> {
+		let path = "raindrop/\(id)"
+		let payload = HighlightRemovalPayload(ids: ids)
+		return await put(payload, at: path).map(RaindropHighlightsFields.init)
 	}
 }
