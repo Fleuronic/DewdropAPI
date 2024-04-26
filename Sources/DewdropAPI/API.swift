@@ -55,3 +55,5 @@ extension API: REST.API {
 		return url.appendingPathComponent(path)
 	}
 }
+
+prefix operator /

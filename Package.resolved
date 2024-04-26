@@ -7,7 +7,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "d815def53fc3b884fdda9b55f0fd6a775792529c"
+        "revision" : "a2d3da2bec0dedd1a2c8ddb0d5916a3425844919"
       }
     },
     {
@@ -35,6 +35,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "41beaa5cc3f8884385df6d0acf49f79821ab2496"
+      }
+    },
+    {
+      "identity" : "swift-multipart-formdata",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/FelixHerrmann/swift-multipart-formdata.git",
+      "state" : {
+        "revision" : "c29d55267ddbdd9d37766ac4c66b09a556c0ca57",
+        "version" : "1.3.0"
       }
     },
     {

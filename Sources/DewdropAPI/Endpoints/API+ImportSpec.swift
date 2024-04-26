@@ -7,17 +7,28 @@ import struct Foundation.URL
 import protocol DewdropService.ImportSpec
 import protocol Catena.API
 import protocol Catena.Parameters
+import protocol Catena.PathComponent
 
 extension API: ImportSpec {
 	public func parseInfo(from url: URL) async -> Self.Result<InfoFields> {
-		let path = "import/url/parse"
-		let parameters = ParseInfoParameters(url: url)
-		return await getResource(at: path, with: parameters)
+		await get(/.import, /.url, /.parse) {
+			ParseInfoParameters(url: url)
+		}
 	}
 	
 	public func checkExistence(of urls: [URL]) async -> Self.Result<IDListFields<Raindrop.Identified>> {
-		let path = "import/url/exists"
-		let payload = URLCheckPayload(urls: urls)
-		return await post(payload, to: path)
+		await post(/.import, /.url, /.exists) {
+			URLCheckPayload(urls: urls)
+		}
 	}
 }
+
+// MARK: -
+private enum PathComponents: String, PathComponent {
+	case `import`
+	case url
+	case parse
+	case exists
+}
+
+private prefix func /(component: PathComponents) -> PathComponent { component }

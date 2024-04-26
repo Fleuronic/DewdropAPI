@@ -1,19 +1,26 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import Catena
+
 import struct Dewdrop.Tag
 import struct Dewdrop.Collection
 import struct DewdropService.FilterListFields
 import protocol DewdropService.FilterSpec
-import protocol Catena.API
 
 extension API: FilterSpec {
 	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterListFields> {
-		let path = "filters/\(id)"
-		let parameters = FilterListParameters(
-			search: search, 
-			tagSort: tagSort
-		)
-		
-		return await getResource(at: path, with: parameters)
+		await get(/.filters, /id) {
+			FilterListParameters(
+				search: search,
+				tagSort: tagSort
+			)
+		}
 	}
 }
+
+// MARK: -
+private enum PathComponents: String, PathComponent {
+	case filters
+}
+
+private prefix func /(component: PathComponents) -> PathComponent { component }
