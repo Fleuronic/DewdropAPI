@@ -38,7 +38,7 @@ extension API: CollectionSpec {
 	}
 	
 	public func expandCollections(_ expanded: Bool) async -> Self.Result<Void> {
-		await put(/.collections, with: {
+		await put(/.collections, parameters: {
 			CollectionExpansionParameters(expanded: expanded)
 		})
 	}

@@ -52,8 +52,8 @@ extension API: RaindropSpec {
 	
 	public func removeRaindrops(fromCollectionWith id: Collection.ID? = nil, matching ids: [Raindrop.ID]? = nil, searchingFor search: String? = nil) async -> Self.Result<Void> {
 		await delete(/.raindrops, /id) {
-			ids.map(RaindropRemovalPayload.init) ?? EmptyPayload() as Payload
-		} with: {
+			ids.map(RaindropRemovalPayload.init)
+		} parameters: {
 			RaindropParameters(search: search)
 		}
 	}
