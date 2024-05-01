@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Raindrop
 import struct DewdropService.InfoFields
+import struct DewdropService.ImportFields
 import struct DewdropService.IDListFields
 import struct Catena.Upload
 import struct Foundation.URL
@@ -16,7 +17,7 @@ extension API: ImportSpec {
 		}
 	}
 	
-	public func parseImport(of file: URL, withName filename: String) async -> Self.Result<InfoFields> {
+	public func parseImport(of file: URL, withName filename: String) async -> Self.Result<ImportFields> {
 		await post(/.import, /.file, upload: {
 			Upload(
 				file: file,
@@ -25,7 +26,6 @@ extension API: ImportSpec {
 			)
 		})
 	}
-
 	
 	public func checkExistence(of urls: [URL]) async -> Self.Result<IDListFields<Raindrop.Identified>> {
 		await post(/.import, /.url, /.exists) {
