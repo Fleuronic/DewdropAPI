@@ -3,6 +3,7 @@
 import enum Dewdrop.Import
 import struct Dewdrop.Folder
 import struct DewdropService.ImportFields
+import struct DewdropService.FolderFields
 
 extension ImportFields: Decodable {
 	// MARK: Decodable
@@ -10,7 +11,7 @@ extension ImportFields: Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self.init(
-			folders: try container.decode([Folder].self, forKey: .folders),
+			items: try container.decode([FolderFields].self, forKey: .items),
 			count: try container.decode(Import.Count.self, forKey: .count)
 		)
 	}

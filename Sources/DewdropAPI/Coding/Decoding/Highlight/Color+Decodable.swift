@@ -20,8 +20,7 @@ extension Highlight.Color: Decodable {
 		case "purple": .purple
 		case "red": .red
 		case "teal": .teal
-		case "yellow": .yellow
-		default: throw DecodingError.dataCorruptedError(in: container, debugDescription: .init())
+		default: .yellow
 		}
 	}
 }

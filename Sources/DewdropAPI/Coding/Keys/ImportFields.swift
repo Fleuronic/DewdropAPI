@@ -4,7 +4,7 @@ import struct DewdropService.ImportFields
 
 extension ImportFields {
 	enum CodingKeys: String, CodingKey {
-		case folders = "items"
+		case items
 		case count
 	}
 }

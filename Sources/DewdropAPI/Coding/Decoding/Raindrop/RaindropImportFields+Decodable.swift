@@ -2,7 +2,7 @@
 
 import struct DewdropService.RaindropImportFields
 import struct DewdropService.TagNameFields
-import struct DewdropService.HighlightInRaindropFields
+import struct DewdropService.HighlightImportFields
 
 extension RaindropImportFields: Decodable {
 	public init(from decoder: Decoder) throws {
@@ -10,7 +10,7 @@ extension RaindropImportFields: Decodable {
 
 		self = .init(
 			tags: try container.decode([TagNameFields].self, forKey: .tags),
-			highlights: try container.decode([HighlightInRaindropFields].self, forKey: .highlights)
+			highlights: try container.decodeIfPresent([HighlightImportFields].self, forKey: .highlights)
 		)
 	}
 }

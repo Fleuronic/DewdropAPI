@@ -1,9 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Folder
+import struct DewdropService.FolderFields
 
-extension Folder {
+extension FolderFields {
 	enum CodingKeys: String, CodingKey {
 		case title
+		case bookmarks
+		case folders	
 	}
 }

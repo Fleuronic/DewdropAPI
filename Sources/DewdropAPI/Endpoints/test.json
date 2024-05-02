@@ -1,0 +1,2087 @@
+{
+	"result": true,
+	"items": [
+		{
+			"title": "Crosswords",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://www.xwordinfo.com",
+					"title": "XWord Info",
+					"excerpt": "",
+					"created": "2024-03-20T13:39:43.000Z",
+					"lastUpdate": "2024-03-20T13:40:01.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://www.xwordinfo.com/images/XwiSocial4.png",
+					"media": [
+						{
+							"link": "https://www.xwordinfo.com/images/XwiSocial4.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Drum Corps",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://www.drumcorpsplanet.com/forums/index.php?%2Fforum%2F3-dci-world-class-corps-discussions%2F=",
+					"title": "DCP",
+					"excerpt": "",
+					"created": "2024-01-09T15:50:20.000Z",
+					"lastUpdate": "2024-03-15T16:04:02.000Z",
+					"tags": ["forum"],
+					"note": "",
+					"cover": "https://www.drumcorpsplanet.com/forums/uploads/monthly_2016_12/DCPForumLogo.png.831f62e2da4cf17f650af7b4b769270e.png",
+					"media": [
+						{
+							"link": "https://www.drumcorpsplanet.com/forums/uploads/monthly_2016_12/DCPForumLogo.png.831f62e2da4cf17f650af7b4b769270e.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Fleuronic",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://github.com/jordanekay",
+					"title": "GitHub",
+					"excerpt": "",
+					"created": "2023-11-29T16:41:55.000Z",
+					"lastUpdate": "2024-03-15T16:03:12.000Z",
+					"tags": ["engineering", "development"],
+					"note": "",
+					"cover": "https://up.raindrop.io/raindrop/thumbs/686/452/173/1701276127122.jpeg",
+					"media": [
+						{
+							"link": "https://up.raindrop.io/raindrop/thumbs/686/452/173/1701276127122.jpeg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://adventofcode.com/2023",
+					"title": "Advent of Code",
+					"excerpt": "",
+					"created": "2023-12-02T00:27:54.000Z",
+					"lastUpdate": "2023-12-02T00:29:28.000Z",
+					"tags": ["admin", "career"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "https://www.iosconf.sg",
+					"title": "iOS Conf SG",
+					"excerpt": "",
+					"created": "2024-01-02T16:19:31.000Z",
+					"lastUpdate": "2024-03-16T23:14:48.000Z",
+					"tags": ["engineering", "conference"],
+					"note": "",
+					"cover": "https://iosconf.com/swiftup.png",
+					"media": [
+						{
+							"link": "https://iosconf.com/swiftup.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://deepdishswift.com",
+					"title": "Deep Dish Swift",
+					"excerpt": "",
+					"created": "2024-01-05T15:37:03.000Z",
+					"lastUpdate": "2024-01-05T15:37:33.000Z",
+					"tags": ["engineering", "conference"],
+					"note": "",
+					"cover": "https://deepdishswift.com/og_image_2024.png",
+					"media": [
+						{
+							"link": "https://deepdishswift.com/og_image_2024.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "http://dash.deno.com",
+					"title": "Deno",
+					"excerpt": "",
+					"created": "2024-03-16T23:12:50.000Z",
+					"lastUpdate": "2024-03-20T14:10:09.000Z",
+					"tags": ["engineering", "development"],
+					"note": "",
+					"cover": "https://deno.com/images/deploy/og-image.webp",
+					"media": [
+						{
+							"link": "https://deno.com/images/deploy/og-image.webp",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Food and Drink",
+			"folders": [
+				{
+					"title": "Restaurants",
+					"folders": [],
+					"bookmarks": [
+						{
+							"link": "https://soficornercafe.com",
+							"title": "Sofi Corner Café",
+							"excerpt": "",
+							"created": "2024-03-21T13:39:14.000Z",
+							"lastUpdate": "2024-03-21T13:40:11.000Z",
+							"tags": [],
+							"note": "",
+							"cover": "https://soficornercafe.com/wp-content/uploads/2023/02/soficorner_logo_100_bswhite.png",
+							"media": [
+								{
+									"link": "https://soficornercafe.com/wp-content/uploads/2023/02/soficorner_logo_100_bswhite.png",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://fiorellaphilly.com",
+							"title": "Fiorella",
+							"excerpt": "",
+							"created": "2024-03-21T13:40:20.000Z",
+							"lastUpdate": "2024-03-21T13:41:10.000Z",
+							"tags": ["Italian"],
+							"note": "",
+							"cover": "http://fiorellaphilly.com/wp-content/uploads/2020/02/fiorella-neon-sign-animation-4.gif",
+							"media": [
+								{
+									"link": "http://fiorellaphilly.com/wp-content/uploads/2020/02/fiorella-neon-sign-animation-4.gif",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.zahavrestaurant.com",
+							"title": "Zahav",
+							"excerpt": "",
+							"created": "2024-03-21T15:40:18.000Z",
+							"lastUpdate": "2024-03-21T17:48:52.000Z",
+							"tags": ["Israeli"],
+							"note": "",
+							"cover": "",
+							"media": [],
+							"important": false
+						}
+					]
+				}
+			],
+			"bookmarks": [
+				{
+					"link": "https://philly.eater.com",
+					"title": "Eater Philly",
+					"excerpt": "",
+					"created": "2024-02-28T22:28:34.000Z",
+					"lastUpdate": "2024-03-16T18:32:46.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "https://www.felltoearth.com",
+					"title": "Fell to Earth Vermouth",
+					"excerpt": "",
+					"created": "2024-03-16T15:41:27.000Z",
+					"lastUpdate": "2024-03-16T18:32:46.000Z",
+					"tags": ["bar"],
+					"note": "",
+					"cover": "http://static1.squarespace.com/static/622b52e116ef093514a82249/t/629a0080fb1e3a10c295292f/1654259840738/FTE+Green+Logo.png?format=1500w",
+					"media": [
+						{
+							"link": "http://static1.squarespace.com/static/622b52e116ef093514a82249/t/629a0080fb1e3a10c295292f/1654259840738/FTE+Green+Logo.png?format=1500w",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Health and Wellness",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://biobot.io/data",
+					"title": "Biobot",
+					"excerpt": "",
+					"created": "2024-03-20T13:41:14.000Z",
+					"lastUpdate": "2024-03-20T13:41:30.000Z",
+					"tags": ["COVID"],
+					"note": "",
+					"cover": "https://biobot.io/wp-content/uploads/2023/12/og_image_data.jpg",
+					"media": [
+						{
+							"link": "https://biobot.io/wp-content/uploads/2023/12/og_image_data.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Home",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "http://wellsfargo.com",
+					"title": "Wells Fargo",
+					"excerpt": "",
+					"created": "2023-11-29T20:19:00.000Z",
+					"lastUpdate": "2023-11-29T20:19:56.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://www17.wellsfargomedia.com/assets/images/logos/wellsfargo/logo_974x1050.png",
+					"media": [
+						{
+							"link": "https://www17.wellsfargomedia.com/assets/images/logos/wellsfargo/logo_974x1050.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.americanexpress.com/en-us/account/login?inav=iNavLnkLog",
+					"title": "American Express",
+					"excerpt": "",
+					"created": "2023-11-29T23:34:35.000Z",
+					"lastUpdate": "2023-11-29T23:34:47.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "https://www.rover.com",
+					"title": "Rover",
+					"excerpt": "",
+					"created": "2024-02-20T23:59:37.000Z",
+					"lastUpdate": "2024-02-20T23:59:54.000Z",
+					"tags": ["pet", "Talbot"],
+					"note": "",
+					"cover": "https://www.rover.com/assets/ssr/80a54bafaaf36af59342ef2da2e71bbc.png",
+					"media": [
+						{
+							"link": "https://www.rover.com/assets/ssr/80a54bafaaf36af59342ef2da2e71bbc.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.safeco.com",
+					"title": "Safeco Insurance",
+					"excerpt": "",
+					"created": "2024-02-27T14:17:30.000Z",
+					"lastUpdate": "2024-02-27T14:17:38.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://www.safeco.com/static/safeco-social-icon.png",
+					"media": [
+						{
+							"link": "https://www.safeco.com/static/safeco-social-icon.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.visitphilly.com/uwishunu/things-to-do-in-philadelphia-this-week-weekend#opening-alexey-brodovitch-astonish-me-at-the-barnes-foundation",
+					"title": "Things to Do in Philadelphia",
+					"excerpt": "",
+					"created": "2024-03-01T00:44:11.000Z",
+					"lastUpdate": "2024-03-01T00:44:26.000Z",
+					"tags": ["Philadelphia"],
+					"note": "",
+					"cover": "https://www.visitphilly.com/wp-content/uploads/2024/02/flower-crown-selfie-crtsy-phs-2200x1237px.jpg",
+					"media": [
+						{
+							"link": "https://www.visitphilly.com/wp-content/uploads/2024/02/flower-crown-selfie-crtsy-phs-2200x1237px.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.pgworks.com",
+					"title": "PGW",
+					"excerpt": "",
+					"created": "2024-03-11T19:05:36.000Z",
+					"lastUpdate": "2024-03-11T19:05:41.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Mac and iPhone",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "http://substack.com",
+					"title": "Substack",
+					"excerpt": "",
+					"created": "2024-03-01T17:01:38.000Z",
+					"lastUpdate": "2024-03-01T17:02:21.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://substack.com/img/home_page/og-homepage.png",
+					"media": [
+						{
+							"link": "https://substack.com/img/home_page/og-homepage.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Media",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://bff.fm/shows/hello-sunshine",
+					"title": "Hello Sunshine",
+					"excerpt": "",
+					"created": "2024-01-02T16:18:38.000Z",
+					"lastUpdate": "2024-03-15T16:04:13.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://a.bff.fm/image/original/IMG_20190928_111620_681_2.jpg",
+					"media": [
+						{
+							"link": "https://a.bff.fm/image/original/IMG_20190928_111620_681_2.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Reading",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://theatlantic.com",
+					"title": "The Atlantic",
+					"excerpt": "",
+					"created": "2024-03-18T19:02:53.000Z",
+					"lastUpdate": "2024-03-21T14:55:29.000Z",
+					"tags": ["magazine"],
+					"note": "",
+					"cover": "https://cdn.theatlantic.com/static/theatlantic/img/lacroix-default-thumbnail.png",
+					"media": [
+						{
+							"link": "https://cdn.theatlantic.com/static/theatlantic/img/lacroix-default-thumbnail.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://nymag.com",
+					"title": "New York Magazine",
+					"excerpt": "",
+					"created": "2024-03-18T19:03:33.000Z",
+					"lastUpdate": "2024-03-21T14:55:29.000Z",
+					"tags": ["magazine"],
+					"note": "",
+					"cover": "https://assets.nymag.com/media/sites/nymag/icon.1500x1500.png",
+					"media": [
+						{
+							"link": "https://assets.nymag.com/media/sites/nymag/icon.1500x1500.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://newyorker.com",
+					"title": "The New Yorker",
+					"excerpt": "",
+					"created": "2024-03-18T20:08:04.000Z",
+					"lastUpdate": "2024-03-21T14:55:29.000Z",
+					"tags": ["magazine"],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65f1f1c33231c27cbffdd336/16:9/w_1280,c_limit/r43945.jpg",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65f1f1c33231c27cbffdd336/16:9/w_1280,c_limit/r43945.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://vox.com",
+					"title": "Vox",
+					"excerpt": "",
+					"created": "2024-03-21T15:05:02.000Z",
+					"lastUpdate": "2024-03-21T15:05:16.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://cdn.vox-cdn.com/uploads/community/sbnu_logo/441/large_1000_yellow.755.95133.png",
+					"media": [
+						{
+							"link": "https://cdn.vox-cdn.com/uploads/community/sbnu_logo/441/large_1000_yellow.755.95133.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Religion",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://canvas.instructure.com/courses/8660792",
+					"title": "Intensive Advanced III&IV Yiddish",
+					"excerpt": "",
+					"created": "2024-02-16T16:19:58.000Z",
+					"lastUpdate": "2024-02-16T16:20:38.000Z",
+					"tags": ["Yiddish"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "https://verterbukh.org/vb?dir=to&sugg=1&tsu=en&yq=meeting",
+					"title": "Verterbukh",
+					"excerpt": "",
+					"created": "2024-02-22T21:30:12.000Z",
+					"lastUpdate": "2024-02-22T21:30:29.000Z",
+					"tags": ["Yiddish"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Social",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://www.instagram.com",
+					"title": "Instagram",
+					"excerpt": "",
+					"created": "2024-01-05T15:41:30.000Z",
+					"lastUpdate": "2024-01-05T15:41:42.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://static.cdninstagram.com/rsrc.php/v3/yR/r/hexDR1NOpRC.png",
+					"media": [
+						{
+							"link": "https://static.cdninstagram.com/rsrc.php/v3/yR/r/hexDR1NOpRC.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://facebook.com",
+					"title": "Facebook",
+					"excerpt": "",
+					"created": "2024-03-18T18:58:42.000Z",
+					"lastUpdate": "2024-03-18T18:58:51.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://www.facebook.com/images/fb_icon_325x325.png",
+					"media": [
+						{
+							"link": "https://www.facebook.com/images/fb_icon_325x325.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Travel",
+			"folders": [
+				{
+					"title": "Cotswolds",
+					"folders": [],
+					"bookmarks": [
+						{
+							"link": "https://www.countrycreatures.com/double-red-duke",
+							"title": "Double Red Duke",
+							"excerpt": "",
+							"created": "2024-03-14T19:17:00.000Z",
+							"lastUpdate": "2024-03-15T12:47:19.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://www.countrycreatures.com/wp-content/uploads/2019/05/OpenGraph.jpg",
+							"media": [
+								{
+									"link": "https://www.countrycreatures.com/wp-content/uploads/2019/05/OpenGraph.jpg",
+									"type": "image"
+								}
+							],
+							"important": true
+						},
+						{
+							"link": "https://www.manorcottages.co.uk",
+							"title": "Manor Cottages",
+							"excerpt": "",
+							"created": "2024-03-14T19:30:12.000Z",
+							"lastUpdate": "2024-03-15T20:18:42.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://images-cdn.sykesassets.co.uk/images/property_images/320x240/988851/sc_15955163722385_988851_007.jpg?access=3554T074T840",
+							"media": [
+								{
+									"link": "https://images-cdn.sykesassets.co.uk/images/property_images/320x240/988851/sc_15955163722385_988851_007.jpg?access=3554T074T840",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.luxurycotswoldrentals.co.uk",
+							"title": "Luxury Cotswold Rentals",
+							"excerpt": "",
+							"created": "2024-03-14T19:30:48.000Z",
+							"lastUpdate": "2024-03-15T20:18:30.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://www.luxurycotswoldrentals.co.uk/wp-content/uploads/2022/02/crucis-park-ampney-cucis-Pool-and-House.jpeg",
+							"media": [
+								{
+									"link": "https://www.luxurycotswoldrentals.co.uk/wp-content/uploads/2022/02/crucis-park-ampney-cucis-Pool-and-House.jpeg",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.staycotswold.com/property/miserden-park-flat-cotswold-holiday-apartment?end_date=2024-07-18&start_date=2024-07-07#floorplan-anchor",
+							"title": "Miserden Park Flat",
+							"excerpt": "",
+							"created": "2024-03-15T02:07:59.000Z",
+							"lastUpdate": "2024-03-15T20:18:34.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://www.staycotswold.com/wp-content/uploads/2024/03/191904017.jpg",
+							"media": [
+								{
+									"link": "https://www.staycotswold.com/wp-content/uploads/2024/03/191904017.jpg",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.cotswoldshideaways.co.uk/moreton-in-marsh-and-surrounding-villages/blockley-holiday-cottages/39-foxtail-cottage-2-guests?_its=JTdCJTIydmlkJTIyJTNBJTIyYTUyMDhlYmEtOTZiZC00OGM3LWE1NTUtMDUwYTg5ZTFkZTdjJTIyJTJDJTIyc3RhdGUlMjIlM0ElMjJybHR%2BMTcxMDQ2ODEzNX5sYW5kfjJfNjcxNDhfc2VvXzE4ZTkyZjExMmQxZDYyNzZmYWVmYmRiNzFkMDcxNjViJTIyJTJDJTIyc2l0ZUlkJTIyJTNBMTU0MDQlN0Q%3D&date=08-07-2024&nights=11",
+							"title": "39 Foxtail Cottage",
+							"excerpt": "",
+							"created": "2024-03-15T02:18:01.000Z",
+							"lastUpdate": "2024-03-15T20:18:14.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://c621446.ssl.cf3.rackcdn.com/images/cottages/custom/large/190280142.jpg",
+							"media": [
+								{
+									"link": "https://c621446.ssl.cf3.rackcdn.com/images/cottages/custom/large/190280142.jpg",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.cotswoldshideaways.co.uk/burford-and-surrounding-villages/windrush-holiday-cottages/jasmine-cottage-oxfordshire?date=04-07-2024&nights=11",
+							"title": "Jasmine Cottage (Oxfordshire)",
+							"excerpt": "",
+							"created": "2024-03-15T02:19:17.000Z",
+							"lastUpdate": "2024-03-15T20:18:05.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://c621446.ssl.cf3.rackcdn.com/images/cottages/custom/large/6592846.jpg",
+							"media": [
+								{
+									"link": "https://c621446.ssl.cf3.rackcdn.com/images/cottages/custom/large/6592846.jpg",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.climbingrosecottage.com",
+							"title": "Climbing Rose Cottage",
+							"excerpt": "",
+							"created": "2024-03-15T02:20:13.000Z",
+							"lastUpdate": "2024-03-15T20:17:43.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://static.wixstatic.com/media/cc6d68_5d0dc1724f254490a88e158219f726a6~mv2.png/v1/fit/w_2500,h_1330,al_c/cc6d68_5d0dc1724f254490a88e158219f726a6~mv2.png",
+							"media": [
+								{
+									"link": "https://static.wixstatic.com/media/cc6d68_5d0dc1724f254490a88e158219f726a6~mv2.png/v1/fit/w_2500,h_1330,al_c/cc6d68_5d0dc1724f254490a88e158219f726a6~mv2.png",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.holidaysinthecotswolds.co.uk/cottage/52145-the-old-cart-house",
+							"title": "The Old Cart House, South West",
+							"excerpt": "",
+							"created": "2024-03-15T02:28:04.000Z",
+							"lastUpdate": "2024-03-15T20:17:34.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://www.holidaysinthecotswolds.co.uk/cottage/FCImages/52145/521452000.jpgFCImages/52145/521452000.jpg?width=720",
+							"media": [
+								{
+									"link": "https://www.holidaysinthecotswolds.co.uk/cottage/FCImages/52145/521452000.jpgFCImages/52145/521452000.jpg?width=720",
+									"type": "image"
+								}
+							],
+							"important": false
+						},
+						{
+							"link": "https://www.holidaysinthecotswolds.co.uk/cottage/72289-honeycomb-cottage",
+							"title": "Honeycomb Cottage",
+							"excerpt": "",
+							"created": "2024-03-15T02:28:46.000Z",
+							"lastUpdate": "2024-03-15T16:11:26.000Z",
+							"tags": ["lodging"],
+							"note": "",
+							"cover": "https://www.holidaysinthecotswolds.co.uk/cottage/FCImages/72289/72289-ow-001.jpgFCImages/72289/72289-ow-001.jpg?width=720",
+							"media": [
+								{
+									"link": "https://www.holidaysinthecotswolds.co.uk/cottage/FCImages/72289/72289-ow-001.jpgFCImages/72289/72289-ow-001.jpg?width=720",
+									"type": "image"
+								}
+							],
+							"important": false
+						}
+					]
+				}
+			],
+			"bookmarks": [
+				{
+					"link": "https://www.aa.com/homePage.do",
+					"title": "American Airlines",
+					"excerpt": "",
+					"created": "2024-02-21T02:52:30.000Z",
+					"lastUpdate": "2024-03-14T19:14:21.000Z",
+					"tags": ["airline"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "https://www.hopper.com",
+					"title": "Hopper",
+					"excerpt": "",
+					"created": "2024-02-23T21:39:23.000Z",
+					"lastUpdate": "2024-03-14T19:14:32.000Z",
+					"tags": ["flights"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "http://delta.com",
+					"title": "Delta Air Lines",
+					"excerpt": "",
+					"created": "2024-03-14T19:26:06.000Z",
+					"lastUpdate": "2024-03-14T19:27:56.000Z",
+					"tags": ["airline"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "http://united.com",
+					"title": "United Airlines",
+					"excerpt": "",
+					"created": "2024-03-14T19:26:41.000Z",
+					"lastUpdate": "2024-03-14T19:27:28.000Z",
+					"tags": ["airline"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false
+				},
+				{
+					"link": "https://www.google.com/travel/flights",
+					"title": "Google Flights",
+					"excerpt": "",
+					"created": "2024-03-20T18:49:15.000Z",
+					"lastUpdate": "2024-03-20T18:49:26.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://www.gstatic.com/travel-trips-fe/travel_logo_192.png",
+					"media": [
+						{
+							"link": "https://www.gstatic.com/travel-trips-fe/travel_logo_192.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Articles",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://macleans.ca/society/sen%CC%93a%E1%B8%B5w-vancouver",
+					"title": "Vancouver’s new mega-development is big, ambitious and undeniably Indigenous",
+					"excerpt": "",
+					"created": "2024-03-15T01:07:25.000Z",
+					"lastUpdate": "2024-03-17T21:44:54.000Z",
+					"tags": ["urbanism"],
+					"note": "",
+					"cover": "https://macleans.ca/wp-content/uploads/2024/03/1-SENAKW-TANDEM-STUDIOS-750x422.jpg",
+					"media": [
+						{
+							"link": "https://macleans.ca/wp-content/uploads/2024/03/1-SENAKW-TANDEM-STUDIOS-750x422.jpg",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "To Indigenous people themselves, though, these developments mark a decisive moment in the evolution of our sovereignty in this country. The fact is, Canadians aren’t used to seeing Indigenous people occupy places that are socially, economically or geographically valuable, like Sen̓áḵw. After decades of marginalization, our absence seems natural, our presence somehow unnatural. Something like Sen̓áḵw is remarkable not just in terms of its scale and economic value (expected to generate billions in revenue for the Squamish Nation). It’s remarkable because it’s a restoration of our authority and presence in the heart of a Canadian city.",
+							"note": "",
+							"created": "2024-03-15T01:07:25.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.newyorker.com/magazine/2024/03/11/joe-bidens-last-campaign",
+					"title": "Joe Biden’s Last Campaign",
+					"excerpt": "",
+					"created": "2024-03-15T01:09:12.000Z",
+					"lastUpdate": "2024-03-17T21:44:54.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65de3ffef18b4af2e96a92a7/16:9/w_1280,c_limit/r43875.png",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65de3ffef18b4af2e96a92a7/16:9/w_1280,c_limit/r43875.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "if I didn’t think that the policies I put in place were best for the country, I don’t think I’d be doing it again",
+							"note": "",
+							"created": "2024-03-15T01:09:12.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.theatlantic.com/magazine/archive/2024/04/us-anti-semitism-jewish-american-safety/677469",
+					"title": "The Golden Age of American Jews Is Ending",
+					"excerpt": "",
+					"created": "2024-03-15T20:14:19.000Z",
+					"lastUpdate": "2024-03-17T21:44:54.000Z",
+					"tags": ["Judaism", "antisemitism"],
+					"note": "",
+					"cover": "https://cdn.theatlantic.com/thumbor/yo_vm2ucyQ6ElSF8Pp0vvkxiPUI=/0x3:2196x1147/1200x625/media/img/2024/03/0423_Foer_AntisemitismTopperYiddishFIXED-2/original.png",
+					"media": [
+						{
+							"link": "https://cdn.theatlantic.com/thumbor/yo_vm2ucyQ6ElSF8Pp0vvkxiPUI=/0x3:2196x1147/1200x625/media/img/2024/03/0423_Foer_AntisemitismTopperYiddishFIXED-2/original.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "Among the brutal epiphanies of October 7 was this: A disconcertingly large number of Israel’s critics on the left did not share that vision of peaceful coexistence, or believe Jews had a right to a nation of their own.",
+							"note": "",
+							"created": "2024-03-15T20:14:19.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "The anti-Zionism that has flourished on the left in recent years doesn’t stop with calls for an end to the occupation of the West Bank. It espouses a blithe desire to eliminate the world’s only Jewish-majority nation, valorizes the homicidal campaign against its existence, and seeks to hold members of the Jewish diaspora to account for the sins of a country they don’t live in and for a government they didn’t elect.",
+							"note": "",
+							"created": "2024-03-15T20:14:19.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://forward.com/culture/184859/what-do-the-kenya-mall-terrorists-and-naughty-jewi?amp=1",
+					"title": "What Do the Kenya Mall Terrorists and Naughty Jewish Children Have in Common",
+					"excerpt": "",
+					"created": "2024-03-16T01:44:10.000Z",
+					"lastUpdate": "2024-03-17T22:25:32.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://images.forwardcdn.com/image/1300x/center/images/cropped/w2kenya-100913-1425644268.jpg",
+					"media": [
+						{
+							"link": "https://images.forwardcdn.com/image/1300x/center/images/cropped/w2kenya-100913-1425644268.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.newyorker.com/magazine/2024/03/18/among-the-ai-doomsayers",
+					"title": "Among the A.I. Doomsayers",
+					"excerpt": "",
+					"created": "2024-03-16T16:04:12.000Z",
+					"lastUpdate": "2024-03-17T21:44:54.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65e8f1d72f4a68c5013b1601/16:9/w_1280,c_limit/r43908.png",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65e8f1d72f4a68c5013b1601/16:9/w_1280,c_limit/r43908.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "A camp of techno-optimists rebuffs A.I. doomerism with old-fashioned libertarian boomerism, insisting that all the hand-wringing about existential risk is a kind of mass hysteria. They call themselves “effective accelerationists,” or e/accs (pronounced “e-acks”), and they believe A.I. will usher in a utopian future—interstellar travel, the end of disease—as long as the worriers get out of the way.",
+							"note": "",
+							"created": "2024-03-16T16:04:12.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.newyorker.com/culture/cultural-comment/dune-and-the-delicate-art-of-making-fictional-languages",
+					"title": "“Dune” and the Delicate Art of Making Fictional Languages",
+					"excerpt": "",
+					"created": "2024-03-17T12:45:42.000Z",
+					"lastUpdate": "2024-03-17T22:27:36.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65de29b4a650ec615a1eb531/16:9/w_1280,c_limit/2800x1600_1.jpg",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65de29b4a650ec615a1eb531/16:9/w_1280,c_limit/2800x1600_1.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.nytimes.com/2024/03/17/books/booksupdate/riddles-of-the-sphinx-anna-shechtman.html",
+					"title": "Entering the “Matrix of Language” with a Crossword Puzzle Fiend",
+					"excerpt": "",
+					"created": "2024-03-17T12:46:00.000Z",
+					"lastUpdate": "2024-03-17T21:44:54.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://static01.nyt.com/images/2024/03/17/books/review/17Shechtman/17Shechtman-largeHorizontalJumbo.jpg",
+					"media": [
+						{
+							"link": "https://static01.nyt.com/images/2024/03/17/books/review/17Shechtman/17Shechtman-largeHorizontalJumbo.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.nytimes.com/2024/03/17/magazine/russian-language-kazakhstan.html",
+					"title": "The Foreign Language That Changed My Teenage Son’s Life",
+					"excerpt": "",
+					"created": "2024-03-17T21:28:49.000Z",
+					"lastUpdate": "2024-03-17T21:44:54.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://static01.nyt.com/images/2024/03/24/magazine/24mag-RussophileSon-images/24mag-RussophileSon-images-largeHorizontalJumbo-v2.jpg",
+					"media": [
+						{
+							"link": "https://static01.nyt.com/images/2024/03/24/magazine/24mag-RussophileSon-images/24mag-RussophileSon-images-largeHorizontalJumbo-v2.jpg",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "He replied, without a hint of irony, “Because they’re more like me.”",
+							"note": "",
+							"created": "2024-03-17T21:28:49.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.nytimes.com/2024/03/11/opinion/antisemitism-vs-anti-zionism.html",
+					"title": "Where Antisemitism and Anti-Zionism Collide",
+					"excerpt": "",
+					"created": "2024-03-18T15:55:52.000Z",
+					"lastUpdate": "2024-03-18T15:56:52.000Z",
+					"tags": ["antisemitism", "Zionism"],
+					"note": "",
+					"cover": "https://static01.nyt.com/images/2024/03/15/multimedia/11goldberg2-jvzc/11goldberg2-jvzc-facebookJumbo.jpg",
+					"media": [
+						{
+							"link": "https://static01.nyt.com/images/2024/03/15/multimedia/11goldberg2-jvzc/11goldberg2-jvzc-facebookJumbo.jpg",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "Plenty of leftists will swear up and down that they’re not being antisemitic when they use “Zionist” as the most contemptuous of epithets.",
+							"note": "",
+							"created": "2024-03-18T15:55:52.000Z",
+							"color": ""
+						},
+						{
+							"text": "But the vast majority of Jews disagree, and the longing for a return to Israel is deeply intertwined with Jewish religious practice",
+							"note": "",
+							"created": "2024-03-18T15:55:52.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "I’d compare left-wing demands that Jews disavow Zionism to right-wing demands for Muslims to renounce Shariah",
+							"note": "",
+							"created": "2024-03-18T15:55:52.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://nymag.com/intelligencer/2023/09/radically-reform-prisons-and-policing-dont-abolish-them.html",
+					"title": "Prisons and Policing Need to Be Radically Reformed, Not Abolished",
+					"excerpt": "",
+					"created": "2024-03-18T16:01:22.000Z",
+					"lastUpdate": "2024-03-18T16:01:22.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://pyxis.nymag.com/v1/imgs/465/34c/444b3d1b599750d2050c94192852166cac-GettyImages-1576625108.2x.rsocial.w600.jpg",
+					"media": [
+						{
+							"link": "https://pyxis.nymag.com/v1/imgs/465/34c/444b3d1b599750d2050c94192852166cac-GettyImages-1576625108.2x.rsocial.w600.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.newyorker.com/magazine/2002/02/11/september-11th-attacks-world-trade-center-rick-rescorla-the-real-heroes-are-dead",
+					"title": "The Real Heroes Are Dead",
+					"excerpt": "",
+					"created": "2024-03-18T16:01:43.000Z",
+					"lastUpdate": "2024-03-18T16:08:44.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/59092fa1019dfc3494e9c9d5/16:9/w_1280,c_limit/020211_r10764.jpg",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/59092fa1019dfc3494e9c9d5/16:9/w_1280,c_limit/020211_r10764.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://nymag.com/intelligencer/2023/09/new-york-city-schools-how-to-teach-children-to-read.html",
+					"title": "Did New York City Forget How to Teach Children to Read?",
+					"excerpt": "",
+					"created": "2024-03-18T16:02:29.000Z",
+					"lastUpdate": "2024-03-18T16:02:42.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://pyxis.nymag.com/v1/imgs/48e/b9d/c989c50cb77f0bd5ceb0cd42facfe2ac37-FINAL-nymag-reading.2x.rsocial.w600.jpg",
+					"media": [
+						{
+							"link": "https://pyxis.nymag.com/v1/imgs/48e/b9d/c989c50cb77f0bd5ceb0cd42facfe2ac37-FINAL-nymag-reading.2x.rsocial.w600.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://evictionlab.org/gentrifications-role-in-the-eviction-crisis",
+					"title": "Gentrification’s Role in the Eviction Crisis",
+					"excerpt": "",
+					"created": "2024-03-18T16:02:55.000Z",
+					"lastUpdate": "2024-03-18T16:02:58.000Z",
+					"tags": ["urbanism"],
+					"note": "",
+					"cover": "https://evictionlab.org/gentrifications-role-in-the-eviction-crisis/GettyImages-1245604936.jpg",
+					"media": [
+						{
+							"link": "https://evictionlab.org/gentrifications-role-in-the-eviction-crisis/GettyImages-1245604936.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.inquirer.com/real-estate/commercial/market-street-east-struggling-sixers-arena-20240318.html#loaded",
+					"title": "How Philly’s Market Street East became a “dead space between cool places”",
+					"excerpt": "",
+					"created": "2024-03-19T12:22:42.000Z",
+					"lastUpdate": "2024-03-19T12:23:13.000Z",
+					"tags": ["Philadelphia", "urbanism"],
+					"note": "",
+					"cover": "https://www.inquirer.com/resizer/Whspzb85vGzRn3rvC9u_Tos25sM=/760x507/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/pmn/EBWG2HLE7ZF2BFYFXSSAW22NTQ.jpg",
+					"media": [
+						{
+							"link": "https://www.inquirer.com/resizer/Whspzb85vGzRn3rvC9u_Tos25sM=/760x507/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/pmn/EBWG2HLE7ZF2BFYFXSSAW22NTQ.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.newyorker.com/news/fault-lines/an-animal-rights-activist-and-the-problem-of-political-despair",
+					"title": "An Animal-Rights Activist and the Problem of Political Despair",
+					"excerpt": "",
+					"created": "2024-03-19T12:35:41.000Z",
+					"lastUpdate": "2024-03-19T12:42:10.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65f36ba90252f78176c1d8a8/16:9/w_1280,c_limit/TNY_FaultLines_240315_Final_02.png",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65f36ba90252f78176c1d8a8/16:9/w_1280,c_limit/TNY_FaultLines_240315_Final_02.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "that",
+							"note": "",
+							"created": "2024-03-19T12:35:41.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "My fear is that this peculiar arrangement—a never-ending reel of floating, disembodied dissent with vague messaging—will become an end unto itself, divorced from the world offline, an unreal expression of perpetual, slightly out-of-focus rage.",
+							"note": "",
+							"created": "2024-03-19T12:35:41.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.newyorker.com/magazine/2024/03/25/the-crime-rings-stealing-everything-from-purses-to-power-tools",
+					"title": "The Crime Rings Stealing Everything from Purses to Power Tools",
+					"excerpt": "",
+					"created": "2024-03-21T15:02:02.000Z",
+					"lastUpdate": "2024-03-21T15:02:02.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65f2135ebf04e4ed39ab6b01/16:9/w_1280,c_limit/r43943.png",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65f2135ebf04e4ed39ab6b01/16:9/w_1280,c_limit/r43943.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Blog Posts",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://www.donnywals.com/everything-you-need-to-know-about-swift-5-10",
+					"title": "Everything you need to know about Swift 5.10",
+					"excerpt": "",
+					"created": "2024-03-14T21:56:36.000Z",
+					"lastUpdate": "2024-03-18T15:15:34.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://www.donnywals.com/wp-content/og_images/everything-you-need-to-know-about-swift-5-10.png",
+					"media": [
+						{
+							"link": "https://www.donnywals.com/wp-content/og_images/everything-you-need-to-know-about-swift-5-10.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "In Swift 5.10 Apple has patched these cases and the compiler will now correctly flag all of your unsafe code in strict concurrency mode.",
+							"note": "",
+							"created": "2024-03-14T21:56:36.000Z",
+							"color": "red"
+						},
+						{
+							"text": "This state is immutable",
+							"note": "",
+							"created": "2024-03-14T21:56:36.000Z",
+							"color": "red"
+						},
+						{
+							"text": "This state is isolated to a global actor",
+							"note": "",
+							"created": "2024-03-14T21:56:36.000Z",
+							"color": "red"
+						},
+						{
+							"text": "that excludes code that you have marked with nonisolated(unsafe) or@unchecked Sendable",
+							"note": "",
+							"created": "2024-03-14T21:56:36.000Z",
+							"color": "red"
+						}
+					]
+				},
+				{
+					"link": "https://www.donnywals.com/enabling-concurrency-warnings-in-xcode-15",
+					"title": "Enabling Concurrency warnings in Xcode 15",
+					"excerpt": "",
+					"created": "2024-03-14T22:04:56.000Z",
+					"lastUpdate": "2024-03-17T21:46:10.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://www.donnywals.com/wp-content/og_images/enabling-concurrency-warnings-in-xcode-15.png",
+					"media": [
+						{
+							"link": "https://www.donnywals.com/wp-content/og_images/enabling-concurrency-warnings-in-xcode-15.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://swiftology.io/collections/type-driven-design",
+					"title": "Type-Driven Design with Swift",
+					"excerpt": "",
+					"created": "2024-03-14T22:20:38.000Z",
+					"lastUpdate": "2024-03-17T21:46:10.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://swiftology.io/tydd.png",
+					"media": [
+						{
+							"link": "https://swiftology.io/tydd.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.swiftbysundell.com/articles/swift-actors",
+					"title": "Swift actors: How do they work, and what kinds of problems do they solve?",
+					"excerpt": "",
+					"created": "2024-03-14T22:28:02.000Z",
+					"lastUpdate": "2024-03-18T14:42:16.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://www.swiftbysundell.com/images/articles/swift-actors.png",
+					"media": [
+						{
+							"link": "https://www.swiftbysundell.com/images/articles/swift-actors.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "with the launch of Swift 5.5 and its built-in concurrency system, a new type declaration keyword has been added to the mix — actor",
+							"note": "",
+							"created": "2024-03-14T22:28:02.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "In other words, our UserStorage class currently isn’t thread-safe.",
+							"note": "",
+							"created": "2024-03-14T22:28:02.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "each caller would be completely blocked until that particular UserStorage call has finished",
+							"note": "",
+							"created": "2024-03-14T22:28:02.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "“data contention”.",
+							"note": "",
+							"created": "2024-03-14T22:28:02.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "turning a type into an actor will require us to interact with it in an asynchronous manner, which usually does make such calls somewhat more complex (and slower) to perform",
+							"note": "",
+							"created": "2024-03-14T22:28:02.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://lmnt.me/blog/lack-of-vision.html",
+					"title": "Lack of Vision",
+					"excerpt": "",
+					"created": "2024-03-18T16:32:30.000Z",
+					"lastUpdate": "2024-03-18T16:38:58.000Z",
+					"tags": ["design"],
+					"note": "",
+					"cover": "",
+					"media": [],
+					"important": false,
+					"highlights": [
+						{
+							"text": "After the death of Steve Jobs, no one with good taste rose to the position of the visionary at Apple.",
+							"note": "",
+							"created": "2024-03-18T16:32:30.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "In the absence of Steve, Apple has systemically removed artistry from the process of making apps almost entirely.",
+							"note": "",
+							"created": "2024-03-18T16:32:30.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Apple has simplified their software design aesthetic to a point where it’s soulless.",
+							"note": "",
+							"created": "2024-03-18T16:32:30.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.sustainabilitybynumbers.com/p/nuclear-low-carbon",
+					"title": "Many people don’t know that nuclear power is low-carbon",
+					"excerpt": "",
+					"created": "2024-03-18T16:06:13.000Z",
+					"lastUpdate": "2024-03-18T19:00:03.000Z",
+					"tags": ["environmentalism"],
+					"note": "",
+					"cover": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/42f2d6f8-904c-400e-af1f-f83f440e8043_1024x1024.webp",
+					"media": [
+						{
+							"link": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/42f2d6f8-904c-400e-af1f-f83f440e8043_1024x1024.webp",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "Most of the public says that renewables are low-carbon. On nuclear, they’re confused.",
+							"note": "",
+							"created": "2024-03-18T16:06:13.000Z",
+							"color": ""
+						},
+						{
+							"text": "The life-cycle emissions of nuclear are just as low – if not lower – than solar and wind.2 And the main point is that all three are much lower than fossil fuels.",
+							"note": "",
+							"created": "2024-03-18T16:06:13.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://bristoliver.substack.com/p/100-percent-proof",
+					"title": "100 percent proof",
+					"excerpt": "",
+					"created": "2024-03-17T12:46:12.000Z",
+					"lastUpdate": "2024-03-18T19:00:16.000Z",
+					"tags": [],
+					"note": "",
+					"cover": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/2a6a526a-5638-4315-8458-c0e5eb1f6ef2_800x512",
+					"media": [
+						{
+							"link": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/2a6a526a-5638-4315-8458-c0e5eb1f6ef2_800x512",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://resnikoff.substack.com/p/the-case-against-the-case-against",
+					"title": "The Case Against The Case Against YIMBYism",
+					"excerpt": "",
+					"created": "2024-03-17T20:41:54.000Z",
+					"lastUpdate": "2024-03-18T19:00:24.000Z",
+					"tags": ["urbanism"],
+					"note": "",
+					"cover": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/a113ddf2-0363-4551-8073-821ed9409268_2654x1524.jpeg",
+					"media": [
+						{
+							"link": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/a113ddf2-0363-4551-8073-821ed9409268_2654x1524.jpeg",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "Because a lot of the people who identify with Friedrich’s argument are self-described socialists, it’s somewhat ironic that this schema doesn’t make sense when you start digging into the interests of the relevant actors. I’m just a bourgeois shitlib, so far be it from me to accuse people of being insufficiently Marxist; but I do think the conversation around class and YIMBYism could use fewer vibes and a little more dialectical materialism.",
+							"note": "",
+							"created": "2024-03-17T20:41:54.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "More homebuilding is inherently redistributive: by driving down rents, it effectively moves wealth from rentiers to renters.",
+							"note": "",
+							"created": "2024-03-17T20:41:54.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.slowboring.com/p/yimbyism-can-liberate-us-from-anti",
+					"title": "YIMBYism can liberate us from anti-capitalism",
+					"excerpt": "",
+					"created": "2024-03-18T11:47:42.000Z",
+					"lastUpdate": "2024-03-18T19:00:29.000Z",
+					"tags": ["urbanism"],
+					"note": "",
+					"cover": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/cb68493a-0586-4268-9147-e12b98c5133b_4785x3197.jpeg",
+					"media": [
+						{
+							"link": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/cb68493a-0586-4268-9147-e12b98c5133b_4785x3197.jpeg",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://freddiedeboer.substack.com/p/covid-still-makes-everybody-a-little?isFreemail=false&post_id=142580816&publication_id=295937&r=3aro7&triedRedirect=true",
+					"title": "COVID Still Makes Everybody a Little Bit Crazy",
+					"excerpt": "",
+					"created": "2024-03-15T11:49:50.000Z",
+					"lastUpdate": "2024-03-18T19:00:39.000Z",
+					"tags": ["COVID"],
+					"note": "",
+					"cover": "https://freddiedeboer.substack.com/p/[object%20Object]",
+					"media": [
+						{
+							"link": "https://freddiedeboer.substack.com/p/[object%20Object]",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "I see this suggestion all the time, that the immunocompromised could be living lives of freedom and confidence if the rest of us committed to (generally vague) additional Covid measures. But these claims seem both insufficiently specific about what behaviors are demanded of the rest of us and insufficiently supported in terms of providing responsible scientific evidence to prove their efficacy.",
+							"note": "",
+							"created": "2024-03-15T11:49:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "But given the extravagant level of safety many people demand from Covid, I doubt most would return to anything like ordinary life. Indeed, it has always seemed plain to me that there are some people who do not want to return to ordinary life and thus are Covid extremists, not the other way around",
+							"note": "",
+							"created": "2024-03-15T11:49:50.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.avanderlee.com/swift/actors",
+					"title": "Actors in Swift: how to use and prevent data races",
+					"excerpt": "",
+					"created": "2024-03-19T13:31:46.000Z",
+					"lastUpdate": "2024-03-19T14:58:05.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Actors+in+Swift%3A+how+to+use+and+prevent+data+races",
+					"media": [
+						{
+							"link": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Actors+in+Swift%3A+how+to+use+and+prevent+data+races",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "As we’re already within the Actor having synchronized access, we don’t need another await.",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "barrier flag",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "stop reading for a moment and allow writing",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "Methods in actors are isolated by default.",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "isolated method",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "allowed to access any other properties or methods that would require synchronized access",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "nonisolated keyword",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "not accessing any isolated data",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "you can use the nonisolated keyword for computed properties",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "defining them on immutable properties is not needed",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Race conditions can still occur in your code but might no longer result in an exception.",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "isolated",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "red"
+						},
+						{
+							"text": "nonisolated",
+							"note": "",
+							"created": "2024-03-19T13:31:46.000Z",
+							"color": "red"
+						}
+					]
+				},
+				{
+					"link": "https://www.avanderlee.com/swift/nonisolated-isolated",
+					"title": "Nonisolated and isolated keywords: Understanding Actor isolation",
+					"excerpt": "",
+					"created": "2024-03-19T13:32:12.000Z",
+					"lastUpdate": "2024-03-19T20:56:36.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Nonisolated+and+isolated+keywords%3A+Understanding+Actor+isolation",
+					"media": [
+						{
+							"link": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Nonisolated+and+isolated+keywords%3A+Understanding+Actor+isolation",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "actors isolate access to its properties to ensure mutually exclusive access",
+							"note": "",
+							"created": "2024-03-19T13:32:12.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "You could compare this to methods that are internal by default but not marked with an internal keyword.",
+							"note": "",
+							"created": "2024-03-19T13:32:12.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "We could get rid of this extra method by marking the parameter as isolated instead and directly adjust the other bank account balance:",
+							"note": "",
+							"created": "2024-03-19T13:32:12.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "nonisolated",
+							"note": "",
+							"created": "2024-03-19T13:32:12.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Both bank and accountHolder are immutable properties, so we can explicitly mark the computed property as nonisolated and solve the error:",
+							"note": "",
+							"created": "2024-03-19T13:32:12.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.avanderlee.com/swift/sendable-protocol-closures",
+					"title": "Sendable and @Sendable closures explained with code examples",
+					"excerpt": "",
+					"created": "2024-03-19T13:32:50.000Z",
+					"lastUpdate": "2024-03-19T21:14:51.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Sendable+and+%40Sendable+closures+explained+with+code+examples",
+					"media": [
+						{
+							"link": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Sendable+and+%40Sendable+closures+explained+with+code+examples",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "Sendable protocol and closure",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "whether the public API of the passed values passed thread-safe to the compiler",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "no public mutators",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						},
+						{
+							"text": "internal locking system is in place",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						},
+						{
+							"text": "The class does not conform because it is a reference type and therefore mutable from other concurrent domains.",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "immutable classes",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						},
+						{
+							"text": "classes with internal locking mechanisms",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						},
+						{
+							"text": "@unchecked attribute",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "class is thread-safe due to internal locking mechanisms",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "Sendable protocol conformance must happen within the same source file to ensure that the compiler checks all visible members for thread safety.",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "the compiler can’t apply Sendable conformance outside of the source file as it has no visibility of the title property, even though the title is using a Sendable type String.",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Since the class is non-final, we can’t conform to Sendable as we’re unsure whether other classes will inherit from User with non-Sendable members.",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "this does require us to ensure it’s always thread-safe whenever we inherit from User",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "functions can’t conform to protocols, so Swift introduced the @Sendable attribute",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "we will tell the compiler that he doesn’t need extra synchronization as all captured values in the closure are thread-safe",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Minimal: The compiler will only diagnose instances explicitly marked with Sendable conformance",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						},
+						{
+							"text": "Targeted: Enforces Sendable constraints and performs actor-isolation checking",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						},
+						{
+							"text": "Complete: Matches the intended Swift 6 semantics to check and eliminate data races",
+							"note": "",
+							"created": "2024-03-19T13:32:50.000Z",
+							"color": "red"
+						}
+					]
+				},
+				{
+					"link": "https://www.avanderlee.com/swift/concurrent-serial-dispatchqueue",
+					"title": "Concurrent vs Serial DispatchQueue: Concurrency in Swift explained",
+					"excerpt": "",
+					"created": "2024-03-19T14:46:42.000Z",
+					"lastUpdate": "2024-03-19T23:56:04.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Concurrent+vs+Serial+DispatchQueue%3A+Concurrency+in+Swift+explained",
+					"media": [
+						{
+							"link": "https://swiftlee-banners.herokuapp.com/imagegenerator.php?title=Concurrent+vs+Serial+DispatchQueue%3A+Concurrency+in+Swift+explained",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "A DispatchQueue",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "abstraction layer on top of the GCD queue that allows you to perform tasks asynchronously and concurrently",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "serial Dispatch Queue",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "one task at the time.",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "DispatchQueue defaults to a serial queue",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "A concurrent queue",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "execute multiple tasks at the same time",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "Tasks will always start in the order they’re added but they can finish in a different order",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Tasks will run on distinct threads that are managed by the dispatch queue.",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "barrier",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "perform multiple tasks at the same time while still preventing data races",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "A data race can occur",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "multiple threads access the same memory without synchronization and at least one access is a write",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "Adding new messages to the array is done using the barrier flag which blocks new reads until the write is finished.",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "You can see a barrier as a task that gets in the way of parallel tasks and, for a moment, makes a concurrent queue a serial queue.",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "synchronously",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "red"
+						},
+						{
+							"text": "asynchronously",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "red"
+						},
+						{
+							"text": "block the calling thread until the task is finished",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "directly return on the calling thread without blocking",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "As the main thread is used for UI updates it’s important to be conscious when executing tasks on this queue.",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "creating threads comes with a cost and you should, therefore, avoid excessive thread creation.",
+							"note": "",
+							"created": "2024-03-19T14:46:42.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://swiftwithmajid.com/2024/03/20/where-swift-concurrency-will-run-your-function",
+					"title": "Where will Swift Concurrency run your function?",
+					"excerpt": "",
+					"created": "2024-03-20T11:42:41.000Z",
+					"lastUpdate": "2024-03-20T12:15:00.000Z",
+					"tags": ["Swift", "engineering"],
+					"note": "",
+					"cover": "https://swiftwithmajid.com/public/swift.png",
+					"media": [
+						{
+							"link": "https://swiftwithmajid.com/public/swift.png",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "The async keyword",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "the function may suspend its execution to switch threads",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "The await keyword",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "calling thread to wait while an async function performs its job",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "blue"
+						},
+						{
+							"text": "Main Thread",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "red"
+						},
+						{
+							"text": "Cooperative Thread Pool.",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "red"
+						},
+						{
+							"text": "non-async functions run as part of the calling thread",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "red"
+						},
+						{
+							"text": "runs your function on the Cooperative Thread Pool whenever your function is async",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "red"
+						},
+						{
+							"text": "It doesn’t matter where you call foo or boo functions. They will always run on the main thread because the Store type is isolated to the global @MainActor.",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "SwiftUI views are not isolated to any actor. Only the body property of the View protocol is isolated to the main actor.",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "The foo function is async, and Swift runs it in the cooperative thread pool. The boo function is not async, and Swift will run it on the calling thread.",
+							"note": "",
+							"created": "2024-03-20T11:42:41.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.apricitas.io/p/americas-missing-empty-homes",
+					"title": "America’s Missing Empty Homes",
+					"excerpt": "",
+					"created": "2024-03-18T16:02:18.000Z",
+					"lastUpdate": "2024-03-21T15:02:27.000Z",
+					"tags": ["urbanism"],
+					"note": "",
+					"cover": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/30cf3967-4ac6-4ac0-9c8c-268064e27460_2886x1843.png",
+					"media": [
+						{
+							"link": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https://substack-post-media.s3.amazonaws.com/public/images/30cf3967-4ac6-4ac0-9c8c-268064e27460_2886x1843.png",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Books",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://www.penguinrandomhouse.com/books/634158/no-one-is-talking-about-this-by-patricia-lockwood",
+					"title": "No One Is Talking About This",
+					"excerpt": "",
+					"created": "2024-03-18T14:59:27.000Z",
+					"lastUpdate": "2024-03-18T15:03:24.000Z",
+					"tags": ["Patricia Lockwood"],
+					"note": "",
+					"cover": "https://images1.penguinrandomhouse.com/cover/9780593189597",
+					"media": [
+						{
+							"link": "https://images1.penguinrandomhouse.com/cover/9780593189597",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.harpercollins.com/products/yellowface-r-f-kuang?variant=40985522831394",
+					"title": "Yellowface",
+					"excerpt": "",
+					"created": "2024-03-18T15:05:25.000Z",
+					"lastUpdate": "2024-03-18T15:05:51.000Z",
+					"tags": ["R.F. Kuang"],
+					"note": "With its totally immersive first-person voice, Yellowface grapples with questions of diversity, racism, and cultural appropriation, as well as the terrifying alienation of social media. R.F. Kuang’s novel is timely, razor-sharp, and eminently readable.",
+					"cover": "https://www.harpercollins.com/cdn/shop/products/9780063250840_9ebc8d70-fbff-402a-9052-7079d5ab02ac_1200x1200.jpg?v=1710499577",
+					"media": [
+						{
+							"link": "https://www.harpercollins.com/cdn/shop/products/9780063250840_9ebc8d70-fbff-402a-9052-7079d5ab02ac_1200x1200.jpg?v=1710499577",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.penguinrandomhouse.com/books/314108/the-idiot-by-elif-batuman",
+					"title": "The Idiot",
+					"excerpt": "",
+					"created": "2024-03-18T15:08:43.000Z",
+					"lastUpdate": "2024-03-18T15:09:14.000Z",
+					"tags": ["Elif Batuman"],
+					"note": "",
+					"cover": "https://images3.penguinrandomhouse.com/cover/9780143111061",
+					"media": [
+						{
+							"link": "https://images3.penguinrandomhouse.com/cover/9780143111061",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.penguinrandomhouse.com/books/564577/eitheror-by-elif-batuman",
+					"title": "Either/Or",
+					"excerpt": "",
+					"created": "2024-03-18T15:11:18.000Z",
+					"lastUpdate": "2024-03-19T12:11:42.000Z",
+					"tags": ["Elif Batuman"],
+					"note": "",
+					"cover": "https://images4.penguinrandomhouse.com/cover/9780525557616",
+					"media": [
+						{
+							"link": "https://images4.penguinrandomhouse.com/cover/9780525557616",
+							"type": "image"
+						}
+					],
+					"important": false
+				},
+				{
+					"link": "https://www.hachettebookgroup.com/titles/hannah-ritchie/not-the-end-of-the-world/9780316536752",
+					"title": "Not the End of the World",
+					"excerpt": "",
+					"created": "2024-03-19T12:12:17.000Z",
+					"lastUpdate": "2024-03-19T12:13:11.000Z",
+					"tags": ["Hannah Ritchie", "environmentalism"],
+					"note": "",
+					"cover": "https://www.hachettebookgroup.com/wp-content/uploads/2023/10/9780316536752.jpg",
+					"media": [
+						{
+							"link": "https://www.hachettebookgroup.com/wp-content/uploads/2023/10/9780316536752.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		},
+		{
+			"title": "Restaurant Reviews",
+			"folders": [],
+			"bookmarks": [
+				{
+					"link": "https://www.newyorker.com/magazine/2021/07/05/learning-to-love-goat-kidneys-and-testicles-at-dhamaka",
+					"title": "Learning to Love Goat Kidneys and Testicles at Dhamaka",
+					"excerpt": "",
+					"created": "2024-03-18T13:02:42.000Z",
+					"lastUpdate": "2024-03-18T14:41:20.000Z",
+					"tags": ["New York"],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/60d4ecaeb7450413d2fd67e5/16:9/w_1280,c_limit/210705_r38602.jpg",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/60d4ecaeb7450413d2fd67e5/16:9/w_1280,c_limit/210705_r38602.jpg",
+							"type": "image"
+						}
+					],
+					"important": false,
+					"highlights": [
+						{
+							"text": "Which morsels, we wondered, were the goat kidneys and which were the goat testicles? The one male in our group joked that, as the only person among us in possession of both organs, he was uniquely qualified to tell.",
+							"note": "",
+							"created": "2024-03-18T13:02:42.000Z",
+							"color": "yellow"
+						},
+						{
+							"text": "Not only have they opened a restaurant that doesn’t offer takeout, let alone delivery, during what is still technically a pandemic; they’ve designed a menu that effectively rejects assimilation and focusses on expanding, if not transforming, diners’ understanding of Indian food.",
+							"note": "",
+							"created": "2024-03-18T13:02:42.000Z",
+							"color": "yellow"
+						}
+					]
+				},
+				{
+					"link": "https://www.newyorker.com/culture/the-food-scene/cafe-carmellini-is-fine-dining-that-knows-a-good-time",
+					"title": "Café Carmellini Is Fine Dining That Knows a Good Time",
+					"excerpt": "",
+					"created": "2024-03-18T13:04:34.000Z",
+					"lastUpdate": "2024-03-18T13:04:48.000Z",
+					"tags": ["New York"],
+					"note": "",
+					"cover": "https://media.newyorker.com/photos/65f0cbfbcf8ebbe0e55f3767/16:9/w_1280,c_limit/r43939.jpg",
+					"media": [
+						{
+							"link": "https://media.newyorker.com/photos/65f0cbfbcf8ebbe0e55f3767/16:9/w_1280,c_limit/r43939.jpg",
+							"type": "image"
+						}
+					],
+					"important": false
+				}
+			]
+		}
+	],
+	"count": {
+		"bookmarks": 82,
+		"folders": 18,
+		"tags": 30,
+		"highlights": 99
+	}
+}

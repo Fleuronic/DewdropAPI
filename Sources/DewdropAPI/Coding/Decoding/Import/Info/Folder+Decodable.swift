@@ -7,9 +7,6 @@ extension Folder: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		self.init(
-			title: try container.decode(String.self, forKey: .title),
-			subfolders: try container.decode([Folder].self, forKey: .subfolders)
-		)
+		self.init(title: try container.decode(String.self, forKey: .title))
 	}
 }
