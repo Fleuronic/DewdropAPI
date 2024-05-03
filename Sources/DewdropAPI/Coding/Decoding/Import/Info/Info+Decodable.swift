@@ -14,7 +14,7 @@ extension Info: Decodable {
 			title: try container.decode(String.self, forKey: .title),
 			itemType: try container.decode(ItemType.self, forKey: .itemType),
 			excerpt: try container.decode(String.self, forKey: .excerpt).filledValue,
-			coverURL: try container.decode(URL.self, forKey: .coverURL),
+			coverURL: try container.decode(String.self, forKey: .coverURL).filledValue.flatMap(URL.init),
 			media: try container.decode([Media].self, forKey: .media)
 		)
 	}
