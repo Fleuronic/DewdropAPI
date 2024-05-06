@@ -14,6 +14,7 @@ import struct DewdropService.CollaboratorFields
 import struct DewdropService.CollaboratorEmailListFields
 import struct DewdropService.CollaboratorRoleFields
 import struct DewdropService.CoverFields
+import struct Foundation.URL
 import protocol DewdropService.CollectionSpec
 
 extension API: CollectionSpec {
@@ -29,8 +30,18 @@ extension API: CollectionSpec {
 		await get(/.import, /.url, /.parse)
 	}
 
-	public func fetchCollectionDetails(with id: Collection.ID) async -> Self.Result<CollectionDetailsFields> {
+	public func fetchDetails(forCollectionWith id: Collection.ID) async -> Self.Result<CollectionDetailsFields> {
 		await get(/.collection, /id)
+	}
+	
+	public func uploadCover(forCollectionWith id: Collection.ID, usingFileAt url: URL, withName filename: String) async -> Self.Result<CollectionFields> {
+		await put(/.collection, /id, /.cover, upload: {
+			Upload(
+				url: url,
+				name: "cover",
+				filename: filename
+			)
+		})
 	}
 
 	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Self.Result<[CollaboratorFields]> {
@@ -121,6 +132,7 @@ private enum PathComponents: String, PathComponent {
 	case children = "childrens"
 	case `import`
 	case url
+	case cover
 	case parse
 	case sharing
 	case clean

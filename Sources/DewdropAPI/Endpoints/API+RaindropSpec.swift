@@ -8,6 +8,7 @@ import struct DewdropService.RaindropFields
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.RaindropSuggestionListFields
+import struct Catena.Upload
 import struct Foundation.URL
 import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
@@ -46,6 +47,26 @@ extension API: RaindropSpec {
 		}
 	}
 	
+	public func uploadCover(forRaindropWith id: Raindrop.ID, usingFileAt url: URL, withName filename: String) async -> Self.Result<RaindropFields> {
+		await put(/.raindrop, /id, /.cover, upload: {
+			Upload(
+				url: url,
+				name: "cover",
+				filename: filename
+			)
+		})
+	}
+	
+	public func uploadFile(at url: URL, withName filename: String, toCollectionWith id: Collection.ID? = nil) async -> Self.Result<RaindropFields> {
+		await put(/.raindrop, /.file, upload: {
+			Upload(
+				url: url,
+				name: "file",
+				filename: filename
+			)
+		})
+	}
+	
 	public func removeRaindrop(with id: Raindrop.ID) async -> Self.Result<Void> {
 		await delete(/.raindrop, /id)
 	}
@@ -64,7 +85,9 @@ private enum PathComponents: String, PathComponent {
 	case raindrop
 	case raindrops
 	case suggest
+	case file
 	case cache
+	case cover
 }
 
 private prefix func /(component: PathComponents) -> PathComponent { component }

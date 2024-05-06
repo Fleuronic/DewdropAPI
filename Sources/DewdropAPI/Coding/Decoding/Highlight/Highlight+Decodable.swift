@@ -3,21 +3,21 @@
 import struct Dewdrop.Highlight
 import struct DewdropService.HighlightInRaindropFields
 import struct Foundation.URL
+import struct Foundation.Date
 
 extension Highlight: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let fields = try HighlightInRaindropFields(from: decoder)
 
 		self = .init(
 			content: .init(
-				text: fields.text,
-				color: fields.color,
-				note: fields.note
+				text: try container.decode(String.self, forKey: .text),
+				color: try container.decodeIfPresent(Highlight.Color.self, forKey: .color) ?? .yellow,
+				note: try container.decode(String.self, forKey: .note).filledValue
 			),
 			title: try container.decode(String.self, forKey: .title).filledValue,
 			raindropURL: try container.decode(URL.self, forKey: .raindropURL),
-			creationDate: fields.creationDate
+			creationDate: try container.decode(Date.self, forKey: .creationDate)
 		)
 	}
 }

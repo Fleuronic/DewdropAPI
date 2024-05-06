@@ -20,7 +20,7 @@ extension RaindropDetailsFields: Decodable {
 			creator: try container.decode(UserNameFields.self, forKey: .creator),
 			collection: try container.decode(IDFields<Collection.Identified>.self, forKey: .collection),
 			tags: try container.decode([TagNameFields].self, forKey: .tags),
-			highlights: try container.decode([HighlightInRaindropFields].self, forKey: .highlights)
+			highlights: try container.decodeIfPresent([HighlightInRaindropFields].self, forKey: .highlights)
 		)
 	}
 }

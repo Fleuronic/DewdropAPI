@@ -5,4 +5,3 @@ extension IDFields {
 		case id = "$id"
 	}
 }
-

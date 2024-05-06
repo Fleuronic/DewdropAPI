@@ -24,7 +24,7 @@ extension Raindrop: Decodable {
 			note: try container.decode(String.self, forKey: .note).filledValue,
 			cache: try container.decodeIfPresent(Cache.self, forKey: .cache),
 			isFavorite: try container.decodeIfPresent(Bool.self, forKey: .isFavorite) ?? false,
-			isBroken: try container.decode(Bool.self, forKey: .isBroken),
+			isBroken: try container.decodeIfPresent(Bool.self, forKey: .isBroken) ?? false,
 			creationDate: try container.decode(Date.self, forKey: .creationDate),
 			updateDate: try container.decode(Date.self, forKey: .updateDate)
 		)

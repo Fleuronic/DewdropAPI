@@ -17,10 +17,10 @@ extension API: ImportSpec {
 		}
 	}
 	
-	public func parseImport(of file: URL, withName filename: String) async -> Self.Result<ImportFields> {
+	public func parseImport(ofFileAt url: URL, withName filename: String) async -> Self.Result<ImportFields> {
 		await post(/.import, /.file, upload: {
 			Upload(
-				file: file,
+				url: url,
 				name: "import",
 				filename: filename
 			)
