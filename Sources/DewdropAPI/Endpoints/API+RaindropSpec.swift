@@ -13,25 +13,18 @@ import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
 
 extension API: RaindropSpec {
-	public func listRaindrops(inCollectionWith id: Collection.ID, searchingFor search: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropFields]> {
-		await get(/.raindrops, /id) {
-			RaindropListParameters(
-				sort: sort,
-				page: page,
-				raindropsPerPage: raindropsPerPage,
-				search: search
-			)
-		}
-	}
-	
-	public func fetchRaindropDetails(with id: Raindrop.ID) async -> Self.Result<RaindropDetailsFields> {
+	public func fetchDetails(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropDetailsFields> {
 		await get(/.raindrop, /id)
 	}
 
-	public func fetchRaindropHighlights(with id: Raindrop.ID) async -> Self.Result<RaindropHighlightsFields> {
-		await fetchRaindropDetails(with: id).map(RaindropHighlightsFields.init)
+	public func fetchHighlights(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropHighlightsFields> {
+		await fetchDetails(forRaindropWith: id).map(RaindropHighlightsFields.init)
 	}
-
+	
+	public func downloadPermanentCopy(ofRaindropWith id: Raindrop.ID) async -> Self.Result<Data> {
+		await get(/.raindrop, /id, /.cache)
+	}
+	
 	public func listSuggestions(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropSuggestionListFields> {
 		await get(/.raindrop, /id, /.suggest)
 	}
@@ -42,8 +35,15 @@ extension API: RaindropSpec {
 		}
 	}
 	
-	public func downloadPermanentCopy(ofRaindropWith id: Raindrop.ID) async -> Self.Result<Data> {
-		await get(/.raindrop, /id, /.cache)
+	public func listRaindrops(inCollectionWith id: Collection.ID, searchingFor search: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropFields]> {
+		await get(/.raindrops, /id) {
+			RaindropListParameters(
+				sort: sort,
+				page: page,
+				raindropsPerPage: raindropsPerPage,
+				search: search
+			)
+		}
 	}
 	
 	public func removeRaindrop(with id: Raindrop.ID) async -> Self.Result<Void> {
