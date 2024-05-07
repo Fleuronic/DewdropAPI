@@ -54,6 +54,20 @@ extension API: CollectionSpec {
 		})
 	}
 	
+	public func createCollection(
+		title: String? = nil,
+		coverURL: URL? = nil,
+		public: Bool? = nil
+	) async -> Self.Result<CollectionDetailsFields> {
+		await post(/.collection) {
+			CollectionPayload(
+				title: title,
+				coverURL: coverURL,
+				public: `public`
+			)
+		}
+	}
+	
 	public func unshareLeaveCollection(with id: Collection.ID) async -> Self.Result<Void> {
 		await delete(/.collection, /id, /.sharing)
 	}

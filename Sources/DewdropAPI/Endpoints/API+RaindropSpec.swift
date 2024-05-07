@@ -6,6 +6,7 @@ import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct DewdropService.RaindropFields
 import struct DewdropService.RaindropDetailsFields
+import struct DewdropService.RaindropCreationFields
 import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.RaindropSuggestionListFields
 import struct Catena.Upload
@@ -47,6 +48,24 @@ extension API: RaindropSpec {
 		}
 	}
 	
+	public func createRaindrop(
+		url: URL
+	) async -> Self.Result<RaindropCreationFields> {
+		await post(/.raindrop) {
+			RaindropPayload(
+				url: url
+			)
+		}
+	}
+	
+	public func createRaindrops(
+		data: [URL]
+	) async -> Self.Result<[RaindropCreationFields]> {
+		await post(/.raindrops) {
+			ListPayload(items: data.map(RaindropPayload.init))
+		}
+	}
+	
 	public func uploadCover(forRaindropWith id: Raindrop.ID, usingFileAt url: URL, withName filename: String) async -> Self.Result<RaindropFields> {
 		await put(/.raindrop, /id, /.cover, upload: {
 			Upload(
@@ -57,14 +76,16 @@ extension API: RaindropSpec {
 		})
 	}
 	
-	public func uploadFile(at url: URL, withName filename: String, toCollectionWith id: Collection.ID? = nil) async -> Self.Result<RaindropFields> {
-		await put(/.raindrop, /.file, upload: {
+	public func uploadFile(at url: URL, withName filename: String, toCollectionWith id: Collection.ID? = nil) async -> Self.Result<RaindropCreationFields> {
+		await put(/.raindrop, /.file) {
+			id.map(RaindropUploadPayload.init)
+		} upload: {
 			Upload(
 				url: url,
 				name: "file",
 				filename: filename
 			)
-		})
+		}
 	}
 	
 	public func removeRaindrop(with id: Raindrop.ID) async -> Self.Result<Void> {
