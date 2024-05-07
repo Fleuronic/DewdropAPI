@@ -37,7 +37,7 @@ extension API: UserSpec {
 		groups: [(Group, [Collection.ID])]? = nil
 	) async -> Self.Result<UserAuthenticatedFields> {
 		await put(/.user) {
-			UserPayload(
+			UserUpdatePayload(
 				email: email,
 				fullName: fullName,
 				oldPassword: oldPassword,
