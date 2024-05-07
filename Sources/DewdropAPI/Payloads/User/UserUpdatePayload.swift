@@ -3,7 +3,7 @@
 import struct Dewdrop.User
 import protocol Catena.Payload
 
-struct UserPayload: Payload {
+struct UserUpdatePayload: Payload {
 	let email: String?
 	let fullName: String?
 	let oldPassword: String?
@@ -13,7 +13,7 @@ struct UserPayload: Payload {
 }
 
 // MARK: -
-extension UserPayload {
+extension UserUpdatePayload {
 	enum CodingKeys: String, CodingKey {
 		case email
 		case fullName
