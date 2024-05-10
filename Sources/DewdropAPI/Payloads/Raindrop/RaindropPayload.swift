@@ -9,7 +9,7 @@ import struct Foundation.URL
 import struct Foundation.Date
 import protocol Catena.Payload
 
-struct RaindropPayload: Payload {
+struct RaindropPayload {
 	let url: URL
 	let title: String?
 	let itemType: ItemType?
@@ -28,7 +28,7 @@ struct RaindropPayload: Payload {
 }
 
 // MARK: -
-extension CollectionPayload: Payload {
+extension RaindropPayload: Payload {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
