@@ -57,13 +57,43 @@ extension API: CollectionSpec {
 	public func createCollection(
 		title: String? = nil,
 		coverURL: URL? = nil,
-		public: Bool? = nil
+		public: Bool? = nil,
+		view: Collection.View? = nil,
+		sortIndex: Int? = nil,
+		parentID: Collection.ID? = nil
 	) async -> Self.Result<CollectionDetailsFields> {
 		await post(/.collection) {
 			CollectionPayload(
 				title: title,
 				coverURL: coverURL,
-				public: `public`
+				public: `public`,
+				view: view,
+				sortIndex: sortIndex,
+				expanded: nil,
+				parentID: parentID
+			)
+		}
+	}
+	
+	public func updateCollection(
+		with id: Collection.ID,
+		title: String? = nil,
+		coverURL: URL? = nil,
+		public: Bool? = nil,
+		view: Collection.View? = nil,
+		sortIndex: Int? = nil,
+		expanded: Bool? = nil,
+		parentID: Collection.ID? = nil
+	) async -> Self.Result<CollectionDetailsFields> {
+		await put(/.collection, /id) {
+			CollectionPayload(
+				title: title,
+				coverURL: coverURL,
+				public: `public`,
+				view: view,
+				sortIndex: sortIndex,
+				expanded: expanded,
+				parentID: parentID
 			)
 		}
 	}
@@ -147,10 +177,10 @@ private enum PathComponents: String, PathComponent {
 	case `import`
 	case url
 	case cover
+	case covers
 	case parse
 	case sharing
 	case clean
-	case covers
 	case join
 	case merge
 }

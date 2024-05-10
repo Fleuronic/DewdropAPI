@@ -11,7 +11,7 @@ import struct DewdropService.HighlightFields
 import protocol DewdropService.HighlightSpec
 
 extension API: HighlightSpec {
-	public func listHighlights(onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<[HighlightFields]> {
+	public func listHighlights(onPage page: Int? = nil, listing highlightsPerPage: Int? = nil) async -> Self.Result<[HighlightFields]> {
 		await get(/.highlights) {
 			HighlightListParameters(
 				page: page,
@@ -20,7 +20,7 @@ extension API: HighlightSpec {
 		}
 	}
 
-	public func listHighlights(inCollectionWith id: Collection.ID, onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<[HighlightFields]> {
+	public func listHighlights(inCollectionWith id: Collection.ID, onPage page: Int? = nil, listing highlightsPerPage: Int? = nil) async -> Self.Result<[HighlightFields]> {
 		await get(/.highlights, /id) {
 			HighlightListParameters(
 				page: page,

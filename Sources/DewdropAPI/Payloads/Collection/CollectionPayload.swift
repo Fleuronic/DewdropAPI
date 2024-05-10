@@ -8,6 +8,10 @@ struct CollectionPayload {
 	let title: String?
 	let coverURL: URL?
 	let `public`: Bool?
+	let view: Collection.View?
+	let sortIndex: Int?
+	let expanded: Bool?
+	let parentID: Collection.ID?
 }
 
 // MARK: -
@@ -18,6 +22,10 @@ extension CollectionPayload: Payload {
 		try container.encode(title, forKey: .title)
 		try container.encode([coverURL], forKey: .coverURL)
 		try container.encode(`public`, forKey: .public)
+		try container.encode(view, forKey: .view)
+		try container.encode(sortIndex, forKey: .sortIndex)
+		try container.encode(expanded, forKey: .expanded)
+		try container.encode(parentID, forKey: .parentID)
 	}
 }
 
@@ -27,5 +35,9 @@ private extension CollectionPayload {
 		case title
 		case coverURL = "cover"
 		case `public` = "isPublic"
+		case view
+		case sortIndex = "sort"
+		case expanded
+		case parentID
 	}
 }

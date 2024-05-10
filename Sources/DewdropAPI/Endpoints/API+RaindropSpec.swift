@@ -2,8 +2,11 @@
 
 import Catena
 
+import enum Dewdrop.ItemType
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
+import struct Dewdrop.Media
+import struct Dewdrop.Highlight
 import struct DewdropService.RaindropFields
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.RaindropCreationFields
@@ -11,6 +14,7 @@ import struct DewdropService.RaindropHighlightsFields
 import struct DewdropService.RaindropSuggestionListFields
 import struct Catena.Upload
 import struct Foundation.URL
+import struct Foundation.Date
 import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
 
@@ -49,20 +53,86 @@ extension API: RaindropSpec {
 	}
 	
 	public func createRaindrop(
-		url: URL
+		url: URL,
+		title: String? = nil,
+		itemType: ItemType? = nil,
+		excerpt: String? = nil,
+		coverURL: URL? = nil,
+		order: Int? = nil,
+		collectionID: Collection.ID? = nil,
+		tagNames: [String]? = nil,
+		media: [Media]? = nil,
+		highlightContents: [Highlight.Content]? = nil,
+		isFavorite: Bool? = nil,
+		isBroken: Bool? = nil,
+		creationDate: Date? = nil,
+		updateDate: Date? = nil,
+		shouldParse: Bool = false
 	) async -> Self.Result<RaindropCreationFields> {
 		await post(/.raindrop) {
 			RaindropPayload(
-				url: url
+				url: url,
+				title: title,
+				itemType: itemType,
+				excerpt: excerpt,
+				coverURL: coverURL,
+				order: order,
+				collectionID: collectionID,
+				tagNames: tagNames,
+				media: media,
+				highlightContents: highlightContents,
+				isFavorite: isFavorite,
+				isBroken: isBroken,
+				creationDate: creationDate,
+				updateDate: updateDate,
+				shouldParse: shouldParse
 			)
 		}
 	}
 	
 	public func createRaindrops(
-		data: [URL]
+		data: [
+			(
+				url: URL,
+				title: String?,
+				itemType: ItemType?,
+				excerpt: String?,
+				coverURL: URL?,
+				order: Int?,
+				collectionID: Collection.ID?,
+				tagNames: [String]?,
+				media: [Media]?,
+				highlightContents: [Highlight.Content]?,
+				isFavorite: Bool?,
+				isBroken: Bool?,
+				creationDate: Date?,
+				updateDate: Date?,
+				shouldParse: Bool
+			)
+		]
 	) async -> Self.Result<[RaindropCreationFields]> {
 		await post(/.raindrops) {
-			ListPayload(items: data.map(RaindropPayload.init))
+			ListPayload(
+				items: data.map { item in
+					RaindropPayload(
+						url: item.url,
+						title: item.title,
+						itemType: item.itemType,
+						excerpt: item.excerpt,
+						coverURL: item.coverURL,
+						order: item.order,
+						collectionID: item.collectionID,
+						tagNames: item.tagNames,
+						media: item.media,
+						highlightContents: item.highlightContents,
+						isFavorite: item.isFavorite,
+						isBroken: item.isBroken,
+						creationDate: item.creationDate,
+						updateDate: item.updateDate,
+						shouldParse: item.shouldParse
+					)
+				}
+			)
 		}
 	}
 	
