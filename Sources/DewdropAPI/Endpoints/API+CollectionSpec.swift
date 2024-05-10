@@ -66,9 +66,9 @@ extension API: CollectionSpec {
 			CollectionPayload(
 				title: title,
 				coverURL: coverURL,
-				public: `public`,
 				view: view,
 				sortIndex: sortIndex,
+				public: `public`,
 				expanded: nil,
 				parentID: parentID
 			)
@@ -89,9 +89,9 @@ extension API: CollectionSpec {
 			CollectionPayload(
 				title: title,
 				coverURL: coverURL,
-				public: `public`,
 				view: view,
 				sortIndex: sortIndex,
+				public: `public`,
 				expanded: expanded,
 				parentID: parentID
 			)
