@@ -7,9 +7,9 @@ import protocol Catena.Payload
 struct CollectionPayload {
 	let title: String?
 	let coverURL: URL?
-	let `public`: Bool?
 	let view: Collection.View?
 	let sortIndex: Int?
+	let `public`: Bool?
 	let expanded: Bool?
 	let parentID: Collection.ID?
 }
@@ -19,13 +19,13 @@ extension CollectionPayload: Payload {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
-		try container.encode(title, forKey: .title)
-		try container.encode([coverURL], forKey: .coverURL)
-		try container.encode(`public`, forKey: .public)
-		try container.encode(view, forKey: .view)
-		try container.encode(sortIndex, forKey: .sortIndex)
-		try container.encode(expanded, forKey: .expanded)
-		try container.encode(parentID, forKey: .parentID)
+		try container.encodeIfPresent(title, forKey: .title)
+		try container.encodeIfPresent([coverURL], forKey: .coverURL)
+		try container.encodeIfPresent(view, forKey: .view)
+		try container.encodeIfPresent(sortIndex, forKey: .sortIndex)
+		try container.encodeIfPresent(`public`, forKey: .public)
+		try container.encodeIfPresent(expanded, forKey: .expanded)
+		try container.encodeIfPresent(parentID, forKey: .parentID)
 	}
 }
 
@@ -34,9 +34,9 @@ private extension CollectionPayload {
 	enum CodingKeys: String, CodingKey {
 		case title
 		case coverURL = "cover"
-		case `public` = "isPublic"
 		case view
 		case sortIndex = "sort"
+		case `public` = "isPublic"
 		case expanded
 		case parentID
 	}

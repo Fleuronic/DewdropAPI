@@ -112,27 +112,7 @@ extension API: RaindropSpec {
 		]
 	) async -> Self.Result<[RaindropCreationFields]> {
 		await post(/.raindrops) {
-			ListPayload(
-				items: data.map { item in
-					RaindropPayload(
-						url: item.url,
-						title: item.title,
-						itemType: item.itemType,
-						excerpt: item.excerpt,
-						coverURL: item.coverURL,
-						order: item.order,
-						collectionID: item.collectionID,
-						tagNames: item.tagNames,
-						media: item.media,
-						highlightContents: item.highlightContents,
-						isFavorite: item.isFavorite,
-						isBroken: item.isBroken,
-						creationDate: item.creationDate,
-						updateDate: item.updateDate,
-						shouldParse: item.shouldParse
-					)
-				}
-			)
+			ListPayload(items: data.map(RaindropPayload.init))
 		}
 	}
 	

@@ -16,7 +16,7 @@ struct FilterListParameters: Parameters {
 	}
 }
 
-extension FilterListParameters {
+private extension FilterListParameters {
 	enum CodingKeys: String, CodingKey {
 		case search
 		case tagSort = "tagsSort"
