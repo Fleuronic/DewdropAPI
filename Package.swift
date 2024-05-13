@@ -12,22 +12,29 @@ let package = Package(
 	products: [
 		.library(
 			name: "DewdropAPI",
-			targets: ["DewdropAPI"]
+			targets: [
+				"DewdropAPI",
+				"DewdropRESTAPI"
+			]
 		),
 	],
 	dependencies: [
 		.package(path: "../DewdropService"),
-		.package(url: "https://github.com/Fleuronic/Catena", branch: "main"),
-		.package(url: "https://github.com/davidsteppenbeck/URL", branch: "main"),
+		.package(url: "https://github.com/pawel-sp/AutoCodable", branch: "main"),
+		.package(url: "https://github.com/joshuawright11/papyrus", from: "0.6.0")
 	],
 	targets: [
 		.target(
 			name: "DewdropAPI",
+			dependencies: ["DewdropRESTAPI"]
+		),
+		.target(
+			name: "DewdropRESTAPI",
 			dependencies: [
 				"DewdropService",
-				"Catena",
-				"URL"
+				"AutoCodable",
+				.product(name: "Papyrus", package: "papyrus")
 			]
-		),
+		)
 	]
 )

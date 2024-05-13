@@ -1,22 +1,22 @@
 {
-  "originHash" : "d2ff5a3e393e4c050e45dcc6b1abee307a56bc5d71ce263b35dee40aba13323e",
+  "originHash" : "c7864e6d4fa10c3e8de79bb218b4c145bfeff3182342e6f5aed24fa511f9ab4b",
   "pins" : [
     {
-      "identity" : "catena",
+      "identity" : "alamofire",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/Catena",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "841a8fd852d95018d0cfcf7d15e5dca7f80b8636"
+        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
+        "version" : "5.9.1"
       }
     },
     {
-      "identity" : "dictionarycoder",
+      "identity" : "autocodable",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/almazrafi/DictionaryCoder.git",
+      "location" : "https://github.com/pawel-sp/AutoCodable",
       "state" : {
-        "revision" : "ebcbaeb20ca5f62ed0365fa7f0473e0d480b931e",
-        "version" : "1.2.0"
+        "branch" : "main",
+        "revision" : "bcd4095e190a9e304e24dae2903853a07fe030ef"
       }
     },
     {
@@ -38,12 +38,12 @@
       }
     },
     {
-      "identity" : "swift-multipart-formdata",
+      "identity" : "papyrus",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FelixHerrmann/swift-multipart-formdata.git",
+      "location" : "https://github.com/joshuawright11/papyrus",
       "state" : {
-        "revision" : "c29d55267ddbdd9d37766ac4c66b09a556c0ca57",
-        "version" : "1.3.0"
+        "revision" : "598ae3c2a5cbbdef9e01cd2a0984f7cb2388a6ec",
+        "version" : "0.6.10"
       }
     },
     {
@@ -53,15 +53,6 @@
       "state" : {
         "revision" : "74203046135342e4a4a627476dd6caf8b28fe11b",
         "version" : "509.0.0"
-      }
-    },
-    {
-      "identity" : "url",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/davidsteppenbeck/URL",
-      "state" : {
-        "branch" : "main",
-        "revision" : "93d2526ae69ea35f222f59abfcc4298bf4e370de"
       }
     }
   ],
