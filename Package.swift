@@ -20,7 +20,7 @@ let package = Package(
 	],
 	dependencies: [
 		.package(path: "../DewdropService"),
-		.package(url: "https://github.com/pawel-sp/AutoCodable", branch: "main"),
+		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "conditional"),
 		.package(url: "https://github.com/joshuawright11/papyrus", from: "0.6.0")
 	],
 	targets: [

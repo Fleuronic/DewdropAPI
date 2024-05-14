@@ -1,16 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.FolderFields
-import struct DewdropService.RaindropImportFields
+import AutoCodable
 
+import struct DewdropService.FolderFields
+
+@AutoDecodable(accessControl: .public)
 extension FolderFields: Decodable {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		
-		self = .init(
-			title: try container.decode(String.self, forKey: .title),
-			bookmarks: try container.decode([RaindropImportFields].self, forKey: .bookmarks),
-			folders: try container.decode([FolderFields].self, forKey: .folders)
-		)
+	private enum CodingKeys: String, CodingKey {
+		case title
+		case bookmarks
+		case folders
 	}
 }

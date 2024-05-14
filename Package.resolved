@@ -1,5 +1,5 @@
 {
-  "originHash" : "c7864e6d4fa10c3e8de79bb218b4c145bfeff3182342e6f5aed24fa511f9ab4b",
+  "originHash" : "0d2c37fe2e502b19edb5c59b39edc1a97dcdfad37c48d40ff03c8a8ac0729691",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -13,10 +13,10 @@
     {
       "identity" : "autocodable",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pawel-sp/AutoCodable",
+      "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
-        "branch" : "main",
-        "revision" : "bcd4095e190a9e304e24dae2903853a07fe030ef"
+        "branch" : "conditional",
+        "revision" : "7927b19d2ebf52b6e5c5f65aeb6e8fd0e05b038f"
       }
     },
     {

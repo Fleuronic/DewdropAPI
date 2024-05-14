@@ -19,7 +19,7 @@ extension Raindrop: Decodable {
 			itemType: try container.decode(ItemType.self, forKey: .itemType),
 			excerpt: try container.decode(String.self, forKey: .excerpt).filledValue,
 			domain: try container.decode(String.self, forKey: .domain),
-			coverURL: try container.decode(String.self, forKey: .coverURL).filledValue.flatMap(URL.init),
+			coverURL: try container.decode(String.self, forKey: .coverURL).filledValue.flatMap(URL.init(string:)),
 			media: try container.decode([Media].self, forKey: .media),
 			note: try container.decode(String.self, forKey: .note).filledValue,
 			cache: try container.decodeIfPresent(Cache.self, forKey: .cache),

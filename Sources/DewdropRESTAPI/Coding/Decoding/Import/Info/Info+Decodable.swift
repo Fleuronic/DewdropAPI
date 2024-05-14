@@ -1,21 +1,17 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Dewdrop.ItemType
+import AutoCodable
+
 import struct Dewdrop.Info
-import struct Dewdrop.Media
 import struct Foundation.URL
 
+@AutoDecodable(accessControl: .public)
 extension Info: Decodable {
-	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-
-		self.init(
-			title: try container.decode(String.self, forKey: .title),
-			itemType: try container.decode(ItemType.self, forKey: .itemType),
-			excerpt: try container.decode(String.self, forKey: .excerpt).filledValue,
-			coverURL: try container.decode(String.self, forKey: .coverURL).filledValue.flatMap(URL.init),
-			media: try container.decode([Media].self, forKey: .media)
-		)
+	private enum CodingKeys: String, CodingKey {
+		case title
+		case itemType = "type"
+		@DecodedValue(Filled<String>.self) case excerpt
+		@DecodedValue(Filled<URL>.self) case coverURL = "cover"
+		case media
 	}
 }
