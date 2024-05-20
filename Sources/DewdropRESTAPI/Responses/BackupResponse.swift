@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Foundation.Data
-import struct DewdropService.BackupListFields
+import struct DewdropService.BackupCreationDateFields
 import protocol Identity.Identifiable
 
-public typealias Backups = ListResponse<BackupListFields>
+public typealias BackupsResponse = ListResponse<BackupCreationDateFields>
 public typealias BackupFile = Data

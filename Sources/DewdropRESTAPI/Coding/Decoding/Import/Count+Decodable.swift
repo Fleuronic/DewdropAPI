@@ -2,13 +2,14 @@
 
 import AutoCodable
 
-import struct DewdropService.FolderFields
+import enum Dewdrop.Import
 
 @AutoDecodable(accessControl: .public)
-extension FolderFields: Decodable {
+extension Import.Count: Decodable {
 	private enum CodingKeys: String, CodingKey {
-		case title
 		case bookmarks
 		case folders
+		case tags
+		case highlights
 	}
 }

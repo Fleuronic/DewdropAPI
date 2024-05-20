@@ -1,11 +1,12 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Filter
 
+@AutoDecodable(accessControl: .public)
 extension Filter: Decodable {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		
-		self = .init(count: try container.decode(Int.self, forKey: .count))
+	private enum CodingKeys: String, CodingKey {
+		case count
 	}
 }

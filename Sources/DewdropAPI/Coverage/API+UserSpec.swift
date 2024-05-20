@@ -2,31 +2,38 @@
 
 //import Catena
 //
-//import struct Dewdrop.User
+import struct Dewdrop.User
 //import struct Dewdrop.Group
 //import struct Dewdrop.Collection
-//import struct Dewdrop.Network
+import struct Dewdrop.Network
 //import struct DewdropService.UserAuthenticatedFields
-//import struct DewdropService.UserDetailsFields
+import struct DewdropService.UserDetailsFields
 //import struct Foundation.URL
-//import protocol DewdropService.UserSpec
+import protocol DewdropService.UserSpec
+import protocol Catena.Scoped
 //
-//extension API: UserSpec {
+extension API: UserSpec {
 //	public func fetchUserAuthenticatedDetails() async -> Self.Result<UserAuthenticatedFields> {
 //		await get(/.user)
 //	}
-//
-//	public func fetchUserDetails(with id: User.ID) async -> Self.Result<UserDetailsFields> {
-//		await get(/.user, /id)
-//	}
-//	
-//	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> Self.Result<URL> {
-//		await get(/.user, /.connect, /provider)
-//	}
-//	
-//	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> Self.Result<Void> {
-//		await get(/.user, /.connect, /provider, /.revoke)
-//	}
+
+	public func fetchUserDetails(with id: User.ID) async -> Self.Result<UserDetailsFields> {
+		await result {
+			try await users.getUserByName(name: id).user
+		}
+	}
+	
+	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> Self.Result<Void> {
+		await result { 
+			try await users.connectSocialNetworkAccount(provider: provider)
+		}
+	}
+	
+	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> Self.Result<Void> {
+		await result { 
+			try await users.disconnectSocialNetworkAccount(provider: provider)
+		}
+	}
 //	
 //	public func updateUser(
 //		email: String? = nil,
@@ -54,13 +61,4 @@
 //			)
 //		}
 //	}
-//}
-//
-//// MARK: -
-//private enum PathComponents: String, PathComponent {
-//	case user
-//	case connect
-//	case revoke
-//}
-//
-//private prefix func /(component: PathComponents) -> PathComponent { component }
+}

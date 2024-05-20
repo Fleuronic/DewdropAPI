@@ -1,11 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Raindrop
-import struct DewdropService.IDFields
-import struct DewdropService.InfoFields
-import struct DewdropService.FolderFields
+import struct DewdropService.InfoParseFields
+import struct DewdropService.ImportFolderAndCountFields
 import protocol Identity.Identifiable
 
-public typealias InfoResponse = ItemResponse<InfoFields>
-public typealias ImportResponse = ListResponse<FolderFields>
+public typealias InfoResponse = ItemResponse<InfoParseFields>
+public typealias ImportResponse = ImportFolderAndCountFields
 public typealias RaindropIDListResponse = IDListResponse<Raindrop.Identified>

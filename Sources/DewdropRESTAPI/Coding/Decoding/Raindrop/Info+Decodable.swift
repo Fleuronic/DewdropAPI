@@ -2,11 +2,11 @@
 
 import AutoCodable
 
-import struct Dewdrop.Info
+import struct Dewdrop.Raindrop
 import struct Foundation.URL
 
 @AutoDecodable(accessControl: .public)
-extension Info: Decodable {
+extension Raindrop.Info: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
 		case itemType = "type"

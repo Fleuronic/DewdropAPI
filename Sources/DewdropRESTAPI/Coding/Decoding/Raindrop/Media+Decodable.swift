@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Media
 import struct Foundation.URL
 
+@AutoDecodable(accessControl: .public)
 extension Media: Decodable {
-	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-
-		self.init(url: try container.decode(URL.self, forKey: .url))
+	private enum CodingKeys: String, CodingKey {
+		case url
 	}
 }

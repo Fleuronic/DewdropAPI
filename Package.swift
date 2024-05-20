@@ -20,13 +20,17 @@ let package = Package(
 	],
 	dependencies: [
 		.package(path: "../DewdropService"),
+		.package(path: "../../../Catena"),
 		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "conditional"),
-		.package(url: "https://github.com/joshuawright11/papyrus", from: "0.6.0")
+		.package(path: "../../../papyrus")
 	],
 	targets: [
 		.target(
 			name: "DewdropAPI",
-			dependencies: ["DewdropRESTAPI"]
+			dependencies: [
+				"DewdropRESTAPI",
+				"Catena"
+			]
 		),
 		.target(
 			name: "DewdropRESTAPI",

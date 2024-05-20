@@ -2,12 +2,15 @@
 
 import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
-import struct DewdropService.BackupListFields
+import struct DewdropService.BackupCreationDateFields
 import struct PapyrusCore.PapyrusError
 import struct Foundation.Data
 import protocol DewdropService.BackupSpec
+import protocol Catena.Scoped
 
 extension API: BackupSpec {
+	public typealias BackupListFields = BackupCreationDateFields
+	
 	public func listBackups() async -> Result<[BackupListFields]> {
 		await result { 
 			try await backups.getAll().items 

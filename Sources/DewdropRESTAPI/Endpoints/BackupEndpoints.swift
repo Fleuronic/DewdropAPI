@@ -9,11 +9,11 @@ import struct DewdropService.IdentifiedBackup
 @API @JSON(decoder: .dewdrop)
 public protocol BackupEndpoints {
 	@GET("/backups")
-	func getAll() async throws -> Backups
+	func getAll() async throws -> BackupsResponse
 	
 	@GET("/backup")
 	func generateNew() async throws -> String
 
-	@GET("/backup/:id/:format/")
+	@GET("/backup/{id}/{format}")
 	func downloadFile(id: Backup.ID, format: FileFormat) async throws -> BackupFile
 }

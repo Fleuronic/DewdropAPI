@@ -1,13 +1,12 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Media
-import struct Foundation.URL
 
+@AutoEncodable(accessControl: .public)
 extension Media: Encodable {
-	// MARK: Encodable
-	public func encode(to encoder: Encoder) throws {
-		var container = encoder.container(keyedBy: CodingKeys.self)
-
-		try container.encode(url, forKey: .url)
+	private enum CodingKeys: String, CodingKey {
+		case url
 	}
 }
