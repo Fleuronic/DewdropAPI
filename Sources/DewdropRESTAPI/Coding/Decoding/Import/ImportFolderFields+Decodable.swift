@@ -2,13 +2,11 @@
 
 import AutoCodable
 
-import struct DewdropService.ImportFolderAndCountFields
-import struct DewdropService.FolderImportFields
+import struct DewdropService.ImportFolderFields
 
 @AutoDecodable(accessControl: .public)
-extension ImportFolderAndCountFields: Decodable {
+extension ImportFolderFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case folders = "items"
-		@Conditional case count
 	}
 }
