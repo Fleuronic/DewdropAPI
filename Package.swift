@@ -22,7 +22,8 @@ let package = Package(
 		.package(path: "../DewdropService"),
 		.package(path: "../../../Catena"),
 		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "conditional"),
-		.package(path: "../../../papyrus")
+//		.package(path: "../../../papyrus")
+		.package(url: "https://github.com/Fleuronic/papyrus", branch: "main")
 	],
 	targets: [
 		.target(
