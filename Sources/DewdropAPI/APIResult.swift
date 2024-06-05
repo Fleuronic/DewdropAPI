@@ -2,6 +2,7 @@
 
 import enum Catena.Error
 import protocol Catena.Fields
+import protocol Catena.UndocumentedFields
 
 public extension API {
 	typealias Result<Response> = Swift.Result<Response, Catena.Error<APIError>>
@@ -11,19 +12,26 @@ public extension API {
 extension API {
 	func result<Response>(request: @escaping () async throws -> Response) async -> Result<Response> {
 		do {
-			return .success(try await request())
+			let response = try await request()
+			return .success(response)
 		} catch {
 			return .failure(.init(error))
 		}
 	}
 	
-	func result<Response: Fields, UndocumentedResponse: Fields>(
-		undocumentedKeys: PartialKeyPath<UndocumentedResponse>...,
+	func result<Response: UndocumentedFields, UndocumentedResponse: UndocumentedFields>(
 		transform: (UndocumentedResponse) -> Response,
 		request: @escaping () async throws -> UndocumentedResponse
 	) async -> Result<Response> {
 		do {
-			return .success(transform(try await request()))
+			let response = try await transform(request())
+			try response.undocumentedFields.first { $1 }.map { field, _ in
+				throw APIError.undocumented(
+					fieldName: .init(describing: field).components(separatedBy: ".").last!,
+					fields: Response.self
+				)
+			}
+			return .success(response)
 		} catch {
 			return .failure(.init(error))
 		}

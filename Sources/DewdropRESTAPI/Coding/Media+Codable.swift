@@ -6,8 +6,9 @@ import struct Dewdrop.Media
 import struct Foundation.URL
 
 @AutoDecodable(accessControl: .public)
-extension Media: Decodable {
+@AutoEncodable(accessControl: .public)
+extension Media: Codable {
 	private enum CodingKeys: String, CodingKey {
-		case url
+		case url = "link"
 	}
 }

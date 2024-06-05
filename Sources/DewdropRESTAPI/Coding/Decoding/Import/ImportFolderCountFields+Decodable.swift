@@ -3,7 +3,7 @@
 import struct DewdropService.ImportFolderCountFields
 
 extension ImportFolderCountFields: Decodable {
-	private enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case count
 	}
 
@@ -11,8 +11,8 @@ extension ImportFolderCountFields: Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self = .init(
-			count: try container.decode(for: .count),
-			folderFields: try .init(from: decoder)
+			folderFields: try .init(from: decoder),
+			count: try container.decodeIfPresent(for: .count).undocumented
 		)
 	}
 }

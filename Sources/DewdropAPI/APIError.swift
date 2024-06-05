@@ -12,12 +12,12 @@ public struct APIError: Swift.Error {
 
 // MARK: -
 extension APIError {
-	static func undocumented<Fields: Catena.Fields>(
-		field: String,
-		fields: Fields.Type
+	static func undocumented(
+		fieldName: String,
+		fields: (some Fields).Type
 	) -> Catena.Error<Self> {
 		.undocumented(message: """
-			The `\(field)` field is undocumented and may have been removed. Please use a DewdropAPI instance without passing `\(fields)`.
+			The `\(fieldName)` field is undocumented and may have been removed. Please use a DewdropAPI instance without passing `\(fields)`.
 			"""
 		)
 	}

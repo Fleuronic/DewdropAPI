@@ -1,7 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import DewdropRESTAPI
+
 import struct Dewdrop.Raindrop
 import struct DewdropService.InfoParseFields
+import struct DewdropService.ImportFolderCountFields
 import struct DewdropService.IDListFields
 import struct Foundation.URL
 import protocol DewdropService.ImportSpec
@@ -15,10 +18,7 @@ extension API: ImportSpec {
 	}
 
 	public func importFile(at url: URL, withName filename: String) async -> Result<FileImportFields> {
-		await result(
-			undocumentedKeys: \.count,
-			transform: FileImportFields.init
-		) {
+		await result(transform: FileImportFields.init) {
 			try await `import`.parseHTMLImportFile(
 				file: .init(
 					data: try .init(contentsOf: url),

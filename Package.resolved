@@ -2,15 +2,6 @@
   "originHash" : "8a0bd7c3cbe249bfe2d24f448a623e973032bb7cfbb60379d23c51a7bd200c80",
   "pins" : [
     {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire.git",
-      "state" : {
-        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
-        "version" : "5.9.1"
-      }
-    },
-    {
       "identity" : "autocodable",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Fleuronic/AutoCodable",
