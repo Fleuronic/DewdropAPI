@@ -1,15 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.User
 import struct DewdropService.UserNameFields
 
+@AutoDecodable(accessControl: .public)
 extension UserNameFields: Decodable {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-
-		self = .init(
-			id: try container.decode(User.ID.self, forKey: .id),
-			name: try container.decode(String.self, forKey: .name)
-		)
+	private enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case name
 	}
 }

@@ -13,7 +13,7 @@ extension ConfigFields: Decodable {
 
 		self = .init(
 			config: try .init(from: decoder),
-			lastViewedCollectionID: try container.decode(Collection.ID.self, forKey: .lastViewedCollectionID)
+			lastViewedCollectionID: try container.decode(for: .lastViewedCollectionID)
 		)
 	}
 }

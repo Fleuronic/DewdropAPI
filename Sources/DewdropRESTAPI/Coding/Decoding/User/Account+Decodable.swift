@@ -6,23 +6,37 @@ import struct Dewdrop.FileStorage
 import struct Foundation.Date
 
 extension Account: Decodable {
+	private enum CodingKeys: String, CodingKey {
+		case email
+		case hasPassword = "password"
+		case fileStorage = "files"
+		case registrationDate = "registered"
+		case proSubscriptionExpirationDate = "proExpire"
+		case facebook
+		case twitter
+		case vkontakte
+		case google
+		case dropbox
+		case gdrive
+	}
+
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self.init(
 			user: try .init(from: decoder),
-			email: try container.decode(String.self, forKey: .email),
-			hasPassword: try container.decode(Bool.self, forKey: .hasPassword),
-			fileStorage: try container.decode(FileStorage.self, forKey: .fileStorage),
-			registrationDate: try container.decode(Date.self, forKey: .registrationDate),
-			proSubscriptionExpirationDate: try container.decodeIfPresent(Date.self, forKey: .proSubscriptionExpirationDate),
-			facebook: try container.decodeIfPresent(Network.self, forKey: .facebook),
-			twitter: try container.decodeIfPresent(Network.self, forKey: .twitter),
-			vkontakte: try container.decodeIfPresent(Network.self, forKey: .vkontakte),
-			google: try container.decodeIfPresent(Network.self, forKey: .google),
-			dropbox: try container.decodeIfPresent(Network.self, forKey: .dropbox),
-			gdrive: try container.decodeIfPresent(Network.self, forKey: .gdrive)
+			email: try container.decode(for: .email),
+			hasPassword: try container.decode(for: .hasPassword),
+			fileStorage: try container.decode(for: .fileStorage),
+			registrationDate: try container.decode(for: .registrationDate),
+			proSubscriptionExpirationDate: try container.decodeIfPresent(for: .proSubscriptionExpirationDate),
+			facebook: try container.decodeIfPresent(for: .facebook),
+			twitter: try container.decodeIfPresent(for: .twitter),
+			vkontakte: try container.decodeIfPresent(for: .vkontakte),
+			google: try container.decodeIfPresent(for: .google),
+			dropbox: try container.decodeIfPresent(for: .dropbox),
+			gdrive: try container.decodeIfPresent(for: .gdrive)
 		)
 	}
 }
