@@ -19,15 +19,14 @@ let package = Package(
 		),
 	],
 	dependencies: [
-		.package(path: "../DewdropService"),
+		.package(url: "https://github.com/Fleuronic/DewdropService", branch: "main"),
 		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "conditional"),
 		.package(url: "https://github.com/Fleuronic/papyrus", branch: "optional-path-parameters")
 	],
 	targets: [
 		.target(
 			name: "DewdropAPI",
-			dependencies: ["DewdropRESTAPI",
-			]
+			dependencies: ["DewdropRESTAPI"]
 		),
 		.target(
 			name: "DewdropRESTAPI",
