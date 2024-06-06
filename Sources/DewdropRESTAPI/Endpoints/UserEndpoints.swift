@@ -8,6 +8,9 @@ import struct DewdropService.IdentifiedUser
 
 @API @JSON(decoder: .dewdrop)
 public protocol UserEndpoints {
+	@GET("/user")
+	func getUser() async throws -> UserAuthenticatedDetailsResponse
+
 	@GET("/user/{name}")
 	func getUserByName(name: User.ID) async throws -> UserPublicDetailsResponse
 

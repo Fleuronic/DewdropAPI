@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.UserAuthenticatedFields
+import struct DewdropService.UserAuthenticatedDetailsFields
 
-extension UserAuthenticatedFields {
+extension UserAuthenticatedDetailsFields {
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case config

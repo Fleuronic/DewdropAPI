@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.User
-import struct DewdropService.UserDetailsFields
-import struct DewdropService.UserAuthenticatedFields
+import struct DewdropService.UserPublicDetailsFields
+import struct DewdropService.UserAuthenticatedDetailsFields
 import protocol DewdropService.UserFields
 import protocol Identity.Identifiable
 
-// public typealias UserAuthenticatedDetailsResponse = UserResponse<UserAuthenticatedFields>
-public typealias UserPublicDetailsResponse = UserResponse<UserDetailsFields>
+public typealias UserPublicDetailsResponse = UserResponse<UserPublicDetailsFields>
+public typealias UserAuthenticatedDetailsResponse = UserResponse<UserAuthenticatedDetailsFields>
 
 // MARK: -
 public struct UserResponse<Fields: UserFields & Decodable> {

@@ -1,23 +1,20 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-//import Catena
-//
 import struct Dewdrop.User
-//import struct Dewdrop.Group
-//import struct Dewdrop.Collection
 import struct Dewdrop.Network
-//import struct DewdropService.UserAuthenticatedFields
-import struct DewdropService.UserDetailsFields
-//import struct Foundation.URL
+import struct DewdropService.UserAuthenticatedDetailsFields
+import struct DewdropService.UserPublicDetailsFields
 import protocol DewdropService.UserSpec
 import protocol Catena.Scoped
-//
-extension API: UserSpec {
-//	public func fetchUserAuthenticatedDetails() async -> Self.Result<UserAuthenticatedFields> {
-//		await get(/.user)
-//	}
 
-	public func fetchUserDetails(with id: User.ID) async -> Self.Result<UserDetailsFields> {
+extension API: UserSpec {
+	public func fetchUserAuthenticatedDetails() async -> Self.Result<UserAuthenticatedDetailsFields> {
+		await result {
+			try await users.getUser().user
+		}
+	}
+
+	public func fetchUserPublicDetails(with id: User.ID) async -> Self.Result<UserPublicDetailsFields> {
 		await result {
 			try await users.getUserByName(name: id).user
 		}
@@ -42,7 +39,7 @@ extension API: UserSpec {
 //		newPassword: String? = nil,
 //		config: User.Config? = nil,
 //		groups: [(Group, [Collection.ID])]? = nil
-//	) async -> Self.Result<UserAuthenticatedFields> {
+//	) async -> Self.Result<UserAuthenticatedDetailsFields> {
 //		await put(/.user) {
 //			UserUpdatePayload(
 //				email: email,

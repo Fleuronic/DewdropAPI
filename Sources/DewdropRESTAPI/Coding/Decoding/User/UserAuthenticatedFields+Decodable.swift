@@ -4,9 +4,9 @@ import struct Dewdrop.User
 import struct Dewdrop.Account
 import struct DewdropService.ConfigFields
 import struct DewdropService.GroupFields
-import struct DewdropService.UserAuthenticatedFields
+import struct DewdropService.UserAuthenticatedDetailsFields
 
-extension UserAuthenticatedFields: Decodable {
+extension UserAuthenticatedDetailsFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

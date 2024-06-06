@@ -20,11 +20,14 @@ extension Raindrop.Sort: Decodable {
 
 private extension Raindrop.Sort.Criterion {
 	init?(string value: String) {
-		switch value {
-		case "title": self = .title
-		case "domain": self = .domain
-		case "created": self = .creationDate
-		default: return nil
+		if value.hasSuffix("title") {
+			self = .title
+		} else if value.hasSuffix("domain") {
+			self = .domain
+		} else if value.hasSuffix("created") {
+			self = .creationDate
+		} else {
+			return nil
 		}
 	}
 }

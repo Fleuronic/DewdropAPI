@@ -4,6 +4,10 @@ import struct Dewdrop.Collection
 import struct DewdropService.ConfigFields
 
 extension ConfigFields: Decodable {
+	enum CodingKeys: String, CodingKey {
+		case lastViewedCollectionID = "lastCollection"
+	}
+
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
