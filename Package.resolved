@@ -1,5 +1,5 @@
 {
-  "originHash" : "8a0bd7c3cbe249bfe2d24f448a623e973032bb7cfbb60379d23c51a7bd200c80",
+  "originHash" : "4cefa765c8647543da724936ff5d0e37bc341d21fa11106fcf9d07146b459e01",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -7,7 +7,16 @@
       "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
         "branch" : "conditional",
-        "revision" : "7927b19d2ebf52b6e5c5f65aeb6e8fd0e05b038f"
+        "revision" : "9d49a4f0e7e09bb15f8199cdc9141788547dfe43"
+      }
+    },
+    {
+      "identity" : "catena",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Fleuronic/Catena",
+      "state" : {
+        "branch" : "main",
+        "revision" : "30e1abce5d551c102777eb8e24e74870a363273c"
       }
     },
     {
@@ -22,10 +31,19 @@
     {
       "identity" : "initmacro",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/LeonardoCardoso/InitMacro.git",
+      "location" : "https://github.com/Fleuronic/InitMacro.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "41beaa5cc3f8884385df6d0acf49f79821ab2496"
+        "branch" : "update-swift-syntax",
+        "revision" : "d7010e57d835c41bd75fcb6a7553f3faad9384f0"
+      }
+    },
+    {
+      "identity" : "papyrus",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Fleuronic/papyrus",
+      "state" : {
+        "branch" : "optional-path-parameters",
+        "revision" : "e741e95dc10b58d1fefbf041079ccdf9a03c0f19"
       }
     },
     {
@@ -33,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-syntax",
       "state" : {
-        "revision" : "74203046135342e4a4a627476dd6caf8b28fe11b",
-        "version" : "509.0.0"
+        "revision" : "08a2f0a9a30e0f705f79c9cfaca1f68b71bdc775",
+        "version" : "510.0.0"
       }
     }
   ],
