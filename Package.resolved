@@ -1,5 +1,5 @@
 {
-  "originHash" : "4cefa765c8647543da724936ff5d0e37bc341d21fa11106fcf9d07146b459e01",
+  "originHash" : "65a8f71f26ba35451647f8dfc043c6b59fdd1fa705cbe70504be89faeb9012a2",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -17,6 +17,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "30e1abce5d551c102777eb8e24e74870a363273c"
+      }
+    },
+    {
+      "identity" : "dewdrop",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Fleuronic/Dewdrop",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1717e732aaadec6b37494f829c729b6d9dc93851"
       }
     },
     {
