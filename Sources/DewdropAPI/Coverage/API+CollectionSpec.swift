@@ -6,7 +6,7 @@
 //import struct Dewdrop.Collaborator
 //import struct Dewdrop.User
 //import struct DewdropService.CollectionFields
-//import struct DewdropService.CollectionDetailsFields
+import struct DewdropService.CollectionDetailsFields
 //import struct DewdropService.CollectionCountFields
 //import struct DewdropService.CollectionMergeFields
 //import struct DewdropService.CountFields
@@ -15,16 +15,21 @@
 //import struct DewdropService.CollaboratorRoleFields
 //import struct DewdropService.CoverFields
 //import struct Foundation.URL
-//import protocol DewdropService.CollectionSpec
+import protocol DewdropService.CollectionSpec
 //
-//extension API: CollectionSpec {
-//	public func listRootCollections() async -> Self.Result<[CollectionFields]> {
-//		await get(/.collections)
-//	}
-//
-//	public func listChildCollections() async -> Self.Result<[CollectionFields]> {
-//		await get(/.collections, /.children)
-//	}
+extension API: CollectionSpec {
+	public func listRootCollections() async -> Self.Result<[CollectionDetailsFields]> {
+		await result { 
+			try await collections.getRootCollections().items
+		}
+	}
+
+	public func listChildCollections() async -> Self.Result<[CollectionDetailsFields]> {
+		fatalError()
+		// await result { 
+		// try await collections.getRootCollections().items
+		// }
+	}
 //
 //	public func listSystemCollections() async -> Self.Result<[CollectionCountFields]> {
 //		await get(/.import, /.url, /.parse)
@@ -167,22 +172,4 @@
 //			CollaboratorUpdatePayload(role: role)
 //		}
 //	}
-//}
-//
-//// MARK: -
-//private enum PathComponents: String, PathComponent {
-//	case collection
-//	case collections
-//	case children = "childrens"
-//	case `import`
-//	case url
-//	case cover
-//	case covers
-//	case parse
-//	case sharing
-//	case clean
-//	case join
-//	case merge
-//}
-//
-//private prefix func /(component: PathComponents) -> PathComponent { component }
+}
