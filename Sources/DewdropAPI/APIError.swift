@@ -5,7 +5,7 @@ import class Foundation.JSONDecoder
 import protocol PapyrusCore.Response
 import protocol Catena.Fields
 
-public struct APIError: Swift.Error {
+public struct APIError: Swift.Error, Equatable {
 	public let statusCode: Int
 	public let message: String
 }
