@@ -25,10 +25,9 @@ extension API: CollectionSpec {
 	}
 
 	public func listChildCollections() async -> Self.Result<[CollectionDetailsFields]> {
-		fatalError()
-		// await result { 
-		// try await collections.getRootCollections().items
-		// }
+		await result {
+			try await collections.getChildCollections().items
+		}
 	}
 //
 //	public func listSystemCollections() async -> Self.Result<[CollectionCountFields]> {

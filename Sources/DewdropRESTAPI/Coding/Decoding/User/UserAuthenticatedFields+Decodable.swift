@@ -17,11 +17,11 @@ extension UserAuthenticatedDetailsFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
-		self = .init(
-			id: try container.decode(for: .id),
-			config: try container.decode(for: .config),
-			groups: try container.decode(for: .groups),
-			account: try .init(from: decoder)
+		try self.init(
+			id: container.decode(for: .id),
+			config: container.decode(for: .config),
+			groups: container.decode(for: .groups),
+			account: .init(from: decoder)
 		)
 	}
 }

@@ -10,4 +10,7 @@ import struct DewdropService.IdentifiedUser
 public protocol CollectionEndpoints {
 	@GET("/collections")
 	func getRootCollections() async throws -> CollectionsResponse
+
+	@GET("/collections/childrens")
+	func getChildCollections() async throws -> CollectionsResponse
 }

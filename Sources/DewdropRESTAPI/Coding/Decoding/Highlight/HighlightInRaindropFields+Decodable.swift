@@ -10,8 +10,8 @@ extension HighlightInRaindropFields: Decodable {
 		let container = try decoder.container(keyedBy: IDFields<Highlight.Identified>.CodingKeys.self)
 		let highlight = try Highlight(from: decoder)
 		
-		self = .init(
-			id: try container.decode(Highlight.ID.self, forKey: .id),
+		try self.init(
+			id: container.decode(Highlight.ID.self, forKey: .id),
 			text: highlight.content.text,
 			color: highlight.content.color,
 			note: highlight.content.note,

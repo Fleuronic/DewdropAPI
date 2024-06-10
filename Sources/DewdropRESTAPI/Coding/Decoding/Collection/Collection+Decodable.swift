@@ -5,23 +5,38 @@ import struct Foundation.URL
 import struct Foundation.Date
 
 extension Collection: Decodable {
+	private enum CodingKeys: String, CodingKey {
+		case title
+		case count
+		case coverURL = "cover"
+		case colorString = "color"
+		case view
+		case access
+		case sortIndex = "sort"
+		case isPublic = "public"
+		case isShared = "collaborators"
+		case isExpanded = "expanded"
+		case creationDate = "created"
+		case updateDate = "lastUpdate"
+	}
+
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
-		self.init(
-			title: try container.decode(String.self, forKey: .title),
-			count: try container.decode(Int.self, forKey: .count),
-			coverURL: try container.decode([URL].self, forKey: .coverURL).first,
-			colorString: try container.decodeIfPresent(String.self, forKey: .colorString),
-			view: try container.decode(View.self, forKey: .view),
-			access: try container.decode(Access.self, forKey: .access),
-			sortIndex: try container.decode(Int.self, forKey: .sortIndex),
-			isPublic: try container.decode(Bool.self, forKey: .isPublic),
+		try self.init(
+			title: container.decode(for: .title),
+			count: container.decode(for: .count),
+			coverURL: container.decode([URL].self, forKey: .coverURL).first,
+			colorString: container.decodeIfPresent(for: .colorString),
+			view: container.decode(for: .view),
+			access: container.decode(for: .access),
+			sortIndex: container.decodeIfPresent(for: .sortIndex),
+			isPublic: container.decode(for: .isPublic),
 			isShared: container.contains(.isShared),
-			isExpanded: try container.decode(Bool.self, forKey: .isExpanded),
-			creationDate: try container.decode(Date.self, forKey: .creationDate),
-			updateDate: try container.decode(Date.self, forKey: .updateDate)
+			isExpanded: container.decode(for: .isExpanded),
+			creationDate: container.decode(for: .creationDate),
+			updateDate: container.decode(for: .updateDate)
 		)
 	}
 }

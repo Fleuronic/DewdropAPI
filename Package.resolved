@@ -20,15 +20,6 @@
       }
     },
     {
-      "identity" : "dewdrop",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/Dewdrop",
-      "state" : {
-        "branch" : "main",
-        "revision" : "1717e732aaadec6b37494f829c729b6d9dc93851"
-      }
-    },
-    {
       "identity" : "identity",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/JohnSundell/Identity",

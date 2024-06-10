@@ -12,9 +12,9 @@ extension ModelFields: Decodable where Model: Decodable, ID: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		self = .init(
-			id: try container.decode(for: .id),
-			model: try .init(from: decoder)
+		try self.init(
+			id: container.decode(for: .id),
+			model: .init(from: decoder)
 		)
 	}
 }

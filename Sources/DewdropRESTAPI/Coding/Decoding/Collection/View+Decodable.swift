@@ -1,19 +1,15 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Collection
 
+@AutoDecodable(accessControl: .public, container: .singleValueForEnum)
 extension Collection.View: Decodable {
-	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.singleValueContainer()
-		let value = try container.decode(String.self)
-
-		self = switch value {
-		case "list": .list
-		case "simple": .simple
-		case "grid": .grid
-		case "masonry": .masonry
-		default: throw DecodingError.dataCorruptedError(in: container, debugDescription: .init())
-		}
+	private enum CodingKeys: String, CodingKey {
+		case list
+		case simple
+		case grid
+		case masonry
 	}
 }

@@ -11,7 +11,7 @@ extension Cache: Decodable {
 		self.init(
 			status: try container.decode(Status.self, forKey: .status),
 			size: try container.decodeIfPresent(Int.self, forKey: .size),
-			creationDate: try! container.decodeIfPresent(Date.self, forKey: .creationDate)
+			creationDate: try container.decodeIfPresent(Date.self, forKey: .creationDate)
 		)
 	}
 }

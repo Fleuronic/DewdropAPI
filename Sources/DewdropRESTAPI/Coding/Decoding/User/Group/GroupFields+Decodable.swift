@@ -5,7 +5,6 @@ import struct DewdropService.GroupFields
 
 extension GroupFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
-		case group
 		case collections		
 	}
 
@@ -13,9 +12,9 @@ extension GroupFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
-		self = .init(
-			group: try .init(from: decoder),
-			collectionIDs: try container.decode(for: .collections)
+		try self.init(
+			group: .init(from: decoder),
+			collectionIDs: container.decode(for: .collections)
 		)
 	}
 }

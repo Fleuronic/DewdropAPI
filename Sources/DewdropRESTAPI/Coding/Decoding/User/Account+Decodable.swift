@@ -24,19 +24,19 @@ extension Account: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		self.init(
-			user: try .init(from: decoder),
-			email: try container.decode(for: .email),
-			hasPassword: try container.decode(for: .hasPassword),
-			fileStorage: try container.decode(for: .fileStorage),
-			registrationDate: try container.decode(for: .registrationDate),
-			proSubscriptionExpirationDate: try container.decodeIfPresent(for: .proSubscriptionExpirationDate),
-			facebook: try container.decodeIfPresent(for: .facebook),
-			twitter: try container.decodeIfPresent(for: .twitter),
-			vkontakte: try container.decodeIfPresent(for: .vkontakte),
-			google: try container.decodeIfPresent(for: .google),
-			dropbox: try container.decodeIfPresent(for: .dropbox),
-			gdrive: try container.decodeIfPresent(for: .gdrive)
+		try self.init(
+			user: .init(from: decoder),
+			email: container.decode(for: .email),
+			hasPassword: container.decode(for: .hasPassword),
+			fileStorage: container.decode(for: .fileStorage),
+			registrationDate: container.decode(for: .registrationDate),
+			proSubscriptionExpirationDate: container.decodeIfPresent(for: .proSubscriptionExpirationDate),
+			facebook: container.decodeIfPresent(for: .facebook),
+			twitter: container.decodeIfPresent(for: .twitter),
+			vkontakte: container.decodeIfPresent(for: .vkontakte),
+			google: container.decodeIfPresent(for: .google),
+			dropbox: container.decodeIfPresent(for: .dropbox),
+			gdrive: container.decodeIfPresent(for: .gdrive)
 		)
 	}
 }

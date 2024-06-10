@@ -15,11 +15,11 @@ extension CollectionDetailsFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
-		self = .init(
-			id: try container.decode(for: .id),
-			owner: try container.decode(for: .owner),
-			parent: try container.decodeIfPresent(for: .parent),
-			collection: try .init(from: decoder)
+		try self.init(
+			id: container.decode(for: .id),
+			owner: container.decode(for: .owner),
+			parent: container.decodeIfPresent(for: .parent),
+			collection: .init(from: decoder)
 		)
 	}
 }

@@ -10,10 +10,10 @@ extension HighlightFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		self = .init(
-			id: try container.decode(Highlight.ID.self, forKey: .id),
-			raindropID: try container.decode(Raindrop.ID.self, forKey: .raindropID),
-			highlight: try .init(from: decoder)
+		try self.init(
+			id: container.decode(Highlight.ID.self, forKey: .id),
+			raindropID: container.decode(Raindrop.ID.self, forKey: .raindropID),
+			highlight: .init(from: decoder)
 		)
 	}
 }

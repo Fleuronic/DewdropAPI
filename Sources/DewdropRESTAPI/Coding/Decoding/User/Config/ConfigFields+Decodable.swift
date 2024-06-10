@@ -11,9 +11,9 @@ extension ConfigFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		self = .init(
-			config: try .init(from: decoder),
-			lastViewedCollectionID: try container.decode(for: .lastViewedCollectionID)
+		try self.init(
+			config: .init(from: decoder),
+			lastViewedCollectionID: container.decode(for: .lastViewedCollectionID)
 		)
 	}
 }

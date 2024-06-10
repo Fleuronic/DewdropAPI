@@ -1,15 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Collection
 
+@AutoDecodable(accessControl: .public)
 extension Collection.Access: Decodable {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-
-		self = .init(
-			level: try container.decode(Level.self, forKey: .level),
-			isDraggable: try container.decode(Bool.self, forKey: .isDraggable)
-		)
+	private enum CodingKeys: String, CodingKey {
+		case level
+		case isDraggable = "draggable"
 	}
 }
 

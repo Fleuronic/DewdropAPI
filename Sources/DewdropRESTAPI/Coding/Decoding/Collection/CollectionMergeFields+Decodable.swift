@@ -1,15 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Collection
 import struct DewdropService.CollectionMergeFields
 
+@AutoDecodable(accessControl: .public)
 extension CollectionMergeFields: Decodable {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-
-		self = .init(
-			ids: try container.decode([Collection.ID].self, forKey: .ids),
-			modifiedCount: try container.decode(Int.self, forKey: .modifiedCount)
-		)
+	enum CodingKeys: String, CodingKey {
+		case ids
+		case modifiedCount = "modified"
 	}
 }
