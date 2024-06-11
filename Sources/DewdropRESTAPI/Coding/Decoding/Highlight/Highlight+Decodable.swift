@@ -15,8 +15,7 @@ extension Highlight: Decodable {
 				color: container.decodeIfPresent(Highlight.Color.self, forKey: .color) ?? .yellow,
 				note: container.decode(String.self, forKey: .note).filledValue
 			),
-			title: container.decode(String.self, forKey: .title).filledValue,
-			raindropURL: container.decode(URL.self, forKey: .raindropURL),
+			title: container.decodeIfPresent(String.self, forKey: .title)?.filledValue,
 			creationDate: container.decode(Date.self, forKey: .creationDate)
 		)
 	}

@@ -2,6 +2,7 @@
 
 import class PapyrusCore.Provider
 import struct DewdropRESTAPI.CollectionEndpointsAPI
+import struct DewdropRESTAPI.RaindropEndpointsAPI
 import struct DewdropRESTAPI.BackupEndpointsAPI
 import struct DewdropRESTAPI.ImportEndpointsAPI
 import struct DewdropRESTAPI.TagEndpointsAPI
@@ -12,6 +13,7 @@ import protocol DewdropService.ImportFields
 
 public struct API<FileImportFields: ImportFields> {
 	let collections: CollectionEndpointsAPI
+	let raindrops: RaindropEndpointsAPI
 	let backups: BackupEndpointsAPI
 	let `import`: ImportEndpointsAPI
 	let tags: TagEndpointsAPI
@@ -35,6 +37,7 @@ public extension API {
 		}
 
 		collections = .init(provider: provider)
+		raindrops = .init(provider: provider)
 		backups = .init(provider: provider)
 		`import` = .init(provider: provider)
 		tags = .init(provider: provider)

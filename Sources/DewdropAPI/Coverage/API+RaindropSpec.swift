@@ -1,14 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-//import Catena
+import Catena
 //
 //import enum Dewdrop.ItemType
 //import struct Dewdrop.Raindrop
-//import struct Dewdrop.Collection
+import struct Dewdrop.Collection
 //import struct Dewdrop.Media
 //import struct Dewdrop.Highlight
 //import struct DewdropService.RaindropFields
-//import struct DewdropService.RaindropDetailsFields
+import struct DewdropService.RaindropDetailsFields
 //import struct DewdropService.RaindropCreationFields
 //import struct DewdropService.RaindropHighlightsFields
 //import struct DewdropService.RaindropSuggestionListFields
@@ -16,9 +16,9 @@
 //import struct Foundation.URL
 //import struct Foundation.Date
 //import struct Foundation.Data
-//import protocol DewdropService.RaindropSpec
+import protocol DewdropService.RaindropSpec
 //
-//extension API: RaindropSpec {
+extension API: RaindropSpec {
 //	public func fetchDetails(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropDetailsFields> {
 //		await get(/.raindrop, /id)
 //	}
@@ -41,17 +41,15 @@
 //		}
 //	}
 //	
-//	public func listRaindrops(inCollectionWith id: Collection.ID, searchingFor search: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropFields]> {
-//		await get(/.raindrops, /id) {
-//			RaindropListParameters(
-//				sort: sort,
-//				page: page,
-//				raindropsPerPage: raindropsPerPage,
-//				search: search
-//			)
-//		}
-//	}
-//	
+	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil/*, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil*/) async -> Self.Result<[RaindropDetailsFields]> {
+		await result {
+			try await raindrops.getRaindrops(
+				collectionId: id,
+				search: search
+			).items
+		}
+	}
+//
 //	public func createRaindrop(
 //		url: URL,
 //		title: String? = nil,
@@ -149,16 +147,4 @@
 //			RaindropParameters(search: search)
 //		}
 //	}
-//}
-//
-//// MARK: -
-//private enum PathComponents: String, PathComponent {
-//	case raindrop
-//	case raindrops
-//	case suggest
-//	case file
-//	case cache
-//	case cover
-//}
-//
-//private prefix func /(component: PathComponents) -> PathComponent { component }
+}

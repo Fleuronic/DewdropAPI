@@ -6,8 +6,12 @@ import struct DewdropService.HighlightInRaindropFields
 import struct Foundation.Date
 
 extension HighlightInRaindropFields: Decodable {
+	private enum CodingKeys: String, CodingKey {
+		case id = "_id"
+	}
+
 	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: IDFields<Highlight.Identified>.CodingKeys.self)
+		let container = try decoder.container(keyedBy: CodingKeys.self)
 		let highlight = try Highlight(from: decoder)
 		
 		try self.init(
