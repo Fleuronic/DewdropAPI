@@ -7,7 +7,7 @@
 //import struct Dewdrop.User
 //import struct DewdropService.CollectionFields
 import struct DewdropService.CollectionDetailsFields
-//import struct DewdropService.CollectionCountFields
+import struct DewdropService.CollectionCountFields
 //import struct DewdropService.CollectionMergeFields
 //import struct DewdropService.CountFields
 //import struct DewdropService.CollaboratorFields
@@ -29,10 +29,12 @@ extension API: CollectionSpec {
 			try await collections.getChildCollections().items
 		}
 	}
-//
-//	public func listSystemCollections() async -> Self.Result<[CollectionCountFields]> {
-//		await get(/.import, /.url, /.parse)
-//	}
+
+	public func listSystemCollections() async -> Self.Result<[CollectionCountFields]> {
+		await result {
+			try await collections.getSystemCollections().items
+		}
+	}
 //
 //	public func fetchDetails(forCollectionWith id: Collection.ID) async -> Self.Result<CollectionDetailsFields> {
 //		await get(/.collection, /id)

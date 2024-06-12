@@ -6,8 +6,8 @@ import struct DewdropService.UserAuthenticatedDetailsFields
 import protocol DewdropService.UserFields
 import protocol Identity.Identifiable
 
-public typealias UserPublicDetailsResponse = UserResponse<UserPublicDetailsFields>
-public typealias UserAuthenticatedDetailsResponse = UserResponse<UserAuthenticatedDetailsFields>
+public typealias PublicUserResponse = UserResponse<UserPublicDetailsFields>
+public typealias AuthenticatedUserResponse = UserResponse<UserAuthenticatedDetailsFields>
 
 // MARK: -
 public struct UserResponse<Fields: UserFields & Decodable> {

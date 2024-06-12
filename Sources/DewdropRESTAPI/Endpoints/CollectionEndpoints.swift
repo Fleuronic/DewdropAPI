@@ -13,4 +13,8 @@ public protocol CollectionEndpoints {
 
 	@GET("/collections/childrens")
 	func getChildCollections() async throws -> CollectionsResponse
+
+	@GET("/user/stats")
+	func getSystemCollections() async throws -> SystemCollectionsResponse
+
 }

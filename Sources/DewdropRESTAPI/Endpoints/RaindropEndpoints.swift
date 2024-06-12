@@ -11,6 +11,8 @@ public protocol RaindropEndpoints {
 	@GET("/raindrops/{collectionId}")
 	func getRaindrops(
 		collectionId: Collection.ID,
+		perpage: Int?,
+		page: Int?,
 		search: String?
 	) async throws -> RaindropsResponse
 }

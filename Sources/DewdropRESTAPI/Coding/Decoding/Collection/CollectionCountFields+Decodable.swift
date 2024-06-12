@@ -1,15 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Collection
 import struct DewdropService.CollectionCountFields
 
+@AutoDecodable(accessControl: .public)
 extension CollectionCountFields: Decodable {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-
-		self = .init(
-			id: try container.decode(Collection.ID.self, forKey: .id),
-			count: try container.decode(Int.self, forKey: .count)
-		)
+	private enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case count
 	}
 }
