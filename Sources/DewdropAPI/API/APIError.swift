@@ -39,22 +39,30 @@ extension APIError: CustomStringConvertible {
 
 // MARK: -
 extension Response {
-	var apiError: APIError? {
-		do {
-			try validate()
-			return nil
-		} catch {
+	func apiError(validating: Bool) -> APIError? {
+		func parseError() -> APIError? {
 			let decoder = JSONDecoder()
 			let error = body.flatMap { try? decoder.decode(APIError.self, from: $0) }
 			let errorMessage = body.flatMap { String(data: $0, encoding: .utf8) }
 
 			return if let error {
 				error
-			} else if let statusCode, let errorMessage {
+			} else if let statusCode, let errorMessage, validating {
 				.init(statusCode: statusCode, message: errorMessage)
 			} else {
 				nil
 			}
+		}
+
+		do {
+			if validating {
+				try validate()
+				return nil
+			} else {
+				return parseError()
+			}
+		} catch {
+			return parseError()
 		}
 	}
 }

@@ -1,7 +1,5 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import DewdropRESTAPI
-
 import struct Dewdrop.Raindrop
 import struct DewdropService.InfoParseFields
 import struct DewdropService.ImportFolderCountFields

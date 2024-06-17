@@ -3,6 +3,7 @@
 import enum Catena.Error
 import protocol Catena.Fields
 import protocol Catena.UndocumentedFields
+import protocol DewdropRESTAPI.Response
 
 public extension API {
 	typealias Result<Response> = Swift.Result<Response, Catena.Error<APIError>>

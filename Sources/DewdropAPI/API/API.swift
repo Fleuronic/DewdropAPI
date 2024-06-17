@@ -11,7 +11,7 @@ import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropService.ImportFolderFields
 import protocol DewdropService.ImportFields
 
-public struct API<FileImportFields: ImportFields> {
+public struct API<FileImportFields: ImportFields>: Sendable {
 	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
 	let backups: BackupEndpointsAPI
@@ -32,7 +32,7 @@ public extension API {
 			request.addAuthorization(.bearer(apiKey))
 		}.intercept { request, process in
 			let response = try await process(request)
-			if let error = response.apiError { throw error }
+			if let error = response.apiError(validating: true) { throw error }
 			return response
 		}
 

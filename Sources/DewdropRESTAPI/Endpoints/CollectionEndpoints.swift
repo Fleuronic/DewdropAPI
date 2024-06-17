@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+@preconcurrency import Papyrus
 
 import struct Dewdrop.User
 import struct Dewdrop.Network
 import struct DewdropService.IdentifiedUser
 
 @API @JSON(decoder: .dewdrop)
-public protocol CollectionEndpoints {
+public protocol CollectionEndpoints: Sendable {
 	@GET("/collections")
 	func getRootCollections() async throws -> CollectionsResponse
 
@@ -16,5 +16,4 @@ public protocol CollectionEndpoints {
 
 	@GET("/user/stats")
 	func getSystemCollections() async throws -> SystemCollectionsResponse
-
 }

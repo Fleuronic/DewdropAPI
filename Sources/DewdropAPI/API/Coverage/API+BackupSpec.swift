@@ -5,6 +5,7 @@ import struct Dewdrop.Backup
 import struct DewdropService.BackupCreationDateFields
 import struct PapyrusCore.PapyrusError
 import struct Foundation.Data
+import struct Identity.Identifier
 import protocol DewdropService.BackupSpec
 import protocol Catena.Scoped
 

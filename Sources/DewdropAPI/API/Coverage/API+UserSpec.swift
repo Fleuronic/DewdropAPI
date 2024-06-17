@@ -4,6 +4,7 @@ import struct Dewdrop.User
 import struct Dewdrop.Network
 import struct DewdropService.UserAuthenticatedDetailsFields
 import struct DewdropService.UserPublicDetailsFields
+import struct Identity.Identifier
 import protocol DewdropService.UserSpec
 import protocol Catena.Scoped
 

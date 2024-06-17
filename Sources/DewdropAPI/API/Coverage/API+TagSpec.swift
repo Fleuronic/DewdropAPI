@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Collection
 import struct DewdropService.TagCountFields
+import struct Identity.Identifier
 import protocol DewdropService.TagSpec
 import protocol Catena.Scoped
 

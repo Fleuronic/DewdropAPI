@@ -1,10 +1,10 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.0
 import PackageDescription
 
 let package = Package(
 	name: "DewdropAPI",
 	platforms: [
-		.iOS(.v13),
+		.iOS(.v15),
 		.macOS(.v12),
 		.tvOS(.v13),
 		.watchOS(.v6),
@@ -26,7 +26,8 @@ let package = Package(
 	targets: [
 		.target(
 			name: "DewdropAPI",
-			dependencies: ["DewdropRESTAPI"]
+			dependencies: ["DewdropRESTAPI"],
+			swiftSettings: [.swiftLanguageVersion(.v6)]
 		),
 		.target(
 			name: "DewdropRESTAPI",
@@ -34,7 +35,8 @@ let package = Package(
 				"DewdropService",
 				"AutoCodable",
 				.product(name: "Papyrus", package: "papyrus")
-			]
+			],
+			swiftSettings: [.swiftLanguageVersion(.v6)]
 		)
 	]
 )

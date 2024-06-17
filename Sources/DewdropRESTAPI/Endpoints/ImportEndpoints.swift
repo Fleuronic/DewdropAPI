@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+@preconcurrency import Papyrus
 
 import struct Foundation.URL
 
 @API @JSON(decoder: .dewdrop)
-public protocol ImportEndpoints {
+public protocol ImportEndpoints: Sendable {
 	@GET("/import/url/parse")
 	func parseURL(urlString url: String) async throws -> InfoResponse
 	
