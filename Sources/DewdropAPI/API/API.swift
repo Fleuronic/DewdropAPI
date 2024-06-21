@@ -10,8 +10,9 @@ import struct DewdropRESTAPI.FilterEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropService.ImportFolderFields
 import protocol DewdropService.ImportFields
+import protocol Catena.API
 
-public struct API<FileImportFields: ImportFields>: Sendable {
+public struct API<FileImportFields: ImportFields> {
 	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
 	let backups: BackupEndpointsAPI
@@ -44,4 +45,8 @@ public extension API {
 		filters = .init(provider: provider)
 		users = .init(provider: provider)
 	}
+}
+
+extension API: Catena.API {
+	public typealias APIError = DewdropAPI.Error
 }

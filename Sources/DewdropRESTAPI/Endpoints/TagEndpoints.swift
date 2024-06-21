@@ -3,7 +3,7 @@
 @preconcurrency import Papyrus
 
 import struct Dewdrop.Collection
-import struct DewdropService.IdentifiedCollection
+import struct DewdropService.Identified
 
 @API @JSON(decoder: .dewdrop)
 public protocol TagEndpoints: Sendable {

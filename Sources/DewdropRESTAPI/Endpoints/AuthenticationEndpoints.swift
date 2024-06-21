@@ -1,10 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+@preconcurrency import Papyrus
+
 import struct Dewdrop.AccessToken
 
 @API @JSON(decoder: .dewdrop)
-public protocol AuthenticationEndpoints {
+public protocol AuthenticationEndpoints: Sendable {
 	@POST("/access_token")
 	func getAccessToken(
 		client_id: String,

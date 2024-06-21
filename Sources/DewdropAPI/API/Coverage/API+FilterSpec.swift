@@ -9,7 +9,7 @@ import protocol Catena.Scoped
 extension API: FilterSpec {
 	public typealias FilterListFields = FilterOverviewFields
 	
-	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Result<FilterListFields> {
+	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterListFields> {
 		await result { 
 			try await filters.getFilters(
 				collectionId: id,

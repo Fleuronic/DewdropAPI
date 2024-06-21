@@ -4,7 +4,7 @@
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
-import struct DewdropService.IdentifiedCollection
+import struct DewdropService.Identified
 
 @API @JSON(decoder: .dewdrop)
 public protocol RaindropEndpoints: Sendable {

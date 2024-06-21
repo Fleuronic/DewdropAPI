@@ -7,7 +7,7 @@ import struct DewdropService.IDFields
 import struct DewdropService.RaindropCreationFields
 import struct DewdropService.TagNameFields
 
-extension RaindropCreationFields: Decodable {
+extension RaindropCreationFields: @retroactive Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

@@ -12,19 +12,19 @@ import protocol Catena.Scoped
 extension API: BackupSpec {
 	public typealias BackupListFields = BackupCreationDateFields
 	
-	public func listBackups() async -> Result<[BackupListFields]> {
-		await result { 
+	public func listBackups() async -> Self.Result<[BackupListFields]> {
+		await result {
 			try await backups.getAll().items 
 		}
 	}
 	
-	public func createBackup() async -> Result<String> {
+	public func createBackup() async -> Self.Result<String> {
 		await result { 
 			try await backups.generateNew() 
 		}
 	}
 	
-	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> Result<Data> {
+	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> Self.Result<Data> {
 		await result {
 			try await backups.downloadFile(
 				id: id,

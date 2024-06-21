@@ -4,7 +4,7 @@
 
 import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
-import struct DewdropService.IdentifiedBackup
+import struct DewdropService.Identified
 
 @API @JSON(decoder: .dewdrop)
 public protocol BackupEndpoints: Sendable {

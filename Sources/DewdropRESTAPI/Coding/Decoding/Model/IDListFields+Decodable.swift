@@ -6,7 +6,7 @@ import struct Identity.Identifier
 import struct DewdropService.IDListFields
 
 @AutoDecodable(accessControl: .public)
-extension IDListFields: Decodable where Model.ID: Decodable {
+extension IDListFields: @retroactive Decodable where Model.ID: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case ids
 	}

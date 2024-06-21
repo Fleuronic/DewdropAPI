@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Collaborator
 
 @AutoDecodable(accessControl: .public)
-extension Collaborator: Decodable {
+extension Collaborator: @retroactive Decodable {
 	enum CodingKeys: String, CodingKey {
 		case email
 		case fullName

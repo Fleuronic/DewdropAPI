@@ -4,10 +4,11 @@ import class PapyrusCore.Provider
 import struct Dewdrop.AccessToken
 import struct Foundation.URL
 import struct DewdropRESTAPI.AuthenticationEndpointsAPI
-import protocol DewdropService.TokenSpec
+import protocol DewdropService.AccessTokenSpec
+import protocol Catena.API
 
 public extension Authentication {
-	public struct API {
+	struct API {
 		private let authentication: AuthenticationEndpointsAPI
 		private let clientID: String
 		private let clientSecret: String
@@ -33,8 +34,19 @@ public extension Authentication.API {
 	}
 }
 
-extension Authentication.API: TokenSpec {
-	public func exchangeCodeForAccessToken(code: String, redirectingTo uri: URL) async -> Result<AccessToken> {
+extension Authentication.API: Catena.API {
+	public typealias APIError = DewdropAPI.Error
+}
+
+extension Authentication.API: Equatable {
+	public static func ==(lhs: Authentication.API, rhs: Authentication.API) -> Bool {
+		lhs.clientID == rhs.clientID &&
+			lhs.clientSecret == rhs.clientSecret
+	}
+}
+
+extension Authentication.API: AccessTokenSpec {
+	public func exchangeCodeForAccessToken(code: String, redirectingTo uri: URL) async -> Self.Result<AccessToken> {
 		await result {
 			try await authentication.getAccessToken(
 				client_id: clientID,
@@ -47,7 +59,7 @@ extension Authentication.API: TokenSpec {
 		}
 	}
 
-	public func refreshAccessToken(_ token: AccessToken) async -> Result<AccessToken> {
+	public func refreshAccessToken(_ token: AccessToken) async -> Self.Result<AccessToken> {
 		await result {
 			try await authentication.getAccessToken(
 				client_id: clientID,

@@ -4,7 +4,7 @@
 
 import struct Dewdrop.User
 import struct Dewdrop.Network
-import struct DewdropService.IdentifiedUser
+import struct DewdropService.Identified
 
 @API @JSON(decoder: .dewdrop)
 public protocol UserEndpoints: Sendable {

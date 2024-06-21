@@ -9,17 +9,17 @@ import protocol Catena.Scoped
 extension API: TagSpec {
 	public typealias TagListFields = TagCountFields
 	
-	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Result<[TagCountFields]> {
-		await result { 
+	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Self.Result<[TagCountFields]> {
+		await result {
 			try await tags.getTags(collectionId: id).items
 		}
 	}
 	
-	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> Result<Void> {
+	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> Self.Result<Void> {
 		await mergeTags(withNames: [tagName], intoTagNamed: updatedTagName, inCollectionWith: id)
 	}
 	
-	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> Result<Void> {
+	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> Self.Result<Void> {
 		await result {
 			try await tags.mergeTags(
 				collectionId: id,

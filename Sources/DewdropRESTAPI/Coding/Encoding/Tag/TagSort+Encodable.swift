@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Tag
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
-extension Tag.Sort: Encodable {
+extension Tag.Sort: @retroactive Encodable {
 	private enum CodingKeys: String, CodingKey {
 		case count =  "-count"
 		case name = "_id"

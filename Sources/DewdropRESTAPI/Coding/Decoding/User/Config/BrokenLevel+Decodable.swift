@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.User
 
 @AutoDecodable(accessControl: .public, container: .singleValueForEnum)
-extension User.Config.BrokenLevel: Decodable {
+extension User.Config.BrokenLevel: @retroactive Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case basic
 		case `default`

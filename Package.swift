@@ -26,8 +26,7 @@ let package = Package(
 	targets: [
 		.target(
 			name: "DewdropAPI",
-			dependencies: ["DewdropRESTAPI"],
-			swiftSettings: [.swiftLanguageVersion(.v6)]
+			dependencies: ["DewdropRESTAPI"]
 		),
 		.target(
 			name: "DewdropRESTAPI",
@@ -35,8 +34,8 @@ let package = Package(
 				"DewdropService",
 				"AutoCodable",
 				.product(name: "Papyrus", package: "papyrus")
-			],
-			swiftSettings: [.swiftLanguageVersion(.v6)]
+			]
 		)
-	]
+	],
+	swiftLanguageVersions: [.v6]
 )

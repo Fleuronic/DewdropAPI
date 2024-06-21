@@ -5,7 +5,7 @@ import struct DewdropService.HighlightInRaindropFields
 import struct Foundation.URL
 import struct Foundation.Date
 
-extension Highlight: Decodable {
+extension Highlight: @retroactive Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

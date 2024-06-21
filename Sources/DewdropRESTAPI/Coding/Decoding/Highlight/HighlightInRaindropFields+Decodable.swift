@@ -5,7 +5,7 @@ import struct DewdropService.IDFields
 import struct DewdropService.HighlightInRaindropFields
 import struct Foundation.Date
 
-extension HighlightInRaindropFields: Decodable {
+extension HighlightInRaindropFields: @retroactive Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 	}
