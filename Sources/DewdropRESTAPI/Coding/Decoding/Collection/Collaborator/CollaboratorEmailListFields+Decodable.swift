@@ -2,7 +2,7 @@
 
 import struct DewdropService.CollaboratorEmailListFields
 
-extension CollaboratorEmailListFields: @retroactive Decodable {
+extension CollaboratorEmailListFields: Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Catena.Error
+import enum Catenary.Error
 import class Foundation.JSONDecoder
 import protocol PapyrusCore.Response
 import protocol Catena.Fields
@@ -15,7 +15,7 @@ extension Error {
 	static func undocumented(
 		fieldName: String,
 		fields: (some Fields).Type
-	) -> Catena.Error<Self> {
+	) -> Catenary.Error<Self> {
 		.undocumented(message: """
 			The `\(fieldName)` field is undocumented and may have been removed. Please use a DewdropAPI instance without passing `\(fields)`.
 			"""

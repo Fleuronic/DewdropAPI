@@ -3,10 +3,10 @@
 import struct Dewdrop.User
 import struct Dewdrop.Account
 import struct DewdropService.ConfigFields
-import struct DewdropService.GroupFields
+import struct DewdropService.GroupDetailsFields
 import struct DewdropService.UserAuthenticatedDetailsFields
 
-extension UserAuthenticatedDetailsFields: @retroactive Decodable {
+extension UserAuthenticatedDetailsFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case config

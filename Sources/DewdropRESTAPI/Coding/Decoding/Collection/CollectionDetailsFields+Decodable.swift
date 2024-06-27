@@ -2,10 +2,10 @@
 
 import struct Dewdrop.Collection
 import struct Dewdrop.User
-import struct DewdropService.IDFields
 import struct DewdropService.CollectionDetailsFields
+import struct Catena.IDFields
 
-extension CollectionDetailsFields: @retroactive Decodable {
+extension CollectionDetailsFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case owner = "user"

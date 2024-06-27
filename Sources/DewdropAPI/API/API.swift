@@ -10,7 +10,7 @@ import struct DewdropRESTAPI.FilterEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropService.ImportFolderFields
 import protocol DewdropService.ImportFields
-import protocol Catena.API
+import protocol Catenary.API
 
 public struct API<FileImportFields: ImportFields> {
 	let collections: CollectionEndpointsAPI
@@ -47,6 +47,6 @@ public extension API {
 	}
 }
 
-extension API: Catena.API {
-	public typealias APIError = DewdropAPI.Error
+extension API: Catenary.API {
+	public typealias Error = DewdropAPI.Error
 }

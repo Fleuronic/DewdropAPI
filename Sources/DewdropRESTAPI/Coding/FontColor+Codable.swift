@@ -13,7 +13,7 @@ extension User.Config.FontColor: Codable {
 	}
 }
 
-extension User.Config.FontColor: @retroactive LosslessStringConvertible {
+extension User.Config.FontColor: LosslessStringConvertible {
 	public var description: String { rawValue }
 	
 	public init?(_ rawValue: String) {

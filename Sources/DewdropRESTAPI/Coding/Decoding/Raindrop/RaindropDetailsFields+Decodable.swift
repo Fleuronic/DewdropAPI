@@ -3,13 +3,12 @@
 import struct Dewdrop.Raindrop
 import struct Dewdrop.User
 import struct Dewdrop.Collection
-import struct DewdropService.IDFields
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.UserNameFields
 import struct DewdropService.TagNameFields
 import struct DewdropService.HighlightInRaindropFields
 
-extension RaindropDetailsFields: @retroactive Decodable {
+extension RaindropDetailsFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case owner = "user"

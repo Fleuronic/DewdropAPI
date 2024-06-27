@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version:5.10
 import PackageDescription
 
 let package = Package(
@@ -20,13 +20,17 @@ let package = Package(
 	],
 	dependencies: [
 		.package(path: "../DewdropService"),
+		.package(path: "../../../Catena/Submodules/Catenary"),
 		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "conditional"),
 		.package(url: "https://github.com/Fleuronic/papyrus", branch: "optional-path-parameters")
 	],
 	targets: [
 		.target(
 			name: "DewdropAPI",
-			dependencies: ["DewdropRESTAPI"]
+			dependencies: [
+				"Catenary",
+				"DewdropRESTAPI"
+			]
 		),
 		.target(
 			name: "DewdropRESTAPI",
@@ -36,6 +40,5 @@ let package = Package(
 				.product(name: "Papyrus", package: "papyrus")
 			]
 		)
-	],
-	swiftLanguageVersions: [.v6]
+	]
 )

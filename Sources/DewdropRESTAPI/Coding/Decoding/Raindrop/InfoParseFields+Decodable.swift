@@ -5,7 +5,7 @@ import AutoCodable
 import struct DewdropService.InfoParseFields
 import struct DewdropService.TagNameFields
 
-extension InfoParseFields: @retroactive Decodable {
+extension InfoParseFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case meta
 	}
@@ -21,7 +21,7 @@ extension InfoParseFields: @retroactive Decodable {
 }
 
 @AutoDecodable(accessControl: .public)
-extension InfoParseFields.Meta: @retroactive Decodable {
+extension InfoParseFields.Meta: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case text
 		case tags

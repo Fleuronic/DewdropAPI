@@ -5,4 +5,4 @@ import AutoCodable
 import struct DewdropService.TagNameFields
 
 @AutoDecodable(accessControl: .public, container: .singleValue("name"))
-extension TagNameFields: @retroactive Decodable {}
+extension TagNameFields: Decodable {}

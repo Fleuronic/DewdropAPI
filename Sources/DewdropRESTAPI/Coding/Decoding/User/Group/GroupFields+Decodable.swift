@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
-import struct DewdropService.GroupFields
+import struct DewdropService.GroupDetailsFields
 
-extension GroupFields: @retroactive Decodable {
+extension GroupDetailsFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case collections		
 	}

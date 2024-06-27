@@ -19,6 +19,8 @@ import struct DewdropService.RaindropDetailsFields
 import protocol DewdropService.RaindropSpec
 //
 extension API: RaindropSpec {
+	public typealias RaindropListFields = RaindropDetailsFields
+	
 //	public func fetchDetails(forRaindropWith id: Raindrop.ID) async -> Self.Result<RaindropDetailsFields> {
 //		await get(/.raindrop, /id)
 //	}
@@ -41,7 +43,7 @@ extension API: RaindropSpec {
 //		}
 //	}
 //	
-	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil/*, sortedBy sort: Raindrop.Sort? = nil*/, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropDetailsFields]> {
+	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil/*, sortedBy sort: Raindrop.Sort? = nil*/, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropListFields]> {
 		await result {
 			try await raindrops.getRaindrops(
 				collectionId: id,
@@ -52,7 +54,7 @@ extension API: RaindropSpec {
 		}
 	}
 //
-//	public func createRaindrop(
+//	public func saveRaindrop(
 //		url: URL,
 //		title: String? = nil,
 //		itemType: ItemType? = nil,
@@ -90,7 +92,7 @@ extension API: RaindropSpec {
 //		}
 //	}
 //	
-//	public func createRaindrops(
+//	public func saveRaindrops(
 //		data: [
 //			(
 //				url: URL,

@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Collection
 
-extension Collection.Access.Level: @retroactive Decodable {
+extension Collection.Access.Level: Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()

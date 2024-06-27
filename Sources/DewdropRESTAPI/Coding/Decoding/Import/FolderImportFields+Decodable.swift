@@ -3,7 +3,7 @@
 import struct DewdropService.FolderImportFields
 import struct DewdropService.RaindropImportFields
 
-extension FolderImportFields: @retroactive Decodable {
+extension FolderImportFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case bookmarks
 		case subfolders = "folders"

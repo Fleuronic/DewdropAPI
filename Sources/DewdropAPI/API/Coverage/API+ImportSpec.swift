@@ -1,10 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import struct Foundation.URL
 import struct Dewdrop.Raindrop
 import struct DewdropService.InfoParseFields
 import struct DewdropService.ImportFolderCountFields
-import struct DewdropService.IDListFields
-import struct Foundation.URL
+import struct Catena.IDListFields
 import protocol DewdropService.ImportSpec
 import protocol Catena.Scoped
 

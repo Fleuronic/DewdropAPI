@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Collaborator
 
-extension Collaborator.Role: @retroactive Encodable {
+extension Collaborator.Role: Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

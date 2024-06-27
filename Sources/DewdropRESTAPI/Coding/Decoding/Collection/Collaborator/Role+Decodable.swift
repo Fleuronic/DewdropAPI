@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Collaborator
 
 @AutoDecodable(accessControl: .public, container: .singleValueForEnum)
-extension Collaborator.Role: @retroactive Decodable {
+extension Collaborator.Role: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case owner
 		case member

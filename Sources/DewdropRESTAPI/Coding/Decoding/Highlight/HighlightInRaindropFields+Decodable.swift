@@ -1,11 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Highlight
-import struct DewdropService.IDFields
 import struct DewdropService.HighlightInRaindropFields
 import struct Foundation.Date
 
-extension HighlightInRaindropFields: @retroactive Decodable {
+extension HighlightInRaindropFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 	}

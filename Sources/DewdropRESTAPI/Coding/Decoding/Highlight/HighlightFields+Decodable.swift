@@ -2,11 +2,10 @@
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Highlight
-import struct DewdropService.IDFields
 import struct DewdropService.HighlightFields
 import struct Foundation.Date
 
-extension HighlightFields: @retroactive Decodable {
+extension HighlightFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

@@ -3,11 +3,11 @@
 import struct Dewdrop.Raindrop
 import struct Dewdrop.User
 import struct Dewdrop.Collection
-import struct DewdropService.IDFields
 import struct DewdropService.RaindropCreationFields
 import struct DewdropService.TagNameFields
+import struct Catena.IDFields
 
-extension RaindropCreationFields: @retroactive Decodable {
+extension RaindropCreationFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

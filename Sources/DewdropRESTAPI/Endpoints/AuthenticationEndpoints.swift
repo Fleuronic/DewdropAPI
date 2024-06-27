@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-@preconcurrency import Papyrus
+import Papyrus
 
 import struct Dewdrop.AccessToken
 

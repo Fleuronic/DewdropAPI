@@ -5,7 +5,7 @@ import struct Dewdrop.AccessToken
 import struct Foundation.URL
 import struct DewdropRESTAPI.AuthenticationEndpointsAPI
 import protocol DewdropService.AccessTokenSpec
-import protocol Catena.API
+import protocol Catenary.API
 
 public extension Authentication {
 	struct API {
@@ -34,14 +34,13 @@ public extension Authentication.API {
 	}
 }
 
-extension Authentication.API: Catena.API {
-	public typealias APIError = DewdropAPI.Error
+extension Authentication.API: Catenary.API {
+	public typealias Error = DewdropAPI.Error
 }
 
 extension Authentication.API: Equatable {
 	public static func ==(lhs: Authentication.API, rhs: Authentication.API) -> Bool {
-		lhs.clientID == rhs.clientID &&
-			lhs.clientSecret == rhs.clientSecret
+		lhs.clientID == rhs.clientID && lhs.clientSecret == rhs.clientSecret
 	}
 }
 

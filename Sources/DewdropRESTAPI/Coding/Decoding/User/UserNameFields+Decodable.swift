@@ -6,7 +6,7 @@ import struct Dewdrop.User
 import struct DewdropService.UserNameFields
 
 @AutoDecodable(accessControl: .public)
-extension UserNameFields: @retroactive Decodable {
+extension UserNameFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case name

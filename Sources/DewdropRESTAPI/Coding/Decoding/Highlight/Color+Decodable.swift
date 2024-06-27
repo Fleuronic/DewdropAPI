@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Highlight
 
-extension Highlight.Color: @retroactive Decodable {
+extension Highlight.Color: Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()

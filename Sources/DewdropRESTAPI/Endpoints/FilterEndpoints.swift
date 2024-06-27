@@ -1,10 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-@preconcurrency import Papyrus
+import Papyrus
 
 import struct Dewdrop.Collection
 import struct Dewdrop.Tag
-import struct DewdropService.Identified
 
 @API @JSON(decoder: .dewdrop)
 public protocol FilterEndpoints: Sendable {

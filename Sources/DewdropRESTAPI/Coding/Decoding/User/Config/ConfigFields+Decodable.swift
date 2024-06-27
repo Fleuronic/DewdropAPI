@@ -3,7 +3,7 @@
 import struct Dewdrop.Collection
 import struct DewdropService.ConfigFields
 
-extension ConfigFields: @retroactive Decodable {
+extension ConfigFields: Decodable {
 	enum CodingKeys: String, CodingKey {
 		case lastViewedCollectionID = "lastCollection"
 	}

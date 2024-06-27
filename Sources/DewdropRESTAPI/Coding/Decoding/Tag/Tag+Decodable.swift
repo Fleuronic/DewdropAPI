@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Tag
 
 @AutoDecodable(accessControl: .public)
-extension Tag: @retroactive Decodable {
+extension Tag: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case count
 	}

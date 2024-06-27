@@ -4,7 +4,7 @@ import struct Dewdrop.Tag
 import struct DewdropService.ModelFields
 import struct Identity.Identifier
 
-extension ModelFields: @retroactive Decodable where Model: Decodable, ID: Decodable {
+extension ModelFields: Decodable where Model: Decodable, ID: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 	}

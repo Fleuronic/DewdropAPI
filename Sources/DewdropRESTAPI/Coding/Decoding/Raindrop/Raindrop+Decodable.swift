@@ -8,7 +8,7 @@ import struct Dewdrop.Cache
 import struct Foundation.URL
 import struct Foundation.Date
 
-extension Raindrop: @retroactive Decodable {
+extension Raindrop: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case url = "link"
 		case title
