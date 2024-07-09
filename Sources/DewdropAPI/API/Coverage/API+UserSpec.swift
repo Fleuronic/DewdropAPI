@@ -33,31 +33,4 @@ extension API: UserSpec {
 			try await users.disconnectSocialNetworkAccount(provider: provider)
 		}
 	}
-//	
-//	public func updateUser(
-//		email: String? = nil,
-//		fullName: String? = nil,
-//		oldPassword: String? = nil,
-//		newPassword: String? = nil,
-//		config: User.Config? = nil,
-//		groups: [(Group, [Collection.ID])]? = nil
-//	) async -> Self.Result<UserAuthenticatedDetailsFields> {
-//		await put(/.user) {
-//			UserUpdatePayload(
-//				email: email,
-//				fullName: fullName,
-//				oldPassword: oldPassword,
-//				newPassword: newPassword,
-//				config: config,
-//				groups: groups.map {
-//					$0.map { group, collectionIDs in
-//						.init(
-//							group: group,
-//							collectionIDs: collectionIDs
-//						)					
-//					}
-//				}
-//			)
-//		}
-//	}
 }
