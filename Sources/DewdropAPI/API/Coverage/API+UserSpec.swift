@@ -7,6 +7,7 @@ import struct DewdropService.UserPublicDetailsFields
 import struct Identity.Identifier
 import protocol DewdropService.UserSpec
 import protocol Catena.Scoped
+import protocol Catenary.API
 
 extension API: UserSpec {
 	public func fetchUserAuthenticatedDetails() async -> Self.Result<UserAuthenticatedDetailsFields> {

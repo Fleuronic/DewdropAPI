@@ -5,6 +5,7 @@ import struct Dewdrop.Collection
 import struct DewdropService.FilterOverviewFields
 import protocol DewdropService.FilterSpec
 import protocol Catena.Scoped
+import protocol Catenary.API
 
 extension API: FilterSpec {
 	public typealias FilterListFields = FilterOverviewFields

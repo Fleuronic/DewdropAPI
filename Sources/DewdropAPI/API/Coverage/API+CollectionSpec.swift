@@ -16,7 +16,8 @@ import struct DewdropService.CollectionCountFields
 //import struct DewdropService.CoverFields
 //import struct Foundation.URL
 import protocol DewdropService.CollectionSpec
-//
+import protocol Catenary.API
+
 extension API: CollectionSpec {
 	public typealias CollectionListFields = CollectionDetailsFields
 	public typealias SystemCollectionListFields = CollectionCountFields

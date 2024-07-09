@@ -17,6 +17,8 @@ import struct DewdropService.RaindropDetailsFields
 //import struct Foundation.Date
 //import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
+import protocol Catenary.API
+
 //
 extension API: RaindropSpec {
 	public typealias RaindropListFields = RaindropDetailsFields
