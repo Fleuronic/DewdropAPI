@@ -3,6 +3,7 @@
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.CollectionCountFields
 import protocol DewdropService.CollectionSpec
+import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: CollectionSpec {
