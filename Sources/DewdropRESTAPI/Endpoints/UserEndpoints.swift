@@ -1,9 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+@preconcurrency import Papyrus
 
 import struct Dewdrop.User
 import struct Dewdrop.Network
+import struct DewdropService.IdentifiedUser
 
 @API @JSON(decoder: .dewdrop)
 public protocol UserEndpoints: Sendable {
