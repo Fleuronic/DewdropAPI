@@ -17,8 +17,8 @@ extension CollectionDetailsFields: Decodable {
 		
 		try self.init(
 			id: container.decode(for: .id),
-			owner: container.decode(for: .owner),
 			parent: container.decodeIfPresent(for: .parent),
+			owner: container.decode(for: .owner),
 			collection: .init(from: decoder)
 		)
 	}
