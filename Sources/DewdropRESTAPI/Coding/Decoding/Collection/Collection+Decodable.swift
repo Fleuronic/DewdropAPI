@@ -31,7 +31,7 @@ extension Collection: Decodable {
 			colorString: container.decodeIfPresent(for: .colorString),
 			view: container.decode(for: .view),
 			access: container.decode(for: .access),
-			sortIndex: container.decodeIfPresent(for: .sortIndex),
+			sortIndex: container.decode(for: .sortIndex) ?? 0,
 			isPublic: container.decode(for: .isPublic),
 			isShared: container.contains(.isShared),
 			isExpanded: container.decode(for: .isExpanded),
