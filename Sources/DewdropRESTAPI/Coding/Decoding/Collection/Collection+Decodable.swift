@@ -4,7 +4,7 @@ import struct Dewdrop.Collection
 import struct Foundation.URL
 import struct Foundation.Date
 
-extension Collection: Decodable {
+extension Collection: @retroactive Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
 		case count

@@ -6,7 +6,7 @@ import struct DewdropService.TagNameFields
 import struct Catena.IDFields
 
 
-extension RaindropSuggestionListFields: Decodable {
+extension RaindropSuggestionListFields: @retroactive Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

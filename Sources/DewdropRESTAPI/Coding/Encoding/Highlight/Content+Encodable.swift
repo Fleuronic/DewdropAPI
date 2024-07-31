@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Highlight
 
-extension Highlight.Content: Encodable {
+extension Highlight.Content: @retroactive Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)

@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.User
 
 @AutoDecodable(accessControl: .public)
-extension User: Decodable {
+extension User: @retroactive Decodable {
 	enum CodingKeys: String, CodingKey {
 		case fullName
 		case hasProSubscription = "pro"

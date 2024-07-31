@@ -2,7 +2,7 @@
 
 import struct DewdropService.ImportFolderCountFields
 
-extension ImportFolderCountFields: Decodable {
+extension ImportFolderCountFields: @retroactive Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case count
 	}
