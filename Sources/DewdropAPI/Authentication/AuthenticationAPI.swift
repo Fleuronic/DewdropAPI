@@ -8,7 +8,7 @@ import protocol DewdropService.AccessTokenSpec
 import protocol Catenary.API
 
 public extension Authentication {
-	struct API {
+	struct API: @unchecked Sendable {
 		private let authentication: AuthenticationEndpointsAPI
 		private let clientID: String
 		private let clientSecret: String

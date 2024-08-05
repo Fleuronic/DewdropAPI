@@ -12,7 +12,7 @@ import struct DewdropService.ImportFolderFields
 import protocol DewdropService.ImportFields
 import protocol Catenary.API
 
-public struct API<FileImportFields: ImportFields> {
+public struct API<FileImportFields: ImportFields>: @unchecked Sendable {
 	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
 	let backups: BackupEndpointsAPI
