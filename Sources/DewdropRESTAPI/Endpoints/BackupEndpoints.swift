@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-@preconcurrency import Papyrus
+import Papyrus
 
 import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
 import struct DewdropService.IdentifiedBackup
 
 @API @JSON(decoder: .dewdrop)
-public protocol BackupEndpoints: Sendable {
+public protocol BackupEndpoints {
 	@GET("/backups")
 	func getAll() async throws -> BackupsResponse
 	

@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-@preconcurrency import Papyrus
+import Papyrus
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct DewdropService.IdentifiedCollection
 
 @API @JSON(decoder: .dewdrop)
-public protocol RaindropEndpoints: Sendable {
+public protocol RaindropEndpoints {
 	@GET("/raindrops/{collectionId}")
 	func getRaindrops(
 		collectionId: Collection.ID,

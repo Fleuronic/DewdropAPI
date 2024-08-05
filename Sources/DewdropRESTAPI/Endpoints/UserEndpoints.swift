@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-@preconcurrency import Papyrus
+import Papyrus
 
 import struct Dewdrop.User
 import struct Dewdrop.Network
 import struct DewdropService.IdentifiedUser
 
 @API @JSON(decoder: .dewdrop)
-public protocol UserEndpoints: Sendable {
+public protocol UserEndpoints {
 	@GET("/user")
 	func getUser() async throws -> AuthenticatedUserResponse
 

@@ -1,12 +1,12 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-@preconcurrency import Papyrus
+import Papyrus
 
 import struct Dewdrop.Collection
 import struct DewdropService.IdentifiedCollection
 
 @API @JSON(decoder: .dewdrop)
-public protocol TagEndpoints: Sendable {
+public protocol TagEndpoints {
 	@GET("/tags/{collectionId}")
 	func getTags(collectionId: Collection.ID?) async throws -> TagsResponse
 
