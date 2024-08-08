@@ -1,13 +1,13 @@
 {
-  "originHash" : "d09af2cdb0b853b7e2b9eafaa56060713ab54340c6df3b93c873a3791a272b67",
+  "originHash" : "a1db5466d2fa962e74e3358e4fb608d759dce72dfa26dfd92e4ba2ce11113178",
   "pins" : [
     {
       "identity" : "autocodable",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
-        "branch" : "conditional",
-        "revision" : "9d49a4f0e7e09bb15f8199cdc9141788547dfe43"
+        "branch" : "main",
+        "revision" : "f58a000603fbd7dcbb4f55170d99859a6ee08949"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "bfa2630ad9c9876e70945dbcef9e56feeba73497"
+        "revision" : "9c32a0c997cdae2966e3dd7da4064271696dfb06"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/Fleuronic/Catenary",
       "state" : {
         "branch" : "main",
-        "revision" : "446099df021137202b22e792e2c3416adaeebedd"
+        "revision" : "7c89038cd82d6a0c2e01712ecb3f757bd324af24"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "e0aa1d4cba7ba8c384e92a1f6de72fcad3707651"
+        "revision" : "987b4bf7c4a5bade24358ecd49b2831c4b142933"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "a9a8653cebfdcbfb1f8dab81e643c468266b821d"
+        "revision" : "d2b072a4665c55f89607645fec39ab30767ac45c"
       }
     },
     {
@@ -52,7 +52,7 @@
       "location" : "https://github.com/Fleuronic/Identity",
       "state" : {
         "branch" : "master",
-        "revision" : "3dedc8db072d496a3b234fb0c452b97b987bf4c2"
+        "revision" : "e8d3194295dcaefdef948420036f7564808ed308"
       }
     },
     {
@@ -60,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Fleuronic/InitMacro.git",
       "state" : {
-        "branch" : "update-swift-syntax",
-        "revision" : "d7010e57d835c41bd75fcb6a7553f3faad9384f0"
+        "branch" : "main",
+        "revision" : "9b6feb35607a229194a7c28136d020f6b8ba3238"
       }
     },
     {
@@ -70,7 +70,16 @@
       "location" : "https://github.com/Fleuronic/papyrus",
       "state" : {
         "branch" : "optional-path-parameters",
-        "revision" : "e741e95dc10b58d1fefbf041079ccdf9a03c0f19"
+        "revision" : "244c4a50de86d9b6115398b553d276467358c2db"
+      }
+    },
+    {
+      "identity" : "swift-security",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dm-zharov/swift-security",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1d9d3b1aefcb8ca965a21f63c3f1b725bb5f3a3d"
       }
     },
     {
