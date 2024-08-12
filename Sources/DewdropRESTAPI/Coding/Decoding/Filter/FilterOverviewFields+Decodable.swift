@@ -7,8 +7,8 @@ import struct DewdropService.FilterOverviewFields
 @AutoDecodable(accessControl: .public)
 extension FilterOverviewFields: @retroactive Decodable {
 	private enum CodingKeys: String, CodingKey {
-		case filters = "types"
 		case tags
+		case typeFilters = "types"
 		@Conditional case favorited = "important"
 		@Conditional case highlighted = "highlights"
 		@Conditional case duplicate = "duplicates"

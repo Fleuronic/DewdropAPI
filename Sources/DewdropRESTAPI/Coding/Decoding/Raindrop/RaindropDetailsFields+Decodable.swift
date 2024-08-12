@@ -23,12 +23,12 @@ extension RaindropDetailsFields: @retroactive Decodable {
 
 		try self.init(
 			id: container.decode(for: .id),
-			raindrop: .init(from: decoder),
 			owner: container.decode(for: .owner),
 			creator: container.decode(for: .creator),
 			collection: container.decode(for: .collection),
 			tags: container.decode(for: .tags),
-			highlights: container.decodeIfPresent(for: .highlights)
+			highlights: container.decodeIfPresent(for: .highlights),
+			raindrop: .init(from: decoder)
 		)
 	}
 }
