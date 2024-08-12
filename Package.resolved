@@ -1,5 +1,5 @@
 {
-  "originHash" : "a1db5466d2fa962e74e3358e4fb608d759dce72dfa26dfd92e4ba2ce11113178",
+  "originHash" : "f4bbd08444ea09cb36ea5d82598862d408f831ea5650d6006ddf3bc7a13bcfac",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -34,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "987b4bf7c4a5bade24358ecd49b2831c4b142933"
+        "revision" : "77b08cb7e85dd747508234e896664d268d1cbe9d"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "d2b072a4665c55f89607645fec39ab30767ac45c"
+        "revision" : "f7a6676ee5bc8cbe1476e1086952c184022d35f1"
       }
     },
     {
