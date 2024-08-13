@@ -29,11 +29,7 @@ public struct API<
 
 // MARK: -
 public extension API {
-	init(
-		apiKey: String,
-		raindropListFields: RaindropListFields.Type = RaindropDetailsFields.self,
-		fileImportFields: FileImportFields.Type = ImportFolderFields.self
-	) {
+	init(apiKey: String) {
 		let url = "https://api.raindrop.io/rest/v1"
 		let provider = Provider(baseURL: url).modifyRequests { request in
 			request.addAuthorization(.bearer(apiKey))
