@@ -8,10 +8,8 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: FilterSpec {
-	public typealias FilterListFields = FilterOverviewFields
-	
-	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterListFields> {
-		await result { 
+	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterOverviewFields> {
+		await result {
 			try await filters.getFilters(
 				collectionId: id,
 				tagsSort: tagSort,

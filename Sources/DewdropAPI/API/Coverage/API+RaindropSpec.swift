@@ -7,8 +7,6 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: RaindropSpec {
-	public typealias RaindropListFields = RaindropDetailsFields
-	
 	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor search: String? = nil/*, sortedBy sort: Raindrop.Sort? = nil*/, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Self.Result<[RaindropListFields]> {
 		await result {
 			try await raindrops.getRaindrops(
@@ -17,6 +15,8 @@ extension API: RaindropSpec {
 				page: page,
 				search: search
 			).items
+		}.map { fields in
+			fields.map(RaindropListFields.init)
 		}
 	}
 }

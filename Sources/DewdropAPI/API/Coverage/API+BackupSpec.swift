@@ -11,9 +11,7 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: BackupSpec {
-	public typealias BackupListFields = BackupCreationDateFields
-	
-	public func listBackups() async -> Self.Result<[BackupListFields]> {
+	public func listBackups() async -> Self.Result<[BackupCreationDateFields]> {
 		await result {
 			try await backups.getAll().items 
 		}

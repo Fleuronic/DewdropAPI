@@ -8,11 +8,16 @@ import struct DewdropRESTAPI.ImportEndpointsAPI
 import struct DewdropRESTAPI.TagEndpointsAPI
 import struct DewdropRESTAPI.FilterEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
+import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.ImportFolderFields
+import protocol DewdropService.RaindropFields
 import protocol DewdropService.ImportFields
 import protocol Catenary.API
 
-public struct API<FileImportFields: ImportFields>: @unchecked Sendable {
+public struct API<
+	RaindropListFields: RaindropFields,
+	FileImportFields: ImportFields
+>: @unchecked Sendable {
 	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
 	let backups: BackupEndpointsAPI
@@ -26,6 +31,7 @@ public struct API<FileImportFields: ImportFields>: @unchecked Sendable {
 public extension API {
 	init(
 		apiKey: String,
+		raindropListFields: RaindropListFields.Type = RaindropDetailsFields.self,
 		fileImportFields: FileImportFields.Type = ImportFolderFields.self
 	) {
 		let url = "https://api.raindrop.io/rest/v1"

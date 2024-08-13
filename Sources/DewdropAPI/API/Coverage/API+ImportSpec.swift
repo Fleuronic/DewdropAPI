@@ -12,7 +12,7 @@ import protocol Catenary.API
 extension API: ImportSpec {
 	public func parse(url: URL) async -> Self.Result<InfoParseFields> {
 		await result {
-			try await `import`.parseURL(urlString: url.absoluteString).item 
+			try await`import`.parseURL(urlString: url.absoluteString).item 
 		}
 	}
 
