@@ -11,12 +11,14 @@ import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.ImportFolderFields
 import protocol DewdropService.RaindropFields
+import protocol DewdropService.CollectionFields
 import protocol DewdropService.ImportFields
 import protocol Catenary.API
 
 public struct API<
-	RaindropListFields: RaindropFields,
-	FileImportFields: ImportFields
+	RaindropListFields: RaindropFields & Decodable,
+	CollectionListFields: CollectionFields & Decodable,
+	FileImportFields: ImportFields & Decodable
 >: @unchecked Sendable {
 	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
@@ -29,7 +31,10 @@ public struct API<
 
 // MARK: -
 public extension API {
-	init(apiKey: String) {
+	init(
+		apiKey: String
+		// TODO: Default fields
+	) {
 		let url = "https://api.raindrop.io/rest/v1"
 		let provider = Provider(baseURL: url).modifyRequests { request in
 			request.addAuthorization(.bearer(apiKey))

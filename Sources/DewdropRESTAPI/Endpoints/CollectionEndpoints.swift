@@ -4,14 +4,15 @@ import Papyrus
 
 import struct Dewdrop.User
 import struct Dewdrop.Network
+import protocol DewdropService.CollectionFields
 
 @API @JSON(decoder: .dewdrop)
 public protocol CollectionEndpoints {
 	@GET("/collections")
-	func getRootCollections() async throws -> CollectionsResponse
+	func getRootCollections<CollectionListFields: CollectionFields & Decodable>() async throws -> ListResponse<CollectionListFields>
 
 	@GET("/collections/childrens")
-	func getChildCollections() async throws -> CollectionsResponse
+	func getChildCollections<CollectionListFields: CollectionFields & Decodable>() async throws -> ListResponse<CollectionListFields>
 
 	@GET("/user/stats")
 	func getSystemCollections() async throws -> SystemCollectionsResponse

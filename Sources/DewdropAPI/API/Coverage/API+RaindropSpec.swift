@@ -15,8 +15,6 @@ extension API: RaindropSpec {
 				page: page,
 				search: search
 			).items
-		}.map { fields in
-			fields.map(RaindropListFields.init)
 		}
 	}
 }
