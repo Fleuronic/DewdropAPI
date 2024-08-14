@@ -15,5 +15,5 @@ public protocol RaindropEndpoints {
 		perpage: Int?,
 		page: Int?,
 		search: String?
-	) async throws -> ListResponse<RaindropListFields>
+	) async throws -> ItemListResponse<RaindropListFields>
 }
