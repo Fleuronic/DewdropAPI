@@ -13,11 +13,13 @@ import struct DewdropService.ImportFolderFields
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
 import protocol DewdropService.ImportFields
+import protocol DewdropService.UserFields
 import protocol Catenary.API
 
 public struct API<
 	RaindropListFields: RaindropFields & Decodable,
 	CollectionListFields: CollectionFields & Decodable,
+	UserDetailsFields: UserFields & Decodable,
 	FileImportFields: ImportFields & Decodable
 >: @unchecked Sendable {
 	let collections: CollectionEndpointsAPI
