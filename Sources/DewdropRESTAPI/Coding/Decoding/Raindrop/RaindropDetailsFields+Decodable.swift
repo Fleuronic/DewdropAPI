@@ -9,7 +9,7 @@ import struct DewdropService.TagNameFields
 import struct DewdropService.HighlightInRaindropFields
 
 extension RaindropDetailsFields: @retroactive Decodable {
-	private enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case owner = "user"
 		case creator = "creatorRef"

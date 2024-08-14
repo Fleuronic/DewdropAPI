@@ -9,7 +9,7 @@ import struct Foundation.URL
 import struct Foundation.Date
 
 extension Raindrop: @retroactive Decodable {
-	private enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case url = "link"
 		case title
 		case itemType = "type"

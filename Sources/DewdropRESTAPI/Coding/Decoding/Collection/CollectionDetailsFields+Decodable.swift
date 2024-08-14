@@ -6,7 +6,7 @@ import struct DewdropService.CollectionDetailsFields
 import struct Catena.IDFields
 
 extension CollectionDetailsFields: @retroactive Decodable {
-	private enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case owner = "user"
 		case parent

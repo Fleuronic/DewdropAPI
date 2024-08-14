@@ -5,7 +5,7 @@ import struct Foundation.URL
 import struct Foundation.Date
 
 extension Collection: @retroactive Decodable {
-	private enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case title
 		case count
 		case coverURL = "cover"
