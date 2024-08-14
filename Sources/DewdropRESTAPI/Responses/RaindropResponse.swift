@@ -3,4 +3,4 @@
 import struct DewdropService.RaindropDetailsFields
 import protocol Identity.Identifiable
 
-public typealias RaindropsResponse = ListResponse<RaindropDetailsFields>
+public typealias RaindropsResponse = ItemListResponse<RaindropDetailsFields>
