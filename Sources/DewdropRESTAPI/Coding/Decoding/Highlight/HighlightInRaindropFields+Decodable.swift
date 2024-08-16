@@ -14,7 +14,7 @@ extension HighlightInRaindropFields: @retroactive Decodable {
 		let highlight = try Highlight(from: decoder)
 		
 		try self.init(
-			id: container.decode(Highlight.ID.self, forKey: .id),
+			id: container.decode(for: .id),
 			text: highlight.content.text,
 			color: highlight.content.color,
 			note: highlight.content.note,

@@ -1,13 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import AutoCodable
+
 import struct Dewdrop.Highlight
 
+@AutoEncodable(accessControl: .public)
 extension Highlight.Content: @retroactive Encodable {
-	// MARK: Encodable
-	public func encode(to encoder: Encoder) throws {
-		var container = encoder.container(keyedBy: CodingKeys.self)
-		try container.encode(text, forKey: .text)
-		try container.encode(color, forKey: .color)
-		try container.encodeIfPresent(note, forKey: .note)
+	private enum CodingKeys: String, CodingKey {
+		case text
+		case color
+		case note
 	}
 }

@@ -5,16 +5,23 @@ import struct DewdropService.HighlightImportFields
 import struct Foundation.Date
 
 extension HighlightImportFields: @retroactive Decodable {
+	private enum CodingKeys: String, CodingKey {
+		case text
+		case color
+		case note
+		case creationDate = "created"
+	}
+
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(
 			content: .init(
-				text: container.decode(String.self, forKey: .text),
-				color: container.decode(Highlight.Color.self, forKey: .color),
+				text: container.decode(for: .text),
+				color: container.decode(for: .color),
 				note: container.decode(String.self, forKey: .note).filledValue
 			),
-			creationDate: container.decode(Date.self, forKey: .creationDate)
+			creationDate: container.decode(for: .creationDate)
 		)
 	}
 }

@@ -2,16 +2,21 @@
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Highlight
-import struct DewdropService.HighlightFields
+import struct DewdropService.HighlightDetailsFields
 import struct Foundation.Date
 
-extension HighlightFields: @retroactive Decodable {
+extension HighlightDetailsFields: @retroactive Decodable {
+	public enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case raindropID = "raindropRef"
+	}
+
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(
-			id: container.decode(Highlight.ID.self, forKey: .id),
-			raindropID: container.decode(Raindrop.ID.self, forKey: .raindropID),
+			id: container.decode(for: .id),
+			raindropID: container.decode(for: .raindropID),
 			highlight: .init(from: decoder)
 		)
 	}
