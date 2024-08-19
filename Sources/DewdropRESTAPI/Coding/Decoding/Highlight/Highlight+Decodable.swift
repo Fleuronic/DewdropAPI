@@ -1,7 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Highlight
-import struct DewdropService.HighlightInRaindropFields
 import struct Foundation.URL
 import struct Foundation.Date
 

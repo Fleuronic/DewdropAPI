@@ -6,7 +6,6 @@ import struct Dewdrop.Collection
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.UserNameFields
 import struct DewdropService.TagNameFields
-import struct DewdropService.HighlightInRaindropFields
 
 extension RaindropDetailsFields: @retroactive Decodable {
 	public enum CodingKeys: String, CodingKey {
