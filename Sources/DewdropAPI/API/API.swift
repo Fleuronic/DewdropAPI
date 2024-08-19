@@ -7,6 +7,7 @@ import struct DewdropRESTAPI.BackupEndpointsAPI
 import struct DewdropRESTAPI.ImportEndpointsAPI
 import struct DewdropRESTAPI.TagEndpointsAPI
 import struct DewdropRESTAPI.FilterEndpointsAPI
+import struct DewdropRESTAPI.HighlightEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.ImportFolderFields
@@ -28,6 +29,7 @@ public struct API<
 	let `import`: ImportEndpointsAPI
 	let tags: TagEndpointsAPI
 	let filters: FilterEndpointsAPI
+	let highlights: HighlightEndpointsAPI
 	let users: UserEndpointsAPI
 }
 
@@ -52,6 +54,7 @@ public extension API {
 		`import` = .init(provider: provider)
 		tags = .init(provider: provider)
 		filters = .init(provider: provider)
+		highlights = .init(provider: provider)
 		users = .init(provider: provider)
 	}
 }
