@@ -2,7 +2,7 @@
 
 import struct DewdropService.CoverFields
 
-extension CoverFields: @retroactive Decodable {
+extension CoverFields: Decodable {
 	public init(from decoder: Decoder) throws {
 		self = .init(cover: try .init(from: decoder))
 	}

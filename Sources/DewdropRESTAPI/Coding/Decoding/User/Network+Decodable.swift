@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Network
 
 @AutoDecodable(accessControl: .public)
-extension Network: @retroactive Decodable {
+extension Network: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case isEnabled = "enabled"
 	}

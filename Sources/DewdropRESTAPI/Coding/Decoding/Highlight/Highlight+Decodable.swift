@@ -4,7 +4,7 @@ import struct Dewdrop.Highlight
 import struct Foundation.URL
 import struct Foundation.Date
 
-extension Highlight: @retroactive Decodable {
+extension Highlight: Decodable {
 	public enum CodingKeys: String, CodingKey {
 		case title
 		case text

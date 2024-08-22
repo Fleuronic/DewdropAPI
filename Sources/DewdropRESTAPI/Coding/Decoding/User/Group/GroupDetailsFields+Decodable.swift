@@ -3,7 +3,7 @@
 import struct Dewdrop.Collection
 import struct DewdropService.GroupDetailsFields
 
-extension GroupDetailsFields: @retroactive Decodable {
+extension GroupDetailsFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case collections		
 	}

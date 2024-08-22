@@ -4,7 +4,7 @@ import struct Dewdrop.Highlight
 import struct DewdropService.HighlightImportFields
 import struct Foundation.Date
 
-extension HighlightImportFields: @retroactive Decodable {
+extension HighlightImportFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case text
 		case color

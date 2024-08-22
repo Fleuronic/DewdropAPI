@@ -2,7 +2,7 @@
 
 import struct Dewdrop.User
 
-extension User.Config.BrokenLevel: @retroactive Encodable {
+extension User.Config.BrokenLevel: Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

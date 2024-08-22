@@ -5,7 +5,7 @@ import AutoCodable
 import enum Dewdrop.Import
 
 @AutoDecodable(accessControl: .public)
-extension Import.Count: @retroactive Decodable {
+extension Import.Count: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case bookmarks
 		case folders

@@ -6,7 +6,7 @@ import struct Foundation.URL
 import struct DewdropService.RaindropImportFields
 
 @AutoDecodable(accessControl: .public)
-extension RaindropImportFields: @retroactive Decodable {
+extension RaindropImportFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case url = "link"
 		case title

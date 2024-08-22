@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.AccessToken
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
-extension AccessToken.GrantType: @retroactive Encodable {
+extension AccessToken.GrantType: Encodable {
 	private enum CodingKeys: String, CodingKey {
 		case authorizationCode = "authorization_code"
 		case refreshToken = "refresh_token"

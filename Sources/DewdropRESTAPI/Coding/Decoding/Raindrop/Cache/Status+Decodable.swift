@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Cache
 
-extension Cache.Status: @retroactive Decodable {
+extension Cache.Status: Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()

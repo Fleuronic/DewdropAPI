@@ -2,7 +2,7 @@
 
 import struct DewdropService.UserAuthenticatedDetailsFields
 
-extension UserAuthenticatedDetailsFields: @retroactive Decodable {
+extension UserAuthenticatedDetailsFields: Decodable {
 	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case config

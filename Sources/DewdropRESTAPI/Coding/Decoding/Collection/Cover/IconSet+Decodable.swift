@@ -3,7 +3,7 @@
 import struct Dewdrop.Collection
 import struct Foundation.URL
 
-extension Collection.Cover.IconSet: @retroactive Decodable {
+extension Collection.Cover.IconSet: Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)

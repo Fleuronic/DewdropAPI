@@ -2,7 +2,7 @@
 
 import enum Dewdrop.ItemType
 
-extension ItemType: @retroactive Encodable {
+extension ItemType: Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

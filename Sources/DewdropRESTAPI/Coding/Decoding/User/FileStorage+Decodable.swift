@@ -6,7 +6,7 @@ import struct Dewdrop.FileStorage
 import struct Foundation.Date
 
 @AutoDecodable(accessControl: .public)
-extension FileStorage: @retroactive Decodable {
+extension FileStorage: Decodable {
 	enum CodingKeys: String, CodingKey {
 		case usedSpace = "used"
 		case totalSpace = "size"

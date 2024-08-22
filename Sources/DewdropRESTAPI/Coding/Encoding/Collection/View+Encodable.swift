@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Collection
 
-extension Collection.View: @retroactive Encodable {
+extension Collection.View: Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

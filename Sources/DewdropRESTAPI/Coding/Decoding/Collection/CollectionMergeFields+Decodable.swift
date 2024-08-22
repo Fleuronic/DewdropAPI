@@ -6,7 +6,7 @@ import struct Dewdrop.Collection
 import struct DewdropService.CollectionMergeFields
 
 @AutoDecodable(accessControl: .public)
-extension CollectionMergeFields: @retroactive Decodable {
+extension CollectionMergeFields: Decodable {
 	enum CodingKeys: String, CodingKey {
 		case ids
 		case modifiedCount = "modified"

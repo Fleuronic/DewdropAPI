@@ -5,7 +5,7 @@ import struct Dewdrop.Network
 import struct Dewdrop.FileStorage
 import struct Foundation.Date
 
-extension Account: @retroactive Decodable {
+extension Account: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case email
 		case hasPassword = "password"

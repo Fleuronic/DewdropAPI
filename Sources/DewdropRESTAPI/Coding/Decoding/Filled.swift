@@ -16,7 +16,7 @@ struct Filled<T: LosslessStringConvertible>: DecodableValue {
 	}
 }
 
-extension URL: @retroactive LosslessStringConvertible {
+extension URL: LosslessStringConvertible {
 	public init?(_ string: String) {
 		self.init(string: string)
 	}
