@@ -1,5 +1,5 @@
 {
-  "originHash" : "f43f527b7e8cf129a1ceca8c8806d5a36179014dc39db755d2a2a6128503231a",
+  "originHash" : "e34e1721e2e221e2174c0d8417c4dd0e98a3859e653294a9eae4105afdf6403b",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
         "branch" : "main",
-        "revision" : "f58a000603fbd7dcbb4f55170d99859a6ee08949"
+        "revision" : "51544f46eaa8a38bda58c71bb9f1fdf6619c00ff"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "fac711840b59f3e0c24c8a61fe2a748cd9b9b3ea"
+        "revision" : "6ba960208a2480cc4cb7a090fbdb3631c190d9d3"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/Fleuronic/Catenary",
       "state" : {
         "branch" : "main",
-        "revision" : "a95b74571fbd1428741df2c5f43649df59bdcf48"
+        "revision" : "cb433159ff5b01dd94a1c255800eabe96c932e78"
       }
     },
     {
@@ -34,7 +34,16 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "24edeebad45744cb2532d7751dfda24ba9597e46"
+        "revision" : "8cbf31b3873fb56d0b69f1acd6f05441dea5634e"
+      }
+    },
+    {
+      "identity" : "dewdropservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Fleuronic/DewdropService",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2b9f5b97173c3dc8183c55fccf2a6e518ab7cf24"
       }
     },
     {
@@ -43,7 +52,7 @@
       "location" : "https://github.com/Fleuronic/Identity",
       "state" : {
         "branch" : "master",
-        "revision" : "e8d3194295dcaefdef948420036f7564808ed308"
+        "revision" : "152f96ff2f828c56363d7ab089b81c80b6cbf1ca"
       }
     },
     {
@@ -52,7 +61,7 @@
       "location" : "https://github.com/Fleuronic/InitMacro.git",
       "state" : {
         "branch" : "main",
-        "revision" : "9b6feb35607a229194a7c28136d020f6b8ba3238"
+        "revision" : "323cda3658117d4c58d597908365ab5dcb939d2e"
       }
     },
     {
@@ -61,7 +70,7 @@
       "location" : "http://github.com/Fleuronic/papyrus",
       "state" : {
         "branch" : "optional-path-parameters",
-        "revision" : "ae89124bd4d7e40797b0ff2e55a4a1e10283e439"
+        "revision" : "f3660d0625abb2dc5b518d27a7b40915e3f3c272"
       }
     },
     {

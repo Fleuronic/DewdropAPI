@@ -6,6 +6,10 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: CollectionSpec {
+	// TODO: Remove
+	public typealias ChildCollectionListFields = CollectionListFields
+	public typealias SystemCollectionListFields = CollectionCountFields
+
 	public func listRootCollections() async -> Self.Result<[CollectionListFields]> {
 		await result {
 			try await collections.getRootCollections().items
