@@ -3,7 +3,7 @@
 import struct Dewdrop.Collaborator
 import struct DewdropService.CollaboratorRoleFields
 
-extension CollaboratorRoleFields: Decodable {
+extension CollaboratorRoleFields: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -3,7 +3,7 @@
 import struct DewdropService.FolderImportFields
 import struct DewdropService.RaindropImportFields
 
-extension FolderImportFields: Decodable {
+extension FolderImportFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case bookmarks
 		case subfolders = "folders"

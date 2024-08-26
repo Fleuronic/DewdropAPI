@@ -5,7 +5,7 @@ import AutoCodable
 import struct DewdropService.ImportFolderFields
 
 @AutoDecodable(accessControl: .public)
-extension ImportFolderFields: Decodable {
+extension ImportFolderFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case folders = "items"
 	}

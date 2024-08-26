@@ -7,7 +7,7 @@ import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.UserNameFields
 import struct DewdropService.TagNameFields
 
-extension RaindropDetailsFields: Decodable {
+extension RaindropDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case owner = "user"

@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Folder
 
 @AutoDecodable(accessControl: .public)
-extension Folder: Decodable {
+extension Folder: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
 	}

@@ -2,7 +2,7 @@
 
 import struct Dewdrop.User
 
-extension User.Config.BrokenLevel: Encodable {
+extension User.Config.BrokenLevel: Swift.Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

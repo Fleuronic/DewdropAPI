@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Tag
 
 @AutoDecodable(accessControl: .public)
-extension Tag: Decodable {
+extension Tag: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case count
 	}

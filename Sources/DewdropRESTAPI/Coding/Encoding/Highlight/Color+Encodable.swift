@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Highlight
 
-extension Highlight.Color: Encodable {
+extension Highlight.Color: Swift.Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

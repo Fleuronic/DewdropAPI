@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Highlight
 
 @AutoEncodable(accessControl: .public)
-extension Highlight.Content: Encodable {
+extension Highlight.Content: Swift.Encodable {
 	private enum CodingKeys: String, CodingKey {
 		case text
 		case color

@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Collection
 
-extension Collection.Access.Level: Decodable {
+extension Collection.Access.Level: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()

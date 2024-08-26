@@ -2,7 +2,7 @@
 
 import struct DewdropService.CoverFields
 
-extension CoverFields: Decodable {
+extension CoverFields: Swift.Decodable {
 	public init(from decoder: Decoder) throws {
 		self = .init(cover: try .init(from: decoder))
 	}

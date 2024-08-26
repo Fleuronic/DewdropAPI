@@ -6,7 +6,7 @@ import struct Dewdrop.Backup
 import struct Foundation.Date
 
 @AutoDecodable(accessControl: .public) 
-extension Backup: Decodable {
+extension Backup: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case creationDate = "created"
 	}

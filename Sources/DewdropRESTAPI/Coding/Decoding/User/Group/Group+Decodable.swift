@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Group
 
 @AutoDecodable(accessControl: .public)
-extension Group: Decodable {
+extension Group: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
 		case isHidden = "hidden"

@@ -3,7 +3,7 @@
 import struct Dewdrop.Cache
 import struct Foundation.Date
 
-extension Cache: Decodable {
+extension Cache: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)

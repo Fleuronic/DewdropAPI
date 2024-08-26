@@ -3,7 +3,7 @@
 import enum Foundation.SortOrder
 import struct Dewdrop.Collection
 
-extension Collection.Sort: Encodable {
+extension Collection.Sort: Swift.Encodable {
 	// MARK: Encodable
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

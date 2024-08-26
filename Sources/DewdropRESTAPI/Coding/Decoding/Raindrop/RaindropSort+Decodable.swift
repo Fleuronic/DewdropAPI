@@ -3,7 +3,7 @@
 import enum Foundation.SortOrder
 import struct Dewdrop.Raindrop
 
-extension Raindrop.Sort: Decodable {
+extension Raindrop.Sort: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()

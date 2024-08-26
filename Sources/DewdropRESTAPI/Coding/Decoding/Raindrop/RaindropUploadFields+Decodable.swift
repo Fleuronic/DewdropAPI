@@ -7,7 +7,7 @@ import struct DewdropService.RaindropCreationFields
 import struct DewdropService.TagNameFields
 import struct Catena.IDFields
 
-extension RaindropCreationFields: Decodable {
+extension RaindropCreationFields: Swift.Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

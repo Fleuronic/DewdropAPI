@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Collection
 
-extension Collection.Cover: Decodable {
+extension Collection.Cover: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)

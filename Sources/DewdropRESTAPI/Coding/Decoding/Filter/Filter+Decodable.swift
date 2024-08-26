@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Filter
 
 @AutoDecodable(accessControl: .public)
-extension Filter: Decodable {
+extension Filter: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case count
 	}

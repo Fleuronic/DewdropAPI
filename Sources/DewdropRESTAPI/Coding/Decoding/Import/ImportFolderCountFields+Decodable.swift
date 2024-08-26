@@ -2,7 +2,7 @@
 
 import struct DewdropService.ImportFolderCountFields
 
-extension ImportFolderCountFields: Decodable {
+extension ImportFolderCountFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case count
 	}

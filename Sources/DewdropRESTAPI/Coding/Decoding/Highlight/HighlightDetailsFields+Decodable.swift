@@ -5,7 +5,7 @@ import struct Dewdrop.Highlight
 import struct DewdropService.HighlightDetailsFields
 import struct Foundation.Date
 
-extension HighlightDetailsFields: Decodable {
+extension HighlightDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case raindropID = "raindropRef"

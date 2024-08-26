@@ -3,7 +3,7 @@
 import struct Dewdrop.Collection
 import struct DewdropService.GroupDetailsFields
 
-extension GroupDetailsFields: Decodable {
+extension GroupDetailsFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case collections		
 	}
