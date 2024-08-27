@@ -7,6 +7,7 @@ import protocol Catenary.API
 
 extension API: CollectionSpec {
 	// TODO: Remove
+	public typealias RootCollectionListFields = CollectionListFields
 	public typealias ChildCollectionListFields = CollectionListFields
 	public typealias SystemCollectionListFields = CollectionCountFields
 
