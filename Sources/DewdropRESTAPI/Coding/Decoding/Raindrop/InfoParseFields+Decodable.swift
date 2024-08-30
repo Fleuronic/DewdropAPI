@@ -23,7 +23,6 @@ extension InfoParseFields: Swift.Decodable {
 @AutoDecodable(accessControl: .public)
 extension InfoParseFields.Meta: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
-		case text
 		case tags
 	}
 }
