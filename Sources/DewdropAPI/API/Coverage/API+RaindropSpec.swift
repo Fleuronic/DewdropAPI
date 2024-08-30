@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Collection
 import struct DewdropService.RaindropDetailsFields
+import struct Foundation.URL
 import protocol DewdropService.RaindropSpec
 import protocol Catena.Scoped
 import protocol Catenary.API

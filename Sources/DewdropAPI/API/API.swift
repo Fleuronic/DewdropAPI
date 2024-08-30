@@ -19,6 +19,7 @@ import protocol Catenary.API
 
 public struct API<
 	RaindropListFields: RaindropFields & Decodable,
+	RaindropCreationFields: RaindropFields & Decodable,
 	CollectionListFields: CollectionFields & Decodable,
 	UserDetailsFields: UserFields & Decodable,
 	FileImportFields: ImportFields & Decodable
