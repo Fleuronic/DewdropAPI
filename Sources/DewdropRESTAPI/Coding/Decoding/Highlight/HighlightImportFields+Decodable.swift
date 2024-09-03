@@ -16,12 +16,12 @@ extension HighlightImportFields: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(
+			creationDate: container.decode(for: .creationDate),
 			content: .init(
 				text: container.decode(for: .text),
 				color: container.decode(for: .color),
 				note: container.decode(String.self, forKey: .note).filledValue
-			),
-			creationDate: container.decode(for: .creationDate)
+			)
 		)
 	}
 }
