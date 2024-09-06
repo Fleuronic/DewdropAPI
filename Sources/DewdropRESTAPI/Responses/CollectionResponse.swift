@@ -3,4 +3,4 @@
 import struct DewdropService.CollectionCountFields
 import protocol Identity.Identifiable
 
-public typealias SystemCollectionsResponse = ItemListResponse<CollectionCountFields>
+public typealias SystemCollectionsCountResponse = ItemListResponse<CollectionCountFields>

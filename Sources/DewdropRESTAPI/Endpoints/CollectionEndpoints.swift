@@ -2,6 +2,7 @@
 
 import Papyrus
 
+import struct Dewdrop.Collection
 import struct Dewdrop.User
 import struct Dewdrop.Network
 import protocol DewdropService.CollectionFields
@@ -15,5 +16,11 @@ public protocol CollectionEndpoints {
 	func getChildCollections<T: CollectionFields>() async throws -> ItemListResponse<T>
 
 	@GET("/user/stats")
-	func getSystemCollections() async throws -> SystemCollectionsResponse
+	func getSystemCollectionsCount() async throws -> SystemCollectionsCountResponse
+
+	@DELETE("/collection/{id}")
+	func removeCollection(id: Collection.ID) async throws
+
+	@DELETE("/collections")
+	func removeMultipleCollections(ids: Field<[Collection.ID]>) async throws
 }
