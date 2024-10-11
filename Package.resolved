@@ -7,7 +7,7 @@
       "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
         "branch" : "main",
-        "revision" : "51544f46eaa8a38bda58c71bb9f1fdf6619c00ff"
+        "revision" : "2a775a8e3f319faf8808cf8f8b96a0237f5fd043"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "6ba960208a2480cc4cb7a090fbdb3631c190d9d3"
+        "revision" : "00c17a0c7c6f90f76407eb7aa5a375ffa2abec12"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "8cbf31b3873fb56d0b69f1acd6f05441dea5634e"
+        "revision" : "e605dba60407ba9d9443ca6c14adf7f4d5dcbc9f"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "2b9f5b97173c3dc8183c55fccf2a6e518ab7cf24"
+        "revision" : "407538567a8026ad0d59fa82a3f458e054d469f8"
       }
     },
     {
@@ -52,16 +52,7 @@
       "location" : "https://github.com/Fleuronic/Identity",
       "state" : {
         "branch" : "master",
-        "revision" : "152f96ff2f828c56363d7ab089b81c80b6cbf1ca"
-      }
-    },
-    {
-      "identity" : "initmacro",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/InitMacro.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "323cda3658117d4c58d597908365ab5dcb939d2e"
+        "revision" : "a0a5d99bc543487e3785eb5700e277a2f1fcf4b5"
       }
     },
     {
@@ -70,7 +61,16 @@
       "location" : "http://github.com/Fleuronic/papyrus",
       "state" : {
         "branch" : "optional-path-parameters",
-        "revision" : "f3660d0625abb2dc5b518d27a7b40915e3f3c272"
+        "revision" : "d0eecb1a80bf1e5b3d8c536ff2509fe40486a238"
+      }
+    },
+    {
+      "identity" : "swift-memberwise-init-macro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gohanlon/swift-memberwise-init-macro",
+      "state" : {
+        "revision" : "21ca6d8c8f9e4ce27e92f82da294e0d91953b8b6",
+        "version" : "0.5.1"
       }
     },
     {
@@ -79,16 +79,16 @@
       "location" : "https://github.com/dm-zharov/swift-security",
       "state" : {
         "branch" : "main",
-        "revision" : "1d9d3b1aefcb8ca965a21f63c3f1b725bb5f3a3d"
+        "revision" : "56808589e8b5b02095afdd23357df7915639c6a2"
       }
     },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-syntax",
+      "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
-        "revision" : "08a2f0a9a30e0f705f79c9cfaca1f68b71bdc775",
-        "version" : "510.0.0"
+        "revision" : "2bc86522d115234d1f588efe2bcb4ce4be8f8b82",
+        "version" : "510.0.3"
       }
     }
   ],
