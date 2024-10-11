@@ -48,7 +48,7 @@ public extension API {
 			if let error = response.apiError(validating: true) { throw error }
 			return response
 		}
-
+		
 		collections = .init(provider: provider)
 		raindrops = .init(provider: provider)
 		backups = .init(provider: provider)

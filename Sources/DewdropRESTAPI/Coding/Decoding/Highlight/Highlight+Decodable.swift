@@ -16,7 +16,7 @@ extension Highlight: Swift.Decodable {
 
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-
+		
 		try self.init(
 			content: .init(
 				text: container.decode(for: .text),
