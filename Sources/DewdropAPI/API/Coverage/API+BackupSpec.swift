@@ -11,18 +11,15 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: BackupSpec {
-	// TODO: Remove
-	public typealias BackupListFields = BackupCreationDateFields
-
 	public func listBackups() async -> Self.Result<[BackupCreationDateFields]> {
 		await result {
-			try await backups.getAll().items 
+			try await backups.getAll().items
 		}
 	}
 	
 	public func createBackup() async -> Self.Result<String> {
-		await result { 
-			try await backups.generateNew() 
+		await result {
+			try await backups.generateNew()
 		}
 	}
 	
