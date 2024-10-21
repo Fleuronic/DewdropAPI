@@ -7,6 +7,9 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: HighlightSpec {
+	// TODO: Remove
+	public typealias HighlightListResult = Self.Result<HighlightDetailsFields>
+
 	public func listHighlights(onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<HighlightDetailsFields> {
 		await result {
 			fatalError()
