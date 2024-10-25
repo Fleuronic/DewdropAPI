@@ -1,12 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+public import Papyrus
 
-import struct Dewdrop.Raindrop
-import struct Dewdrop.Collection
-import struct DewdropService.IdentifiedCollection
-import struct Foundation.URL
-import protocol DewdropService.RaindropFields
+public import struct Dewdrop.Collection
+public import protocol DewdropService.RaindropFields
 
 @API @JSON(decoder: .dewdrop)
 public protocol RaindropEndpoints {

@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Collection
 import struct Foundation.URL
-import struct Foundation.Date
+
+public import struct Dewdrop.Collection
 
 extension Collection: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
@@ -21,7 +21,7 @@ extension Collection: Swift.Decodable {
 	}
 
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

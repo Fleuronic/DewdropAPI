@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-import struct Dewdrop.User
+public import struct Dewdrop.User
 
 @AutoDecodable(accessControl: .public, container: .singleValueForEnum)
 extension User.Config.BrokenLevel: Swift.Decodable {

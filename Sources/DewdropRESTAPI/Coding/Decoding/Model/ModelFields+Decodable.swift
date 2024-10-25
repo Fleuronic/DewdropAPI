@@ -1,15 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Tag
-import struct DewdropService.ModelFields
-import struct Identity.Identifier
+public import struct DewdropService.ModelFields
 
 extension ModelFields: Swift.Decodable where Model: Decodable, ID: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(

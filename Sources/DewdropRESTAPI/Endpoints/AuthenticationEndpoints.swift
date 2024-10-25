@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+public import Papyrus
 
-import struct Dewdrop.AccessToken
+public import struct Dewdrop.AccessToken
 
 @API @JSON(decoder: .dewdrop)
 public protocol AuthenticationEndpoints {

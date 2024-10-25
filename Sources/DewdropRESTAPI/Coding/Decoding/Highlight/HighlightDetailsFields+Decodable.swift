@@ -1,9 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Raindrop
-import struct Dewdrop.Highlight
-import struct DewdropService.HighlightDetailsFields
-import struct Foundation.Date
+public import struct DewdropService.HighlightDetailsFields
 
 extension HighlightDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
@@ -11,7 +8,7 @@ extension HighlightDetailsFields: Swift.Decodable {
 		case raindropID = "raindropRef"
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(

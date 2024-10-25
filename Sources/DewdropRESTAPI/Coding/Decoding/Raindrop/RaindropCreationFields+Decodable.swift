@@ -3,12 +3,13 @@
 import struct Dewdrop.Raindrop
 import struct Dewdrop.User
 import struct Dewdrop.Collection
-import struct DewdropService.RaindropCreationFields
-import struct DewdropService.TagNameFields
+public import struct DewdropService.RaindropCreationFields
+public import struct DewdropService.TagNameFields
+
 import struct Catena.IDFields
 
 extension RaindropCreationFields: Swift.Decodable {
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(

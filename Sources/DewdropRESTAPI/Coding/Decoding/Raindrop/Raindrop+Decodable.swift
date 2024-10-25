@@ -1,12 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Dewdrop.ItemType
-import struct Dewdrop.Raindrop
-import struct Dewdrop.Media
-import struct Dewdrop.Tag
-import struct Dewdrop.Cache
+public import struct Dewdrop.Raindrop
+
 import struct Foundation.URL
-import struct Foundation.Date
 
 extension Raindrop: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
@@ -26,7 +22,7 @@ extension Raindrop: Swift.Decodable {
 	}
 
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

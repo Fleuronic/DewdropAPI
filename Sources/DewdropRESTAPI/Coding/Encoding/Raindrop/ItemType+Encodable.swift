@@ -1,10 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Dewdrop.ItemType
+public import enum Dewdrop.ItemType
 
 extension ItemType: Swift.Encodable {
 	// MARK: Encodable
-	public func encode(to encoder: Encoder) throws {
+	public func encode(to encoder: any Encoder) throws {
 		var container = encoder.singleValueContainer()
 		
 		let string = switch self {

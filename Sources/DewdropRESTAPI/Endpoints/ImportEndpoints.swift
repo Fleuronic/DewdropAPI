@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+public import Papyrus
 
 import struct Foundation.URL
 

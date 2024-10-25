@@ -1,10 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+public import Papyrus
 
-import struct Dewdrop.Collection
-import struct Dewdrop.Tag
-import struct DewdropService.IdentifiedCollection
+public import struct Dewdrop.Collection
+public import struct Dewdrop.Tag
+public import struct DewdropService.IdentifiedCollection
 
 @API @JSON(decoder: .dewdrop)
 public protocol FilterEndpoints {

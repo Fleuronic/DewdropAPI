@@ -1,11 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+public import Papyrus
 
-import struct Dewdrop.User
-import struct Dewdrop.Network
-import struct DewdropService.IdentifiedUser
-import protocol DewdropService.UserFields
+public import struct Dewdrop.User
+public import struct Dewdrop.Network
+public import protocol DewdropService.UserFields
 
 @API @JSON(decoder: .dewdrop)
 public protocol UserEndpoints {

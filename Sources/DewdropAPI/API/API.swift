@@ -1,5 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+public import protocol DewdropService.RaindropFields
+public import protocol DewdropService.CollectionFields
+public import protocol DewdropService.ImportFields
+public import protocol DewdropService.UserFields
+public import protocol Catenary.API
+
 import class PapyrusCore.Provider
 import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.RaindropEndpointsAPI
@@ -9,13 +15,6 @@ import struct DewdropRESTAPI.TagEndpointsAPI
 import struct DewdropRESTAPI.FilterEndpointsAPI
 import struct DewdropRESTAPI.HighlightEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
-import struct DewdropService.RaindropDetailsFields
-import struct DewdropService.ImportFolderFields
-import protocol DewdropService.RaindropFields
-import protocol DewdropService.CollectionFields
-import protocol DewdropService.ImportFields
-import protocol DewdropService.UserFields
-import protocol Catenary.API
 
 public struct API<
 	RaindropListFields: RaindropFields & Decodable,

@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
-import struct DewdropService.GroupDetailsFields
+public import struct DewdropService.GroupDetailsFields
 
 extension GroupDetailsFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
@@ -9,7 +9,7 @@ extension GroupDetailsFields: Swift.Decodable {
 	}
 
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

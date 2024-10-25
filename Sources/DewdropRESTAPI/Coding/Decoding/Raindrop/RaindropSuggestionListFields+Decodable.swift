@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+public import struct DewdropService.RaindropSuggestionListFields
+public import struct DewdropService.TagNameFields
+
 import struct Dewdrop.Collection
-import struct DewdropService.RaindropSuggestionListFields
-import struct DewdropService.TagNameFields
 import struct Catena.IDFields
 
-
 extension RaindropSuggestionListFields: Swift.Decodable {
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self = .init(

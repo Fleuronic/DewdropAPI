@@ -2,8 +2,8 @@
 
 import AutoCodable
 
-import struct Identity.Identifier
-import struct Catena.IDListFields
+public import struct Catena.IDListFields
+public import struct Identity.Identifier
 
 @AutoDecodable(accessControl: .public)
 extension IDListFields: Swift.Decodable where Model.ID: Decodable {

@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Highlight
+public import struct Dewdrop.Highlight
 import struct Foundation.URL
 import struct Foundation.Date
 
@@ -14,7 +14,7 @@ extension Highlight: Swift.Decodable {
 		case creationDate = "created"
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

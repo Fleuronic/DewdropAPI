@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Identity.Identifier
+public import struct Identity.Identifier
 
 extension Identifier: Swift.LosslessStringConvertible where Value.RawIdentifier: LosslessStringConvertible {
 	public init?(_ description: String) {

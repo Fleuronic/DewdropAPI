@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-import struct DewdropService.TagNameFields
+public import struct DewdropService.TagNameFields
 
 @AutoDecodable(accessControl: .public, container: .singleValue("name"))
 extension TagNameFields: Swift.Decodable {}

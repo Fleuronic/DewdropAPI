@@ -2,15 +2,14 @@
 
 import AutoCodable
 
-import struct DewdropService.InfoParseFields
-import struct DewdropService.TagNameFields
+public import struct DewdropService.InfoParseFields
 
 extension InfoParseFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case meta
 	}
 	
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(

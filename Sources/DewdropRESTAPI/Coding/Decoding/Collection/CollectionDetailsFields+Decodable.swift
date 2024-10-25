@@ -1,9 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Collection
-import struct Dewdrop.User
-import struct DewdropService.CollectionDetailsFields
-import struct Catena.IDFields
+public import struct DewdropService.CollectionDetailsFields
 
 extension CollectionDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
@@ -12,7 +9,7 @@ extension CollectionDetailsFields: Swift.Decodable {
 		case parent
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

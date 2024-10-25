@@ -2,8 +2,7 @@
 
 import AutoCodable
 
-import struct Dewdrop.Backup
-import struct Foundation.Date
+public import struct Dewdrop.Backup
 
 @AutoDecodable(accessControl: .public) 
 extension Backup: Swift.Decodable {

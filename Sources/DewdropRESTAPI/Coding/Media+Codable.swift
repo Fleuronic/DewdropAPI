@@ -2,8 +2,7 @@
 
 import AutoCodable
 
-import struct Dewdrop.Media
-import struct Foundation.URL
+public import struct Dewdrop.Media
 
 @AutoDecodable(accessControl: .public)
 @AutoEncodable(accessControl: .public)

@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Collection
-import struct DewdropService.TagCountFields
-import struct Identity.Identifier
-import protocol DewdropService.TagSpec
-import protocol Catena.Scoped
-import protocol Catenary.API
+public import struct Dewdrop.Collection
+public import struct DewdropService.TagCountFields
+public import struct Identity.Identifier
+public import protocol DewdropService.TagSpec
+public import protocol Catena.Scoped
+public import protocol Catenary.API
 
 extension API: TagSpec {
 	// TODO: Remove

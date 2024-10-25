@@ -1,11 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Raindrop
-import struct Dewdrop.User
-import struct Dewdrop.Collection
-import struct DewdropService.RaindropDetailsFields
-import struct DewdropService.UserNameFields
-import struct DewdropService.TagNameFields
+public import struct DewdropService.RaindropDetailsFields
 
 extension RaindropDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
@@ -17,7 +12,7 @@ extension RaindropDetailsFields: Swift.Decodable {
 		case highlights
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(

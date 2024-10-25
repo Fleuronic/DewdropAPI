@@ -1,11 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Foundation.SortOrder
-import struct Dewdrop.Raindrop
+public import struct Dewdrop.Raindrop
 
 extension Raindrop.Sort: Swift.Decodable {
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.singleValueContainer()
 		let value = try container.decode(String.self)
 		let criterion = Criterion(string: value)

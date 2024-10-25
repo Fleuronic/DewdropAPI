@@ -1,14 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Collection
-import struct DewdropService.ConfigFields
+public import struct DewdropService.ConfigFields
 
 extension ConfigFields: Swift.Decodable {
 	enum CodingKeys: String, CodingKey {
 		case lastViewedCollectionID = "lastCollection"
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(

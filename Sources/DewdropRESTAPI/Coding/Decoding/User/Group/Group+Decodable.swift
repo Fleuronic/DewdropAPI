@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-import struct Dewdrop.Group
+public import struct Dewdrop.Group
 
 @AutoDecodable(accessControl: .public)
 extension Group: Swift.Decodable {

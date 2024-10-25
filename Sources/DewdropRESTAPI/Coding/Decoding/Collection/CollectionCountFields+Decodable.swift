@@ -2,8 +2,7 @@
 
 import AutoCodable
 
-import struct Dewdrop.Collection
-import struct DewdropService.CollectionCountFields
+public import struct DewdropService.CollectionCountFields
 
 @AutoDecodable(accessControl: .public)
 extension CollectionCountFields: Swift.Decodable {

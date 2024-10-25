@@ -1,8 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Highlight
-import struct DewdropService.HighlightImportFields
-import struct Foundation.Date
+public import struct DewdropService.HighlightImportFields
 
 extension HighlightImportFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
@@ -12,7 +10,7 @@ extension HighlightImportFields: Swift.Decodable {
 		case creationDate = "created"
 	}
 
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

@@ -1,11 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import Papyrus
+public import Papyrus
 
-import struct Dewdrop.Collection
-import struct Dewdrop.User
-import struct Dewdrop.Network
-import protocol DewdropService.CollectionFields
+public import struct Dewdrop.Collection
+public import protocol DewdropService.CollectionFields
 
 @API @JSON(decoder: .dewdrop)
 public protocol CollectionEndpoints {

@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Foundation.URL
-import struct Dewdrop.Raindrop
-import struct DewdropService.InfoParseFields
-import struct DewdropService.ImportFolderCountFields
-import struct Catena.IDListFields
-import protocol DewdropService.ImportSpec
-import protocol Catena.Scoped
-import protocol Catenary.API
+public import struct Foundation.URL
+public import struct Dewdrop.Raindrop
+public import struct DewdropService.InfoParseFields
+public import struct DewdropService.ImportFolderCountFields
+public import struct Catena.IDListFields
+public import protocol DewdropService.ImportSpec
+public import protocol Catena.Scoped
+public import protocol Catenary.API
 
 extension API: ImportSpec {
 	public func parse(url: URL) async -> Self.Result<InfoParseFields> {

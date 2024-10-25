@@ -1,4 +1,5 @@
 {
+  "originHash" : "c33c6a0b48bf000d01189aa3239eee528deb787ad984e8a429549c8144676ccc",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -6,7 +7,7 @@
       "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
         "branch" : "main",
-        "revision" : "a92b1f18350cb69952a0dd77faec904d63479272"
+        "revision" : "18afe7f25b1a36159bcf8d0391807ee739d3c83c"
       }
     },
     {
@@ -33,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "19de3437dc9eb324346b0e93ccd843d9a3213da8"
+        "revision" : "704d02d23bcdcf224db6ffc068567db7e7457382"
       }
     },
     {
@@ -42,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "89ae3c3c4a6031de3a45c4e38330ada6aa254b2f"
+        "revision" : "a3b2ca9e0839bd413480249219c6c03c787ca595"
       }
     },
     {
@@ -91,5 +92,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

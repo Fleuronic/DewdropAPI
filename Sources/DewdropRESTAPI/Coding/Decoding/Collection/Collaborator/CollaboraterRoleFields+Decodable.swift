@@ -1,15 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Collaborator
-import struct DewdropService.CollaboratorRoleFields
+public import struct DewdropService.CollaboratorRoleFields
 
 extension CollaboratorRoleFields: Swift.Decodable {
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self.init(
-			role: try container.decode(Collaborator.Role.self, forKey: .role)
+			role: try container.decode(for: .role)
 		)
 	}
 }

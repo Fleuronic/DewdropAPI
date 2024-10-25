@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.UserAuthenticatedDetailsFields
+public import struct DewdropService.UserAuthenticatedDetailsFields
 
 extension UserAuthenticatedDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
@@ -10,7 +10,7 @@ extension UserAuthenticatedDetailsFields: Swift.Decodable {
 	}
 
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

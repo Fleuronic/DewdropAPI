@@ -2,7 +2,8 @@
 
 import AutoCodable
 
-import struct Dewdrop.Raindrop
+public import struct Dewdrop.Raindrop
+
 import struct Foundation.URL
 
 @AutoDecodable(accessControl: .public)

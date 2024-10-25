@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import protocol Identity.Identifiable
+public import protocol Identity.Identifiable
 
 public struct IDListResponse<IdentifiableItem: Identifiable> where IdentifiableItem.ID: Decodable {
 	public let result: Bool

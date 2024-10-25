@@ -1,11 +1,12 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+public import struct Dewdrop.Raindrop
+
 import enum Foundation.SortOrder
-import struct Dewdrop.Raindrop
 
 extension Raindrop.Sort: Swift.Encodable {
 	// MARK: Encodable
-	public func encode(to encoder: Encoder) throws {
+	public func encode(to encoder: any Encoder) throws {
 		var container = encoder.singleValueContainer()
 		let string = switch self {
 		case .order: "-sort"

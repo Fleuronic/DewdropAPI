@@ -1,10 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.User
-import struct DewdropService.UserPublicDetailsFields
-import struct DewdropService.UserAuthenticatedDetailsFields
-import protocol DewdropService.UserFields
-import protocol Identity.Identifiable
+public import struct Dewdrop.User
+public import struct DewdropService.UserPublicDetailsFields
+public import protocol DewdropService.UserFields
+public import struct Identity.Identifier
 
 public typealias PublicUserResponse = UserResponse<UserPublicDetailsFields>
 

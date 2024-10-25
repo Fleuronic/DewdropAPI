@@ -1,10 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Dewdrop.Collection
+public import struct Dewdrop.Collection
 
 extension Collection.Access.Level: Swift.Decodable {
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.singleValueContainer()
 		let value = try container.decode(Int.self)
 

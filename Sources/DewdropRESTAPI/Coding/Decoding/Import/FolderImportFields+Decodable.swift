@@ -1,7 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.FolderImportFields
-import struct DewdropService.RaindropImportFields
+public import struct DewdropService.FolderImportFields
 
 extension FolderImportFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
@@ -10,7 +9,7 @@ extension FolderImportFields: Swift.Decodable {
 	}
 	
 	// MARK: Decodable
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(

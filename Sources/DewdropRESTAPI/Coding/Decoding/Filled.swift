@@ -1,12 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+public import struct Foundation.URL
+
 import protocol AutoCodable.DecodableValue
-import struct Foundation.URL
 
 struct Filled<T: LosslessStringConvertible>: DecodableValue {
 	let contents: String
 	
-	public init(from decoder: Decoder) throws {
+	public init(from decoder: any Decoder) throws {
 		let container = try decoder.singleValueContainer()
 		contents = try container.decode(String.self)
 	}
