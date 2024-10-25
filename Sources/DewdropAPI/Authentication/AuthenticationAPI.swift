@@ -4,8 +4,8 @@ public import struct Dewdrop.AccessToken
 public import struct Foundation.URL
 public import protocol DewdropService.AccessTokenSpec
 public import protocol Catenary.API
+public import class PapyrusCore.Provider
 
-import class PapyrusCore.Provider
 import struct DewdropRESTAPI.AuthenticationEndpointsAPI
 
 public extension Authentication {

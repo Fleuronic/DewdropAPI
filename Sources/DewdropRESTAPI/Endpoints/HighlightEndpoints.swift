@@ -2,8 +2,8 @@
 
 public import Papyrus
 
-import struct Dewdrop.Highlight
-import struct DewdropService.IdentifiedCollection
+public import struct Dewdrop.Highlight
+public import struct DewdropService.IdentifiedCollection
 
 @API @JSON(decoder: .dewdrop)
 public protocol HighlightEndpoints {

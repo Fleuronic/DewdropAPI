@@ -5,8 +5,8 @@ public import protocol DewdropService.CollectionFields
 public import protocol DewdropService.ImportFields
 public import protocol DewdropService.UserFields
 public import protocol Catenary.API
+public import class PapyrusCore.Provider
 
-import class PapyrusCore.Provider
 import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.RaindropEndpointsAPI
 import struct DewdropRESTAPI.BackupEndpointsAPI

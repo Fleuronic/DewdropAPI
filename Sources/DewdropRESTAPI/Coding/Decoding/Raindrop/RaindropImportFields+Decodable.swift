@@ -3,8 +3,7 @@
 import AutoCodable
 
 public import struct DewdropService.RaindropImportFields
-
-import struct Foundation.URL
+public import struct Foundation.URL
 
 @AutoDecodable(accessControl: .public)
 extension RaindropImportFields: Swift.Decodable {

@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct Foundation.URL
+public import struct Foundation.URL
 
 public import struct Dewdrop.Collection
 

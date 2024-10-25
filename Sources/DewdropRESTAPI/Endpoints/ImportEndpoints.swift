@@ -2,7 +2,7 @@
 
 public import Papyrus
 
-import struct Foundation.URL
+public import struct Foundation.URL
 
 @API @JSON(decoder: .dewdrop)
 public protocol ImportEndpoints {

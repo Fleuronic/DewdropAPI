@@ -1,8 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 public import struct Dewdrop.Collection
-
-import struct Foundation.URL
+public import struct Foundation.URL
 
 extension Collection.Cover.IconSet: Swift.Decodable {
 	// MARK: Decodable

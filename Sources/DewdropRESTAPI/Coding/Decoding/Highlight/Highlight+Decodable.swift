@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 public import struct Dewdrop.Highlight
-import struct Foundation.URL
-import struct Foundation.Date
+public import struct Foundation.URL
+public import struct Foundation.Date
 
 extension Highlight: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
