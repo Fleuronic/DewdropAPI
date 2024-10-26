@@ -8,8 +8,8 @@ extension Collection.Cover: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self.init(
-			title: try container.decode(String.self, forKey: .title),
-			iconSets: try container.decode([IconSet].self, forKey: .iconSets)
+			title: try container.decode(for: .title),
+			iconSets: try container.decode(for: .iconSets)
 		)
 	}
 }

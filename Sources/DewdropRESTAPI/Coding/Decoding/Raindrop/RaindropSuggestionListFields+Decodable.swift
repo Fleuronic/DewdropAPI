@@ -10,8 +10,8 @@ extension RaindropSuggestionListFields: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self = .init(
-			collections: try container.decode([IDFields<Collection.Identified>].self, forKey: .collections),
-			tags: try container.decode([TagNameFields].self, forKey: .tags)
+			collections: try container.decode(for: .collections),
+			tags: try container.decode(for: .tags)
 		)
 	}
 }

@@ -12,11 +12,11 @@ extension RaindropCreationFields: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		try self.init(
-			id: container.decode(Raindrop.ID.self, forKey: .id),
-			owner: container.decode(IDFields<User.Identified>.self, forKey: .owner),
-			creator: .init(id: container.decode(User.ID.self, forKey: .creator)),
-			collection: container.decode(IDFields<Collection.Identified>.self, forKey: .collection),
-			tags: container.decode([TagNameFields].self, forKey: .tags),
+			id: container.decode(for: .id),
+			owner: container.decode(for: .owner),
+			creator: .init(id: container.decode(for: .creator)),
+			collection: container.decode(for: .collection),
+			tags: container.decode(for: .tags),
 			raindrop: .init(from: decoder)
 		)
 	}

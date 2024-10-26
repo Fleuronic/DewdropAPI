@@ -8,7 +8,7 @@ extension CollaboratorEmailListFields: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self = .init(
-			emails: try container.decode([String].self, forKey: .emails)
+			emails: try container.decode(for: .emails)
 		)
 	}
 }

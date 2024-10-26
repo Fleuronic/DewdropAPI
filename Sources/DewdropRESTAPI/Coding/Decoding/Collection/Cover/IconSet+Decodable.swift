@@ -1,7 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 public import struct Dewdrop.Collection
-public import struct Foundation.URL
 
 extension Collection.Cover.IconSet: Swift.Decodable {
 	// MARK: Decodable
@@ -9,8 +8,8 @@ extension Collection.Cover.IconSet: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		self.init(
-			png: try container.decodeIfPresent(URL.self, forKey: .png),
-			svg: try container.decodeIfPresent(URL.self, forKey: .svg)
+			png: try container.decodeIfPresent(for: .png),
+			svg: try container.decodeIfPresent(for: .svg)
 		)
 	}
 }
