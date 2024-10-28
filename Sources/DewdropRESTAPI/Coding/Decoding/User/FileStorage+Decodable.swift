@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.FileStorage
+import struct Dewdrop.FileStorage
 
 @AutoDecodable(accessControl: .public)
 extension FileStorage: Swift.Decodable {

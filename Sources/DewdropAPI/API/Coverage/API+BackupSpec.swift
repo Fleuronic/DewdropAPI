@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import enum Dewdrop.FileFormat
-public import struct Dewdrop.Backup
-public import struct DewdropService.BackupCreationDateFields
-public import struct Foundation.Data
-public import struct Identity.Identifier
-public import protocol DewdropService.BackupSpec
-public import protocol Catena.Scoped
-public import protocol Catenary.API
+import enum Dewdrop.FileFormat
+import struct Dewdrop.Backup
+import struct DewdropService.BackupCreationDateFields
+import struct Foundation.Data
+import struct Identity.Identifier
+import protocol DewdropService.BackupSpec
+import protocol Catena.Scoped
+import protocol Catenary.API
 
 extension API: BackupSpec {
 	// TODO: Remove

@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Network
+import struct Dewdrop.Network
 
 @AutoDecodable(accessControl: .public)
 extension Network: Swift.Decodable {

@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.User
+import struct Dewdrop.User
 
 @AutoDecodable(accessControl: .public)
 extension User: Swift.Decodable {

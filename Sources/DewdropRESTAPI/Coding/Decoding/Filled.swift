@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Foundation.URL
+import struct Foundation.URL
 
 import protocol AutoCodable.DecodableValue
 

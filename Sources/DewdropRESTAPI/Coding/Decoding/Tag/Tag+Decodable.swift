@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Tag
+import struct Dewdrop.Tag
 
 @AutoDecodable(accessControl: .public)
 extension Tag: Swift.Decodable {

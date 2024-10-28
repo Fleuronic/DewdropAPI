@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import Papyrus
+import Papyrus
 
-public import struct Foundation.URL
+import struct Foundation.URL
 
 @API @JSON(decoder: .dewdrop)
 public protocol ImportEndpoints {

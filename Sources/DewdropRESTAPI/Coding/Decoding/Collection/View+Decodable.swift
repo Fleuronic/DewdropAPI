@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Collection
+import struct Dewdrop.Collection
 
 @AutoDecodable(accessControl: .public, container: .singleValueForEnum)
 extension Collection.View: Swift.Decodable {

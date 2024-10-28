@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Tag
+import struct Dewdrop.Tag
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
 extension Tag.Sort: Swift.Encodable {

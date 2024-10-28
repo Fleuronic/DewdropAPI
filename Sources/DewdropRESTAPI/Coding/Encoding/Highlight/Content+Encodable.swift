@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Highlight
+import struct Dewdrop.Highlight
 
 @AutoEncodable(accessControl: .public)
 extension Highlight.Content: Swift.Encodable {

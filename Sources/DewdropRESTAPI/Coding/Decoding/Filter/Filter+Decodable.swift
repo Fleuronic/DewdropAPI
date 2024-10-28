@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Filter
+import struct Dewdrop.Filter
 
 @AutoDecodable(accessControl: .public)
 extension Filter: Swift.Decodable {

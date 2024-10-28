@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.AccessToken
+import struct Dewdrop.AccessToken
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
 extension AccessToken.GrantType: Swift.Encodable {

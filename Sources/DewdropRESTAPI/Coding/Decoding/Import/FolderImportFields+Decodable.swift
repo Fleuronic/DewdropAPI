@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.FolderImportFields
+import struct DewdropService.FolderImportFields
 
 extension FolderImportFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {

@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.User
+import struct Dewdrop.User
 
 extension User.Config.BrokenLevel: Swift.Encodable {
 	// MARK: Encodable

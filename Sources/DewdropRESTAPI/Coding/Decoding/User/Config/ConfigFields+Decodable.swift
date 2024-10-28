@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.ConfigFields
+import struct DewdropService.ConfigFields
 
 extension ConfigFields: Swift.Decodable {
 	enum CodingKeys: String, CodingKey {

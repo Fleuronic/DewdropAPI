@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Raindrop
+import struct Dewdrop.Raindrop
 
 extension Raindrop.Sort: Swift.Decodable {
 	// MARK: Decodable

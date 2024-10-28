@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Collaborator
+import struct Dewdrop.Collaborator
 
 @AutoDecodable(accessControl: .public)
 extension Collaborator: Swift.Decodable {

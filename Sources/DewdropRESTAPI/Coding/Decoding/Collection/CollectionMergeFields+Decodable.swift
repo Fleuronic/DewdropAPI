@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct DewdropService.CollectionMergeFields
+import struct DewdropService.CollectionMergeFields
 
 @AutoDecodable(accessControl: .public)
 extension CollectionMergeFields: Swift.Decodable {

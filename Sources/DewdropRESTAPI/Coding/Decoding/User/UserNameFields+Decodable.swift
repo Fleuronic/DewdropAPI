@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct DewdropService.UserNameFields
+import struct DewdropService.UserNameFields
 
 @AutoDecodable(accessControl: .public)
 extension UserNameFields: Swift.Decodable {

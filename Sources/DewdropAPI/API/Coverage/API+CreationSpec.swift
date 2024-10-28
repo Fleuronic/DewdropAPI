@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Foundation.URL
-public import protocol DewdropService.CreationSpec
-public import protocol Catena.Scoped
-public import protocol Catenary.API
+import struct Foundation.URL
+import protocol DewdropService.CreationSpec
+import protocol Catena.Scoped
+import protocol Catenary.API
 
 extension API: CreationSpec {
 	public func createRaindrop(

@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import class Foundation.JSONDecoder
-public import struct Foundation.Date
+import class Foundation.JSONDecoder
+import struct Foundation.Date
 
 //extension ISO8601DateFormatter: Sendable {}
 

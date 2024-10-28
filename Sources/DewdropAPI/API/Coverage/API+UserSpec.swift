@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.User
-public import struct Dewdrop.Network
-public import struct DewdropService.UserAuthenticatedDetailsFields
-public import struct DewdropService.UserPublicDetailsFields
-public import struct Identity.Identifier
-public import protocol DewdropService.UserSpec
-public import protocol Catena.Scoped
-public import protocol Catenary.API
+import struct Dewdrop.User
+import struct Dewdrop.Network
+import struct DewdropService.UserAuthenticatedDetailsFields
+import struct DewdropService.UserPublicDetailsFields
+import struct Identity.Identifier
+import protocol DewdropService.UserSpec
+import protocol Catena.Scoped
+import protocol Catenary.API
 
 extension API: UserSpec {
 	public func fetchUserAuthenticatedDetails() async -> Self.Result<UserDetailsFields> {

@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Highlight
+import struct Dewdrop.Highlight
 
 extension Highlight.Color: Swift.Decodable {
 	// MARK: Decodable

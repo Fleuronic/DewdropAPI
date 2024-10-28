@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Collection
-public import struct DewdropService.GroupDetailsFields
+import struct Dewdrop.Collection
+import struct DewdropService.GroupDetailsFields
 
 extension GroupDetailsFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {

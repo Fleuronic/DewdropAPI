@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import enum Dewdrop.ItemType
+import enum Dewdrop.ItemType
 
 extension ItemType: Swift.Decodable {
 	// MARK: Decodable

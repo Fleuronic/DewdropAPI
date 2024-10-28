@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct DewdropService.ImportFolderFields
+import struct DewdropService.ImportFolderFields
 
 @AutoDecodable(accessControl: .public)
 extension ImportFolderFields: Swift.Decodable {

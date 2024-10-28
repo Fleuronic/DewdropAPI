@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Raindrop
-public import struct Foundation.URL
+import struct Dewdrop.Raindrop
+import struct Foundation.URL
 
 extension Raindrop: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {

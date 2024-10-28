@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import protocol DewdropService.RaindropFields
-public import protocol DewdropService.CollectionFields
-public import protocol DewdropService.ImportFields
-public import protocol DewdropService.UserFields
-public import protocol Catenary.API
-public import class PapyrusCore.Provider
+import protocol DewdropService.RaindropFields
+import protocol DewdropService.CollectionFields
+import protocol DewdropService.ImportFields
+import protocol DewdropService.UserFields
+import protocol Catenary.API
+import class PapyrusCore.Provider
 
 import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.RaindropEndpointsAPI

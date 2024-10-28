@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import enum Dewdrop.Import
+import enum Dewdrop.Import
 
 @AutoDecodable(accessControl: .public)
 extension Import.Count: Swift.Decodable {

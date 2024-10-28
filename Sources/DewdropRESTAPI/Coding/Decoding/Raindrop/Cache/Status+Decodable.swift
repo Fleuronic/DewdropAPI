@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Cache
+import struct Dewdrop.Cache
 
 extension Cache.Status: Swift.Decodable {
 	// MARK: Decodable

@@ -1,10 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import Papyrus
+import Papyrus
 
-public import enum Dewdrop.FileFormat
-public import struct Dewdrop.Backup
-public import struct DewdropService.IdentifiedBackup
+import enum Dewdrop.FileFormat
+import struct Dewdrop.Backup
+import struct DewdropService.IdentifiedBackup
 
 @API @JSON(decoder: .dewdrop)
 public protocol BackupEndpoints {

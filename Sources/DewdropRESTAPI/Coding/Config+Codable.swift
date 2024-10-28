@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.User
+import struct Dewdrop.User
 
 @AutoEncodable(accessControl: .public)
 @AutoDecodable(accessControl: .public)

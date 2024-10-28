@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.RaindropCreationFields
+import struct DewdropService.RaindropCreationFields
 
 extension RaindropCreationFields {
 	enum CodingKeys: String, CodingKey {

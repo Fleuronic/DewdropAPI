@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.HighlightImportFields
+import struct DewdropService.HighlightImportFields
 
 extension HighlightImportFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {

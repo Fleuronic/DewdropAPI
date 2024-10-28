@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.RaindropSuggestionListFields
-public import struct DewdropService.TagNameFields
-public import struct Dewdrop.Collection
-public import struct Catena.IDFields
+import struct DewdropService.RaindropSuggestionListFields
+import struct DewdropService.TagNameFields
+import struct Dewdrop.Collection
+import struct Catena.IDFields
 
 extension RaindropSuggestionListFields: Swift.Decodable {
 	public init(from decoder: any Decoder) throws {

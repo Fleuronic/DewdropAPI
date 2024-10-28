@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import enum Catenary.Error
-public import protocol Catena.Fields
-public import protocol Catena.UndocumentedFields
+import enum Catenary.Error
+import protocol Catena.Fields
+import protocol Catena.UndocumentedFields
 
 import protocol DewdropRESTAPI.Response
 

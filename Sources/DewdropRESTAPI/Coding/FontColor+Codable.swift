@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.User
+import struct Dewdrop.User
 
 @AutoDecodable(accessControl: .public, container: .singleValueForEnum)
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)

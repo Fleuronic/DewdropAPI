@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct DewdropService.InfoParseFields
+import struct DewdropService.InfoParseFields
 
 extension InfoParseFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {

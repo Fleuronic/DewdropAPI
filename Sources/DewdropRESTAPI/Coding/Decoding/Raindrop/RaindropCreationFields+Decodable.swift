@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Raindrop
-public import struct Dewdrop.User
-public import struct Dewdrop.Collection
-public import struct DewdropService.RaindropCreationFields
-public import struct DewdropService.TagNameFields
-public import struct Catena.IDFields
+import struct Dewdrop.Raindrop
+import struct Dewdrop.User
+import struct Dewdrop.Collection
+import struct DewdropService.RaindropCreationFields
+import struct DewdropService.TagNameFields
+import struct Catena.IDFields
 
 extension RaindropCreationFields: Swift.Decodable {
 	public init(from decoder: any Decoder) throws {

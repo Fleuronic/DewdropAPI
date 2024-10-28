@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.AccessToken
+import struct Dewdrop.AccessToken
 
 public struct AccessTokenResponse {
 	public let result: Bool

@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Raindrop
-public import enum Foundation.SortOrder
+import struct Dewdrop.Raindrop
+import enum Foundation.SortOrder
 
 extension Raindrop.Sort: Swift.Encodable {
 	// MARK: Encodable

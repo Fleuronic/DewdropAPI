@@ -2,7 +2,7 @@
 
 import AutoCodable
 
-public import struct Dewdrop.Backup
+import struct Dewdrop.Backup
 
 @AutoDecodable(accessControl: .public) 
 extension Backup: Swift.Decodable {

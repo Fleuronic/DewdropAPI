@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Raindrop
-public import struct DewdropService.HighlightDetailsFields
-public import protocol DewdropService.HighlightSpec
-public import protocol Catenary.API
+import struct Dewdrop.Raindrop
+import struct DewdropService.HighlightDetailsFields
+import protocol DewdropService.HighlightSpec
+import protocol Catenary.API
 
 extension API: HighlightSpec {
 	// TODO: Remove

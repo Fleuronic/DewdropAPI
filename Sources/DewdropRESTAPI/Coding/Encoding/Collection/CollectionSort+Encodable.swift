@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import enum Foundation.SortOrder
-public import struct Dewdrop.Collection
+import enum Foundation.SortOrder
+import struct Dewdrop.Collection
 
 extension Collection.Sort: Swift.Encodable {
 	// MARK: Encodable

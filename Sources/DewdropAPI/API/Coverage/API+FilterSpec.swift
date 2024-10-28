@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Tag
-public import struct Dewdrop.Collection
-public import struct DewdropService.FilterOverviewFields
-public import protocol DewdropService.FilterSpec
-public import protocol Catena.Scoped
-public import protocol Catenary.API
+import struct Dewdrop.Tag
+import struct Dewdrop.Collection
+import struct DewdropService.FilterOverviewFields
+import protocol DewdropService.FilterSpec
+import protocol Catena.Scoped
+import protocol Catenary.API
 
 extension API: FilterSpec {
 	// TODO: Remove

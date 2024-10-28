@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import enum Catenary.Error
-public import class Foundation.JSONDecoder
-public import protocol PapyrusCore.Response
-public import protocol Catena.Fields
+import enum Catenary.Error
+import class Foundation.JSONDecoder
+import protocol PapyrusCore.Response
+import protocol Catena.Fields
 
 public struct Error: Swift.Error, Equatable {
 	public let statusCode: Int

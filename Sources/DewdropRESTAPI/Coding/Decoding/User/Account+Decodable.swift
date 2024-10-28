@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct Dewdrop.Account
+import struct Dewdrop.Account
 
 extension Account: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {

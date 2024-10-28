@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.RaindropDetailsFields
+import struct DewdropService.RaindropDetailsFields
 
 extension RaindropDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {

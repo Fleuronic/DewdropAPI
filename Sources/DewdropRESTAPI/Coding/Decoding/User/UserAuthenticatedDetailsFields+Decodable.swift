@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.UserAuthenticatedDetailsFields
+import struct DewdropService.UserAuthenticatedDetailsFields
 
 extension UserAuthenticatedDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {

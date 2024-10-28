@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public import struct DewdropService.CollaboratorRoleFields
+import struct DewdropService.CollaboratorRoleFields
 
 extension CollaboratorRoleFields {
 	enum CodingKeys: String, CodingKey {
