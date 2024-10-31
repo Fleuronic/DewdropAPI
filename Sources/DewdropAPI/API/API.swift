@@ -1,11 +1,15 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import struct DewdropService.RaindropDetailsFields
+import struct DewdropService.CollectionDetailsFields
+import struct DewdropService.UserAuthenticatedDetailsFields
+import struct DewdropService.ImportFolderFields
+import class PapyrusCore.Provider
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
 import protocol DewdropService.ImportFields
 import protocol DewdropService.UserFields
 import protocol Catenary.API
-import class PapyrusCore.Provider
 
 import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.RaindropEndpointsAPI
@@ -36,8 +40,12 @@ public struct API<
 // MARK: -
 public extension API {
 	init(
-		apiKey: String
-		// TODO: Default fields
+		apiKey: String,
+		raindropListFields: RaindropListFields.Type = RaindropDetailsFields.self,
+		raindropCreationFields: RaindropCreationFields.Type = RaindropDetailsFields.self,
+		collectionListFields: CollectionListFields.Type = CollectionDetailsFields.self,
+		userDetailsFields: UserDetailsFields.Type = UserAuthenticatedDetailsFields.self,
+		fileImportFields: FileImportFields.Type = ImportFolderFields.self
 	) {
 		let url = "https://api.raindrop.io/rest/v1"
 		let provider = Provider(baseURL: url).modifyRequests { request in
