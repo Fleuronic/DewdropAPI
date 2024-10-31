@@ -13,19 +13,19 @@ extension API: BackupSpec {
 	// TODO: Remove
 	public typealias BackupListFields = BackupCreationDateFields
 
-	public func listBackups() async -> Self.Result<[BackupCreationDateFields]> {
+	public func listBackups() async -> Response<[BackupCreationDateFields]> {
 		await result {
 			try await backups.getAll().items 
 		}
 	}
 	
-	public func createBackup() async -> Self.Result<String> {
+	public func createBackup() async -> Response<String> {
 		await result { 
 			try await backups.generateNew() 
 		}
 	}
 	
-	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> Self.Result<Data> {
+	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> Response<Data> {
 		await result {
 			try await backups.downloadFile(
 				id: id,

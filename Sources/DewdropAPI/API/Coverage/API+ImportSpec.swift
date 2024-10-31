@@ -10,13 +10,13 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: ImportSpec {
-	public func parse(url: URL) async -> Self.Result<InfoParseFields> {
+	public func parse(url: URL) async -> Response<InfoParseFields> {
 		await result {
-			try await`import`.parseURL(urlString: url.absoluteString).item 
+			try await `import`.parseURL(urlString: url.absoluteString).item
 		}
 	}
 
-	public func importFile(at url: URL, withName filename: String) async -> Self.Result<FileImportFields> {
+	public func importFile(at url: URL, withName filename: String) async -> Response<FileImportFields> {
 		await result(transform: FileImportFields.init) {
 			try await `import`.parseHTMLImportFile(
 				file: .init(
@@ -28,7 +28,7 @@ extension API: ImportSpec {
 		}
 	}
 
-	public func checkExistence(of urls: [URL]) async -> Self.Result<IDListFields<Raindrop.Identified>> {
+	public func checkExistence(of urls: [URL]) async -> Response<IDListFields<Raindrop.Identified>> {
 		await result {
 			try await `import`.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
 		}.map(IDListFields.init)

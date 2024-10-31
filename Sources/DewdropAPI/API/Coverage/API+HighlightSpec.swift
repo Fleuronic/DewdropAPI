@@ -7,15 +7,15 @@ import protocol Catenary.API
 
 extension API: HighlightSpec {
 	// TODO: Remove
-	public typealias HighlightListResult = Self.Result<HighlightDetailsFields>
+	public typealias HighlightListResult = Response<HighlightDetailsFields>
 
-	public func listHighlights(onPage page: Int?, listing highlightsPerPage: Int?) async -> Self.Result<HighlightDetailsFields> {
+	public func listHighlights(onPage page: Int?, listing highlightsPerPage: Int?) async -> Response<HighlightDetailsFields> {
 		await result {
 			fatalError()
 		}
 	}
 
-	public func listHighlights(ofRaindropWith id: Raindrop.ID) async -> Self.Result<HighlightDetailsFields> {
+	public func listHighlights(ofRaindropWith id: Raindrop.ID) async -> Response<HighlightDetailsFields> {
 		await result {
 			fatalError()
 		}

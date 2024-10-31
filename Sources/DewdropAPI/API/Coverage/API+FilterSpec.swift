@@ -11,7 +11,7 @@ extension API: FilterSpec {
 	// TODO: Remove
 	public typealias FilterListFields = FilterOverviewFields
 
-	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Self.Result<FilterOverviewFields> {
+	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Response<FilterOverviewFields> {
 		await result {
 			try await filters.getFilters(
 				collectionId: id,
