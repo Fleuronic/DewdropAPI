@@ -11,7 +11,7 @@ import protocol Catenary.API
 
 extension API: ImportSpec {
 	public func parse(url: URL) async -> Response<InfoParseFields> {
-		await result {
+		await response {
 			try await `import`.parseURL(urlString: url.absoluteString).item
 		}
 	}
@@ -29,7 +29,7 @@ extension API: ImportSpec {
 	}
 
 	public func checkExistence(of urls: [URL]) async -> Response<IDListFields<Raindrop.Identified>> {
-		await result {
+		await response {
 			try await `import`.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
 		}.map(IDListFields.init)
 	}

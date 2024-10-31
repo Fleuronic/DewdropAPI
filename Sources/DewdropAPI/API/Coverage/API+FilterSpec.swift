@@ -12,7 +12,7 @@ extension API: FilterSpec {
 	public typealias FilterListFields = FilterOverviewFields
 
 	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> Response<FilterOverviewFields> {
-		await result {
+		await response {
 			try await filters.getFilters(
 				collectionId: id,
 				tagsSort: tagSort,

@@ -47,7 +47,7 @@ extension Authentication.API: Equatable {
 
 extension Authentication.API: AccessTokenSpec {
 	public func exchangeCodeForAccessToken(code: String, redirectingTo uri: URL) async -> Response<AccessToken> {
-		await result {
+		await response {
 			try await authentication.getAccessToken(
 				client_id: clientID,
 				client_secret: clientSecret,
@@ -60,7 +60,7 @@ extension Authentication.API: AccessTokenSpec {
 	}
 
 	public func refreshAccessToken(_ token: AccessToken) async -> Response<AccessToken> {
-		await result {
+		await response {
 			try await authentication.getAccessToken(
 				client_id: clientID,
 				client_secret: clientSecret,

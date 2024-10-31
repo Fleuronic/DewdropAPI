@@ -11,25 +11,25 @@ import protocol Catenary.API
 
 extension API: UserSpec {
 	public func fetchUserAuthenticatedDetails() async -> Response<UserDetailsFields> {
-		await result {
+		await response {
 			try await users.getUser().user
 		}
 	}
 
 	public func fetchUserPublicDetails(with id: User.ID) async -> Response<UserPublicDetailsFields> {
-		await result {
+		await response {
 			try await users.getUserByName(name: id).user
 		}
 	}
 	
 	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> Response<Void> {
-		await result {
+		await response {
 			try await users.connectSocialNetworkAccount(provider: provider)
 		}
 	}
 	
 	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> Response<Void> {
-		await result {
+		await response {
 			try await users.disconnectSocialNetworkAccount(provider: provider)
 		}
 	}

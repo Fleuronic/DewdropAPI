@@ -12,7 +12,7 @@ extension API: TagSpec {
 	public typealias TagListFields = TagCountFields
 
 	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Response<[TagCountFields]> {
-		await result {
+		await response {
 			try await tags.getTags(collectionId: id).items
 		}
 	}
@@ -22,7 +22,7 @@ extension API: TagSpec {
 	}
 
 	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
-		await result {
+		await response {
 			try await tags.mergeTags(
 				collectionId: id,
 				replace: tagName,
@@ -32,7 +32,7 @@ extension API: TagSpec {
 	}
 
 	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
-		await result {
+		await response {
 			try await tags.removeTags(
 				collectionId: id,
 				tags: tagNames
