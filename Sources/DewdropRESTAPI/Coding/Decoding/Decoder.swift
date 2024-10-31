@@ -3,8 +3,6 @@
 import class Foundation.JSONDecoder
 import struct Foundation.Date
 
-//extension ISO8601DateFormatter: Sendable {}
-
 extension JSONDecoder {
 	static var dewdrop: JSONDecoder {
 		let decoder = JSONDecoder()
