@@ -4,13 +4,6 @@ import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.UserAuthenticatedDetailsFields
 import struct DewdropService.ImportFolderFields
-import class PapyrusCore.Provider
-import protocol DewdropService.RaindropFields
-import protocol DewdropService.CollectionFields
-import protocol DewdropService.ImportFields
-import protocol DewdropService.UserFields
-import protocol Catenary.API
-
 import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.RaindropEndpointsAPI
 import struct DewdropRESTAPI.BackupEndpointsAPI
@@ -19,6 +12,12 @@ import struct DewdropRESTAPI.TagEndpointsAPI
 import struct DewdropRESTAPI.FilterEndpointsAPI
 import struct DewdropRESTAPI.HighlightEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
+import class PapyrusCore.Provider
+import protocol DewdropService.RaindropFields
+import protocol DewdropService.CollectionFields
+import protocol DewdropService.ImportFields
+import protocol DewdropService.UserFields
+import protocol Catenary.API
 
 public struct API<
 	RaindropListFields: RaindropFields & Decodable,
@@ -35,18 +34,61 @@ public struct API<
 	let filters: FilterEndpointsAPI
 	let highlights: HighlightEndpointsAPI
 	let users: UserEndpointsAPI
+
+	private let provider: Provider
 }
 
 // MARK: -
 public extension API {
-	init(
-		apiKey: String,
-		raindropListFields: RaindropListFields.Type = RaindropDetailsFields.self,
-		raindropCreationFields: RaindropCreationFields.Type = RaindropDetailsFields.self,
-		collectionListFields: CollectionListFields.Type = CollectionDetailsFields.self,
-		userDetailsFields: UserDetailsFields.Type = UserAuthenticatedDetailsFields.self,
-		fileImportFields: FileImportFields.Type = ImportFolderFields.self
-	) {
+	func returning<Fields: RaindropFields & Decodable>(raindropListFields: Fields.Type) -> API<
+		Fields,
+		RaindropCreationFields,
+		CollectionListFields,
+		UserDetailsFields,
+		FileImportFields
+	> { .init(provider: provider) }
+
+	func returning<Fields: RaindropFields & Decodable>(raindropCreationFields: Fields.Type) -> API<
+		RaindropListFields,
+		Fields,
+		CollectionListFields,
+		UserDetailsFields,
+		FileImportFields
+	> { .init(provider: provider) }
+
+	func returning<Fields: CollectionFields & Decodable>(collectionListFields: Fields.Type) -> API<
+		RaindropListFields,
+		RaindropCreationFields,
+		Fields,
+		UserDetailsFields,
+		FileImportFields
+	> { .init(provider: provider) }
+
+	func returning<Fields: UserFields & Decodable>(userDetailsFields: Fields.Type) -> API<
+		RaindropListFields,
+		RaindropCreationFields,
+		CollectionListFields,
+		Fields,
+		FileImportFields
+	> { .init(provider: provider) }
+
+	func returning<Fields: ImportFields & Decodable>(importFields: Fields.Type) -> API<
+		RaindropListFields,
+		RaindropCreationFields,
+		CollectionListFields,
+		UserDetailsFields,
+		Fields
+	> { .init(provider: provider) }
+}
+
+public extension API<
+	RaindropDetailsFields,
+	RaindropDetailsFields,
+	CollectionDetailsFields,
+	UserAuthenticatedDetailsFields,
+	ImportFolderFields
+>{
+	init(apiKey: String) {
 		let url = "https://api.raindrop.io/rest/v1"
 		let provider = Provider(baseURL: url).modifyRequests { request in
 			request.addAuthorization(.bearer(apiKey))
@@ -55,7 +97,16 @@ public extension API {
 			if let error = response.apiError(validating: true) { throw error }
 			return response
 		}
-		
+
+		self.init(provider: provider)
+	}
+}
+
+// MARK: -
+private extension API {
+	init(provider: Provider) {
+		self.provider = provider
+
 		collections = .init(provider: provider)
 		raindrops = .init(provider: provider)
 		backups = .init(provider: provider)
@@ -67,6 +118,7 @@ public extension API {
 	}
 }
 
+// MARK: -
 extension API: Catenary.API {
 	public typealias Error = DewdropAPI.Error
 }
