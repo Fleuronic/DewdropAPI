@@ -10,8 +10,9 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: BackupSpec {
-	// TODO: Remove
+	#if swift(<6.0)
 	public typealias BackupListFields = BackupCreationDateFields
+	#endif
 
 	public func listBackups() async -> Response<[BackupCreationDateFields]> {
 		await response {

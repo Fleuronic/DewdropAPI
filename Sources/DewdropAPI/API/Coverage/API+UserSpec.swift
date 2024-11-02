@@ -2,21 +2,20 @@
 
 import struct Dewdrop.User
 import struct Dewdrop.Network
-import struct DewdropService.UserAuthenticatedDetailsFields
-import struct DewdropService.UserPublicDetailsFields
+import struct DewdropService.UserPublicFields
 import struct Identity.Identifier
 import protocol DewdropService.UserSpec
 import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: UserSpec {
-	public func fetchUserAuthenticatedDetails() async -> Response<UserDetailsFields> {
+	public func fetchAuthenticatedUser() async -> Response<UserAuthenticatedFields> {
 		await response {
 			try await users.getUser().user
 		}
 	}
 
-	public func fetchUserPublicDetails(with id: User.ID) async -> Response<UserPublicDetailsFields> {
+	public func fetchUser(with id: User.ID) async -> Response<UserPublicFields> {
 		await response {
 			try await users.getUserByName(name: id).user
 		}

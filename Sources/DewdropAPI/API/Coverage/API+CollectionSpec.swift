@@ -7,10 +7,11 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: CollectionSpec {
-	// TODO: Remove
+	#if swift(<6.0)
 	public typealias RootCollectionListFields = CollectionListFields
 	public typealias ChildCollectionListFields = CollectionListFields
 	public typealias SystemCollectionListFields = CollectionCountFields
+	#endif
 
 	public func listRootCollections() async -> Response<[CollectionListFields]> {
 		await response {

@@ -8,8 +8,9 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: TagSpec {
-	// TODO: Remove
+	#if swift(<6.0)
 	public typealias TagListFields = TagCountFields
+	#endif
 
 	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Response<[TagCountFields]> {
 		await response {

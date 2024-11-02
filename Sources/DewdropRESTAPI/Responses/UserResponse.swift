@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.User
-import struct DewdropService.UserPublicDetailsFields
+import struct DewdropService.UserPublicFields
 import protocol DewdropService.UserFields
 import struct Identity.Identifier
 
-public typealias PublicUserResponse = UserResponse<UserPublicDetailsFields>
+public typealias PublicUserResponse = UserResponse<UserPublicFields>
 
 // MARK: -
 public struct UserResponse<Fields: UserFields & Decodable> {

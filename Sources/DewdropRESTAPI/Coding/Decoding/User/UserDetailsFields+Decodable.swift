@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.UserAuthenticatedDetailsFields
+import struct DewdropService.UserDetailsFields
 
-extension UserAuthenticatedDetailsFields: Swift.Decodable {
+extension UserDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case config

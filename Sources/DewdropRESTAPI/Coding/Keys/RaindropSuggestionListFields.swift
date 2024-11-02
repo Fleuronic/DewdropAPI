@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.RaindropSuggestionListFields
+import struct DewdropService.RaindropSuggestionsFields
 
-extension RaindropSuggestionListFields {
+extension RaindropSuggestionsFields {
 	enum CodingKeys: String, CodingKey {
 		case collections
 		case tags

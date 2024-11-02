@@ -2,28 +2,31 @@
 
 import struct DewdropService.RaindropDetailsFields
 import struct DewdropService.CollectionDetailsFields
-import struct DewdropService.UserAuthenticatedDetailsFields
+import struct DewdropService.HighlightDetailsFields
+import struct DewdropService.UserDetailsFields
 import struct DewdropService.ImportFolderFields
-import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.RaindropEndpointsAPI
-import struct DewdropRESTAPI.BackupEndpointsAPI
-import struct DewdropRESTAPI.ImportEndpointsAPI
+import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.TagEndpointsAPI
 import struct DewdropRESTAPI.FilterEndpointsAPI
 import struct DewdropRESTAPI.HighlightEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
+import struct DewdropRESTAPI.BackupEndpointsAPI
+import struct DewdropRESTAPI.ImportEndpointsAPI
 import class PapyrusCore.Provider
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
-import protocol DewdropService.ImportFields
+import protocol DewdropService.HighlightFields
 import protocol DewdropService.UserFields
+import protocol DewdropService.ImportFields
 import protocol Catenary.API
 
 public struct API<
 	RaindropListFields: RaindropFields & Decodable,
 	RaindropCreationFields: RaindropFields & Decodable,
 	CollectionListFields: CollectionFields & Decodable,
-	UserDetailsFields: UserFields & Decodable,
+	HighlightListFields: HighlightFields & Decodable,
+	UserAuthenticatedFields: UserFields & Decodable,
 	FileImportFields: ImportFields & Decodable
 >: @unchecked Sendable {
 	let collections: CollectionEndpointsAPI
@@ -44,7 +47,8 @@ public extension API {
 		Fields,
 		RaindropCreationFields,
 		CollectionListFields,
-		UserDetailsFields,
+		HighlightListFields,
+		UserAuthenticatedFields,
 		FileImportFields
 	> { .init(provider: provider) }
 
@@ -52,7 +56,8 @@ public extension API {
 		RaindropListFields,
 		Fields,
 		CollectionListFields,
-		UserDetailsFields,
+		HighlightListFields,
+		UserAuthenticatedFields,
 		FileImportFields
 	> { .init(provider: provider) }
 
@@ -60,14 +65,25 @@ public extension API {
 		RaindropListFields,
 		RaindropCreationFields,
 		Fields,
-		UserDetailsFields,
+		HighlightListFields,
+		UserAuthenticatedFields,
 		FileImportFields
 	> { .init(provider: provider) }
 
-	func returning<Fields: UserFields & Decodable>(userDetailsFields: Fields.Type) -> API<
+	func returning<Fields: HighlightFields & Decodable>(highlightListFields: Fields.Type) -> API<
 		RaindropListFields,
 		RaindropCreationFields,
 		CollectionListFields,
+		Fields,
+		UserAuthenticatedFields,
+		FileImportFields
+	> { .init(provider: provider) }
+
+	func returning<Fields: UserFields & Decodable>(userAuthenticatedFields: Fields.Type) -> API<
+		RaindropListFields,
+		RaindropCreationFields,
+		CollectionListFields,
+		HighlightListFields,
 		Fields,
 		FileImportFields
 	> { .init(provider: provider) }
@@ -76,7 +92,8 @@ public extension API {
 		RaindropListFields,
 		RaindropCreationFields,
 		CollectionListFields,
-		UserDetailsFields,
+		HighlightListFields,
+		UserAuthenticatedFields,
 		Fields
 	> { .init(provider: provider) }
 }
@@ -85,7 +102,8 @@ public extension API<
 	RaindropDetailsFields,
 	RaindropDetailsFields,
 	CollectionDetailsFields,
-	UserAuthenticatedDetailsFields,
+	HighlightDetailsFields,
+	UserDetailsFields,
 	ImportFolderFields
 >{
 	init(apiKey: String) {

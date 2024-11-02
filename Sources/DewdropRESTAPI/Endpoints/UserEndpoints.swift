@@ -9,7 +9,7 @@ import protocol DewdropService.UserFields
 @API @JSON(decoder: .dewdrop)
 public protocol UserEndpoints {
 	@GET("/user")
-	func getUser<UserDetailsFields: UserFields & Decodable>() async throws -> UserResponse<UserDetailsFields>
+	func getUser<Fields: UserFields & Decodable>() async throws -> UserResponse<Fields>
 
 	@GET("/user/{name}")
 	func getUserByName(name: User.ID) async throws -> PublicUserResponse
