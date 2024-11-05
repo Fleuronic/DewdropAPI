@@ -16,8 +16,8 @@ extension API: ImportSpec {
 		}
 	}
 
-	public func importFile(at url: URL, withName filename: String) async -> Response<FileImportFields> {
-		await result(transform: FileImportFields.init) {
+	public func importFile(at url: URL, withName filename: String) async -> Response<ImportResponseFields> {
+		await response {
 			try await `import`.parseHTMLImportFile(
 				file: .init(
 					data: try .init(contentsOf: url),

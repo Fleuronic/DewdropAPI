@@ -13,5 +13,5 @@ public protocol ImportEndpoints {
 	func checkURLsExistence(urlStrings urls: [String]) async throws -> RaindropIDListResponse
 
 	@POST("/import/file") @Multipart
-	func parseHTMLImportFile(file: Part) async throws -> ImportResponse
+	func parseHTMLImportFile<Fields>(file: Part) async throws -> ImportResponse<Fields>
 }

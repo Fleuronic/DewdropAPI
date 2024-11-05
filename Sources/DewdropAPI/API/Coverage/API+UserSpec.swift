@@ -9,7 +9,7 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: UserSpec {
-	public func fetchAuthenticatedUser() async -> Response<UserAuthenticatedFields> {
+	public func fetchAuthenticatedUser() async -> Response<UserResponseFields> {
 		await response {
 			try await users.getUser().user
 		}

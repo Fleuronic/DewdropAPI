@@ -18,10 +18,12 @@ extension API: TagSpec {
 		}
 	}
 
+	@discardableResult
 	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
 		await mergeTags(withNames: [tagName], intoTagNamed: updatedTagName, inCollectionWith: id)
 	}
 
+	@discardableResult
 	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
 		await response {
 			try await tags.mergeTags(
@@ -31,7 +33,8 @@ extension API: TagSpec {
 			)
 		}
 	}
-
+	
+	@discardableResult
 	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
 		await response {
 			try await tags.removeTags(

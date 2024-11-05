@@ -2,8 +2,8 @@
 
 import enum Catenary.Error
 import class Foundation.JSONDecoder
+import protocol Catenary.Fields
 import protocol PapyrusCore.Response
-import protocol Catena.Fields
 
 public struct Error: Swift.Error, Equatable {
 	public let statusCode: Int
@@ -13,11 +13,13 @@ public struct Error: Swift.Error, Equatable {
 // MARK: -
 extension Error {
 	static func undocumented(
-		fieldName: String,
+		fieldNames: [String],
 		fields: (some Fields).Type
 	) -> Catenary.Error<Self> {
-		.undocumented(message: """
-			The `\(fieldName)` field is undocumented and may have been removed. Please use a DewdropAPI instance without passing `\(fields)`.
+		let list = fieldNames.joined(separator: ", ")
+		let phrase = fieldNames.count == 1 ? "field is" : "fields are"
+		return .undocumented(message: """
+			The `\(list)` \(phrase) undocumented and may have been removed. Returning `\(fields)` is no longer supported.
 			"""
 		)
 	}
@@ -25,9 +27,10 @@ extension Error {
 
 // MARK: -
 extension Error: Decodable {
-	enum CodingKeys: String, CodingKey {
-		case statusCode = "status"
-		case message = "errorMessage"
+	public init(from decoder: any Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.statusCode = try container.decodeIfPresent(for: .statusCode) ?? 200
+		self.message = try container.decode(for: .message)
 	}
 }
 
@@ -38,7 +41,16 @@ extension Error: CustomStringConvertible {
 }
 
 // MARK: -
+private extension Error {
+	enum CodingKeys: String, CodingKey {
+		case statusCode = "status"
+		case message = "errorMessage"
+	}
+}
+
+// MARK: -
 extension Response {
+	// TODO: Remove parameter?
 	func apiError(validating: Bool) -> Error? {
 		func parseError() -> Error? {
 			let decoder = JSONDecoder()

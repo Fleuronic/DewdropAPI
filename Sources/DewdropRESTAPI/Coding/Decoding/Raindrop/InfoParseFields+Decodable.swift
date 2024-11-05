@@ -11,7 +11,7 @@ extension InfoParseFields: Swift.Decodable {
 	
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-
+		
 		try self.init(
 			meta: container.decode(for: .meta),
 			info: .init(from: decoder)

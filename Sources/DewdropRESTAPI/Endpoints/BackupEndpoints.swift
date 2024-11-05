@@ -12,8 +12,8 @@ public protocol BackupEndpoints {
 	func getAll() async throws -> BackupsResponse
 	
 	@GET("/backup")
-	func generateNew() async throws -> String
+	func generateNew() async throws -> BackupGenerationResponse
 
 	@GET("/backup/{id}/{format}")
-	func downloadFile(id: Backup.ID, format: FileFormat) async throws -> BackupFile
+	func downloadFile(id: Backup.ID, format: FileFormat) async throws -> Data
 }

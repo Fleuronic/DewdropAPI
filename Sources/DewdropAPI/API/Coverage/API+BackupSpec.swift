@@ -22,7 +22,7 @@ extension API: BackupSpec {
 	
 	public func createBackup() async -> Response<String> {
 		await response {
-			try await backups.generateNew()
+			try await backups.generateNew().message
 		}
 	}
 	

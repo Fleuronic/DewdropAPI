@@ -17,5 +17,5 @@ public protocol TagEndpoints {
 	func mergeTags(collectionId: Collection.ID?, replace: String, tags: [String]) async throws
 
 	@DELETE("/tags/{collectionId}")
-	func removeTags(collectionId: Collection.ID?, tags: [String]) async throws
+	func removeTags(collectionId: Collection.ID?, tags: Field<[String]>) async throws
 }

@@ -8,10 +8,10 @@ import protocol DewdropService.CollectionFields
 @API @JSON(decoder: .dewdrop)
 public protocol CollectionEndpoints {
 	@GET("/collections")
-	func getRootCollections<T: CollectionFields>() async throws -> ItemListResponse<T>
+	func getRootCollections<Fields>() async throws -> CollectionsResponse<Fields>
 
 	@GET("/collections/childrens")
-	func getChildCollections<T: CollectionFields>() async throws -> ItemListResponse<T>
+	func getChildCollections<Fields>() async throws -> CollectionsResponse<Fields>
 
 	@GET("/user/stats")
 	func getSystemCollectionsCount() async throws -> SystemCollectionsCountResponse

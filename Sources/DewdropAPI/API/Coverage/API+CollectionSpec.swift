@@ -8,18 +8,18 @@ import protocol Catenary.API
 
 extension API: CollectionSpec {
 	#if swift(<6.0)
-	public typealias RootCollectionListFields = CollectionListFields
-	public typealias ChildCollectionListFields = CollectionListFields
+	public typealias RootCollectionListFields = CollectionResponseFields
+	public typealias ChildCollectionListFields = CollectionResponseFields
 	public typealias SystemCollectionListFields = CollectionCountFields
 	#endif
 
-	public func listRootCollections() async -> Response<[CollectionListFields]> {
+	public func listRootCollections() async -> Response<[CollectionResponseFields]> {
 		await response {
 			try await collections.getRootCollections().items
 		}
 	}
 
-	public func listChildCollections() async -> Response<[CollectionListFields]> {
+	public func listChildCollections() async -> Response<[CollectionResponseFields]> {
 		await response {
 			try await collections.getChildCollections().items
 		}
@@ -31,12 +31,14 @@ extension API: CollectionSpec {
 		}
 	}
 
+	@discardableResult
 	public func deleteCollection(with id: Collection.ID) async -> Response<Void> {
 		await response {
 			try await collections.removeCollection(id: id)
 		}
 	}
 
+	@discardableResult
 	public func deleteCollections(with ids: [Collection.ID]) async -> Response<Void> {
 		await response {
 			try await collections.removeMultipleCollections(ids: ids)

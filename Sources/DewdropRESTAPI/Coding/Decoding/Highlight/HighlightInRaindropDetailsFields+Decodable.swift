@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.HighlightInRaindropFields
+import struct DewdropService.HighlightInRaindropDetailsFields
 import struct Dewdrop.Highlight
 
-extension HighlightInRaindropFields: Swift.Decodable {
+extension HighlightInRaindropDetailsFields: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 	}

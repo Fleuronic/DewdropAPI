@@ -5,4 +5,14 @@ import struct DewdropService.BackupCreationDateFields
 import struct Identity.Identifier
 
 public typealias BackupsResponse = ItemListResponse<BackupCreationDateFields>
-public typealias BackupFile = Data
+
+// MARK: -
+public struct BackupGenerationResponse {
+	public let result: Bool
+	public let message: String
+}
+
+// MARK: -
+extension BackupGenerationResponse: Response {
+	public typealias Item = String
+}

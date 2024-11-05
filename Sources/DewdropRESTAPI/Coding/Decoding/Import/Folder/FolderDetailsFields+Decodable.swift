@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.FolderImportFields
+import struct DewdropService.FolderDetailsFields
 
-extension FolderImportFields: Swift.Decodable {
+extension FolderDetailsFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case bookmarks
 		case subfolders = "folders"

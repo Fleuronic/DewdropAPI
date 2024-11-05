@@ -22,7 +22,7 @@ extension API: CreationSpec {
 	//	creationDate: Date?,
 	//	updateDate: Date?,
 	//	shouldParse: Bool
-	) async -> Response<RaindropCreationFields> {
+	) async -> Response<RaindropResponseFields> {
 		await response {
 			try await raindrops.createRaindrop(
 				link: url.absoluteString,

@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct DewdropService.RaindropDetailsFields
+import struct DewdropService.RaindropHighlightDetailsFields
 import struct DewdropService.CollectionDetailsFields
 import struct DewdropService.HighlightDetailsFields
 import struct DewdropService.UserDetailsFields
@@ -22,12 +23,12 @@ import protocol DewdropService.ImportFields
 import protocol Catenary.API
 
 public struct API<
-	RaindropListFields: RaindropFields & Decodable,
-	RaindropCreationFields: RaindropFields & Decodable,
-	CollectionListFields: CollectionFields & Decodable,
-	HighlightListFields: HighlightFields & Decodable,
-	UserAuthenticatedFields: UserFields & Decodable,
-	FileImportFields: ImportFields & Decodable
+	RaindropResponseFields: RaindropFields & Decodable,
+	RaindropHighlightResponseFields: RaindropFields & Decodable,
+	CollectionResponseFields: CollectionFields & Decodable,
+	HighlightResponseFields: HighlightFields & Decodable,
+	UserResponseFields: UserFields & Decodable,
+	ImportResponseFields: ImportFields & Decodable
 >: @unchecked Sendable {
 	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
@@ -43,64 +44,64 @@ public struct API<
 
 // MARK: -
 public extension API {
-	func returning<Fields: RaindropFields & Decodable>(raindropListFields: Fields.Type) -> API<
+	func raindropResponseFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
 		Fields,
-		RaindropCreationFields,
-		CollectionListFields,
-		HighlightListFields,
-		UserAuthenticatedFields,
-		FileImportFields
+		RaindropHighlightResponseFields,
+		CollectionResponseFields,
+		HighlightResponseFields,
+		UserResponseFields,
+		ImportResponseFields
 	> { .init(provider: provider) }
 
-	func returning<Fields: RaindropFields & Decodable>(raindropCreationFields: Fields.Type) -> API<
-		RaindropListFields,
+	func raindropHighlightResponseFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResponseFields,
 		Fields,
-		CollectionListFields,
-		HighlightListFields,
-		UserAuthenticatedFields,
-		FileImportFields
+		CollectionResponseFields,
+		HighlightResponseFields,
+		UserResponseFields,
+		ImportResponseFields
 	> { .init(provider: provider) }
 
-	func returning<Fields: CollectionFields & Decodable>(collectionListFields: Fields.Type) -> API<
-		RaindropListFields,
-		RaindropCreationFields,
+	func collectionResponseFields<Fields: CollectionFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResponseFields,
+		RaindropHighlightResponseFields,
 		Fields,
-		HighlightListFields,
-		UserAuthenticatedFields,
-		FileImportFields
+		HighlightResponseFields,
+		UserResponseFields,
+		ImportResponseFields
 	> { .init(provider: provider) }
 
-	func returning<Fields: HighlightFields & Decodable>(highlightListFields: Fields.Type) -> API<
-		RaindropListFields,
-		RaindropCreationFields,
-		CollectionListFields,
+	func highlightResponseFields<Fields: HighlightFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResponseFields,
+		RaindropHighlightResponseFields,
+		CollectionResponseFields,
 		Fields,
-		UserAuthenticatedFields,
-		FileImportFields
+		UserResponseFields,
+		ImportResponseFields
 	> { .init(provider: provider) }
 
-	func returning<Fields: UserFields & Decodable>(userAuthenticatedFields: Fields.Type) -> API<
-		RaindropListFields,
-		RaindropCreationFields,
-		CollectionListFields,
-		HighlightListFields,
+	func userResponseFields<Fields: UserFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResponseFields,
+		RaindropHighlightResponseFields,
+		CollectionResponseFields,
+		HighlightResponseFields,
 		Fields,
-		FileImportFields
+		ImportResponseFields
 	> { .init(provider: provider) }
 
-	func returning<Fields: ImportFields & Decodable>(importFields: Fields.Type) -> API<
-		RaindropListFields,
-		RaindropCreationFields,
-		CollectionListFields,
-		HighlightListFields,
-		UserAuthenticatedFields,
+	func importResponseFields<Fields: ImportFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResponseFields,
+		RaindropHighlightResponseFields,
+		CollectionResponseFields,
+		HighlightResponseFields,
+		UserResponseFields,
 		Fields
 	> { .init(provider: provider) }
 }
 
 public extension API<
 	RaindropDetailsFields,
-	RaindropDetailsFields,
+	RaindropHighlightDetailsFields,
 	CollectionDetailsFields,
 	HighlightDetailsFields,
 	UserDetailsFields,
@@ -112,10 +113,10 @@ public extension API<
 			request.addAuthorization(.bearer(apiKey))
 		}.intercept { request, process in
 			let response = try await process(request)
-			if let error = response.apiError(validating: true) { throw error }
+			if let error = response.apiError(validating: false) { throw error }
 			return response
 		}
-
+		
 		self.init(provider: provider)
 	}
 }
@@ -124,7 +125,7 @@ public extension API<
 private extension API {
 	init(provider: Provider) {
 		self.provider = provider
-
+		
 		collections = .init(provider: provider)
 		raindrops = .init(provider: provider)
 		backups = .init(provider: provider)
