@@ -66,7 +66,6 @@ private extension Error {
 		self.statusCode = statusCode
 		self.message = message
 
-		result = false
 		errorString = nil
 	}
 }
