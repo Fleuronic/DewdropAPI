@@ -6,7 +6,6 @@ import protocol Catenary.Fields
 import protocol PapyrusCore.Response
 
 public struct Error: Swift.Error, Equatable {
-	public let result: Bool
 	public let statusCode: Int
 	public let message: String
 
@@ -38,7 +37,6 @@ extension Error {
 // MARK: -
 extension Error: Decodable {
 	private enum CodingKeys: String, CodingKey {
-		case result
 		case error
 		case message = "errorMessage"
 	}
@@ -46,7 +44,6 @@ extension Error: Decodable {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		result = try container.decode(for: .result)
 		message = try container.decode(for: .message)
 		errorString = try container.decode(for: .error)
 
