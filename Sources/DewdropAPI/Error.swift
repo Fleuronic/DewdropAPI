@@ -8,6 +8,15 @@ import protocol PapyrusCore.Response
 public struct Error: Swift.Error, Equatable {
 	public let statusCode: Int
 	public let message: String
+
+	private let errorString: String?
+}
+
+// MARK: -
+public extension Error {
+	var error: Any? {
+		errorString.map(Int.init) ?? errorString
+	}
 }
 
 // MARK: -
@@ -27,24 +36,31 @@ extension Error {
 
 // MARK: -
 extension Error: Decodable {
+	private enum CodingKeys: String, CodingKey {
+		case error
+		case message = "errorMessage"
+	}
+
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		self.statusCode = try container.decodeIfPresent(for: .statusCode) ?? 200
-		self.message = try container.decode(for: .message)
-	}
-}
+		message = try container.decode(for: .message)
+		errorString = try container.decode(for: .error)
 
-extension Error: CustomStringConvertible {
-	public var description: String {
-		"Error \(statusCode): \(message)"
+		statusCode = 200
 	}
 }
 
 // MARK: -
 private extension Error {
-	enum CodingKeys: String, CodingKey {
-		case statusCode = "status"
-		case message = "errorMessage"
+	init(
+		statusCode: Int,
+		message: String
+	) {
+		self.statusCode = statusCode
+		self.message = message
+
+		errorString = nil
 	}
 }
 
@@ -55,12 +71,15 @@ extension Response {
 		func parseError() -> Error? {
 			let decoder = JSONDecoder()
 			let error = body.flatMap { try? decoder.decode(Error.self, from: $0) }
-			let errorMessage = body.flatMap { String(data: $0, encoding: .utf8) }
-			
+			let message = body.flatMap { String(data: $0, encoding: .utf8) }
+
 			return if let error {
 				error
-			} else if let statusCode, let errorMessage, validating {
-				.init(statusCode: statusCode, message: errorMessage)
+			} else if let statusCode, let message, validating {
+				.init(
+					statusCode: statusCode,
+					message: message
+				)
 			} else {
 				nil
 			}
