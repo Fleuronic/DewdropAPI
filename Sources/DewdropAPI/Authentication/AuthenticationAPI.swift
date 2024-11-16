@@ -3,6 +3,7 @@
 import struct Dewdrop.AccessToken
 import struct Foundation.URL
 import protocol DewdropService.AccessTokenSpec
+import protocol Catena.ResultProviding
 import protocol Catenary.API
 import class PapyrusCore.Provider
 
@@ -36,7 +37,7 @@ public extension Authentication.API {
 }
 
 extension Authentication.API: Catenary.API {
-	public typealias Error = DewdropAPI.Error
+	public typealias APIError = DewdropAPI.Error
 }
 
 extension Authentication.API: Equatable {
@@ -46,8 +47,8 @@ extension Authentication.API: Equatable {
 }
 
 extension Authentication.API: AccessTokenSpec {
-	public func exchangeCodeForAccessToken(code: String, redirectingTo uri: URL) async -> Response<AccessToken> {
-		await response {
+	public func exchangeCodeForAccessToken(code: String, redirectingTo uri: URL) async -> SingleResult<AccessToken> {
+		await result {
 			try await authentication.getAccessToken(
 				client_id: clientID,
 				client_secret: clientSecret,
@@ -59,8 +60,8 @@ extension Authentication.API: AccessTokenSpec {
 		}
 	}
 
-	public func refreshAccessToken(_ token: AccessToken) async -> Response<AccessToken> {
-		await response {
+	public func refreshAccessToken(_ token: AccessToken) async -> SingleResult<AccessToken> {
+		await result {
 			try await authentication.getAccessToken(
 				client_id: clientID,
 				client_secret: clientSecret,

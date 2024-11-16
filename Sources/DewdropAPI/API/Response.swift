@@ -4,11 +4,11 @@ import enum Catenary.Error
 import protocol Catenary.Fields
 
 extension API {
-	func response<Fields: Catenary.Fields>(request: @escaping () async throws -> Fields) async -> Response<Fields> {
+	func result<Fields: Catenary.Fields>(request: @escaping () async throws -> Fields) async -> SingleResult<Fields> {
 		do {
 			let fields = try await request()
 			if !fields.missingFields.isEmpty {
-				throw Error.undocumented(
+				throw APIError.undocumented(
 					fieldNames: fields.missingFields.map(name),
 					fields: Fields.self
 				)
@@ -19,12 +19,12 @@ extension API {
 		}
 	}
 
-	func response<Fields: Catenary.Fields>(request: @escaping () async throws -> [Fields]) async -> Response<[Fields]> {
+	func results<Fields: Catenary.Fields>(request: @escaping () async throws -> [Fields]) async -> Results<Fields> {
 		do {
 			let fields = try await request()
 			for fields in fields {
 				if !fields.missingFields.isEmpty {
-					throw Error.undocumented(
+					throw APIError.undocumented(
 						fieldNames: fields.missingFields.map(name),
 						fields: Fields.self
 					)

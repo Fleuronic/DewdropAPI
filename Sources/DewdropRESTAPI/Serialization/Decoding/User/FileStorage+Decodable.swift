@@ -6,7 +6,7 @@ import struct Dewdrop.FileStorage
 
 @AutoDecodable(accessControl: .public)
 extension FileStorage: Swift.Decodable {
-	enum CodingKeys: String, CodingKey {
+	private enum CodingKeys: String, CodingKey {
 		case usedSpace = "used"
 		case totalSpace = "size"
 		case lastCheckpointDate = "lastCheckPoint"

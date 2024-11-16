@@ -23,7 +23,6 @@ extension Account: Swift.Decodable {
 
 		try self.init(
 			user: .init(from: decoder),
-			email: container.decode(for: .email),
 			hasPassword: container.decode(for: .hasPassword),
 			fileStorage: container.decode(for: .fileStorage),
 			registrationDate: container.decode(for: .registrationDate),

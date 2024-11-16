@@ -9,9 +9,9 @@ import struct DewdropService.IdentifiedCollection
 @API @JSON(decoder: .dewdrop)
 public protocol FilterEndpoints {
 	@GET("/filters/{collectionId}")
-	func getFilters(
+	func getFilters<Fields>(
 		collectionId: Collection.ID,
 		tagsSort: Tag.Sort?,
 		search: String?
-	) async throws -> FiltersResponse
+	) async throws -> FiltersResponse<Fields>
 }

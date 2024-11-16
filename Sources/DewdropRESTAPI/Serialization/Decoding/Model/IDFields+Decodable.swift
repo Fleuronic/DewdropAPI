@@ -17,8 +17,13 @@ extension IDFields: Swift.Decodable where Model.ID: Decodable {
 			let container = try decoder.container(keyedBy: CodingKeys.self)
 			try self.init(id: container.decode(for: .id))
 		} catch {
-			let container = try decoder.container(keyedBy: TopLevelCodingKeys.self)
-			try self.init(id: container.decode(for: .id))
+			do {
+				let container = try decoder.container(keyedBy: TopLevelCodingKeys.self)
+				try self.init(id: container.decode(for: .id))
+			} catch {
+				let container = try decoder.singleValueContainer()
+				try self.init(id: container.decode())
+			}
 		}
 	}
 }

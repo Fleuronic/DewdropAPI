@@ -3,10 +3,14 @@
 import Papyrus
 
 import struct Dewdrop.Collection
+import struct Identity.Identifier
 import protocol DewdropService.CollectionFields
 
 @API @JSON(decoder: .dewdrop)
 public protocol CollectionEndpoints {
+	@GET("/collection/{id}")
+	func getCollection<Fields>(id: Collection.ID) async throws -> CollectionResponse<Fields>
+
 	@GET("/collections")
 	func getRootCollections<Fields>() async throws -> CollectionsResponse<Fields>
 
@@ -15,6 +19,9 @@ public protocol CollectionEndpoints {
 
 	@GET("/user/stats")
 	func getSystemCollectionsCount() async throws -> SystemCollectionsCountResponse
+
+	@GET("/collection/{id}/sharing")
+	func getCollaboratorsList(id: Collection.ID) async throws -> CollaboratorsResponse
 
 	@DELETE("/collection/{id}")
 	func removeCollection(id: Collection.ID) async throws

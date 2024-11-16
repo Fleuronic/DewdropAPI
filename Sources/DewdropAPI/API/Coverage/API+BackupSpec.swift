@@ -2,7 +2,7 @@
 
 import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
-import struct DewdropService.BackupCreationDateFields
+import struct DewdropRESTAPI.BackupCreationDateFields
 import struct Foundation.Data
 import struct Identity.Identifier
 import protocol DewdropService.BackupSpec
@@ -14,20 +14,20 @@ extension API: BackupSpec {
 	public typealias BackupListFields = BackupCreationDateFields
 	#endif
 
-	public func listBackups() async -> Response<[BackupCreationDateFields]> {
-		await response {
+	public func listBackups() async -> Results<BackupCreationDateFields> {
+		await results {
 			try await backups.getAll().items
 		}
 	}
 	
-	public func createBackup() async -> Response<String> {
-		await response {
+	public func createBackup() async -> SingleResult<String> {
+		await result {
 			try await backups.generateNew().message
 		}
 	}
 	
-	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> Response<Data> {
-		await response {
+	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> SingleResult<Data> {
+		await result {
 			try await backups.downloadFile(
 				id: id,
 				format: format

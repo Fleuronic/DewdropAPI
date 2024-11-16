@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
-import struct DewdropService.TagCountFields
+import struct DewdropRESTAPI.TagCountFields
 import struct Identity.Identifier
 import protocol DewdropService.TagSpec
 import protocol Catena.Scoped
@@ -12,20 +12,18 @@ extension API: TagSpec {
 	public typealias TagListFields = TagCountFields
 	#endif
 
-	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Response<[TagCountFields]> {
-		await response {
+	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Results<TagCountFields> {
+		await results {
 			try await tags.getTags(collectionId: id).items
 		}
 	}
 
-	@discardableResult
-	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
+	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> NoResult {
 		await mergeTags(withNames: [tagName], intoTagNamed: updatedTagName, inCollectionWith: id)
 	}
 
-	@discardableResult
-	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
-		await response {
+	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> NoResult {
+		await result {
 			try await tags.mergeTags(
 				collectionId: id,
 				replace: tagName,
@@ -34,9 +32,8 @@ extension API: TagSpec {
 		}
 	}
 	
-	@discardableResult
-	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> Response<Void> {
-		await response {
+	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> NoResult {
+		await result {
 			try await tags.removeTags(
 				collectionId: id,
 				tags: tagNames

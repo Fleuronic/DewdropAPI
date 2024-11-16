@@ -1,11 +1,14 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import struct DewdropService.RaindropDetailsFields
-import struct DewdropService.RaindropHighlightDetailsFields
-import struct DewdropService.CollectionDetailsFields
-import struct DewdropService.HighlightDetailsFields
-import struct DewdropService.UserDetailsFields
-import struct DewdropService.ImportFolderFields
+import struct Dewdrop.User
+import struct DewdropRESTAPI.RaindropDetails
+import struct DewdropRESTAPI.RaindropHighlightDetails
+import struct DewdropRESTAPI.CollectionDetails
+import struct DewdropRESTAPI.FilterOverviewFields
+import struct DewdropRESTAPI.HighlightDetails
+import struct DewdropRESTAPI.UserAuthenticatedDetails
+import struct DewdropRESTAPI.UserPublicDetails
+import struct DewdropRESTAPI.ImportFolderFields
 import struct DewdropRESTAPI.RaindropEndpointsAPI
 import struct DewdropRESTAPI.CollectionEndpointsAPI
 import struct DewdropRESTAPI.TagEndpointsAPI
@@ -14,97 +17,184 @@ import struct DewdropRESTAPI.HighlightEndpointsAPI
 import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropRESTAPI.BackupEndpointsAPI
 import struct DewdropRESTAPI.ImportEndpointsAPI
+import struct Identity.Identifier
 import class PapyrusCore.Provider
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
+import protocol DewdropService.FilterFields
 import protocol DewdropService.HighlightFields
 import protocol DewdropService.UserFields
+import protocol DewdropService.UserAuthenticatedFields
 import protocol DewdropService.ImportFields
 import protocol Catenary.API
 
 public struct API<
-	RaindropResponseFields: RaindropFields & Decodable,
-	RaindropHighlightResponseFields: RaindropFields & Decodable,
-	CollectionResponseFields: CollectionFields & Decodable,
-	HighlightResponseFields: HighlightFields & Decodable,
-	UserResponseFields: UserFields & Decodable,
-	ImportResponseFields: ImportFields & Decodable
+	RaindropResultFields: RaindropFields & Decodable,
+	RaindropCreationResultFields: RaindropFields & Decodable,
+	RaindropHighlightResultFields: RaindropFields & Decodable,
+	CollectionResultFields: CollectionFields & Decodable,
+	FilterResultFields: FilterFields & Decodable,
+	HighlightResultFields: HighlightFields & Decodable,
+	UserAuthenticatedResultFields: UserAuthenticatedFields & Decodable,
+	UserPublicResultFields: UserFields & Decodable,
+	UserUpdateResultFields: UserFields & Decodable,
+	ImportResultFields: ImportFields & Decodable
 >: @unchecked Sendable {
-	let collections: CollectionEndpointsAPI
 	let raindrops: RaindropEndpointsAPI
-	let backups: BackupEndpointsAPI
-	let `import`: ImportEndpointsAPI
+	let collections: CollectionEndpointsAPI
 	let tags: TagEndpointsAPI
 	let filters: FilterEndpointsAPI
 	let highlights: HighlightEndpointsAPI
 	let users: UserEndpointsAPI
+	let backups: BackupEndpointsAPI
+	let `import`: ImportEndpointsAPI
 
 	private let provider: Provider
 }
 
 // MARK: -
 public extension API {
-	func raindropResponseFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
+	func raindropResultFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
 		Fields,
-		RaindropHighlightResponseFields,
-		CollectionResponseFields,
-		HighlightResponseFields,
-		UserResponseFields,
-		ImportResponseFields
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
 	> { .init(provider: provider) }
 
-	func raindropHighlightResponseFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
-		RaindropResponseFields,
+	func raindropCreationResultFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
 		Fields,
-		CollectionResponseFields,
-		HighlightResponseFields,
-		UserResponseFields,
-		ImportResponseFields
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
 	> { .init(provider: provider) }
 
-	func collectionResponseFields<Fields: CollectionFields & Decodable>(_: Fields.Type) -> API<
-		RaindropResponseFields,
-		RaindropHighlightResponseFields,
+	func raindropHighlightResultFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
 		Fields,
-		HighlightResponseFields,
-		UserResponseFields,
-		ImportResponseFields
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
 	> { .init(provider: provider) }
 
-	func highlightResponseFields<Fields: HighlightFields & Decodable>(_: Fields.Type) -> API<
-		RaindropResponseFields,
-		RaindropHighlightResponseFields,
-		CollectionResponseFields,
+	func collectionResultFields<Fields: CollectionFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
 		Fields,
-		UserResponseFields,
-		ImportResponseFields
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
 	> { .init(provider: provider) }
 
-	func userResponseFields<Fields: UserFields & Decodable>(_: Fields.Type) -> API<
-		RaindropResponseFields,
-		RaindropHighlightResponseFields,
-		CollectionResponseFields,
-		HighlightResponseFields,
+	func filterResultFields<Fields: FilterFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
 		Fields,
-		ImportResponseFields
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
 	> { .init(provider: provider) }
 
-	func importResponseFields<Fields: ImportFields & Decodable>(_: Fields.Type) -> API<
-		RaindropResponseFields,
-		RaindropHighlightResponseFields,
-		CollectionResponseFields,
-		HighlightResponseFields,
-		UserResponseFields,
+	func highlightResultFields<Fields: HighlightFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		Fields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
+	> { .init(provider: provider) }
+
+	func userAuthenticatedResultFields<Fields: UserAuthenticatedFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		Fields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
+		ImportResultFields
+	> { .init(provider: provider) }
+
+	func userPublicResultFields<Fields: UserFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		Fields,
+		UserUpdateResultFields,
+		ImportResultFields
+	> { .init(provider: provider) }
+
+	func userUpdateResultFields<Fields: UserAuthenticatedFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		Fields,
+		ImportResultFields
+	> { .init(provider: provider) }
+
+	func importResultFields<Fields: ImportFields & Decodable>(_: Fields.Type) -> API<
+		RaindropResultFields,
+		RaindropCreationResultFields,
+		RaindropHighlightResultFields,
+		CollectionResultFields,
+		FilterResultFields,
+		HighlightResultFields,
+		UserAuthenticatedResultFields,
+		UserPublicResultFields,
+		UserUpdateResultFields,
 		Fields
 	> { .init(provider: provider) }
 }
 
 public extension API<
-	RaindropDetailsFields,
-	RaindropHighlightDetailsFields,
-	CollectionDetailsFields,
-	HighlightDetailsFields,
-	UserDetailsFields,
+	RaindropDetails<UserPublicDetails>,
+	RaindropDetails<User.IDFields>,
+	RaindropHighlightDetails,
+	CollectionDetails,
+	FilterOverviewFields,
+	HighlightDetails,
+	UserAuthenticatedDetails,
+	UserPublicDetails,
+	UserAuthenticatedDetails,
 	ImportFolderFields
 >{
 	init(apiKey: String) {
@@ -113,7 +203,7 @@ public extension API<
 			request.addAuthorization(.bearer(apiKey))
 		}.intercept { request, process in
 			let response = try await process(request)
-			if let error = response.apiError(validating: false) { throw error }
+			if let error = response.apiError(validating: true) { throw error }
 			return response
 		}
 		
@@ -122,22 +212,22 @@ public extension API<
 }
 
 // MARK: -
+extension API: Catenary.API {
+	public typealias APIError = DewdropAPI.Error
+}
+
+// MARK: -
 private extension API {
 	init(provider: Provider) {
 		self.provider = provider
 		
-		collections = .init(provider: provider)
 		raindrops = .init(provider: provider)
-		backups = .init(provider: provider)
-		`import` = .init(provider: provider)
+		collections = .init(provider: provider)
 		tags = .init(provider: provider)
 		filters = .init(provider: provider)
 		highlights = .init(provider: provider)
 		users = .init(provider: provider)
+		backups = .init(provider: provider)
+		`import` = .init(provider: provider)
 	}
-}
-
-// MARK: -
-extension API: Catenary.API {
-	public typealias Error = DewdropAPI.Error
 }

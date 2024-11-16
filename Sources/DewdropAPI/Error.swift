@@ -38,6 +38,7 @@ extension Error {
 extension Error: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case error
+		case statusCode = "status"
 		case message = "errorMessage"
 	}
 
@@ -45,15 +46,15 @@ extension Error: Decodable {
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		message = try container.decode(for: .message)
-		errorString = try container.decode(for: .error)
-
-		statusCode = 200
+		errorString = try? container.decode(for: .error)
+		statusCode = (try? container.decode(for: .statusCode)) ?? 200
 	}
 }
 
 extension Error: CustomStringConvertible {
 	public var description: String {
-		message
+		let error = errorString.map { " \($0)" } ?? ""
+		return "\(statusCode): \(message)\(error)"
 	}
 }
 
@@ -72,7 +73,6 @@ private extension Error {
 
 // MARK: -
 extension Response {
-	// TODO: Remove parameter?
 	func apiError(validating: Bool) -> Error? {
 		func parseError() -> Error? {
 			let decoder = JSONDecoder()
