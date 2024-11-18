@@ -54,6 +54,10 @@ public struct API<
 
 // MARK: -
 public extension API {
+	var error: Self.Error.Type {
+		Error.self
+	}
+
 	func raindropResultFields<Fields: RaindropFields & Decodable>(_: Fields.Type) -> API<
 		Fields,
 		RaindropCreationResultFields,

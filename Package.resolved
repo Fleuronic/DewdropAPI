@@ -16,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "0cd2d08395af8e65b482f1c27c3ae2507dda7d4d"
+        "revision" : "9f14e28069877231335d2588f357443fd5242f75"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/Fleuronic/Catenary",
       "state" : {
         "branch" : "main",
-        "revision" : "8ae545b2f2fbf83caecd084656668ed3ef482f7f"
+        "revision" : "117c9047d6a475d2f6d792ec504a4cc8c06cd49e"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "e883b90dc1d829683fb5ca5ea6e47ac7a25af42c"
+        "revision" : "d885b35100617777448293981acec6fb466cc496"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "60598ce961301d2f3e15337eb52212d49c887a15"
+        "revision" : "cdb8a972a763ada2eb527ad0fd3a1c31188b19ae"
       }
     },
     {
@@ -61,7 +61,7 @@
       "location" : "http://github.com/Fleuronic/papyrus",
       "state" : {
         "branch" : "optional-path-parameters",
-        "revision" : "b29180b78d63b1f7c48530ad23546567fe380492"
+        "revision" : "81c52e491e4e3635193fc5661faa2e386d640fdf"
       }
     },
     {

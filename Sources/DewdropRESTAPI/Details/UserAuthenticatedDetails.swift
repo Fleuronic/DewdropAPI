@@ -4,6 +4,7 @@ import MemberwiseInit
 
 import struct Dewdrop.User
 import struct Dewdrop.Account
+import protocol Catena.Representable
 import protocol DewdropService.UserAuthenticatedFields
 
 @dynamicMemberLookup
@@ -15,7 +16,7 @@ public struct UserAuthenticatedDetails: UserAuthenticatedFields {
 	private let account: Account
 }
 
-// MARK -
+// MARK: -
 public extension UserAuthenticatedDetails {
 	subscript<T>(dynamicMember keyPath: KeyPath<Account, T>) -> T {
 		account[keyPath: keyPath]
@@ -23,6 +24,16 @@ public extension UserAuthenticatedDetails {
 
 	subscript<T>(dynamicMember keyPath: KeyPath<User, T>) -> T {
 		account.user[keyPath: keyPath]
+	}
+}
+
+extension UserAuthenticatedDetails: Representable {
+	// MARK: Valued
+	public typealias Value = User
+
+	// MARK: Representable
+	public var value: Value {
+		account.user
 	}
 }
 
@@ -43,5 +54,12 @@ extension UserAuthenticatedDetails: Decodable {
 			groups: container.decode(for: .groups),
 			account: .init(from: decoder)
 		)
+	}
+}
+
+// MARK: -
+public extension User {
+	static func identified(from details: UserAuthenticatedDetails) -> Identified {
+		.init(from: details)
 	}
 }
