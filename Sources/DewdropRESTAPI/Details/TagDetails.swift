@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Tag
-import struct DewdropService.ModelFields
+import struct DewdropService.IdentifiedTag
 import struct Identity.Identifier
 
-public typealias TagCountFields = ModelFields<Tag, Tag.ID>
+public typealias TagDetails = ModelDetails<Tag, Tag.Identified>

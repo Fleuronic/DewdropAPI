@@ -10,24 +10,24 @@ import protocol Catenary.API
 
 extension API: CollectionSpec {
 	#if swift(<6.0)
-	public typealias RootCollectionListFields = CollectionResultFields
-	public typealias ChildCollectionListFields = CollectionResultFields
+	public typealias RootCollectionListFields = CollectionSpecifiedFields
+	public typealias ChildCollectionListFields = CollectionSpecifiedFields
 	public typealias SystemCollectionListFields = CollectionCountFields
 	#endif
 
-	public func fetchCollection(with id: Collection.ID) async -> SingleResult<CollectionResultFields> {
+	public func fetchCollection(with id: Collection.ID) async -> SingleResult<CollectionSpecifiedFields> {
 		await result {
 			try await collections.getCollection(id: id).item
 		}
 	}
 
-	public func listRootCollections() async -> Results<CollectionResultFields> {
+	public func listRootCollections() async -> Results<CollectionSpecifiedFields> {
 		await results {
 			try await collections.getRootCollections().items
 		}
 	}
 
-	public func listChildCollections() async -> Results<CollectionResultFields> {
+	public func listChildCollections() async -> Results<CollectionSpecifiedFields> {
 		await results {
 			try await collections.getChildCollections().items
 		}

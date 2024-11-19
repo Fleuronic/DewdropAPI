@@ -1,7 +1,5 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import MemberwiseInit
-
 import struct Dewdrop.Raindrop
 import protocol DewdropService.InfoFields
 
@@ -12,7 +10,7 @@ public struct InfoParseFields: InfoFields {
 	private let info: Raindrop.Info
 }
 
-// MARK -
+// MARK: -
 public extension InfoParseFields {
 	struct Meta: Sendable {
 		public let tags: [TagNameFields]
@@ -23,6 +21,7 @@ public extension InfoParseFields {
 	}
 }
 
+// MARK: -
 extension InfoParseFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case meta
@@ -38,6 +37,7 @@ extension InfoParseFields: Swift.Decodable {
 	}
 }
 
+// MARK: -
 extension InfoParseFields.Meta: Swift.Decodable {
 	enum CodingKeys: String, CodingKey {
 		case tags

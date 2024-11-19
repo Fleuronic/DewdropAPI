@@ -23,6 +23,7 @@ public struct RaindropImportFields: RaindropFields {
 	public let highlights: [HighlightImportFields]?
 }
 
+// MARK: -
 @AutoDecodable(accessControl: .public)
 extension RaindropImportFields: Decodable {
 	private enum CodingKeys: String, CodingKey {

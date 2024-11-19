@@ -19,13 +19,14 @@ public struct ConfigFields: Sendable /* TODO */ {
 	}
 }
 
-// MARK -
+// MARK: -
 public extension ConfigFields {
 	subscript<T>(dynamicMember keyPath: KeyPath<User.Config, T>) -> T {
 		config[keyPath: keyPath]
 	}
 }
 
+// MARK: -
 extension ConfigFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case lastViewedCollectionID = "lastCollection"

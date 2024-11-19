@@ -4,8 +4,8 @@ import struct Dewdrop.Filter
 import protocol DewdropService.FilterFields
 
 public struct FilterOverviewFields: FilterFields {
-	public let tags: [TagCountFields]
-	public let typeFilters: [FilterCountFields]
+	public let tags: [TagDetails]
+	public let typeFilters: [FilterDetails]
 	public let favorited: Filter?
 	public let highlighted: Filter?
 	public let duplicate: Filter?
@@ -13,6 +13,7 @@ public struct FilterOverviewFields: FilterFields {
 	public let broken: Filter?
 }
 
+// MARK: -
 extension FilterOverviewFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case tags

@@ -1,7 +1,5 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import MemberwiseInit
-
 import struct Dewdrop.Folder
 import protocol DewdropService.FolderFields
 

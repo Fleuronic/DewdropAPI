@@ -2,4 +2,4 @@
 
 import struct Identity.Identifier
 
-public typealias TagsResponse = ItemListResponse<TagCountFields>
+public typealias TagsResponse = ItemListResponse<TagDetails>

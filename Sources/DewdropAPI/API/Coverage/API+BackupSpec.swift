@@ -2,7 +2,7 @@
 
 import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
-import struct DewdropRESTAPI.BackupCreationDateFields
+import struct DewdropRESTAPI.BackupDetails
 import struct Foundation.Data
 import struct Identity.Identifier
 import protocol DewdropService.BackupSpec
@@ -11,16 +11,16 @@ import protocol Catenary.API
 
 extension API: BackupSpec {
 	#if swift(<6.0)
-	public typealias BackupListFields = BackupCreationDateFields
+	public typealias BackupListFields = BackupDetails
 	#endif
 
-	public func listBackups() async -> Results<BackupCreationDateFields> {
+	public func listBackups() async -> Results<BackupSpecifiedFields> {
 		await results {
 			try await backups.getAll().items
 		}
 	}
 	
-	public func createBackup() async -> SingleResult<String> {
+	public func createBackup(using creator: Self) async -> SingleResult<String> {
 		await result {
 			try await backups.generateNew().message
 		}
@@ -33,5 +33,12 @@ extension API: BackupSpec {
 				format: format
 			)
 		}
+	}
+}
+
+// MARK: -
+public extension API {
+	func createBackup() async -> SingleResult<String> {
+		await createBackup(using: self)
 	}
 }

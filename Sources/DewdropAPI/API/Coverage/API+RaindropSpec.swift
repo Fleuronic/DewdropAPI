@@ -12,13 +12,13 @@ import protocol Catenary.API
 import protocol Catena.Scoped
 
 extension API: RaindropSpec {	
-	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropResultFields> {
+	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropSpecifiedFields> {
 		await result {
 			try await raindrops.getRaindrop(id: id).item
 		}
 	}
 
-	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Results<RaindropResultFields> {
+	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Results<RaindropSpecifiedFields> {
 		await results {
 			try await raindrops.getRaindrops(
 				collectionId: id,
@@ -68,7 +68,7 @@ extension API: RaindropSpec {
 	//	creationDate: Date?, // TODO: Dates parsed incorrectly
 	//	updateDate: Date?, // TODO:
 	//	shouldParse: Bool // TODO:
-	) async -> SingleResult<RaindropCreationResultFields> {
+	) async -> SingleResult<RaindropCreationSpecifiedFields> {
 		await result {
 			try await raindrops.createRaindrop(
 				link: url.absoluteString,

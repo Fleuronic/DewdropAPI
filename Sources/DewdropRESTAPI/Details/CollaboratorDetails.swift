@@ -2,7 +2,6 @@
 
 import struct Dewdrop.Collaborator
 import struct Dewdrop.User
-import struct DewdropService.ModelFields
-import struct Identity.Identifier
+import struct DewdropService.IdentifiedUser
 
-public typealias CollaboratorDetails = ModelFields<Collaborator, User.ID>
+public typealias CollaboratorDetails = ModelDetails<Collaborator, User.Identified>

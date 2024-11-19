@@ -11,13 +11,14 @@ public struct HighlightImportFields: HighlightFields {
 	private let content: Highlight.Content
 }
 
-// MARK -
+// MARK: -
 public extension HighlightImportFields {
 	subscript<T>(dynamicMember keyPath: KeyPath<Highlight.Content, T>) -> T {
 		content[keyPath: keyPath]
 	}
 }
 
+// MARK: -
 extension HighlightImportFields: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case text
@@ -26,6 +27,7 @@ extension HighlightImportFields: Swift.Decodable {
 		case creationDate = "created"
 	}
 
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

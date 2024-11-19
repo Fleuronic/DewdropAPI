@@ -9,10 +9,10 @@ import protocol Catenary.API
 
 extension API: FilterSpec {
 	#if swift(<6.0)
-	public typealias FilterListFields = FilterResultFields
+	public typealias FilterListFields = FilterSpecifiedFields
 	#endif
 
-	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> SingleResult<FilterResultFields> {
+	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> SingleResult<FilterSpecifiedFields> {
 		await result {
 			try await filters.getFilters(
 				collectionId: id,

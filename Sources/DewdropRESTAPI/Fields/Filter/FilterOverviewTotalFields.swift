@@ -8,8 +8,8 @@ import protocol DewdropService.FilterFields
 
 @_UncheckedMemberwiseInit(.public)
 public struct FilterOverviewTotalFields {
-	public let tags: [TagCountFields]
-	public let typeFilters: [FilterCountFields]
+	public let tags: [TagDetails]
+	public let typeFilters: [FilterDetails]
 	public let favorited: Filter?
 	public let highlighted: Filter?
 	public let duplicate: Filter?
@@ -49,6 +49,7 @@ extension FilterOverviewTotalFields: Swift.Decodable {
 		case broken
 	}
 
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		try self.init(

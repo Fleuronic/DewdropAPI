@@ -9,8 +9,8 @@ import struct DewdropService.IdentifiedBackup
 @API @JSON(decoder: .dewdrop)
 public protocol BackupEndpoints {
 	@GET("/backups")
-	func getAll() async throws -> BackupsResponse
-	
+	func getAll<Fields>() async throws -> BackupsResponse<Fields>
+
 	@GET("/backup")
 	func generateNew() async throws -> BackupGenerationResponse
 

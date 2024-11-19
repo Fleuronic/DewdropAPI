@@ -16,7 +16,7 @@ extension API: ImportSpec {
 		}
 	}
 
-	public func importFile(at url: URL, withName filename: String) async -> SingleResult<ImportResultFields> {
+	public func importFile(at url: URL, withName filename: String) async -> SingleResult<ImportSpecifiedFields> {
 		await result {
 			try await `import`.parseHTMLImportFile(
 				file: .init(

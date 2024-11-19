@@ -27,13 +27,13 @@ extension ImportFolderCountFields: ImportFields {
 	}
 }
 
-// MARK: -
 extension ImportFolderCountFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case folders = "items"
 		case count
 	}
 
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		try self.init(

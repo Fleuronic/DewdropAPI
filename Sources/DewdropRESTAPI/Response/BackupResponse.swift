@@ -2,8 +2,9 @@
 
 import struct Foundation.Data
 import struct Identity.Identifier
+import protocol DewdropService.BackupFields
 
-public typealias BackupsResponse = ItemListResponse<BackupCreationDateFields>
+public typealias BackupsResponse<Fields: BackupFields & Decodable> = ItemListResponse<Fields>
 
 // MARK: -
 public struct BackupGenerationResponse {

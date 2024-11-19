@@ -10,13 +10,13 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: UserSpec {
-	public func fetchUser(with id: User.ID) async -> SingleResult<UserPublicResultFields> {
+	public func fetchUser(with id: User.ID) async -> SingleResult<UserPublicSpecifiedFields> {
 		await result {
 			try await users.getUserByName(name: id).user
 		}
 	}
 
-	public func fetchAuthenticatedUser() async -> SingleResult<UserAuthenticatedResultFields> {
+	public func fetchAuthenticatedUser() async -> SingleResult<UserAuthenticatedSpecifiedFields> {
 		await result {
 			try await users.getUser().user
 		}
@@ -40,7 +40,7 @@ extension API: UserSpec {
 		password: Password? = nil
 //		config: User.Config? = nil, // TODO
 //		groups: [Group]? = nil // TODO
-	) async -> SingleResult<UserUpdateResultFields> {
+	) async -> SingleResult<UserUpdateSpecifiedFields> {
 		let newPassword: String?
 		let oldPassword: String?
 

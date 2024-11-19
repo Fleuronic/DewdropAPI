@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
-import struct DewdropRESTAPI.TagCountFields
+import struct DewdropRESTAPI.TagDetails
 import struct Identity.Identifier
 import protocol DewdropService.TagSpec
 import protocol Catena.Scoped
@@ -9,10 +9,10 @@ import protocol Catenary.API
 
 extension API: TagSpec {
 	#if swift(<6.0)
-	public typealias TagListFields = TagCountFields
+	public typealias TagListFields = TagDetails
 	#endif
 
-	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Results<TagCountFields> {
+	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Results<TagDetails> {
 		await results {
 			try await tags.getTags(collectionId: id).items
 		}

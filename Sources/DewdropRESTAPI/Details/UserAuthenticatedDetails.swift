@@ -1,10 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import MemberwiseInit
-
 import struct Dewdrop.User
 import struct Dewdrop.Account
 import protocol Catena.Representable
+import protocol Catenary.Details
 import protocol DewdropService.UserAuthenticatedFields
 
 @dynamicMemberLookup
@@ -27,14 +26,13 @@ public extension UserAuthenticatedDetails {
 	}
 }
 
-extension UserAuthenticatedDetails: Representable {
+// MARK: -
+extension UserAuthenticatedDetails: Details {
 	// MARK: Valued
 	public typealias Value = User
 
 	// MARK: Representable
-	public var value: Value {
-		account.user
-	}
+	public var value: Value { account.user }
 }
 
 extension UserAuthenticatedDetails: Decodable {
@@ -54,12 +52,5 @@ extension UserAuthenticatedDetails: Decodable {
 			groups: container.decode(for: .groups),
 			account: .init(from: decoder)
 		)
-	}
-}
-
-// MARK: -
-public extension User {
-	static func identified(from details: UserAuthenticatedDetails) -> Identified {
-		.init(from: details)
 	}
 }
