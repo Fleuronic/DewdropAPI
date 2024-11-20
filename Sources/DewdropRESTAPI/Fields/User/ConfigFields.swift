@@ -3,9 +3,10 @@
 import struct Dewdrop.User
 import struct Dewdrop.Collection
 import struct DewdropService.IdentifiedCollection
+import protocol Catenary.Fields
 
 @dynamicMemberLookup
-public struct ConfigFields: Sendable /* TODO */ {
+public struct ConfigFields {
 	public let lastViewedCollection: Collection.IDFields
 
 	private let config: User.Config
@@ -27,11 +28,8 @@ public extension ConfigFields {
 }
 
 // MARK: -
-extension ConfigFields: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case lastViewedCollectionID = "lastCollection"
-	}
-
+extension ConfigFields: Fields {
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -39,5 +37,12 @@ extension ConfigFields: Swift.Decodable {
 			config: .init(from: decoder),
 			lastViewedCollectionID: container.decode(for: .lastViewedCollectionID)
 		)
+	}
+}
+
+// MARK: -
+private extension ConfigFields {
+	enum CodingKeys: String, CodingKey {
+		case lastViewedCollectionID = "lastCollection"
 	}
 }

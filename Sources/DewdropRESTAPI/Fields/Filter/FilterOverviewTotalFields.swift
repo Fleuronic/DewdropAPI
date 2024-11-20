@@ -5,6 +5,7 @@ import MemberwiseInit
 import enum Catenary.Undocumented
 import struct Dewdrop.Filter
 import protocol DewdropService.FilterFields
+import protocol Catenary.Fields
 
 @_UncheckedMemberwiseInit(.public)
 public struct FilterOverviewTotalFields {
@@ -37,18 +38,7 @@ extension FilterOverviewTotalFields: FilterFields {
 }
 
 // MARK: -
-extension FilterOverviewTotalFields: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case tags
-		case typeFilters = "types"
-		case total
-		case favorited = "important"
-		case highlighted = "highlights"
-		case duplicate
-		case untagged = "notag"
-		case broken
-	}
-
+extension FilterOverviewTotalFields: Fields {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -62,5 +52,19 @@ extension FilterOverviewTotalFields: Swift.Decodable {
 			broken: container.decodeIfPresent(for: .broken),
 			undocumentedTotal: container.decodeIfPresent(for: .total).undocumented
 		)
+	}
+}
+
+// MARK: -
+extension FilterOverviewTotalFields {
+	private enum CodingKeys: String, CodingKey {
+		case tags
+		case typeFilters = "types"
+		case total
+		case favorited = "important"
+		case highlighted = "highlights"
+		case duplicate
+		case untagged = "notag"
+		case broken
 	}
 }

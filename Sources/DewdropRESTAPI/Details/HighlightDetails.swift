@@ -3,6 +3,7 @@
 import struct Dewdrop.Highlight
 import struct Dewdrop.Raindrop
 import protocol DewdropService.HighlightFields
+import protocol Catenary.Details
 
 @dynamicMemberLookup
 public struct HighlightDetails: HighlightFields {
@@ -25,13 +26,14 @@ public extension HighlightDetails {
 }
 
 // MARK: -
-extension HighlightDetails: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case id = "_id"
-		case raindropID = "raindropRef"
-		case tags
-	}
+extension HighlightDetails: Details {
+	// MARK: Valued
+	public typealias Value = Highlight
 
+	// MARK: Representable
+	public var value: Value { highlight }
+
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -41,5 +43,14 @@ extension HighlightDetails: Swift.Decodable {
 			tags: container.decode(for: .tags),
 			highlight: .init(from: decoder)
 		)
+	}
+}
+
+// MARK: -
+private extension HighlightDetails {
+	enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case raindropID = "raindropRef"
+		case tags
 	}
 }

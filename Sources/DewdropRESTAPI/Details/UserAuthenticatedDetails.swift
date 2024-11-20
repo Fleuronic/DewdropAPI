@@ -17,6 +17,12 @@ public struct UserAuthenticatedDetails: UserAuthenticatedFields {
 
 // MARK: -
 public extension UserAuthenticatedDetails {
+	enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case config
+		case groups
+	}
+
 	subscript<T>(dynamicMember keyPath: KeyPath<Account, T>) -> T {
 		account[keyPath: keyPath]
 	}
@@ -33,14 +39,6 @@ extension UserAuthenticatedDetails: Details {
 
 	// MARK: Representable
 	public var value: Value { account.user }
-}
-
-extension UserAuthenticatedDetails: Decodable {
-	public enum CodingKeys: String, CodingKey {
-		case id = "_id"
-		case config
-		case groups
-	}
 
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {

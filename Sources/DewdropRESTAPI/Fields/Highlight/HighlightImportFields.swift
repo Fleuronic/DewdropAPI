@@ -3,6 +3,7 @@
 import struct Dewdrop.Highlight
 import struct Foundation.Date
 import protocol DewdropService.HighlightFields
+import protocol Catenary.Fields
 
 @dynamicMemberLookup
 public struct HighlightImportFields: HighlightFields {
@@ -19,14 +20,7 @@ public extension HighlightImportFields {
 }
 
 // MARK: -
-extension HighlightImportFields: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case text
-		case color
-		case note
-		case creationDate = "created"
-	}
-
+extension HighlightImportFields: Fields {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -39,5 +33,15 @@ extension HighlightImportFields: Swift.Decodable {
 				note: container.decode(String.self, forKey: .note).filledValue
 			)
 		)
+	}
+}
+
+// MARK: -
+private extension HighlightImportFields {
+	enum CodingKeys: String, CodingKey {
+		case text
+		case color
+		case note
+		case creationDate = "created"
 	}
 }

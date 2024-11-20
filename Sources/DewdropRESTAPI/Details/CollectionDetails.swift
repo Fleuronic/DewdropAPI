@@ -5,6 +5,7 @@ import MemberwiseInit
 import struct Dewdrop.Collection
 import struct Dewdrop.User
 import protocol DewdropService.CollectionFields
+import protocol Catenary.Details
 
 @dynamicMemberLookup
 @_UncheckedMemberwiseInit(.public)
@@ -18,19 +19,26 @@ public struct CollectionDetails: CollectionFields {
 
 // MARK: -
 public extension CollectionDetails {
+	enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case owner = "user"
+		case parent
+	}
+
 	subscript<T>(dynamicMember keyPath: KeyPath<Collection, T>) -> T {
 		collection[keyPath: keyPath]
 	}
 }
 
 // MARK: -
-extension CollectionDetails: Swift.Decodable {
-	public enum CodingKeys: String, CodingKey {
-		case id = "_id"
-		case owner = "user"
-		case parent
-	}
+extension CollectionDetails: Details {
+	// MARK: Valued
+	public typealias Value = Collection
 
+	// MARK: Representable
+	public var value: Value { collection }
+
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

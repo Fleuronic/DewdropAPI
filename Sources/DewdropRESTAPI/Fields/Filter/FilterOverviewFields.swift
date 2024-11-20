@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Filter
 import protocol DewdropService.FilterFields
+import protocol Catenary.Fields
 
 public struct FilterOverviewFields: FilterFields {
 	public let tags: [TagDetails]
@@ -14,7 +15,7 @@ public struct FilterOverviewFields: FilterFields {
 }
 
 // MARK: -
-extension FilterOverviewFields: Decodable {
+extension FilterOverviewFields: Fields {
 	private enum CodingKeys: String, CodingKey {
 		case tags
 		case typeFilters = "types"

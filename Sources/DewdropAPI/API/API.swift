@@ -2,7 +2,7 @@
 
 import struct Dewdrop.User
 import struct DewdropRESTAPI.RaindropDetails
-import struct DewdropRESTAPI.RaindropHighlightDetails
+import struct DewdropRESTAPI.RaindropHighlightFields
 import struct DewdropRESTAPI.CollectionDetails
 import struct DewdropRESTAPI.FilterOverviewFields
 import struct DewdropRESTAPI.HighlightDetails
@@ -29,19 +29,20 @@ import protocol DewdropService.UserAuthenticatedFields
 import protocol DewdropService.ImportFields
 import protocol DewdropService.BackupFields
 import protocol Catenary.API
+import protocol Catenary.Fields
 
 public struct API<
-	RaindropSpecifiedFields: RaindropFields & Decodable,
-	RaindropCreationSpecifiedFields: RaindropFields & Decodable,
-	RaindropHighlightSpecifiedFields: RaindropFields & Decodable,
-	CollectionSpecifiedFields: CollectionFields & Decodable,
-	FilterSpecifiedFields: FilterFields & Decodable,
-	HighlightSpecifiedFields: HighlightFields & Decodable,
-	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Decodable,
-	UserPublicSpecifiedFields: UserFields & Decodable,
-	UserUpdateSpecifiedFields: UserFields & Decodable,
-	ImportSpecifiedFields: ImportFields & Decodable,
-	BackupSpecifiedFields: BackupFields & Decodable
+	RaindropSpecifiedFields: RaindropFields & Fields,
+	RaindropCreationSpecifiedFields: RaindropFields & Fields,
+	RaindropHighlightSpecifiedFields: RaindropFields & Fields,
+	CollectionSpecifiedFields: CollectionFields & Fields,
+	FilterSpecifiedFields: FilterFields & Fields,
+	HighlightSpecifiedFields: HighlightFields & Fields,
+	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Fields,
+	UserPublicSpecifiedFields: UserFields & Fields,
+	UserUpdateSpecifiedFields: UserFields & Fields,
+	ImportSpecifiedFields: ImportFields & Fields,
+	BackupSpecifiedFields: BackupFields & Fields
 >: @unchecked Sendable {
 	let raindrops: RaindropEndpointsAPI
 	let collections: CollectionEndpointsAPI
@@ -217,7 +218,7 @@ public extension API {
 public extension API<
 	RaindropDetails<UserPublicDetails>,
 	RaindropDetails<User.IDFields>,
-	RaindropHighlightDetails,
+	RaindropHighlightFields,
 	CollectionDetails,
 	FilterOverviewFields,
 	HighlightDetails,

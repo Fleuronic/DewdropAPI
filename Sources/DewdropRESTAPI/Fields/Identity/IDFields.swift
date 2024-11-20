@@ -30,6 +30,7 @@ import protocol DewdropService.UserFields
 import protocol DewdropService.UserAuthenticatedFields
 
 extension IDFields: Swift.Decodable where Model.ID: Decodable {
+	// MARK: Decodable
 	public enum CodingKeys: String, CodingKey {
 		case id = "_id"
 	}
@@ -38,7 +39,6 @@ extension IDFields: Swift.Decodable where Model.ID: Decodable {
 		case id = "$id"
 	}
 
-	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		do {
 			let container = try decoder.container(keyedBy: CodingKeys.self)

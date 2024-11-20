@@ -17,6 +17,7 @@ extension Raindrop.Sort: Swift.Decodable {
 	}
 }
 
+// MARK: -
 private extension Raindrop.Sort.Criterion {
 	init?(string value: String) {
 		if value.hasSuffix("title") {

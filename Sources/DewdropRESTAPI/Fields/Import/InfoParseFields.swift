@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Raindrop
 import protocol DewdropService.InfoFields
+import protocol Catenary.Fields
 
 @dynamicMemberLookup
 public struct InfoParseFields: InfoFields {
@@ -12,7 +13,7 @@ public struct InfoParseFields: InfoFields {
 
 // MARK: -
 public extension InfoParseFields {
-	struct Meta: Sendable {
+	struct Meta: Decodable, Sendable {
 		public let tags: [TagNameFields]
 	}
 
@@ -22,11 +23,8 @@ public extension InfoParseFields {
 }
 
 // MARK: -
-extension InfoParseFields: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case meta
-	}
-
+extension InfoParseFields: Fields {
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -38,7 +36,14 @@ extension InfoParseFields: Swift.Decodable {
 }
 
 // MARK: -
-extension InfoParseFields.Meta: Swift.Decodable {
+private extension InfoParseFields {
+	enum CodingKeys: String, CodingKey {
+		case meta
+	}
+}
+
+// MARK: -
+private extension InfoParseFields.Meta {
 	enum CodingKeys: String, CodingKey {
 		case tags
 	}

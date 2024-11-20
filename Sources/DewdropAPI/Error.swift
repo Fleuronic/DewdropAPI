@@ -36,12 +36,6 @@ extension Error {
 
 // MARK: -
 extension Error: Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case error
-		case statusCode = "status"
-		case message = "errorMessage"
-	}
-
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -60,6 +54,12 @@ extension Error: CustomStringConvertible {
 
 // MARK: -
 private extension Error {
+	private enum CodingKeys: String, CodingKey {
+		case error
+		case statusCode = "status"
+		case message = "errorMessage"
+	}
+
 	init(
 		statusCode: Int,
 		message: String

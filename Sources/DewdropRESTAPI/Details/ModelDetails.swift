@@ -17,7 +17,7 @@ import protocol DewdropService.BackupFields
 
 @dynamicMemberLookup
 @_UncheckedMemberwiseInit(.public)
-public struct ModelDetails<Model: Sendable, IdentifiedModel: Identifiable> where IdentifiedModel.ID: Sendable {
+public struct ModelDetails<Model: Decodable & Sendable, IdentifiedModel: Identifiable> where IdentifiedModel.ID: Decodable & Sendable {
 	public let id: IdentifiedModel.ID
 
 	private let model: Model
@@ -38,14 +38,8 @@ extension ModelDetails: Details {
 	public typealias IdentifiedValue = IdentifiedModel
 
 	public var value: Value { model }
-}
 
-// MARK: -
-extension ModelDetails: Swift.Decodable where Model: Decodable, IdentifiedModel.ID: Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case id = "_id"
-	}
-
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -60,3 +54,10 @@ extension ModelDetails: BackupFields where Model == Backup {}
 extension ModelDetails: TagFields where Model == Tag {}
 extension ModelDetails: CollaboratorFields where Model == Collaborator {}
 extension ModelDetails: UserFields where Model == User {}
+
+// MARK: -
+private extension ModelDetails {
+	enum CodingKeys: String, CodingKey {
+		case id = "_id"
+	}
+}

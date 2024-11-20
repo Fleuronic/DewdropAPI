@@ -4,6 +4,7 @@ import struct Dewdrop.Group
 import struct Dewdrop.Collection
 import struct Catena.IDFields
 import protocol DewdropService.GroupFields
+import protocol Catenary.Details
 
 @dynamicMemberLookup
 public struct GroupDetails: GroupFields {
@@ -27,10 +28,14 @@ public extension GroupDetails {
 	}
 }
 
-extension GroupDetails: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case collections
-	}
+// MARK: -
+extension GroupDetails: Details {
+	// MARK: Valued
+	public typealias Value = Group
+
+	// MARK: Representable
+	public var id: Group.ID { .init(rawValue: group.title) }
+	public var value: Value { group }
 
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
@@ -40,5 +45,12 @@ extension GroupDetails: Swift.Decodable {
 			group: .init(from: decoder),
 			collectionIDs: container.decode(for: .collections)
 		)
+	}
+}
+
+// MARK: -
+private extension GroupDetails {
+	private enum CodingKeys: String, CodingKey {
+		case collections
 	}
 }

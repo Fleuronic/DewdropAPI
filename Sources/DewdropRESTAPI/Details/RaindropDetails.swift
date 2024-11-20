@@ -5,9 +5,11 @@ import struct Dewdrop.User
 import struct Dewdrop.Collection
 import struct Catena.IDFields
 import struct DewdropService.IdentifiedRaindrop
-import protocol Catena.Valued
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.UserFields
+import protocol Catena.Valued
+import protocol Catenary.Fields
+import protocol Catenary.Details
 
 @dynamicMemberLookup
 public struct RaindropDetails<CreatorFields: UserFields & Decodable>: RaindropFields {
@@ -16,21 +18,14 @@ public struct RaindropDetails<CreatorFields: UserFields & Decodable>: RaindropFi
 	public let creator: CreatorFields
 	public let collection: Collection.IDFields
 	public let tags: [TagNameFields]
-	public let highlights: [HighlightInRaindropDetails]?
+	public let highlights: [HighlightInRaindropFields]?
 
 	private let raindrop: Raindrop
 }
 
 // MARK: -
 public extension RaindropDetails {
-	subscript<T>(dynamicMember keyPath: KeyPath<Raindrop, T>) -> T {
-		raindrop[keyPath: keyPath]
-	}
-}
-
-// MARK: -
-extension RaindropDetails: Swift.Decodable {
-	public enum CodingKeys: String, CodingKey {
+	enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case owner = "user"
 		case creator = "creatorRef"
@@ -39,6 +34,20 @@ extension RaindropDetails: Swift.Decodable {
 		case highlights
 	}
 
+	subscript<T>(dynamicMember keyPath: KeyPath<Raindrop, T>) -> T {
+		raindrop[keyPath: keyPath]
+	}
+}
+
+// MARK: -
+extension RaindropDetails: Details {
+	// MARK: Valued
+	public typealias Value = Raindrop
+
+	// MARK: Representable
+	public var value: Value { raindrop }
+
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 

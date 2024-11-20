@@ -6,7 +6,7 @@ import struct Dewdrop.Media
 
 @AutoDecodable(accessControl: .public)
 @AutoEncodable(accessControl: .public)
-extension Media: Swift.Codable {
+extension Media: Codable {
 	private enum CodingKeys: String, CodingKey {
 		case url = "link"
 		@Conditional case type

@@ -9,7 +9,7 @@ public struct CollectionMergeFields {
 }
 
 // MARK: -
-extension CollectionMergeFields: Swift.Decodable {
+private extension CollectionMergeFields {
 	private enum CodingKeys: String, CodingKey {
 		case ids
 		case modifiedCount = "modified"

@@ -5,7 +5,7 @@ import enum Catenary.Undocumented
 import protocol DewdropService.ImportFields
 
 public struct ImportFolderCountFields {
-	public let folders: [FolderDetails]
+	public let folders: [FolderContentFields]
 
 	private let undocumentedCount: Undocumented<Import.Count>
 }

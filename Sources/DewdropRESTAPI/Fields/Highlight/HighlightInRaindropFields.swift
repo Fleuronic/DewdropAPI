@@ -3,8 +3,9 @@
 import struct Dewdrop.Highlight
 import struct Foundation.Date
 import protocol DewdropService.HighlightFields
+import protocol Catenary.Fields
 
-public struct HighlightInRaindropDetails: HighlightFields {
+public struct HighlightInRaindropFields: HighlightFields {
 	public let id: Highlight.ID
 	public let text: String
 	public let color: Highlight.Color
@@ -12,11 +13,10 @@ public struct HighlightInRaindropDetails: HighlightFields {
 	public let creationDate: Date
 }
 
-extension HighlightInRaindropDetails: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case id = "_id"
-	}
 
+// MARK: -
+extension HighlightInRaindropFields: Fields {
+	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		let highlight = try Highlight(from: decoder)
@@ -28,5 +28,12 @@ extension HighlightInRaindropDetails: Swift.Decodable {
 			note: highlight.content.note,
 			creationDate: highlight.creationDate
 		)
+	}
+}
+
+// MARK: -
+private extension HighlightInRaindropFields {
+	enum CodingKeys: String, CodingKey {
+		case id = "_id"
 	}
 }

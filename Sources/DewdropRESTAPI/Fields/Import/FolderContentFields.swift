@@ -2,27 +2,25 @@
 
 import struct Dewdrop.Folder
 import protocol DewdropService.FolderFields
+import protocol Catenary.Fields
 
 @dynamicMemberLookup
-public struct FolderDetails: FolderFields {
+public struct FolderContentFields: FolderFields {
 	public let bookmarks: [RaindropImportFields]
-	public let subfolders: [FolderDetails]
+	public let subfolders: [FolderContentFields]
 	
 	private let folder: Folder
 }
 
-public extension FolderDetails {
+// MARK: -
+public extension FolderContentFields {
 	subscript<T>(dynamicMember keyPath: KeyPath<Folder, T>) -> T {
 		folder[keyPath: keyPath]
 	}
 }
 
-extension FolderDetails: Swift.Decodable {
-	private enum CodingKeys: String, CodingKey {
-		case bookmarks
-		case subfolders = "folders"
-	}
-
+// MARK: -
+extension FolderContentFields: Fields {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -32,5 +30,13 @@ extension FolderDetails: Swift.Decodable {
 			subfolders: container.decode(for: .subfolders),
 			folder: .init(from: decoder)
 		)
+	}
+}
+
+// MARK: -
+private extension FolderContentFields {
+	enum CodingKeys: String, CodingKey {
+		case bookmarks
+		case subfolders = "folders"
 	}
 }

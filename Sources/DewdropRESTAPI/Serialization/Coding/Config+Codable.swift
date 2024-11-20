@@ -6,7 +6,7 @@ import struct Dewdrop.User
 
 @AutoEncodable(accessControl: .public)
 @AutoDecodable(accessControl: .public)
-extension User.Config: Swift.Codable {
+extension User.Config: Codable {
 	private enum CodingKeys: String, CodingKey {
 		case fontSize
 		@DecodedValue(Filled<FontColor>.self) case fontColor

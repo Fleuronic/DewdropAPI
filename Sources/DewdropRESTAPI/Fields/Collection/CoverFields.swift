@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import struct Dewdrop.Collection
+import protocol Catenary.Fields
 
 @dynamicMemberLookup
 public struct CoverFields {
@@ -15,7 +16,7 @@ public extension CoverFields {
 }
 
 // MARK: -
-extension CoverFields: Swift.Decodable {
+extension CoverFields: Fields {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		self = .init(cover: try .init(from: decoder))
