@@ -1,7 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import enum Catenary.PendingIdentifier
-import enum Dewdrop.ItemType
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct DewdropRESTAPI.RaindropSuggestionsFields
@@ -11,7 +10,7 @@ import protocol DewdropService.RaindropSpec
 import protocol Catenary.API
 import protocol Catena.Scoped
 
-extension API: RaindropSpec {	
+extension API: RaindropSpec {
 	#if swift(<6.0)
 	public typealias RaindropFetchFields = RaindropSpecifiedFields
 	public typealias RaindropListFields = RaindropSpecifiedFields
@@ -62,7 +61,7 @@ extension API: RaindropSpec {
 		id: Raindrop.PendingID = .fromServer,
 		url: URL,
 		title: String? = nil,
-		itemType: ItemType? = nil,
+		itemType: Raindrop.ItemType? = nil,
 		excerpt: String? = nil,
 		coverURL: URL? = nil,
 		order: Int? = nil,

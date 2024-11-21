@@ -2,7 +2,6 @@
 
 import Papyrus
 
-import enum Dewdrop.ItemType
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import protocol DewdropService.RaindropFields
@@ -28,7 +27,7 @@ public protocol RaindropEndpoints {
 	func createRaindrop<Fields>(
 		link: String,
 		title: String?,
-		type: ItemType?,
+		type: Raindrop.ItemType?,
 		excerpt: String?,
 		cover: URL?,
 		order: Int?,

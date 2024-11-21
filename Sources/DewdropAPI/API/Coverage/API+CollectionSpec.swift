@@ -40,12 +40,6 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Results<CollaboratorDetails> {
-		await results {
-			try await collections.getCollaboratorsList(id: id).items
-		}
-	}
-
 	public func removeCollection(with id: Collection.ID) async -> NoResult {
 		await result {
 			try await collections.removeCollection(id: id)

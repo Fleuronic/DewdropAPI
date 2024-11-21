@@ -52,7 +52,7 @@ extension ModelDetails: Details {
 
 extension ModelDetails: BackupFields where Model == Backup {}
 extension ModelDetails: TagFields where Model == Tag {}
-extension ModelDetails: CollaboratorFields where Model == Collaborator {}
+//extension ModelDetails: CollaboratorFields where Model == Collaborator {}
 extension ModelDetails: UserFields where Model == User {}
 
 // MARK: -

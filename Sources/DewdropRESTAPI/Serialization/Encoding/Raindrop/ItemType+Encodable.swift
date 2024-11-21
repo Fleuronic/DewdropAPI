@@ -2,10 +2,10 @@
 
 import AutoCodable
 
-import enum Dewdrop.ItemType
+import struct Dewdrop.Raindrop
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
-extension ItemType: Swift.Encodable {
+extension Raindrop.ItemType: Swift.Encodable {
 	private enum CodingKeys: String, CodingKey {
 		case link
 		case article

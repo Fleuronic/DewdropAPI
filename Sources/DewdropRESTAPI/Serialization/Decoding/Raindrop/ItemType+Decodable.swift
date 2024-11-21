@@ -1,8 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Dewdrop.ItemType
+import struct Dewdrop.Raindrop
 
-extension ItemType: Swift.Decodable {
+extension Raindrop.ItemType: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.singleValueContainer()
