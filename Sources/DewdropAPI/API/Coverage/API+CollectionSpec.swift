@@ -10,6 +10,7 @@ import protocol Catenary.API
 
 extension API: CollectionSpec {
 	#if swift(<6.0)
+	public typealias CollectionFetchFields = CollectionSpecifiedFields
 	public typealias RootCollectionListFields = CollectionSpecifiedFields
 	public typealias ChildCollectionListFields = CollectionSpecifiedFields
 	public typealias SystemCollectionListFields = CollectionCountFields

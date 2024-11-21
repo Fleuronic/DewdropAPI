@@ -10,6 +10,11 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: ImportSpec {
+	#if swift(<6.0)
+	public typealias URLInfoFields = InfoParseFields
+	public typealias FileImportFields = ImportSpecifiedFields
+	#endif
+
 	public func parse(url: URL) async -> SingleResult<InfoParseFields> {
 		await result {
 			try await `import`.parseURL(urlString: url.absoluteString).item

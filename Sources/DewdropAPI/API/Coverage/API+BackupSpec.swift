@@ -11,7 +11,7 @@ import protocol Catenary.API
 
 extension API: BackupSpec {
 	#if swift(<6.0)
-	public typealias BackupListFields = BackupDetails
+	public typealias BackupListFields = BackupSpecifiedFields
 	#endif
 
 	public func listBackups() async -> Results<BackupSpecifiedFields> {

@@ -12,6 +12,12 @@ import protocol Catenary.API
 import protocol Catena.Scoped
 
 extension API: RaindropSpec {	
+	#if swift(<6.0)
+	public typealias RaindropFetchFields = RaindropSpecifiedFields
+	public typealias RaindropListFields = RaindropSpecifiedFields
+	public typealias RaindropCreationFields = RaindropCreationSpecifiedFields
+	#endif
+
 	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropSpecifiedFields> {
 		await result {
 			try await raindrops.getRaindrop(id: id).item

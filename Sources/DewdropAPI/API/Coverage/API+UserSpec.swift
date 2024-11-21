@@ -10,6 +10,11 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: UserSpec {
+	#if swift(<6.0)
+	public typealias PublicUserFetchFields = UserPublicSpecifiedFields
+	public typealias AuthenticatedUserFetchFields = UserAuthenticatedSpecifiedFields
+	#endif
+	
 	public func fetchUser(with id: User.ID) async -> SingleResult<UserPublicSpecifiedFields> {
 		await result {
 			try await users.getUserByName(name: id).user

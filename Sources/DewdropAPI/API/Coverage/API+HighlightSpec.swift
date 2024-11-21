@@ -7,6 +7,11 @@ import protocol Catenary.API
 import protocol Catena.Scoped
 
 extension API: HighlightSpec {
+	#if swift(<6.0)
+	public typealias HighlightListFields = HighlightSpecifiedFields
+	public typealias RaindropHighlightListFields = RaindropHighlightSpecifiedFields
+	#endif
+
 	public func listHighlights(ofRaindropWith id: Raindrop.ID) async -> SingleResult<RaindropHighlightSpecifiedFields> {
 		await result {
 			try await highlights.getHighlightsOfRaindrop(id: id).item
