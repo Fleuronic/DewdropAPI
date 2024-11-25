@@ -1,6 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-public struct ItemResponse<Item: Decodable>: Response {
+public struct ItemResponse<Resource: Decodable>: Response {
 	public let result: Bool
-	public let item: Item
+	public let item: Resource
 }

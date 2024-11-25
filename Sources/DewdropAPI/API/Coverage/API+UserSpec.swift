@@ -27,13 +27,13 @@ extension API: UserSpec {
 		}
 	}
 	
-	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> NoResult {
+	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> EmptyResult {
 		await result {
 			try await users.connectSocialNetworkAccount(provider: provider)
 		}
 	}
 	
-	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> NoResult {
+	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> EmptyResult {
 		await result {
 			try await users.disconnectSocialNetworkAccount(provider: provider)
 		}

@@ -34,7 +34,7 @@ extension GroupDetails: Details {
 	public typealias Value = Group
 
 	// MARK: Representable
-	public var id: Group.ID { .init(rawValue: group.title) }
+	public var id: Group.ID { .init(rawValue: group.sortIndex) }
 	public var value: Value { group }
 
 	// MARK: Decodable

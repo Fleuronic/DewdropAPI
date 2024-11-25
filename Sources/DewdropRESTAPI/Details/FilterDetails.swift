@@ -4,4 +4,4 @@ import struct Dewdrop.Filter
 import struct DewdropService.IdentifiedFilter
 import struct Identity.Identifier
 
-public typealias FilterDetails = ModelDetails<Filter, Filter.Identified>
+public typealias FilterDetails = ModelDetails<Filter.Identified>

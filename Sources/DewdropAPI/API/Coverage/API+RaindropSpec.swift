@@ -41,7 +41,7 @@ extension API: RaindropSpec {
 		}
 	}
 
-	public func removeRaindrop(with id: Raindrop.ID) async -> NoResult {
+	public func removeRaindrop(with id: Raindrop.ID) async -> EmptyResult {
 		await result {
 			try await raindrops.removeRaindrop(id: id)
 		}

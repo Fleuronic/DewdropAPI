@@ -7,12 +7,16 @@ import struct Catena.IDFields
 import struct DewdropService.IdentifiedRaindrop
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.UserFields
+import protocol DewdropService.HighlightFields
 import protocol Catena.Valued
 import protocol Catenary.Fields
 import protocol Catenary.Details
 
 @dynamicMemberLookup
-public struct RaindropDetails<CreatorFields: UserFields & Decodable>: RaindropFields {
+public struct RaindropDetails<
+	CreatorFields: UserFields & Decodable,
+	HighlightInRaindropFields: HighlightFields & Decodable
+>: RaindropFields {
 	public let id: Raindrop.ID
 	public let owner: User.IDFields
 	public let creator: CreatorFields

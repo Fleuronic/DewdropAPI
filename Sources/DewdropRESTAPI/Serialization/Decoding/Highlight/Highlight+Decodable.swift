@@ -12,6 +12,7 @@ extension Highlight: Swift.Decodable {
 		case note
 		case raindropURL = "link"
 		case creationDate = "created"
+		case updateDate = "lastUpdate"
 	}
 
 	public init(from decoder: any Decoder) throws {
@@ -24,7 +25,8 @@ extension Highlight: Swift.Decodable {
 				note: container.decode(String.self, forKey: .note).filledValue
 			),
 			title: container.decodeIfPresent(String.self, forKey: .title)?.filledValue,
-			creationDate: container.decode(for: .creationDate)
+			creationDate: container.decode(for: .creationDate),
+			updateDate: container.decode(for: .updateDate)
 		)
 	}
 }

@@ -20,7 +20,7 @@ extension API: BackupSpec {
 		}
 	}
 	
-	public func createBackup(using creator: Self) async -> SingleResult<String> {
+	public func createBackup(using method: Self) async -> SingleResult<String> {
 		await result {
 			try await backups.generateNew().message
 		}

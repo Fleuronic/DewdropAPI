@@ -15,5 +15,5 @@ public struct UserResponse<Fields: UserFields & Decodable> {
 
 // MARK: -
 extension UserResponse: Response {
-	public typealias Item = User
+	public typealias Resource = User
 }

@@ -3,13 +3,15 @@
 import struct Dewdrop.Raindrop
 import protocol Catenary.Fields
 import protocol DewdropService.RaindropFields
+import protocol DewdropService.HighlightFields
 
-public struct RaindropHighlightFields: RaindropFields {
+public struct RaindropHighlightFields<Fields: HighlightFields & Decodable>: RaindropFields {
 	public let id: Raindrop.ID
-	public let highlights: [HighlightInRaindropFields]
+	public let highlights: [Fields]
 }
 
-extension RaindropHighlightFields: Fields {
+// MARK: -
+extension RaindropHighlightFields: Catenary.Fields {
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case highlights

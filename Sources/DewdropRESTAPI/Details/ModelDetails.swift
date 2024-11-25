@@ -17,7 +17,9 @@ import protocol DewdropService.BackupFields
 
 @dynamicMemberLookup
 @_UncheckedMemberwiseInit(.public)
-public struct ModelDetails<Model: Decodable & Sendable, IdentifiedModel: Identifiable> where IdentifiedModel.ID: Decodable & Sendable {
+public struct ModelDetails<IdentifiedModel: Identifiable & Valued> where IdentifiedModel.ID: Decodable & Sendable, IdentifiedModel.Value: Decodable & Sendable {
+	public typealias Model = IdentifiedModel.Value
+
 	public let id: IdentifiedModel.ID
 
 	private let model: Model
@@ -52,7 +54,7 @@ extension ModelDetails: Details {
 
 extension ModelDetails: BackupFields where Model == Backup {}
 extension ModelDetails: TagFields where Model == Tag {}
-//extension ModelDetails: CollaboratorFields where Model == Collaborator {}
+extension ModelDetails: CollaboratorFields where Model == Collaborator {}
 extension ModelDetails: UserFields where Model == User {}
 
 // MARK: -

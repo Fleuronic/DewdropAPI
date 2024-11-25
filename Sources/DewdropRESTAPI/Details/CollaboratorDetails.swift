@@ -4,4 +4,4 @@ import struct Dewdrop.Collaborator
 import struct Dewdrop.User
 import struct DewdropService.IdentifiedUser
 
-public typealias CollaboratorDetails = ModelDetails<Collaborator, User.Identified>
+public typealias CollaboratorDetails = ModelDetails< Collaborator.Identified>

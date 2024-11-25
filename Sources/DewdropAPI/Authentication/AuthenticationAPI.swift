@@ -56,7 +56,7 @@ extension Authentication.API: AccessTokenSpec {
 				code: code,
 				refresh_token: nil,
 				redirect_uri: uri.absoluteString
-			).item
+			).resource
 		}
 	}
 
@@ -69,7 +69,7 @@ extension Authentication.API: AccessTokenSpec {
 				code: nil,
 				refresh_token: token.refreshToken,
 				redirect_uri: nil
-			).item
+			).resource
 		}
 	}
 }

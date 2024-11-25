@@ -4,16 +4,16 @@ import struct Dewdrop.AccessToken
 
 public struct AccessTokenResponse {
 	public let result: Bool
-	public let item: Item
+	public let resource: Resource
 }
 
 extension AccessTokenResponse: Response {
-	public typealias Item = AccessToken
+	public typealias Resource = AccessToken
 
 	public init(from decoder: any Decoder) throws {
 		try self.init(
 			result: true,
-			item: .init(from: decoder)
+			resource: .init(from: decoder)
 		)
 	}
 }

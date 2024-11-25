@@ -8,7 +8,7 @@ import protocol Catenary.Details
 @dynamicMemberLookup
 public struct HighlightDetails: HighlightFields {
 	public let id: Highlight.ID
-	public let raindropID: Raindrop.ID
+	public let raindrop: Raindrop.IDFields
 	public let tags: [TagNameFields]
 
 	private let highlight: Highlight
@@ -39,7 +39,7 @@ extension HighlightDetails: Details {
 
 		try self.init(
 			id: container.decode(for: .id),
-			raindropID: container.decode(for: .raindropID),
+			raindrop: container.decode(for: .raindrop),
 			tags: container.decode(for: .tags),
 			highlight: .init(from: decoder)
 		)
@@ -50,7 +50,7 @@ extension HighlightDetails: Details {
 private extension HighlightDetails {
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"
-		case raindropID = "raindropRef"
+		case raindrop = "raindropRef"
 		case tags
 	}
 }

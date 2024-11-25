@@ -8,7 +8,7 @@ import struct Dewdrop.Group
 extension Group: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
-		case isHidden = "hidden"
 		case sortIndex = "sort"
+		case isHidden = "hidden"
 	}
 }

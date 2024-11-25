@@ -14,5 +14,5 @@ public struct BackupGenerationResponse {
 
 // MARK: -
 extension BackupGenerationResponse: Response {
-	public typealias Item = String
+	public typealias Resource = String
 }

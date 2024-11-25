@@ -2,10 +2,10 @@
 
 import struct Dewdrop.User
 import struct DewdropRESTAPI.RaindropDetails
-import struct DewdropRESTAPI.RaindropHighlightFields
 import struct DewdropRESTAPI.CollectionDetails
 import struct DewdropRESTAPI.FilterOverviewFields
 import struct DewdropRESTAPI.HighlightDetails
+import struct DewdropRESTAPI.HighlightInRaindropDetails
 import struct DewdropRESTAPI.UserAuthenticatedDetails
 import struct DewdropRESTAPI.UserPublicDetails
 import struct DewdropRESTAPI.ImportFolderFields
@@ -34,10 +34,10 @@ import protocol Catenary.Fields
 public struct API<
 	RaindropSpecifiedFields: RaindropFields & Fields,
 	RaindropCreationSpecifiedFields: RaindropFields & Fields,
-	RaindropHighlightSpecifiedFields: RaindropFields & Fields,
 	CollectionSpecifiedFields: CollectionFields & Fields,
 	FilterSpecifiedFields: FilterFields & Fields,
 	HighlightSpecifiedFields: HighlightFields & Fields,
+	HighlightInRaindropSpecifiedFields: HighlightFields & Fields,
 	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Fields,
 	UserPublicSpecifiedFields: UserFields & Fields,
 	UserUpdateSpecifiedFields: UserFields & Fields,
@@ -63,10 +63,10 @@ public extension API {
 	func specifyingRaindropFields<Fields>(_: Fields.Type) -> API<
 		Fields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -77,24 +77,10 @@ public extension API {
 	func specifyingRaindropCreationFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		Fields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
-		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
-		ImportSpecifiedFields,
-		BackupSpecifiedFields
-	> { .init(provider: provider) }
-
-	func specifyingRaindropHighlightFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
-		RaindropCreationSpecifiedFields,
-		Fields,
-		CollectionSpecifiedFields,
-		FilterSpecifiedFields,
-		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -105,10 +91,10 @@ public extension API {
 	func specifyingCollectionFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		Fields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -119,10 +105,10 @@ public extension API {
 	func specifyingFilterFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		Fields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -133,9 +119,23 @@ public extension API {
 	func specifyingHighlightFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
+		Fields,
+		HighlightInRaindropSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		UserPublicSpecifiedFields,
+		UserUpdateSpecifiedFields,
+		ImportSpecifiedFields,
+		BackupSpecifiedFields
+	> { .init(provider: provider) }
+
+	func specifyingHighlightInRaindropFields<Fields>(_: Fields.Type) -> API<
+		RaindropSpecifiedFields,
+		RaindropCreationSpecifiedFields,
+		CollectionSpecifiedFields,
+		FilterSpecifiedFields,
+		HighlightSpecifiedFields,
 		Fields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
@@ -147,10 +147,10 @@ public extension API {
 	func specifyingUserAuthenticatedFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		Fields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -161,10 +161,10 @@ public extension API {
 	func specifyingUserPublicFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		Fields,
 		UserUpdateSpecifiedFields,
@@ -175,10 +175,10 @@ public extension API {
 	func specifyingUserUpdateFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		Fields,
@@ -189,10 +189,10 @@ public extension API {
 	func specifyingImportFields<Fields>(_: Fields.Type) -> API< // TODO
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -203,10 +203,10 @@ public extension API {
 	func specifyingBackupFields<Fields>(_: Fields.Type) -> API<
 		RaindropSpecifiedFields,
 		RaindropCreationSpecifiedFields,
-		RaindropHighlightSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
 		UserAuthenticatedSpecifiedFields,
 		UserPublicSpecifiedFields,
 		UserUpdateSpecifiedFields,
@@ -216,12 +216,12 @@ public extension API {
 }
 
 public extension API<
-	RaindropDetails<UserPublicDetails>,
-	RaindropDetails<User.IDFields>,
-	RaindropHighlightFields,
+	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails>,
+	RaindropDetails<User.IDFields, HighlightInRaindropDetails>,
 	CollectionDetails,
 	FilterOverviewFields,
 	HighlightDetails,
+	HighlightInRaindropDetails,
 	UserAuthenticatedDetails,
 	UserPublicDetails,
 	UserAuthenticatedDetails,

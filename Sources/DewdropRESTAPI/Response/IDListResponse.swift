@@ -8,7 +8,7 @@ public struct IDListResponse<IdentifiableItem: Identifiable> where IdentifiableI
 }
 
 extension IDListResponse: Response {	
-	public typealias Item = IdentifiableItem.ID
+	public typealias Resource = IdentifiableItem.ID
 	
 	public var items: [IdentifiableItem.ID] { ids }
 }

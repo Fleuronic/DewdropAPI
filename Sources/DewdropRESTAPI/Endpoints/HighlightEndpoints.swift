@@ -24,5 +24,5 @@ public protocol HighlightEndpoints {
 	@GET("/raindrop/{id}")
 	func getHighlightsOfRaindrop<Fields>(
 		id: Raindrop.ID
-	) async throws -> RaindropHighlightsResponse<Fields>
+	) async throws -> HighlightsInRaindropResponse<Fields>
 }
