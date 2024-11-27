@@ -17,13 +17,13 @@ extension API: RaindropSpec {
 	public typealias RaindropCreationFields = RaindropCreationSpecifiedFields
 	#endif
 
-	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropSpecifiedFields> {
+	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropFetchSpecifiedFields> {
 		await result {
 			try await raindrops.getRaindrop(id: id).item
 		}
 	}
 
-	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Results<RaindropSpecifiedFields> {
+	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Results<RaindropListSpecifiedFields> {
 		await results {
 			try await raindrops.getRaindrops(
 				collectionId: id,

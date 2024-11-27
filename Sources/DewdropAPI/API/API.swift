@@ -32,7 +32,8 @@ import protocol Catenary.API
 import protocol Catenary.Fields
 
 public struct API<
-	RaindropSpecifiedFields: RaindropFields & Fields,
+	RaindropFetchSpecifiedFields: RaindropFields & Fields,
+	RaindropListSpecifiedFields: RaindropFields & Fields,
 	RaindropCreationSpecifiedFields: RaindropFields & Fields,
 	CollectionSpecifiedFields: CollectionFields & Fields,
 	FilterSpecifiedFields: FilterFields & Fields,
@@ -60,7 +61,23 @@ public struct API<
 public extension API {
 	var error: Self.Error.Type { Error.self }
 
-	func specifyingRaindropFields<Fields>(_: Fields.Type) -> API<
+	func specifyingRaindropFetchFields<Fields>(_: Fields.Type) -> API<
+		Fields,
+		RaindropListSpecifiedFields,
+		RaindropCreationSpecifiedFields,
+		CollectionSpecifiedFields,
+		FilterSpecifiedFields,
+		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		UserPublicSpecifiedFields,
+		UserUpdateSpecifiedFields,
+		ImportSpecifiedFields,
+		BackupSpecifiedFields
+	> { .init(provider: provider) }
+
+	func specifyingRaindropListFields<Fields>(_: Fields.Type) -> API<
+		RaindropFetchSpecifiedFields,
 		Fields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
@@ -75,7 +92,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingRaindropCreationFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		Fields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -89,7 +107,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingCollectionFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		Fields,
 		FilterSpecifiedFields,
@@ -103,7 +122,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingFilterFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		Fields,
@@ -117,7 +137,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingHighlightFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -131,7 +152,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingHighlightInRaindropFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -145,7 +167,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingUserAuthenticatedFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -159,7 +182,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingUserPublicFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -173,7 +197,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingUserUpdateFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -186,8 +211,9 @@ public extension API {
 		BackupSpecifiedFields
 	> { .init(provider: provider) }
 
-	func specifyingImportFields<Fields>(_: Fields.Type) -> API< // TODO
-		RaindropSpecifiedFields,
+	func specifyingImportFields<Fields>(_: Fields.Type) -> API<
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -201,7 +227,8 @@ public extension API {
 	> { .init(provider: provider) }
 
 	func specifyingBackupFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
 		RaindropCreationSpecifiedFields,
 		CollectionSpecifiedFields,
 		FilterSpecifiedFields,
@@ -216,12 +243,13 @@ public extension API {
 }
 
 public extension API<
-	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails>,
-	RaindropDetails<User.IDFields, HighlightInRaindropDetails>,
+	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
+	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<User.IDFields>>,
+	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
 	CollectionDetails,
 	FilterOverviewFields,
 	HighlightDetails,
-	HighlightInRaindropDetails,
+	HighlightInRaindropDetails<UserPublicDetails>,
 	UserAuthenticatedDetails,
 	UserPublicDetails,
 	UserAuthenticatedDetails,
