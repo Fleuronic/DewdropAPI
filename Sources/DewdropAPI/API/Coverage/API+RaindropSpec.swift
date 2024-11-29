@@ -70,7 +70,7 @@ extension API: RaindropSpec {
 	//	media: [Media]?, // TODO
 	//	highlightContents: [Highlight.Content]?, // TODO
 		isFavorite: Bool? = nil
-	//	creationDate: Date?, // TODO: Dates parsed incorrectly
+	//	creationDate: Date?, // TODO
 	//	updateDate: Date?, // TODO:
 	//	shouldParse: Bool // TODO:
 	) async -> SingleResult<RaindropCreationSpecifiedFields> {

@@ -41,7 +41,7 @@ public struct API<
 	HighlightInRaindropSpecifiedFields: HighlightFields & Fields,
 	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Fields,
 	UserPublicSpecifiedFields: UserFields & Fields,
-	UserUpdateSpecifiedFields: UserFields & Fields,
+	UserUpdateSpecifiedFields: UserAuthenticatedFields & Fields,
 	ImportSpecifiedFields: ImportFields & Fields,
 	BackupSpecifiedFields: BackupFields & Fields
 >: @unchecked Sendable {

@@ -12,6 +12,7 @@ import protocol Catenary.API
 extension API: ImportSpec {
 	#if swift(<6.0)
 	public typealias URLInfoFields = InfoParseFields
+	public typealias URLExistenceFields = RaindropFields
 	public typealias FileImportFields = ImportSpecifiedFields
 	#endif
 
@@ -19,6 +20,12 @@ extension API: ImportSpec {
 		await result {
 			try await `import`.parseURL(urlString: url.absoluteString).item
 		}
+	}
+
+	public func checkExistence(of urls: [URL]) async -> SingleResult<IDListFields<Raindrop.Identified>> {
+		await result {
+			try await `import`.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
+		}.map(IDListFields.init)
 	}
 
 	public func importFile(at url: URL, withName filename: String) async -> SingleResult<ImportSpecifiedFields> {
@@ -31,11 +38,5 @@ extension API: ImportSpec {
 				)
 			)
 		}
-	}
-
-	public func checkExistence(of urls: [URL]) async -> SingleResult<IDListFields<Raindrop.Identified>> {
-		await result {
-			try await `import`.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
-		}.map(IDListFields.init)
 	}
 }

@@ -10,7 +10,12 @@ extension JSONDecoder {
 		decoder.dateDecodingStrategy = .custom { decoder in
 			let container = try decoder.singleValueContainer()
 			let dateString = try container.decode(String.self)
-			return try Date(dateString, strategy: .iso8601.year().month().day())
+			return try Date(dateString, strategy: .iso8601
+				.year()
+				.month()
+				.day()
+				.time(includingFractionalSeconds: false)
+			)
 		}
 
 		return decoder

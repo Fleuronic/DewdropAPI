@@ -13,6 +13,7 @@ extension API: UserSpec {
 	#if swift(<6.0)
 	public typealias PublicUserFetchFields = UserPublicSpecifiedFields
 	public typealias AuthenticatedUserFetchFields = UserAuthenticatedSpecifiedFields
+	public typealias AuthenticatedUserUpdatedFields = UserAuthenticatedSpecifiedFields
 	#endif
 	
 	public func fetchUser(with id: User.ID) async -> SingleResult<UserPublicSpecifiedFields> {
