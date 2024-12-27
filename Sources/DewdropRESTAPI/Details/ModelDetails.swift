@@ -32,6 +32,7 @@ public extension ModelDetails {
 	}
 }
 
+// MARK: -
 extension ModelDetails: Details {
 	// MARK: Valued
 	public typealias Value = Model

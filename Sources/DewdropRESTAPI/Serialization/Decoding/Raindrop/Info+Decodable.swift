@@ -10,8 +10,9 @@ extension Raindrop.Info: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
 		case itemType = "type"
-		@DecodedValue(Filled<String>.self) case excerpt
-		@DecodedValue(Filled<URL>.self) case coverURL = "cover"
-		case media
+		@DecodedValue(Filled<String>.self)
+		case excerpt
+		@DecodedValue(Filled<URL>.self)
+		case coverURL = "cover"
 	}
 }

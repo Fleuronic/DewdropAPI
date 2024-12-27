@@ -5,7 +5,8 @@ import AutoCodable
 import struct Dewdrop.Collection
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
-extension Collection.View: Swift.Encodable {
+@AutoDecodable(accessControl: .public, container: .singleValueForEnum)
+extension Collection.View: Codable {
 	private enum CodingKeys: String, CodingKey {
 		case list
 		case simple

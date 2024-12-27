@@ -245,7 +245,7 @@ public extension API {
 public extension API<
 	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
 	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<User.IDFields>>,
-	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
+	RaindropDetails<User.IDFields, HighlightInRaindropDetails<User.IDFields>>,
 	CollectionDetails,
 	FilterOverviewFields,
 	HighlightDetails,

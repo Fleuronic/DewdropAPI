@@ -4,12 +4,14 @@ import AutoCodable
 
 import struct Dewdrop.User
 
-@AutoEncodable(accessControl: .public)
 @AutoDecodable(accessControl: .public)
+@AutoEncodable(accessControl: .public)
 extension User.Config: Codable {
 	private enum CodingKeys: String, CodingKey {
 		case fontSize
-		@DecodedValue(Filled<FontColor>.self) case fontColor
+		@DecodedValue(Filled<FontColor>.self)
+		@EncodedValue(Filled<FontColor>.self)
+		case fontColor
 		case brokenLevel
 		@Conditional case languageCode = "lang"
 		case defaultRaindropSort = "raindropsSort"

@@ -30,5 +30,13 @@ extension IDFields: Swift.Decodable where Model.ID: Decodable {
 	}
 }
 
+extension IDFields: Swift.Encodable where Model.ID: Encodable {
+	// MARK: Encodable
+	public func encode(to encoder: any Encoder) throws {
+		var container = encoder.singleValueContainer()
+		try container.encode(id)
+	}
+}
+
 // MARK: -
 extension IDFields: Catenary.Fields where Model.RawIdentifier: Codable {}

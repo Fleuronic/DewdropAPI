@@ -8,7 +8,9 @@ import struct Dewdrop.Cache
 extension Cache: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case status
-		@Conditional case size
-		@Conditional case creationDate = "created"
+		@Conditional
+		case size
+		@Conditional
+		case creationDate = "created"
 	}
 }

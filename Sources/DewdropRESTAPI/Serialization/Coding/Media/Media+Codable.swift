@@ -9,6 +9,6 @@ import struct Dewdrop.Media
 extension Media: Codable {
 	private enum CodingKeys: String, CodingKey {
 		case url = "link"
-		@Conditional case type
+		case type
 	}
 }

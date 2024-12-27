@@ -1,6 +1,5 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import protocol DewdropService.RaindropFields
 import protocol Catenary.Fields
 
 public struct RaindropRemovalFields: Fields {

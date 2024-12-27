@@ -3,6 +3,7 @@
 import struct Dewdrop.Raindrop
 import struct Dewdrop.User
 import struct Dewdrop.Collection
+import struct Dewdrop.Media
 import struct Catena.IDFields
 import struct DewdropService.IdentifiedRaindrop
 import protocol DewdropService.RaindropFields

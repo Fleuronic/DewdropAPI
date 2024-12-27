@@ -1,14 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import MemberwiseInit
-
 import struct Dewdrop.Collection
 import struct Dewdrop.User
 import protocol DewdropService.CollectionFields
 import protocol Catenary.Details
 
 @dynamicMemberLookup
-@_UncheckedMemberwiseInit(.public)
 public struct CollectionDetails: CollectionFields {
 	public let id: Collection.ID
 	public let parent: Collection.IDFields?

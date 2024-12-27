@@ -4,6 +4,8 @@ import Papyrus
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
+import struct Dewdrop.Media
+import struct Dewdrop.Highlight
 import protocol DewdropService.RaindropFields
 
 @API @JSON(decoder: .dewdrop)
@@ -33,7 +35,13 @@ public protocol RaindropEndpoints {
 		order: Int?,
 		collectionId: Collection.ID?,
 		tags: [String]?,
-		important: Bool?
+		media: [Media]?,
+		highlights: [Highlight.Content]?,
+		reminder: Raindrop.Reminder?,
+		important: Bool?,
+		created: Date?,
+		lastUpdate: Date?,
+		pleaseParse: Parse?
 	) async throws -> RaindropResponse<Fields>
 
 	@DELETE("/raindrop/{id}")
@@ -45,4 +53,9 @@ public protocol RaindropEndpoints {
 		ids: [Raindrop.ID]?,
 		search: String?
 	) async throws -> RaindropRemovalResponse
+}
+
+// MARK: -
+public struct Parse: Encodable {
+	public init() {}
 }

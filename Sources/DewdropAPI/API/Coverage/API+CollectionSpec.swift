@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Collection
 import struct DewdropRESTAPI.CollectionCountFields
+import struct DewdropRESTAPI.EmptyCollectionRemovalFields
 import struct Identity.Identifier
 import protocol DewdropService.CollectionSpec
 import protocol Catena.Scoped
@@ -35,7 +36,7 @@ extension API: CollectionSpec {
 
 	public func listSystemCollections() async -> Results<CollectionCountFields> {
 		await results {
-			try await collections.getSystemCollectionsCount().items
+			try await users.getSystemCollectionsCount().items
 		}
 	}
 
@@ -48,6 +49,12 @@ extension API: CollectionSpec {
 	public func removeCollections(with ids: [Collection.ID]) async -> EmptyResult {
 		await result {
 			try await collections.removeMultipleCollections(ids: ids)
+		}
+	}
+
+	public func removeEmptyCollections() async -> SingleResult<EmptyCollectionRemovalFields> {
+		await result {
+			try await collections.removeAllEmptyCollections()
 		}
 	}
 

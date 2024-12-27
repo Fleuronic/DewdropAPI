@@ -2,14 +2,14 @@
 
 import AutoCodable
 
-import struct Dewdrop.User
+import struct Dewdrop.Collaborator
 
+@AutoEncodable(accessControl: .public, container: .singleValueForEnum)
 @AutoDecodable(accessControl: .public, container: .singleValueForEnum)
-extension User.Config.BrokenLevel: Swift.Decodable {
+extension Collaborator.Role: Codable {
 	private enum CodingKeys: String, CodingKey {
-		case basic
-		case `default`
-		case strict
-		case off
+		case owner
+		case member
+		case viewer
 	}
 }

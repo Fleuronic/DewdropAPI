@@ -17,11 +17,11 @@ public protocol CollectionEndpoints {
 	@GET("/collections/childrens")
 	func getChildCollections<Fields>() async throws -> CollectionsResponse<Fields>
 
-	@GET("/user/stats")
-	func getSystemCollectionsCount() async throws -> SystemCollectionsCountResponse
-
 	@GET("/collection/{id}/sharing")
 	func getCollaboratorsList(id: Collection.ID) async throws -> CollaboratorsResponse
+
+	@PUT("/collections/clean")
+	func removeAllEmptyCollections() async throws -> EmptyCollectionRemovalResponse
 
 	@DELETE("/collection/{id}")
 	func removeCollection(id: Collection.ID) async throws

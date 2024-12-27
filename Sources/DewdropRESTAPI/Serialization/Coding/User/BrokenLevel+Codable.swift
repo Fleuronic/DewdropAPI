@@ -5,7 +5,8 @@ import AutoCodable
 import struct Dewdrop.User
 
 @AutoEncodable(accessControl: .public, container: .singleValueForEnum)
-extension User.Config.BrokenLevel: Swift.Encodable {
+@AutoDecodable(accessControl: .public, container: .singleValueForEnum)
+extension User.Config.BrokenLevel: Codable {
 	private enum CodingKeys: String, CodingKey {
 		case basic
 		case `default`

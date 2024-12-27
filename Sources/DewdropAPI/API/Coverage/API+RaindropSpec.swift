@@ -3,9 +3,12 @@
 import enum Catenary.PendingIdentifier
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
+import struct Dewdrop.Media
+import struct Dewdrop.Highlight
 import struct DewdropRESTAPI.RaindropSuggestionsFields
 import struct DewdropRESTAPI.RaindropRemovalFields
 import struct Foundation.URL
+import struct Foundation.Date
 import protocol DewdropService.RaindropSpec
 import protocol Catenary.API
 import protocol Catena.Scoped
@@ -67,12 +70,13 @@ extension API: RaindropSpec {
 		order: Int? = nil,
 		collectionID: Collection.ID? = nil,
 		tagNames: [String]? = nil,
-	//	media: [Media]?, // TODO
-	//	highlightContents: [Highlight.Content]?, // TODO
-		isFavorite: Bool? = nil
-	//	creationDate: Date?, // TODO
-	//	updateDate: Date?, // TODO:
-	//	shouldParse: Bool // TODO:
+		media: [Media]? = nil,
+		highlightContents: [Highlight.Content]? = nil,
+		reminder: Raindrop.Reminder? = nil,
+		isFavorite: Bool? = nil,
+		creationDate: Date? = nil,
+		updateDate: Date? = nil,
+		shouldParse: Bool = false
 	) async -> SingleResult<RaindropCreationSpecifiedFields> {
 		await result {
 			try await raindrops.createRaindrop(
@@ -84,7 +88,13 @@ extension API: RaindropSpec {
 				order: order,
 				collectionId: collectionID,
 				tags: tagNames,
-				important: isFavorite
+				media: media,
+				highlights: highlightContents,
+				reminder: reminder,
+				important: isFavorite,
+				created: creationDate,
+				lastUpdate: updateDate,
+				pleaseParse: shouldParse ? .init() : nil
 			).item
 		}
 	}

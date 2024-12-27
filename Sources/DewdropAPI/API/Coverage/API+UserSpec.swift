@@ -4,6 +4,7 @@ import enum Dewdrop.Password
 import struct Dewdrop.User
 import struct Dewdrop.Group
 import struct Dewdrop.Network
+import struct DewdropRESTAPI.GroupDetails
 import struct Identity.Identifier
 import protocol DewdropService.UserSpec
 import protocol Catena.Scoped
@@ -43,9 +44,9 @@ extension API: UserSpec {
 	public func updateAuthenticatedUser(
 		fullName: String? = nil,
 		email: String? = nil,
-		password: Password? = nil
-//		config: User.Config? = nil, // TODO
-//		groups: [Group]? = nil // TODO
+		password: Password? = nil,
+		config: User.Config? = nil,
+		groups: [GroupDetails]? = nil
 	) async -> SingleResult<UserUpdateSpecifiedFields> {
 		let newPassword: String?
 		let oldPassword: String?
@@ -64,9 +65,9 @@ extension API: UserSpec {
 				fullName: fullName,
 				email: email,
 				oldpassword: oldPassword,
-				newpassword: newPassword
-//				config: config,
-//				groups: groups
+				newpassword: newPassword,
+				config: config,
+				groups: groups
 			).user
 		}
 	}

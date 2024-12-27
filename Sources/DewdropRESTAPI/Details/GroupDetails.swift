@@ -39,7 +39,7 @@ extension GroupDetails: Details {
 
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
+		let container = try decoder.container(keyedBy: DecodingKeys.self)
 
 		try self.init(
 			group: .init(from: decoder),
@@ -48,9 +48,28 @@ extension GroupDetails: Details {
 	}
 }
 
+extension GroupDetails: Encodable {
+	// MARK: Encodable
+	public func encode(to encoder: any Encoder) throws {
+		var container = encoder.container(keyedBy: EncodingKeys.self)
+		try container.encode(group.title, forKey: .title)
+		try container.encode(group.sortIndex, forKey: .sortIndex)
+		try container.encode(group.isHidden, forKey: .isHidden)
+		try container.encode(collections, forKey: .collections)
+	}
+}
+
 // MARK: -
 private extension GroupDetails {
-	private enum CodingKeys: String, CodingKey {
+	enum DecodingKeys: String, CodingKey {
 		case collections
 	}
+
+	enum EncodingKeys: String, CodingKey {
+		case title
+		case sortIndex = "sort"
+		case isHidden = "hidden"
+		case collections
+	}
+
 }
