@@ -1,5 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import struct Dewdrop.Collection
 import protocol DewdropService.CollectionFields
 import protocol Identity.Identifiable
 
@@ -8,3 +9,4 @@ public typealias CollectionsResponse<Fields: CollectionFields & Decodable> = Ite
 public typealias SystemCollectionsCountResponse = ItemListResponse<CollectionCountFields>
 public typealias EmptyCollectionRemovalResponse = EmptyCollectionRemovalFields
 public typealias CollaboratorsResponse = ItemListResponse<CollaboratorDetails>
+public typealias CoversResponse = ItemListResponse<Collection.Cover>

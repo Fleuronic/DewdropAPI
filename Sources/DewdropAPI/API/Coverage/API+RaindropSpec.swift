@@ -9,6 +9,7 @@ import struct DewdropRESTAPI.RaindropSuggestionsFields
 import struct DewdropRESTAPI.RaindropRemovalFields
 import struct Foundation.URL
 import struct Foundation.Date
+import struct Foundation.Data
 import protocol DewdropService.RaindropSpec
 import protocol Catenary.API
 import protocol Catena.Scoped
@@ -23,6 +24,12 @@ extension API: RaindropSpec {
 	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropFetchSpecifiedFields> {
 		await result {
 			try await raindrops.getRaindrop(id: id).item
+		}
+	}
+
+	public func fetchContents(ofRaindropWith id: Raindrop.ID) async -> SingleResult<Data> {
+		await result {
+			try await raindrops.getPermanentCopy(ofRaindropWith: id)
 		}
 	}
 

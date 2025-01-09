@@ -15,7 +15,7 @@ extension API: CollaboratorSpec {
 
 	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Results<CollaboratorDetails> {
 		await results {
-			try await collections.getCollaboratorsList(id: id).items
+			try await collections.getCollaboratorsListOfCollection(id: id).items
 		}
 	}
 }

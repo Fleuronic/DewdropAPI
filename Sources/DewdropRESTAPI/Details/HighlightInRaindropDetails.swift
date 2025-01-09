@@ -7,6 +7,7 @@ import protocol DewdropService.HighlightFields
 import protocol DewdropService.UserFields
 import protocol Catenary.Details
 
+@dynamicMemberLookup
 public struct HighlightInRaindropDetails<CreatorFields: UserFields & Decodable>: HighlightFields {
 	public let id: Highlight.ID
 	public let creator: CreatorFields

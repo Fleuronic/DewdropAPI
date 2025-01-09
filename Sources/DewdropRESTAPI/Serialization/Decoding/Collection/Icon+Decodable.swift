@@ -5,7 +5,7 @@ import AutoCodable
 import struct Dewdrop.Collection
 
 @AutoDecodable(accessControl: .public)
-extension Collection.Cover.IconSet: Swift.Decodable {
+extension Collection.Cover.Icon: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		@Conditional
 		case png

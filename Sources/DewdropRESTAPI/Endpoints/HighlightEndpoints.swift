@@ -20,9 +20,4 @@ public protocol HighlightEndpoints {
 		page: Int?,
 		perpage: Int?
 	) async throws -> HighlightsResponse<Fields>
-
-	@GET("/raindrop/{id}")
-	func getHighlightsOfRaindrop<Fields>(
-		id: Raindrop.ID
-	) async throws -> HighlightsInRaindropResponse<Fields>
 }

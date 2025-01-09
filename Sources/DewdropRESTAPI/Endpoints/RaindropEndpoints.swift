@@ -6,12 +6,22 @@ import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import struct Dewdrop.Media
 import struct Dewdrop.Highlight
+import struct Foundation.Data
 import protocol DewdropService.RaindropFields
 
 @API @JSON(decoder: .dewdrop)
 public protocol RaindropEndpoints {
 	@GET("/raindrop/{id}")
 	func getRaindrop<Fields>(id: Raindrop.ID) async throws -> RaindropResponse<Fields>
+
+	@GET("/raindrop/{id}")
+	func getHighlightsOfRaindrop<Fields>(id: Raindrop.ID) async throws -> HighlightsInRaindropResponse<Fields>
+
+	@GET("/raindrop/{id}/cache")
+	func getPermanentCopy(ofRaindropWith id: Raindrop.ID) async throws -> Data
+
+	@GET("/raindrop/{id}/suggest")
+	func suggestCollectionsAndTagsForExistingBookmark(id: Raindrop.ID) async throws -> RaindropSuggestionsResponse
 
 	@GET("/raindrops/{collectionId}")
 	func getRaindrops<Fields>(
@@ -22,8 +32,11 @@ public protocol RaindropEndpoints {
 		search: String?
 	) async throws -> RaindropsResponse<Fields>
 
-	@GET("/raindrop/{id}/suggest")
-	func suggestCollectionsAndTagsForExistingBookmark(id: Raindrop.ID) async throws -> RaindropSuggestionsResponse
+	@GET("raindrops/{collectionId}/{format}")
+	func exportInFormat(
+		collectionId: Collection.ID,
+		format: Raindrop.Format
+	) async throws -> Data
 
 	@POST("/raindrop")
 	func createRaindrop<Fields>(
@@ -43,6 +56,24 @@ public protocol RaindropEndpoints {
 		lastUpdate: Date?,
 		pleaseParse: Parse?
 	) async throws -> RaindropResponse<Fields>
+
+	@PUT("/raindrop/{id}")
+	func addHighlight<Fields>(
+		id: Raindrop.ID,
+		highlights: [Highlight.Content]
+	) async throws -> HighlightsResponse<Fields>
+
+	@PUT("/raindrop/{id}")
+	func updateHighlight<Fields>(
+		id: Raindrop.ID,
+		highlights: [Highlight.Content.Identified]
+	) async throws -> HighlightsResponse<Fields>
+
+	@PUT("/raindrop/{id}")
+	func removeHighlight<Fields>(
+		id: Raindrop.ID,
+		highlights: [Highlight.Content.Identified]
+	) async throws -> HighlightsResponse<Fields>
 
 	@DELETE("/raindrop/{id}")
 	func removeRaindrop(id: Raindrop.ID) async throws

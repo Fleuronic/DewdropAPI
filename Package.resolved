@@ -1,4 +1,5 @@
 {
+  "originHash" : "8169836233e511aa301f2124a9e07445e81544186323fad9a88f347a2e787052",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -6,7 +7,7 @@
       "location" : "https://github.com/Fleuronic/AutoCodable",
       "state" : {
         "branch" : "main",
-        "revision" : "18afe7f25b1a36159bcf8d0391807ee739d3c83c"
+        "revision" : "57f1f48b20d74e200f41b4460724a916fcb8e99b"
       }
     },
     {
@@ -15,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "1d3a71c6636ecd31d5490f9f7ed931a3b2abb70e"
+        "revision" : "76e0df364b9f3b34a2fac3080db371160ec394d5"
       }
     },
     {
@@ -33,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "d2a782df35d2b0b8a97fffd105a9f12091f62448"
+        "revision" : "e68c9a863c15ea1e775307371a89a63ddaeb41be"
       }
     },
     {
@@ -42,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "fcdb5b47d864986962d0d80908864056167662a6"
+        "revision" : "1aef2163ce15972a14eba956c90b827dfd2d8eb2"
       }
     },
     {
@@ -91,5 +92,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

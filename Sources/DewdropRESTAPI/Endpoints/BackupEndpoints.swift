@@ -2,7 +2,6 @@
 
 import Papyrus
 
-import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
 import struct DewdropService.IdentifiedBackup
 
@@ -15,5 +14,5 @@ public protocol BackupEndpoints {
 	func generateNew() async throws -> BackupGenerationResponse
 
 	@GET("/backup/{id}/{format}")
-	func downloadFile(id: Backup.ID, format: FileFormat) async throws -> Data
+	func downloadFile(id: Backup.ID, format: Backup.FileFormat) async throws -> Data
 }

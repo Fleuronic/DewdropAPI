@@ -22,7 +22,7 @@ extension API: ImportSpec {
 		}
 	}
 
-	public func checkExistence(of urls: [URL]) async -> SingleResult<IDListFields<Raindrop.Identified>> {
+	public func checkExistence(of urls: [URL]) async -> SingleResult<Raindrop.IDListFields> {
 		await result {
 			try await `import`.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
 		}.map(IDListFields.init)

@@ -33,6 +33,18 @@ extension API: CollectionSpec {
 			try await collections.getChildCollections().items
 		}
 	}
+	
+	public func listCovers(searchingFor query: String) async -> Results<Collection.Cover> {
+		await result {
+			try await collections.searchForCover(text: query).items
+		}
+	}
+
+	public func listFeaturedCovers() async -> Results<Collection.Cover> {
+		await result {
+			try await collections.featuredCovers().items
+		}
+	}
 
 	public func listSystemCollections() async -> Results<CollectionCountFields> {
 		await results {

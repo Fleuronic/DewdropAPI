@@ -8,6 +8,6 @@ import struct Dewdrop.Collection
 extension Collection.Cover: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case title
-		case iconSets = "icons"
+		case icons
 	}
 }

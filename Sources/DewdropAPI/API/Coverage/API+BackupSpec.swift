@@ -1,6 +1,5 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import enum Dewdrop.FileFormat
 import struct Dewdrop.Backup
 import struct DewdropRESTAPI.BackupDetails
 import struct Foundation.Data
@@ -26,7 +25,7 @@ extension API: BackupSpec {
 		}
 	}
 	
-	public func downloadBackup(with id: Backup.ID, as format: FileFormat) async -> SingleResult<Data> {
+	public func downloadBackup(with id: Backup.ID, as format: Backup.FileFormat) async -> SingleResult<Data> {
 		await result {
 			try await backups.downloadFile(
 				id: id,

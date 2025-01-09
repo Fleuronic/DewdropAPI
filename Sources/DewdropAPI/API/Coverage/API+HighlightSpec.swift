@@ -1,5 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import struct Dewdrop.Highlight
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import protocol DewdropService.HighlightSpec
@@ -14,7 +15,7 @@ extension API: HighlightSpec {
 
 	public func listHighlights(ofRaindropWith id: Raindrop.ID) async -> Results<HighlightInRaindropSpecifiedFields> {
 		await result {
-			try await highlights.getHighlightsOfRaindrop(id: id).item.highlights
+			try await raindrops.getHighlightsOfRaindrop(id: id).item.highlights
 		}
 	}
 
@@ -33,6 +34,41 @@ extension API: HighlightSpec {
 					perpage: highlightsPerPage
 				).items
 			}
+		}
+	}
+
+	public func addHighlights(with contents: [Highlight.Content], toRaindropWith id: Raindrop.ID) async -> Results<HighlightInRaindropSpecifiedFields> {
+		await results {
+			try await raindrops.addHighlight(
+				id: id,
+				highlights: contents
+			).items
+		}
+	}
+
+	public func updateHighlights(with ids: [Highlight.ID], ofRaindropWith id: Raindrop.ID, to contents: [Highlight.Content]) async -> Results<HighlightInRaindropSpecifiedFields> {
+		let highlights = zip(ids, contents).map(Highlight.Content.Identified.init)
+		return await results {
+			try await raindrops.updateHighlight(
+				id: id,
+				highlights: highlights
+			).items
+		}
+	}
+
+	public func removeHighlights(with ids: [Highlight.ID], fromRaindropWith id: Raindrop.ID) async -> Results<HighlightInRaindropSpecifiedFields> {
+		let highlights = ids.map { id in
+			Highlight.Content.Identified(
+				id: id,
+				content: .init(text: "")
+			)
+		}
+
+		return await results {
+			try await raindrops.removeHighlight(
+				id: id,
+				highlights: highlights
+			).items
 		}
 	}
 }
