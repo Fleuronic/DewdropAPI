@@ -57,6 +57,9 @@ public protocol RaindropEndpoints {
 		pleaseParse: Parse?
 	) async throws -> RaindropResponse<Fields>
 
+	@POST("/raindrop/suggest")
+	func suggestCollectionsAndTagsForNewBookmark(link: String) async throws -> RaindropSuggestionsResponse
+
 	@PUT("/raindrop/{id}")
 	func addHighlight<Fields>(
 		id: Raindrop.ID,

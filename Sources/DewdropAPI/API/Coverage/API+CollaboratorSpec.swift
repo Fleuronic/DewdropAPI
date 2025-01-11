@@ -18,4 +18,14 @@ extension API: CollaboratorSpec {
 			try await collections.getCollaboratorsListOfCollection(id: id).items
 		}
 	}
+
+	public func changeRole(ofCollaboratorWith id: Collaborator.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> EmptyResult {
+		await result {
+			try await collections.changeAccessLevelOfCollaborator(
+				id: collectionID,
+				userId: id,
+				role: role
+			)
+		}
+	}
 }

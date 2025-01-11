@@ -3,6 +3,7 @@
 import Papyrus
 
 import struct Dewdrop.Collection
+import struct Dewdrop.Collaborator
 import struct Identity.Identifier
 import protocol DewdropService.CollectionFields
 
@@ -17,12 +18,6 @@ public protocol CollectionEndpoints {
 	@GET("/collection/{id}")
 	func getCollection<Fields>(id: Collection.ID) async throws -> CollectionResponse<Fields>
 
-	@DELETE("/collection/{id}")
-	func removeCollection(id: Collection.ID) async throws
-
-	@DELETE("/collections")
-	func removeMultipleCollections(ids: Field<[Collection.ID]>) async throws
-
 	@PUT("/collections/clean")
 	func removeAllEmptyCollections() async throws -> EmptyCollectionRemovalResponse
 
@@ -34,4 +29,17 @@ public protocol CollectionEndpoints {
 
 	@GET("/collections/covers")
 	func featuredCovers() async throws -> CoversResponse
+
+	@PUT("/collection/{id}/sharing/{userId}")
+	func changeAccessLevelOfCollaborator(
+		id: Collection.ID,
+		userId: Collaborator.ID,
+		role: Collaborator.Role
+	) async throws
+
+	@DELETE("/collection/{id}")
+	func removeCollection(id: Collection.ID) async throws
+
+	@DELETE("/collections")
+	func removeMultipleCollections(ids: Field<[Collection.ID]>) async throws
 }

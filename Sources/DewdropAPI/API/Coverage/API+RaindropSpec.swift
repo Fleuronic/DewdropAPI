@@ -51,6 +51,12 @@ extension API: RaindropSpec {
 		}
 	}
 
+	public func findSuggestions(forRaindropCreatedFor url: URL) async -> SingleResult<RaindropSuggestionsFields> {
+		await result {
+			try await raindrops.suggestCollectionsAndTagsForNewBookmark(link: url.absoluteString).item
+		}
+	}
+
 	public func removeRaindrop(with id: Raindrop.ID) async -> EmptyResult {
 		await result {
 			try await raindrops.removeRaindrop(id: id)
