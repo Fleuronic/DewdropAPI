@@ -3,6 +3,8 @@
 import struct Dewdrop.Collection
 import struct Dewdrop.Collaborator
 import struct DewdropRESTAPI.CollaboratorDetails
+import struct DewdropRESTAPI.CollaboratorEmailsFields
+import struct DewdropRESTAPI.CollaboratorRoleFields
 import struct Identity.Identifier
 import protocol DewdropService.CollaboratorSpec
 import protocol Catena.Scoped
@@ -26,6 +28,26 @@ extension API: CollaboratorSpec {
 				userId: id,
 				role: role
 			)
+		}
+	}
+
+	public func shareCollection(with id: Collection.ID, toCollaborateAs role: Collaborator.Role, sendingTo emails: [String]) async -> SingleResult<CollaboratorEmailsFields> {
+		await result {
+			try await collections.shareCollection(
+				id: id,
+				role: role,
+				emails: emails
+			).item
+		}
+	}
+
+
+	public func acceptInvitation(forCollectionWith id: Collection.ID, usingToken token: String) async -> SingleResult<CollaboratorRoleFields> {
+		await result {
+			try await collections.acceptAnInvitation(
+				id: id,
+				token: token
+			).item
 		}
 	}
 }

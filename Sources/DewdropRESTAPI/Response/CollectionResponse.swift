@@ -9,4 +9,6 @@ public typealias CollectionsResponse<Fields: CollectionFields & Decodable> = Ite
 public typealias SystemCollectionsCountResponse = ItemListResponse<CollectionCountFields>
 public typealias EmptyCollectionRemovalResponse = EmptyCollectionRemovalFields
 public typealias CollaboratorsResponse = ItemListResponse<CollaboratorDetails>
+public typealias CollaboratorRoleResponse = ItemResponse<CollaboratorRoleFields>
+public typealias CollaboratorEmailsResponse = ItemResponse<CollaboratorEmailsFields>
 public typealias CoversResponse = ItemListResponse<Collection.Cover>

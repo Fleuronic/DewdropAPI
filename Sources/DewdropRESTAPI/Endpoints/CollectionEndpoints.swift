@@ -30,6 +30,19 @@ public protocol CollectionEndpoints {
 	@GET("/collections/covers")
 	func featuredCovers() async throws -> CoversResponse
 
+	@POST("/collection/{id}/sharing")
+	func shareCollection(
+		id: Collection.ID,
+		role: Collaborator.Role,
+		emails: [String]
+	) async throws -> CollaboratorEmailsResponse
+
+	@POST("/collection/{id}/join")
+	func acceptAnInvitation(
+		id: Collection.ID,
+		token: String
+	) async throws -> CollaboratorRoleResponse
+
 	@PUT("/collection/{id}/sharing/{userId}")
 	func changeAccessLevelOfCollaborator(
 		id: Collection.ID,

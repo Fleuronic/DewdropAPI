@@ -34,7 +34,7 @@
       "location" : "https://github.com/Fleuronic/Dewdrop",
       "state" : {
         "branch" : "main",
-        "revision" : "e68c9a863c15ea1e775307371a89a63ddaeb41be"
+        "revision" : "38f80f85634e863bf2fb9b25d8962c2abbba5092"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/Fleuronic/DewdropService",
       "state" : {
         "branch" : "main",
-        "revision" : "1aef2163ce15972a14eba956c90b827dfd2d8eb2"
+        "revision" : "dc158b419d26374d84f1ebfab5955acfb4ffef63"
       }
     },
     {
