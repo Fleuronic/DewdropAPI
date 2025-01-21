@@ -21,7 +21,7 @@ extension API: RaindropSpec {
 	public typealias RaindropCreationFields = RaindropCreationSpecifiedFields
 	#endif
 
-	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropFetchSpecifiedFields> {
+	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropSpecifiedFields> {
 		await result {
 			try await raindrops.getRaindrop(id: id).item
 		}
@@ -45,6 +45,18 @@ extension API: RaindropSpec {
 		}
 	}
 
+	public func uploadCover(forRaindropWith id: Raindrop.ID, usingFileAt url: URL) async -> SingleResult<RaindropSpecifiedFields> {
+		await result {
+			try await raindrops.uploadCover(
+				id: id,
+				cover: .init(
+					data: .init(contentsOf: url),
+					fileName: "cover"
+				)
+			).item
+		}
+	}
+
 	public func findSuggestions(forRaindropWith id: Raindrop.ID) async -> SingleResult<RaindropSuggestionsFields> {
 		await result {
 			try await raindrops.suggestCollectionsAndTagsForExistingBookmark(id: id).item
@@ -57,9 +69,9 @@ extension API: RaindropSpec {
 		}
 	}
 
-	public func removeRaindrop(with id: Raindrop.ID) async -> EmptyResult {
+	public func removeRaindrop(with id: Raindrop.ID) async -> SingleResult<Bool> {
 		await result {
-			try await raindrops.removeRaindrop(id: id)
+			try await raindrops.removeRaindrop(id: id).result
 		}
 	}
 

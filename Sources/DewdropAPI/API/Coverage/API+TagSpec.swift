@@ -18,26 +18,26 @@ extension API: TagSpec {
 		}
 	}
 
-	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> EmptyResult {
+	public func renameTag(withName tagName: String, toName updatedTagName: String, inCollectionWith id: Collection.ID? = nil) async -> SingleResult<Bool> {
 		await mergeTags(withNames: [tagName], intoTagNamed: updatedTagName, inCollectionWith: id)
 	}
 
-	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> EmptyResult {
+	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> SingleResult<Bool> {
 		await result {
 			try await tags.mergeTags(
 				collectionId: id,
 				replace: tagName,
 				tags: tagNames
-			)
+			).result
 		}
 	}
 	
-	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> EmptyResult {
+	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> SingleResult<Bool> {
 		await result {
 			try await tags.removeTags(
 				collectionId: id,
 				tags: tagNames
-			)
+			).result
 		}
 	}
 }

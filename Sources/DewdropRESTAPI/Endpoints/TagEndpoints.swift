@@ -11,11 +11,11 @@ public protocol TagEndpoints {
 	func getTags(collectionId: Collection.ID?) async throws -> TagsResponse
 
 	@PUT("/tags/{collectionId}")
-	func renameTag(collectionId: Collection.ID?, replace: String, tags: [String]) async throws
+	func renameTag(collectionId: Collection.ID?, replace: String, tags: [String]) async throws -> SuccessResponse
 
 	@PUT("/tags/{collectionId}")
-	func mergeTags(collectionId: Collection.ID?, replace: String, tags: [String]) async throws
+	func mergeTags(collectionId: Collection.ID?, replace: String, tags: [String]) async throws -> SuccessResponse
 
 	@DELETE("/tags/{collectionId}")
-	func removeTags(collectionId: Collection.ID?, tags: Field<[String]>) async throws
+	func removeTags(collectionId: Collection.ID?, tags: Field<[String]>) async throws -> SuccessResponse
 }

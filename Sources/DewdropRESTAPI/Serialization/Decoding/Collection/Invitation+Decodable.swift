@@ -2,12 +2,12 @@
 
 import AutoCodable
 
-import struct Dewdrop.Collection
+import struct Dewdrop.Collaborator
 
 @AutoDecodable(accessControl: .public)
-extension Collection.Access: Swift.Decodable {
+extension Collaborator.Invitation: Swift.Decodable {
 	private enum CodingKeys: String, CodingKey {
-		case level
-		case isDraggable = "draggable"
+		case token
+		case url = "link"
 	}
 }

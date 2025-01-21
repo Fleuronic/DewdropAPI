@@ -29,8 +29,8 @@ public protocol UserEndpoints {
 	) async throws -> UserResponse<Fields>
 
 	@GET("/user/{provider}")
-	func connectSocialNetworkAccount(provider: Network.Provider) async throws
+	func connectSocialNetworkAccount(provider: Network.Provider) async throws -> SuccessResponse
 
 	@GET("/user/connect/{provider}/revoke")
-	func disconnectSocialNetworkAccount(provider: Network.Provider) async throws
+	func disconnectSocialNetworkAccount(provider: Network.Provider) async throws -> SuccessResponse
 }

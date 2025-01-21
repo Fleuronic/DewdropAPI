@@ -60,6 +60,20 @@ public protocol RaindropEndpoints {
 	@POST("/raindrop/suggest")
 	func suggestCollectionsAndTagsForNewBookmark(link: String) async throws -> RaindropSuggestionsResponse
 
+	@Multipart
+	@PUT("/raindrop/file")
+	func uploadFile<Fields>(
+		id: Raindrop.ID,
+		cover: Part
+	) async throws -> RaindropResponse<Fields>
+
+	@Multipart
+	@PUT("/raindrop/{id}/cover")
+	func uploadCover<Fields>(
+		id: Raindrop.ID,
+		cover: Part
+	) async throws -> RaindropResponse<Fields>
+
 	@PUT("/raindrop/{id}")
 	func addHighlight<Fields>(
 		id: Raindrop.ID,
@@ -79,7 +93,7 @@ public protocol RaindropEndpoints {
 	) async throws -> HighlightsResponse<Fields>
 
 	@DELETE("/raindrop/{id}")
-	func removeRaindrop(id: Raindrop.ID) async throws
+	func removeRaindrop(id: Raindrop.ID) async throws -> SuccessResponse
 
 	@DELETE("/raindrops/{collectionId}")
 	func removeRaindrops(

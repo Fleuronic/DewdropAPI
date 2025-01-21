@@ -3,7 +3,6 @@
 import struct Dewdrop.Collection
 import struct Dewdrop.Collaborator
 import struct DewdropRESTAPI.CollaboratorDetails
-import struct DewdropRESTAPI.CollaboratorEmailsFields
 import struct DewdropRESTAPI.CollaboratorRoleFields
 import struct Identity.Identifier
 import protocol DewdropService.CollaboratorSpec
@@ -21,33 +20,47 @@ extension API: CollaboratorSpec {
 		}
 	}
 
-	public func changeRole(ofCollaboratorWith id: Collaborator.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> EmptyResult {
-		await result {
-			try await collections.changeAccessLevelOfCollaborator(
-				id: collectionID,
-				userId: id,
-				role: role
-			)
-		}
-	}
-
-	public func shareCollection(with id: Collection.ID, toCollaborateAs role: Collaborator.Role, sendingTo emails: [String]) async -> SingleResult<CollaboratorEmailsFields> {
+	public func shareCollection(with id: Collection.ID, toCollaborateAs role: Collaborator.Role, sendingTo emails: [String]) async -> SingleResult<Collaborator.Invitation> {
 		await result {
 			try await collections.shareCollection(
 				id: id,
 				role: role,
 				emails: emails
+			)
+		}
+	}
+
+	public func acceptInvitation(forCollectionWith id: Collection.ID, usingToken token: String) async -> SingleResult<CollaboratorRoleFields> {
+		await result {
+			try await collections.acceptInvitation(
+				id: id,
+				token: token
 			).item
 		}
 	}
 
-
-	public func acceptInvitation(forCollectionWith id: Collection.ID, usingToken token: String) async -> SingleResult<CollaboratorRoleFields> {
+	public func changeRole(ofCollaboratorWith id: Collaborator.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> SingleResult<Bool> {
 		await result {
-			try await collections.acceptAnInvitation(
-				id: id,
-				token: token
-			).item
+			try await collections.changeAccessLevelOfCollaborator(
+				id: collectionID,
+				userId: id,
+				role: role
+			).result
+		}
+	}
+
+	public func removeCollaborator(with id: Collaborator.ID, fromCollectionWith collectionID: Collection.ID) async -> SingleResult<Bool> {
+		await result {
+			try await collections.deleteCollaborator(
+				id: collectionID,
+				userId: id
+			).result
+		}
+	}
+
+	public func stopSharingCollection(with id: Collection.ID) async -> SingleResult<Bool> {
+		await result {
+			try await collections.unshareOrLeaveCollection(id: id).result
 		}
 	}
 }

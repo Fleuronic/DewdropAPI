@@ -3,6 +3,7 @@
 import struct Dewdrop.Collection
 import struct DewdropRESTAPI.CollectionCountFields
 import struct DewdropRESTAPI.EmptyCollectionRemovalFields
+import struct Foundation.URL
 import struct Identity.Identifier
 import protocol DewdropService.CollectionSpec
 import protocol Catena.Scoped
@@ -46,21 +47,54 @@ extension API: CollectionSpec {
 		}
 	}
 
+	public func uploadCover(forCollectionWith id: Collection.ID, usingFileAt url: URL) async -> SingleResult<CollectionSpecifiedFields> {
+		await result {
+			try await collections.uploadCover(
+				id: id,
+				cover: .init(
+					data: .init(contentsOf: url),
+					fileName: "cover"
+				)
+			).item
+		}
+	}
+
+	public func expandCollections(_ expanded: Bool) async -> SingleResult<Bool> { // TODO: SuccessResult
+		await result {
+			try await collections.expandCollapseCollections(expanded: expanded).result
+		}
+	}
+
+	public func sortCollections(by sort: Collection.Sort) async -> SingleResult<Bool> {
+		await result {
+			try await collections.reorderCollections(sort: sort).result
+		}
+	}
+
+	public func mergeCollections(with ids: [Collection.ID], intoCollectionWith id: Collection.ID) async -> SingleResult<Bool> {
+		await result {
+			try await collections.mergeCollections(
+				to: id,
+				ids: ids
+			).result
+		}
+	}
+
 	public func listSystemCollections() async -> Results<CollectionCountFields> {
 		await results {
 			try await users.getSystemCollectionsCount().items
 		}
 	}
 
-	public func removeCollection(with id: Collection.ID) async -> EmptyResult {
+	public func removeCollection(with id: Collection.ID) async -> SingleResult<Bool> {
 		await result {
-			try await collections.removeCollection(id: id)
+			try await collections.removeCollection(id: id).result
 		}
 	}
 
-	public func removeCollections(with ids: [Collection.ID]) async -> EmptyResult {
+	public func removeCollections(with ids: [Collection.ID]) async -> SingleResult<Bool> {
 		await result {
-			try await collections.removeMultipleCollections(ids: ids)
+			try await collections.removeMultipleCollections(ids: ids).result
 		}
 	}
 
@@ -70,7 +104,7 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func emptyTrash() async -> EmptyResult {
+	public func emptyTrash() async -> SingleResult<Bool> {
 		await removeCollection(with: .trash)
 	}
 }
