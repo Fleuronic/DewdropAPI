@@ -12,7 +12,6 @@ import protocol Catenary.API
 extension API: ImportSpec {
 	#if swift(<6.0)
 	public typealias URLInfoFields = InfoParseFields
-	public typealias URLExistenceFields = RaindropFields
 	public typealias FileImportFields = ImportSpecifiedFields
 	#endif
 

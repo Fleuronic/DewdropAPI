@@ -1,13 +1,18 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import struct Dewdrop.Raindrop
 import protocol Catenary.Fields
 
-public struct RaindropRemovalFields: Fields {
+public struct RaindropModificationFields {
 	public let count: Int
 }
 
 // MARK: -
-extension RaindropRemovalFields: Decodable {
+extension RaindropModificationFields: Fields {
+	// MARK: Fields
+	public typealias Model = Raindrop
+
+	// MARK: Decodable
 	private enum CodingKeys: String, CodingKey {
 		case count = "modified"
 	}

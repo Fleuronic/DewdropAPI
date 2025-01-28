@@ -16,6 +16,7 @@ public struct FilterOverviewFields: FilterFields {
 
 // MARK: -
 extension FilterOverviewFields: Fields {
+	// MARK: Decodable
 	private enum CodingKeys: String, CodingKey {
 		case tags
 		case typeFilters = "types"

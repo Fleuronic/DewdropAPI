@@ -6,7 +6,7 @@ import struct Dewdrop.Collection
 import struct Dewdrop.Media
 import struct Dewdrop.Highlight
 import struct DewdropRESTAPI.RaindropSuggestionsFields
-import struct DewdropRESTAPI.RaindropRemovalFields
+import struct DewdropRESTAPI.RaindropModificationFields
 import struct Foundation.URL
 import struct Foundation.Date
 import struct Foundation.Data
@@ -16,12 +16,12 @@ import protocol Catena.Scoped
 
 extension API: RaindropSpec {
 	#if swift(<6.0)
-	public typealias RaindropFetchFields = RaindropSpecifiedFields
-	public typealias RaindropListFields = RaindropSpecifiedFields
-	public typealias RaindropCreationFields = RaindropCreationSpecifiedFields
+	public typealias RaindropFetchFields = RaindropFetchSpecifiedFields
+	public typealias RaindropListFields = RaindropListSpecifiedFields
+	public typealias RaindropCreationFields = RaindropSpecifiedFields
 	#endif
 
-	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropSpecifiedFields> {
+	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropFetchSpecifiedFields> {
 		await result {
 			try await raindrops.getRaindrop(id: id).item
 		}
@@ -45,7 +45,92 @@ extension API: RaindropSpec {
 		}
 	}
 
-	public func uploadCover(forRaindropWith id: Raindrop.ID, usingFileAt url: URL) async -> SingleResult<RaindropSpecifiedFields> {
+	public func createRaindrop(_ id: Raindrop.PendingID = .fromServer, for url: URL, with parameters: Raindrop.CreationParameters = .init()) async -> SingleResult<RaindropSpecifiedFields> {
+		await result {
+			try await raindrops.createRaindrop(
+				link: url.absoluteString,
+				title: parameters.title,
+				type: parameters.itemType,
+				excerpt: parameters.excerpt,
+				cover: parameters.coverURL,
+				order: parameters.order,
+				collectionId: parameters.collectionID,
+				tags: parameters.tagNames,
+				media: parameters.media,
+				highlights: parameters.highlightContents,
+				reminder: parameters.reminder,
+				important: parameters.isFavorite,
+				created: parameters.creationDate,
+				lastUpdate: parameters.updateDate,
+				pleaseParse: parameters.shouldParse ? .init() : nil
+			).item
+		}
+	}
+
+	public func createRaindrops(_ ids: [Raindrop.PendingID] = [.fromServer], for urls: [URL], with parameters: [Raindrop.CreationParameters]) async -> Results<RaindropSpecifiedFields> {
+		await results {
+			try await raindrops.createRaindrops(
+				items: zip(urls, parameters).map { url, parameters in
+					.init(
+						link: url.absoluteString,
+						title: parameters.title,
+						type: parameters.itemType,
+						excerpt: parameters.excerpt,
+						cover: parameters.coverURL,
+						order: parameters.order,
+						collectionId: parameters.collectionID,
+						tags: parameters.tagNames,
+						media: parameters.media,
+						highlights: parameters.highlightContents,
+						reminder: parameters.reminder,
+						important: parameters.isFavorite,
+						created: parameters.creationDate,
+						lastUpdate: parameters.updateDate,
+						pleaseParse: parameters.shouldParse ? .init() : nil
+					)
+				}
+			).items
+		}
+	}
+
+	public func updateRaindrop(with id: Raindrop.ID, to url: URL?, updating parameters: Raindrop.CreationParameters = .init()) async -> SingleResult<RaindropSpecifiedFields /* TODO */> {
+		await result {
+			try await raindrops.updateRaindrop(
+				id: id,
+				link: url?.absoluteString,
+				title: parameters.title,
+				type: parameters.itemType,
+				excerpt: parameters.excerpt,
+				cover: parameters.coverURL,
+				order: parameters.order,
+				collectionId: parameters.collectionID,
+				tags: parameters.tagNames,
+				media: parameters.media,
+				highlights: parameters.highlightContents,
+				reminder: parameters.reminder,
+				important: parameters.isFavorite,
+				created: parameters.creationDate,
+				lastUpdate: parameters.updateDate,
+				pleaseParse: parameters.shouldParse ? .init() : nil
+			).item
+		}
+	}
+
+	public func updateRaindrops(with ids: [Raindrop.ID], inCollectionWith collectionID: Collection.ID = .all, searchingFor query: String? = nil, updating parameters: Raindrop.UpdateParameters) async -> SingleResult<RaindropModificationFields> {
+		await result {
+			try await raindrops.updateRaindrops(
+				ids: ids,
+				search: query,
+				collectionId: collectionID,
+				cover: parameters.coverURL,
+				tags: parameters.tagNames,
+				media: parameters.media,
+				important: parameters.isFavorite
+			)
+		}
+	}
+
+	public func uploadCover(forRaindropWith id: Raindrop.ID, usingFileAt url: URL) async -> SingleResult<RaindropFetchSpecifiedFields> {
 		await result {
 			try await raindrops.uploadCover(
 				id: id,
@@ -75,52 +160,13 @@ extension API: RaindropSpec {
 		}
 	}
 
-	public func removeRaindrops(fromCollectionWith collectionID: Collection.ID, matching ids: [Raindrop.ID]? = nil, searchingFor search: String? = nil) async -> SingleResult<RaindropRemovalFields> {
+	public func removeRaindrops(fromCollectionWith collectionID: Collection.ID, matching ids: [Raindrop.ID]? = nil, searchingFor search: String? = nil) async -> SingleResult<RaindropModificationFields> {
 		await result {
 			try await raindrops.removeRaindrops(
 				collectionId: collectionID,
 				ids: ids,
 				search: search
 			)
-		}
-	}
-
-	public func createRaindrop(
-		id: Raindrop.PendingID = .fromServer,
-		url: URL,
-		title: String? = nil,
-		itemType: Raindrop.ItemType? = nil,
-		excerpt: String? = nil,
-		coverURL: URL? = nil,
-		order: Int? = nil,
-		collectionID: Collection.ID? = nil,
-		tagNames: [String]? = nil,
-		media: [Media]? = nil,
-		highlightContents: [Highlight.Content]? = nil,
-		reminder: Raindrop.Reminder? = nil,
-		isFavorite: Bool? = nil,
-		creationDate: Date? = nil,
-		updateDate: Date? = nil,
-		shouldParse: Bool = false
-	) async -> SingleResult<RaindropCreationSpecifiedFields> {
-		await result {
-			try await raindrops.createRaindrop(
-				link: url.absoluteString,
-				title: title,
-				type: itemType,
-				excerpt: excerpt,
-				cover: coverURL,
-				order: order,
-				collectionId: collectionID,
-				tags: tagNames,
-				media: media,
-				highlights: highlightContents,
-				reminder: reminder,
-				important: isFavorite,
-				created: creationDate,
-				lastUpdate: updateDate,
-				pleaseParse: shouldParse ? .init() : nil
-			).item
 		}
 	}
 }

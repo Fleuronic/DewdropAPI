@@ -3,6 +3,7 @@
 import struct Dewdrop.Collection
 import struct DewdropRESTAPI.CollectionCountFields
 import struct DewdropRESTAPI.EmptyCollectionRemovalFields
+import struct Catena.IDFields
 import struct Foundation.URL
 import struct Identity.Identifier
 import protocol DewdropService.CollectionSpec
@@ -10,12 +11,13 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: CollectionSpec {
-	#if swift(<6.0)
+#if swift(<6.0)
 	public typealias CollectionFetchFields = CollectionSpecifiedFields
 	public typealias RootCollectionListFields = CollectionSpecifiedFields
 	public typealias ChildCollectionListFields = CollectionSpecifiedFields
 	public typealias SystemCollectionListFields = CollectionCountFields
-	#endif
+	public typealias CollectionCreationFields = CollectionSpecifiedFields
+#endif
 
 	public func fetchCollection(with id: Collection.ID) async -> SingleResult<CollectionSpecifiedFields> {
 		await result {
@@ -34,7 +36,7 @@ extension API: CollectionSpec {
 			try await collections.getChildCollections().items
 		}
 	}
-	
+
 	public func listCovers(searchingFor query: String) async -> Results<Collection.Cover> {
 		await result {
 			try await collections.searchForCover(text: query).items
@@ -44,6 +46,34 @@ extension API: CollectionSpec {
 	public func listFeaturedCovers() async -> Results<Collection.Cover> {
 		await result {
 			try await collections.featuredCovers().items
+		}
+	}
+
+	public func createCollection(_ id: Collection.PendingID = .fromServer, titled title: String, with parameters: Collection.Parameters = .init()) async -> SingleResult<CollectionSpecifiedFields> {
+		await result {
+			try await collections.createCollection(
+				title: title,
+				cover: parameters.coverURL.map { [$0] },
+				view: parameters.view,
+				sort: parameters.sortIndex,
+				public: parameters.public,
+				parent: parameters.parentID.map(Collection.Parent.init)
+			).item
+		}
+	}
+
+	public func updateCollection(with id: Collection.ID, toTitle title: String? = nil, expanding: Bool? = nil, updating parameters: Collection.Parameters = .init()) async -> SingleResult<CollectionSpecifiedFields> {
+		await result {
+			try await collections.updateCollection(
+				id: id,
+				title: title,
+				cover: parameters.coverURL.map { [$0] },
+				view: parameters.view,
+				sort: parameters.sortIndex,
+				public: parameters.public,
+				expanded: expanding,
+				parent: parameters.parentID.map(Collection.Parent.init)
+			).item
 		}
 	}
 

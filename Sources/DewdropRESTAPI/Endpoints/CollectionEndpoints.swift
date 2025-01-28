@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import Papyrus
+import MemberwiseInit
 
 import struct Dewdrop.Collection
 import struct Dewdrop.Collaborator
@@ -30,6 +31,16 @@ public protocol CollectionEndpoints {
 	@GET("/collections/covers")
 	func featuredCovers() async throws -> CoversResponse
 
+	@POST("/collection")
+	func createCollection<Fields>(
+		title: String,
+		cover: [URL]?,
+		view: Collection.View?,
+		sort: Int?,
+		`public`: Bool?,
+		parent: Collection.Parent?
+	) async throws -> CollectionResponse<Fields>
+
 	@POST("/collection/{id}/sharing")
 	func shareCollection(
 		id: Collection.ID,
@@ -42,6 +53,18 @@ public protocol CollectionEndpoints {
 		id: Collection.ID,
 		token: String
 	) async throws -> CollaboratorRoleResponse
+
+	@PUT("/collection/{id}")
+	func updateCollection<Fields>(
+		id: Collection.ID,
+		title: String?,
+		cover: [URL]?,
+		view: Collection.View?,
+		sort: Int?,
+		`public`: Bool?,
+		expanded: Bool?,
+		parent: Collection.Parent?
+	) async throws -> CollectionResponse<Fields>
 
 	@PUT("/collections")
 	func expandCollapseCollections(expanded: Bool) async throws -> SuccessResponse
@@ -83,4 +106,19 @@ public protocol CollectionEndpoints {
 		id: Collection.ID,
 		userId: Collaborator.ID
 	) async throws -> SuccessResponse
+}
+
+// MARK: -
+public extension Collection {
+	@_UncheckedMemberwiseInit(.public)
+	struct Parent {
+		private let id: Collection.ID
+	}
+}
+
+// MARK: -
+extension Collection.Parent: Encodable {
+	private enum CodingKeys: String, CodingKey {
+		case id = "$id"
+	}
 }

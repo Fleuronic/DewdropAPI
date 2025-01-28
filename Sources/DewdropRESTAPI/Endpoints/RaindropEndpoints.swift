@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import Papyrus
+import MemberwiseInit
 
 import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
@@ -54,25 +55,45 @@ public protocol RaindropEndpoints {
 		important: Bool?,
 		created: Date?,
 		lastUpdate: Date?,
-		pleaseParse: Parse?
+		pleaseParse: Raindrop.Parse?
 	) async throws -> RaindropResponse<Fields>
+
+	@POST("/raindrops")
+	func createRaindrops<Fields>(items: [Raindrop.CreationItem]) async throws -> RaindropsResponse<Fields>
 
 	@POST("/raindrop/suggest")
 	func suggestCollectionsAndTagsForNewBookmark(link: String) async throws -> RaindropSuggestionsResponse
 
-	@Multipart
-	@PUT("/raindrop/file")
-	func uploadFile<Fields>(
+	@PUT("/raindrop/{id}")
+	func updateRaindrop<Fields>(
 		id: Raindrop.ID,
-		cover: Part
+		link: String?,
+		title: String?,
+		type: Raindrop.ItemType?,
+		excerpt: String?,
+		cover: URL?,
+		order: Int?,
+		collectionId: Collection.ID?,
+		tags: [String]?,
+		media: [Media]?,
+		highlights: [Highlight.Content]?,
+		reminder: Raindrop.Reminder?,
+		important: Bool?,
+		created: Date?,
+		lastUpdate: Date?,
+		pleaseParse: Raindrop.Parse?
 	) async throws -> RaindropResponse<Fields>
 
-	@Multipart
-	@PUT("/raindrop/{id}/cover")
-	func uploadCover<Fields>(
-		id: Raindrop.ID,
-		cover: Part
-	) async throws -> RaindropResponse<Fields>
+	@PUT("/raindrops/{collectionId}")
+	func updateRaindrops(
+		ids: [Raindrop.ID]?,
+		search: String?,
+		collectionId: Collection.ID,
+		cover: URL? /* TODO: <screenshot> */,
+		tags: [String]?,
+		media: [Media]?,
+		important: Bool?
+	) async throws -> RaindropsModificationResponse
 
 	@PUT("/raindrop/{id}")
 	func addHighlight<Fields>(
@@ -92,6 +113,20 @@ public protocol RaindropEndpoints {
 		highlights: [Highlight.Content.Identified]
 	) async throws -> HighlightsResponse<Fields>
 
+	@Multipart
+	@PUT("/raindrop/file")
+	func uploadFile<Fields>(
+		id: Raindrop.ID,
+		cover: Part
+	) async throws -> RaindropResponse<Fields>
+
+	@Multipart
+	@PUT("/raindrop/{id}/cover")
+	func uploadCover<Fields>(
+		id: Raindrop.ID,
+		cover: Part
+	) async throws -> RaindropResponse<Fields>
+
 	@DELETE("/raindrop/{id}")
 	func removeRaindrop(id: Raindrop.ID) async throws -> SuccessResponse
 
@@ -100,10 +135,32 @@ public protocol RaindropEndpoints {
 		collectionId: Collection.ID,
 		ids: [Raindrop.ID]?,
 		search: String?
-	) async throws -> RaindropRemovalResponse
+	) async throws -> RaindropsModificationResponse
 }
 
 // MARK: -
-public struct Parse: Encodable {
-	public init() {}
+public extension Raindrop {
+	@_UncheckedMemberwiseInit(.public)
+	struct CreationItem: Encodable {
+		private let link: String
+		private let title: String?
+		private let type: Raindrop.ItemType?
+		private let excerpt: String?
+		private let cover: URL?
+		private let order: Int?
+		private let collectionId: Collection.ID?
+		private let tags: [String]?
+		private let media: [Media]?
+		private let highlights: [Highlight.Content]?
+		private let reminder: Raindrop.Reminder?
+		private let important: Bool?
+		private let created: Date?
+		private let lastUpdate: Date?
+		private let pleaseParse: Parse?
+	}
+
+	struct Parse: Encodable {
+		public init() {}
+	}
 }
+

@@ -12,6 +12,7 @@ public struct RaindropHighlightFields<Fields: HighlightFields & Decodable>: Rain
 
 // MARK: -
 extension RaindropHighlightFields: Catenary.Fields {
+	// MARK: Decodable
 	private enum CodingKeys: String, CodingKey {
 		case id = "_id"
 		case highlights

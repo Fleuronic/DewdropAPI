@@ -71,5 +71,4 @@ private extension GroupDetails {
 		case isHidden = "hidden"
 		case collections
 	}
-
 }

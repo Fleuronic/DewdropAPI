@@ -4,6 +4,7 @@ import struct Dewdrop.Collection
 import struct Foundation.URL
 
 extension Collection: Swift.Decodable {
+	// MARK: Decodable
 	public enum CodingKeys: String, CodingKey {
 		case title
 		case count
@@ -19,7 +20,6 @@ extension Collection: Swift.Decodable {
 		case updateDate = "lastUpdate"
 	}
 
-	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		

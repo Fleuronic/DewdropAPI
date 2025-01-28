@@ -29,7 +29,14 @@ public extension ConfigFields {
 
 // MARK: -
 extension ConfigFields: Fields {
+	// MARK: Fields
+	public typealias Model = User.Config
+
 	// MARK: Decodable
+	private enum CodingKeys: String, CodingKey {
+		case lastViewedCollectionID = "lastCollection"
+	}
+
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -37,12 +44,5 @@ extension ConfigFields: Fields {
 			config: .init(from: decoder),
 			lastViewedCollectionID: container.decode(for: .lastViewedCollectionID)
 		)
-	}
-}
-
-// MARK: -
-private extension ConfigFields {
-	enum CodingKeys: String, CodingKey {
-		case lastViewedCollectionID = "lastCollection"
 	}
 }

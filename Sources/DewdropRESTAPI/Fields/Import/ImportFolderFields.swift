@@ -9,6 +9,7 @@ public struct ImportFolderFields: ImportFields {
 
 // MARK: -
 extension ImportFolderFields: Fields {
+	// MARK: Decodable
 	private enum CodingKeys: String, CodingKey {
 		case folders = "items"
 	}
