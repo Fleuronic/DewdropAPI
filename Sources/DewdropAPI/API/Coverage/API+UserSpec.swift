@@ -28,30 +28,12 @@ extension API: UserSpec {
 			try await users.getUser().user
 		}
 	}
-	
-	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> SingleResult<Bool> {
-		await result {
-			try await users.connectSocialNetworkAccount(provider: provider).result
-		}
-	}
-	
-	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> SingleResult<Bool> {
-		await result {
-			try await users.disconnectSocialNetworkAccount(provider: provider).result
-		}
-	}
 
-	public func updateAuthenticatedUser(
-		fullName: String? = nil,
-		email: String? = nil,
-		password: Password? = nil,
-		config: User.Config? = nil,
-		groups: [GroupDetails]? = nil
-	) async -> SingleResult<UserUpdateSpecifiedFields> {
+	public func updateAuthenticatedUser(with parameters: User.UpdateParameters<GroupDetails>) async -> SingleResult<UserUpdateSpecifiedFields> {
 		let newPassword: String?
 		let oldPassword: String?
 
-		switch password {
+		switch parameters.password {
 		case let .updated(from, to):
 			newPassword = to
 			oldPassword = from
@@ -62,13 +44,25 @@ extension API: UserSpec {
 
 		return await result {
 			try await users.updateUser(
-				fullName: fullName,
-				email: email,
+				fullName: parameters.fullName,
+				email: parameters.email,
 				oldpassword: oldPassword,
 				newpassword: newPassword,
-				config: config,
-				groups: groups
+				config: parameters.config,
+				groups: parameters.groups
 			).user
+		}
+	}
+
+	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> SuccessResult {
+		await result {
+			try await users.connectSocialNetworkAccount(provider: provider).result
+		}
+	}
+	
+	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> SuccessResult {
+		await result {
+			try await users.disconnectSocialNetworkAccount(provider: provider).result
 		}
 	}
 }

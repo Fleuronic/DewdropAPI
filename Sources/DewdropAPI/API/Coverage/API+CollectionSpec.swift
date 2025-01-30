@@ -11,13 +11,13 @@ import protocol Catena.Scoped
 import protocol Catenary.API
 
 extension API: CollectionSpec {
-#if swift(<6.0)
+	#if swift(<6.0)
 	public typealias CollectionFetchFields = CollectionSpecifiedFields
 	public typealias RootCollectionListFields = CollectionSpecifiedFields
 	public typealias ChildCollectionListFields = CollectionSpecifiedFields
 	public typealias SystemCollectionListFields = CollectionCountFields
 	public typealias CollectionCreationFields = CollectionSpecifiedFields
-#endif
+	#endif
 
 	public func fetchCollection(with id: Collection.ID) async -> SingleResult<CollectionSpecifiedFields> {
 		await result {
@@ -89,19 +89,19 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func expandCollections(_ expanded: Bool) async -> SingleResult<Bool> { // TODO: SuccessResult
+	public func expandCollections(_ expanded: Bool) async -> SuccessResult { // TODO: SuccessResult
 		await result {
 			try await collections.expandCollapseCollections(expanded: expanded).result
 		}
 	}
 
-	public func sortCollections(by sort: Collection.Sort) async -> SingleResult<Bool> {
+	public func sortCollections(by sort: Collection.Sort) async -> SuccessResult {
 		await result {
 			try await collections.reorderCollections(sort: sort).result
 		}
 	}
 
-	public func mergeCollections(with ids: [Collection.ID], intoCollectionWith id: Collection.ID) async -> SingleResult<Bool> {
+	public func mergeCollections(with ids: [Collection.ID], intoCollectionWith id: Collection.ID) async -> SuccessResult {
 		await result {
 			try await collections.mergeCollections(
 				to: id,
@@ -116,13 +116,13 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func removeCollection(with id: Collection.ID) async -> SingleResult<Bool> {
+	public func removeCollection(with id: Collection.ID) async -> SuccessResult {
 		await result {
 			try await collections.removeCollection(id: id).result
 		}
 	}
 
-	public func removeCollections(with ids: [Collection.ID]) async -> SingleResult<Bool> {
+	public func removeCollections(with ids: [Collection.ID]) async -> SuccessResult {
 		await result {
 			try await collections.removeMultipleCollections(ids: ids).result
 		}
@@ -134,7 +134,7 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func emptyTrash() async -> SingleResult<Bool> {
+	public func emptyTrash() async -> SuccessResult {
 		await removeCollection(with: .trash)
 	}
 }

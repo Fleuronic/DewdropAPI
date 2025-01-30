@@ -39,7 +39,7 @@ extension API: CollaboratorSpec {
 		}
 	}
 
-	public func changeRole(ofCollaboratorWith id: Collaborator.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> SingleResult<Bool> {
+	public func changeRole(ofCollaboratorWith id: Collaborator.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> SuccessResult {
 		await result {
 			try await collections.changeAccessLevelOfCollaborator(
 				id: collectionID,
@@ -49,7 +49,7 @@ extension API: CollaboratorSpec {
 		}
 	}
 
-	public func removeCollaborator(with id: Collaborator.ID, fromCollectionWith collectionID: Collection.ID) async -> SingleResult<Bool> {
+	public func removeCollaborator(with id: Collaborator.ID, fromCollectionWith collectionID: Collection.ID) async -> SuccessResult {
 		await result {
 			try await collections.deleteCollaborator(
 				id: collectionID,
@@ -58,7 +58,7 @@ extension API: CollaboratorSpec {
 		}
 	}
 
-	public func stopSharingCollection(with id: Collection.ID) async -> SingleResult<Bool> {
+	public func stopSharingCollection(with id: Collection.ID) async -> SuccessResult {
 		await result {
 			try await collections.unshareOrLeaveCollection(id: id).result
 		}
