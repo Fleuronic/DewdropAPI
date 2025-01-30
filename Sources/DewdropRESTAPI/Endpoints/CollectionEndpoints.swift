@@ -8,7 +8,7 @@ import struct Dewdrop.Collaborator
 import struct Identity.Identifier
 import protocol DewdropService.CollectionFields
 
-@API @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: .dewdrop)
 public protocol CollectionEndpoints {
 	@GET("/collections")
 	func getRootCollections<Fields>() async throws -> CollectionsResponse<Fields>

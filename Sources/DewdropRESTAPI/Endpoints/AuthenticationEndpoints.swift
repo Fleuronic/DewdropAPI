@@ -4,7 +4,7 @@ import Papyrus
 
 import struct Dewdrop.AccessToken
 
-@API @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: .dewdrop)
 public protocol AuthenticationEndpoints {
 	@POST("/access_token")
 	func getAccessToken(

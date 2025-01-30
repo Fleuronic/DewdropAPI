@@ -10,7 +10,7 @@ import struct Dewdrop.Highlight
 import struct Foundation.Data
 import protocol DewdropService.RaindropFields
 
-@API @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: .dewdrop)
 public protocol RaindropEndpoints {
 	@GET("/raindrop/{id}")
 	func getRaindrop<Fields>(id: Raindrop.ID) async throws -> RaindropResponse<Fields>

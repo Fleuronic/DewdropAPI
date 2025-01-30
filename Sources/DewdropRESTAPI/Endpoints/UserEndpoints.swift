@@ -7,7 +7,7 @@ import struct Dewdrop.Group
 import struct Dewdrop.Network
 import protocol DewdropService.UserFields
 
-@API @JSON(encoder: .dewdrop, decoder: .dewdrop)
+@API @Mock @JSON(encoder: .dewdrop, decoder: .dewdrop)
 public protocol UserEndpoints {
 	@GET("/user")
 	func getUser<Fields>() async throws -> AuthenticatedUserResponse<Fields>

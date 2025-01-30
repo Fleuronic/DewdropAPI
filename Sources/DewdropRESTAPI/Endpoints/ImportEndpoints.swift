@@ -4,7 +4,7 @@ import Papyrus
 
 import struct Foundation.URL
 
-@API @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: .dewdrop)
 public protocol ImportEndpoints {
 	@GET("/import/url/parse")
 	func parseURL(urlString url: String) async throws -> InfoResponse

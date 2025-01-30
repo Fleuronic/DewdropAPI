@@ -5,7 +5,7 @@ import Papyrus
 import struct Dewdrop.Backup
 import struct DewdropService.IdentifiedBackup
 
-@API @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: .dewdrop)
 public protocol BackupEndpoints {
 	@GET("/backups")
 	func getAll<Fields>() async throws -> BackupsResponse<Fields>
