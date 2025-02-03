@@ -112,7 +112,7 @@ extension API: CollectionSpec {
 
 	public func listSystemCollections() async -> Results<CollectionCountFields> {
 		await results {
-			try await users.getSystemCollectionsCount().items
+			try await userEndpoints.getSystemCollectionsCount().items
 		}
 	}
 

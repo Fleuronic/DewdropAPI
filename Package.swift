@@ -22,7 +22,8 @@ let package = Package(
 		.package(url: "https://github.com/Fleuronic/DewdropService", branch: "main"),
 		.package(url: "https://github.com/Fleuronic/Catenary", branch: "main"),
 		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "main"),
-		.package(url: "http://github.com/Fleuronic/papyrus", branch: "optional-path-parameters")
+		.package(url: "https://github.com/Fleuronic/URL", branch: "main"),
+		.package(url: "https://github.com/Fleuronic/papyrus", branch: "optional-path-parameters")
 	],
 	targets: [
 		.target(
@@ -39,6 +40,14 @@ let package = Package(
 				"AutoCodable",
 				.product(name: "Papyrus", package: "papyrus")
 			]
+		),
+		.testTarget(
+			name: "DewdropAPITests",
+			dependencies: [
+				"DewdropAPI",
+				"URL"
+			],
+			resources: [.process("Fixtures")]
 		)
 	],
 	swiftLanguageModes: [.v6]

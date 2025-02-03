@@ -2,10 +2,10 @@
 
 import class Foundation.JSONEncoder
 
-extension JSONEncoder {
-	static var dewdrop: JSONEncoder {
-		let encoder = JSONEncoder()
-		encoder.keyEncodingStrategy = .convertToSnakeCase
-		return encoder
+public final class DewdropEncoder: JSONEncoder, @unchecked Sendable {
+	override init() {
+		super.init()
+
+		keyEncodingStrategy = .convertToSnakeCase
 	}
 }

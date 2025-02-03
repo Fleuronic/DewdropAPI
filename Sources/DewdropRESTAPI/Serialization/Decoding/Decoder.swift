@@ -3,21 +3,20 @@
 import class Foundation.JSONDecoder
 import struct Foundation.Date
 
-extension JSONDecoder {
-	static var dewdrop: JSONDecoder {
-		let decoder = JSONDecoder()
-		decoder.keyDecodingStrategy = .convertFromSnakeCase
-		decoder.dateDecodingStrategy = .custom { decoder in
+public final class DewdropDecoder: JSONDecoder, @unchecked Sendable {
+	override public init() {
+		super.init()
+
+		keyDecodingStrategy = .convertFromSnakeCase
+		dateDecodingStrategy = .custom { decoder in
 			let container = try decoder.singleValueContainer()
 			let dateString = try container.decode(String.self)
-			return try Date(dateString, strategy: .iso8601
+			return try .init(dateString, strategy: .iso8601
 				.year()
 				.month()
 				.day()
 				.time(includingFractionalSeconds: false)
 			)
 		}
-
-		return decoder
 	}
 }

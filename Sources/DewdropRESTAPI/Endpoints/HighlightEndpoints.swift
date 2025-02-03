@@ -6,7 +6,7 @@ import struct Dewdrop.Raindrop
 import struct Dewdrop.Collection
 import protocol DewdropService.HighlightFields
 
-@API @Mock @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: DewdropDecoder())
 public protocol HighlightEndpoints {
 	@GET("/highlights")
 	func getAllHighlights<Fields>(

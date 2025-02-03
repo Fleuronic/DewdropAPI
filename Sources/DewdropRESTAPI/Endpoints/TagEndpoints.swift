@@ -5,7 +5,7 @@ import Papyrus
 import struct Dewdrop.Collection
 import struct DewdropService.IdentifiedCollection
 
-@API @Mock @JSON(decoder: .dewdrop)
+@API @Mock @JSON(decoder: DewdropDecoder())
 public protocol TagEndpoints {
 	@GET("/tags/{collectionId}")
 	func getTags(collectionId: Collection.ID?) async throws -> TagsResponse

@@ -19,7 +19,12 @@ import struct DewdropRESTAPI.UserEndpointsAPI
 import struct DewdropRESTAPI.BackupEndpointsAPI
 import struct DewdropRESTAPI.ImportEndpointsAPI
 import struct Identity.Identifier
+import struct Catena.IDFields
+import class DewdropRESTAPI.RaindropEndpointsMock
+import class DewdropRESTAPI.UserEndpointsMock
 import class PapyrusCore.Provider
+import protocol DewdropRESTAPI.RaindropEndpoints
+import protocol DewdropRESTAPI.UserEndpoints
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
 import protocol DewdropService.FilterFields
@@ -32,6 +37,7 @@ import protocol Catenary.API
 import protocol Catenary.Fields
 
 public struct API<
+	RaindropEndpoints: DewdropRESTAPI.RaindropEndpoints,
 	RaindropFetchSpecifiedFields: RaindropFields & Fields,
 	RaindropListSpecifiedFields: RaindropFields & Fields,
 	RaindropSpecifiedFields: RaindropFields & Fields,
@@ -39,18 +45,18 @@ public struct API<
 	FilterSpecifiedFields: FilterFields & Fields,
 	HighlightSpecifiedFields: HighlightFields & Fields,
 	HighlightInRaindropSpecifiedFields: HighlightFields & Fields,
+	UserEndpoints: DewdropRESTAPI.UserEndpoints,
 	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Fields,
-	UserPublicSpecifiedFields: UserFields & Fields,
-	UserUpdateSpecifiedFields: UserAuthenticatedFields & Fields,
+	UserSpecifiedFields: UserFields & Fields,
 	ImportSpecifiedFields: ImportFields & Fields,
 	BackupSpecifiedFields: BackupFields & Fields
 >: @unchecked Sendable {
-	let raindrops: RaindropEndpointsAPI
+	let raindropEndpoints: RaindropEndpoints
 	let collections: CollectionEndpointsAPI
 	let tags: TagEndpointsAPI
 	let filters: FilterEndpointsAPI
 	let highlights: HighlightEndpointsAPI
-	let users: UserEndpointsAPI
+	let userEndpoints: UserEndpoints
 	let backups: BackupEndpointsAPI
 	let `import`: ImportEndpointsAPI
 
@@ -62,6 +68,7 @@ public extension API {
 	var error: Self.Error.Type { Error.self }
 
 	func specifyingRaindropFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		Fields,
 		Fields,
 		Fields,
@@ -69,14 +76,27 @@ public extension API {
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingCollectionFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -84,14 +104,27 @@ public extension API {
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingFilterFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -99,14 +132,27 @@ public extension API {
 		Fields,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingHighlightFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -114,14 +160,27 @@ public extension API {
 		FilterSpecifiedFields,
 		Fields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingHighlightInRaindropFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -129,14 +188,56 @@ public extension API {
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
 		Fields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
+	
+	
+	func specifyingUserFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
+		RaindropSpecifiedFields,
+		RaindropFetchSpecifiedFields,
+		RaindropListSpecifiedFields,
+		CollectionSpecifiedFields,
+		FilterSpecifiedFields,
+		HighlightSpecifiedFields,
+		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
+		UserAuthenticatedSpecifiedFields, // TODO: Switch
+		Fields,
+		ImportSpecifiedFields,
+		BackupSpecifiedFields
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingUserAuthenticatedFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -144,44 +245,27 @@ public extension API {
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		Fields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
-
-	func specifyingUserPublicFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
-		RaindropFetchSpecifiedFields,
-		RaindropListSpecifiedFields,
-		CollectionSpecifiedFields,
-		FilterSpecifiedFields,
-		HighlightSpecifiedFields,
-		HighlightInRaindropSpecifiedFields,
-		UserAuthenticatedSpecifiedFields,
-		Fields,
-		UserUpdateSpecifiedFields,
-		ImportSpecifiedFields,
-		BackupSpecifiedFields
-	> { .init(provider: provider) }
-
-	func specifyingUserUpdateFields<Fields>(_: Fields.Type) -> API<
-		RaindropSpecifiedFields,
-		RaindropFetchSpecifiedFields,
-		RaindropListSpecifiedFields,
-		CollectionSpecifiedFields,
-		FilterSpecifiedFields,
-		HighlightSpecifiedFields,
-		HighlightInRaindropSpecifiedFields,
-		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		Fields,
-		ImportSpecifiedFields,
-		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingImportFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -189,14 +273,27 @@ public extension API {
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		Fields,
 		BackupSpecifiedFields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 
 	func specifyingBackupFields<Fields>(_: Fields.Type) -> API<
+		RaindropEndpoints,
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
@@ -204,15 +301,28 @@ public extension API {
 		FilterSpecifiedFields,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
+		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
-		UserPublicSpecifiedFields,
-		UserUpdateSpecifiedFields,
+		UserSpecifiedFields,
 		ImportSpecifiedFields,
 		Fields
-	> { .init(provider: provider) }
+	> {
+		.init(
+			raindropEndpoints: raindropEndpoints,
+			collections: collections,
+			tags: tags,
+			filters: filters,
+			highlights: highlights,
+			userEndpoints: userEndpoints,
+			backups: backups,
+			import: `import`,
+			provider: provider
+		)
+	}
 }
 
 public extension API<
+	RaindropEndpointsAPI,
 	RaindropDetails<User.IDFields, HighlightInRaindropDetails<User.IDFields>>,
 	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<User.IDFields>>,
 	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
@@ -220,9 +330,9 @@ public extension API<
 	FilterOverviewFields,
 	HighlightDetails,
 	HighlightInRaindropDetails<UserPublicDetails>,
+	UserEndpointsAPI,
 	UserAuthenticatedDetails,
 	UserPublicDetails,
-	UserAuthenticatedDetails,
 	ImportFolderFields,
 	BackupDetails
 >{
@@ -232,31 +342,58 @@ public extension API<
 			request.addAuthorization(.bearer(apiKey))
 		}.intercept { request, process in
 			let response = try await process(request)
-			if let error = response.apiError(validating: true) { throw error }
+			try response.apiError(validating: true).map { throw $0 }
 			return response
 		}
 		
-		self.init(provider: provider)
+		self.init(
+			raindropEndpoints: .init(provider: provider),
+			collections: .init(provider: provider),
+			tags: .init(provider: provider),
+			filters: .init(provider: provider),
+			highlights: .init(provider: provider),
+			userEndpoints: .init(provider: provider),
+			backups: .init(provider: provider),
+			import: .init(provider: provider),
+			provider: provider
+		)
+	}
+}
+
+public extension API<
+	RaindropEndpointsMock,
+	RaindropDetails<User.IDFields, HighlightInRaindropDetails<User.IDFields>>,
+	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<User.IDFields>>,
+	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
+	CollectionDetails,
+	FilterOverviewFields,
+	HighlightDetails,
+	HighlightInRaindropDetails<UserPublicDetails>,
+	UserEndpointsMock,
+	UserAuthenticatedDetails,
+	UserPublicDetails,
+	ImportFolderFields,
+	BackupDetails
+>{
+	static var mock: Self {
+		let url = "https://api.raindrop.io/rest/v1"
+		let provider = Provider(baseURL: url)
+
+		return self.init(
+			raindropEndpoints: .init(),
+			collections: .init(provider: provider),
+			tags: .init(provider: provider),
+			filters: .init(provider: provider),
+			highlights: .init(provider: provider),
+			userEndpoints: .init(),
+			backups: .init(provider: provider),
+			import: .init(provider: provider),
+			provider: provider
+		)
 	}
 }
 
 // MARK: -
 extension API: Catenary.API {
 	public typealias APIError = DewdropAPI.Error
-}
-
-// MARK: -
-private extension API {
-	init(provider: Provider) {
-		self.provider = provider
-		
-		raindrops = .init(provider: provider)
-		collections = .init(provider: provider)
-		tags = .init(provider: provider)
-		filters = .init(provider: provider)
-		highlights = .init(provider: provider)
-		users = .init(provider: provider)
-		backups = .init(provider: provider)
-		`import` = .init(provider: provider)
-	}
 }

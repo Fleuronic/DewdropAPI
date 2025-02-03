@@ -19,10 +19,6 @@ public extension HighlightDetails {
 	subscript<T>(dynamicMember keyPath: KeyPath<Highlight, T>) -> T {
 		highlight[keyPath: keyPath]
 	}
-
-	subscript<T>(dynamicMember keyPath: KeyPath<Highlight.Content, T>) -> T {
-		highlight.content[keyPath: keyPath]
-	}
 }
 
 // MARK: -

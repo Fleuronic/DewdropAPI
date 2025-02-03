@@ -1,0 +1,91 @@
+{
+	"result": true,
+	"user": {
+		"tfa": {
+			"enabled": false
+		},
+		"files": {
+			"size": 100,
+			"lastCheckPoint": "0001-01-01T0:00:00.000Z",
+			"used": 0
+		},
+		"_id": 789,
+		"fullName": "Jordan Kay",
+		"name": "jordanekay",
+		"email": "jordanekay@mac.com",
+		"avatar": "https://raindrop.io/avatars/jordan.jpeg",
+		"pro": true,
+		"proExpire": "4001-01-01T0:00:00.000Z",
+		"groups": [
+			{
+				"title": "Websites",
+				"hidden": false,
+				"sort": 0,
+				"collections": [456]
+			}
+		],
+		"lastAction": "0001-01-01T0:00:00.000Z",
+		"lastVisit": "0001-01-01T0:00:00.000Z",
+		"registered": "0001-01-01T0:00:00.000Z",
+		"lastUpdate": "0001-01-01T0:00:00.000Z",
+		"config": {
+			"default_collection_view": "simple",
+			"raindrops_hide": [
+				"list_note",
+				"simple_info",
+				"simple_note",
+				"grid_note",
+				"simple_highlights",
+				"masonry_highlights",
+				"list_tags",
+				"list_highlights",
+				"simple_tags"
+			],
+			"raindrops_buttons": [
+				"select",
+				"edit",
+				"remove",
+				"important",
+				"preview"
+			],
+			"raindrops_search_by_score": true,
+			"raindrops_search_incollection": true,
+			"broken_level": "default",
+			"font_size": 0,
+			"add_default_collection": -1,
+			"acknowledge": ["onboard_upgrade"],
+			"lang": "en",
+			"last_collection": 39563140,
+			"raindrops_sort": "-created",
+			"raindrops_click": "current_tab",
+			"nested_view_legacy": false,
+			"raindrops_grid_cover_size": 2,
+			"raindrops_list_cover_right": true,
+			"font_family": "",
+			"font_color": "sunset",
+			"tags_hide": false,
+			"filters_hide": false,
+			"ai_suggestions": true,
+			"tags_sort": "_id"
+		},
+		"password": true,
+		"facebook": {
+			"enabled": true
+		},
+		"google": {
+			"enabled": true
+		},
+		"twitter": {
+			"enabled": true
+		},
+		"vkontakte": {
+			"enabled": true
+		},
+		"dropbox": {
+			"enabled": true
+		},
+		"gdrive": {
+			"enabled": true
+		}
+	}
+}

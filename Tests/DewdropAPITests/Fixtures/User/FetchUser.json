@@ -1,0 +1,29 @@
+{
+	"result": true,
+	"user": {
+		"_id": 789,
+		"fullName": "Jordan Kay",
+		"name": "jordanekay",
+		"email": "",
+		"avatar": "https://up.raindrop.io/user/avatars/177/903/9/1709154734385.jpeg",
+		"pro": true,
+		"lastAction": "2025-02-02T06:17:46.124Z",
+		"registered": "2023-11-29T14:07:05.483Z",
+		"lastUpdate": "2025-02-03T01:33:34.408Z",
+		"config": {
+			"raindrops_hide": [
+				"list_note",
+				"simple_info",
+				"simple_note",
+				"grid_note",
+				"simple_highlights",
+				"masonry_highlights",
+				"list_tags",
+				"list_highlights",
+				"simple_tags"
+			],
+			"raindrops_click": "current_tab",
+			"nested_view_legacy": false
+		}
+	}
+}

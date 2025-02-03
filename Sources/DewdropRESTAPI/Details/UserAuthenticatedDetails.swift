@@ -26,10 +26,6 @@ public extension UserAuthenticatedDetails {
 	subscript<T>(dynamicMember keyPath: KeyPath<Account, T>) -> T {
 		account[keyPath: keyPath]
 	}
-
-	subscript<T>(dynamicMember keyPath: KeyPath<User, T>) -> T {
-		account.user[keyPath: keyPath]
-	}
 }
 
 // MARK: -

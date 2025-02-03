@@ -12,24 +12,24 @@ import protocol Catenary.API
 
 extension API: UserSpec {
 	#if swift(<6.0)
-	public typealias PublicUserFetchFields = UserPublicSpecifiedFields
+	public typealias PublicUserFetchFields = UserSpecifiedFields
 	public typealias AuthenticatedUserFetchFields = UserAuthenticatedSpecifiedFields
 	public typealias AuthenticatedUserUpdatedFields = UserAuthenticatedSpecifiedFields
 	#endif
 	
-	public func fetchUser(with id: User.ID) async -> SingleResult<UserPublicSpecifiedFields> {
+	public func fetchUser(with id: User.ID) async -> SingleResult<UserSpecifiedFields> {
 		await result {
-			try await users.getUserByName(name: id).user
+			try await userEndpoints.getUserByName(name: id).user
 		}
 	}
 
 	public func fetchAuthenticatedUser() async -> SingleResult<UserAuthenticatedSpecifiedFields> {
 		await result {
-			try await users.getUser().user
+			try await userEndpoints.getUser().user
 		}
 	}
 
-	public func updateAuthenticatedUser(with parameters: User.UpdateParameters<GroupDetails>) async -> SingleResult<UserUpdateSpecifiedFields> {
+	public func updateAuthenticatedUser(with parameters: User.UpdateParameters<GroupDetails>) async -> SingleResult<UserAuthenticatedSpecifiedFields> {
 		let newPassword: String?
 		let oldPassword: String?
 
@@ -43,7 +43,7 @@ extension API: UserSpec {
 		}
 
 		return await result {
-			try await users.updateUser(
+			try await userEndpoints.updateUser(
 				fullName: parameters.fullName,
 				email: parameters.email,
 				oldpassword: oldPassword,
@@ -56,13 +56,13 @@ extension API: UserSpec {
 
 	public func connectSocialNetworkAccount(from provider: Network.Provider) async -> SuccessResult {
 		await result {
-			try await users.connectSocialNetworkAccount(provider: provider).result
+			try await userEndpoints.connectSocialNetworkAccount(provider: provider).result
 		}
 	}
 	
 	public func disconnectSocialNetworkAccount(from provider: Network.Provider) async -> SuccessResult {
 		await result {
-			try await users.disconnectSocialNetworkAccount(provider: provider).result
+			try await userEndpoints.disconnectSocialNetworkAccount(provider: provider).result
 		}
 	}
 }

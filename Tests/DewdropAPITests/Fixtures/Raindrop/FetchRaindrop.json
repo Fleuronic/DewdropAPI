@@ -1,0 +1,53 @@
+{
+  "result": true,
+  "item": {
+	"_id": 123,
+	"link": "https://www.website.com",
+	"title": "Website",
+	"excerpt": "Excerpt from this website.",
+	"note": "Note for this raindrop.",
+	"type": "link",
+	"user": {
+	  "$ref": "users",
+	  "$id": 789
+	},
+	"cover": "https://www.website.com/cover.jpg",
+	"media": [
+	  {
+		"link": "https://www.website.com/hero.jpg",
+		"type": "image"
+	  },
+	  {
+		"link": "https://www.website.com/background.jpg",
+		"type": "image"
+	  }
+	],
+	"tags": [
+	  "website"
+	],
+	"removed": false,
+	"highlights": [],
+	"created": "0001-01-01T0:00:00.000Z",
+	"lastUpdate": "0001-01-01T0:00:00.000Z",
+	"domain": "website.com",
+	"collection": {
+	  "$ref": "collections",
+	  "$id": 456,
+	  "oid": 456
+	},
+	"creatorRef": {
+	  "_id": 789,
+	  "name": "jordan",
+	  "avatar": "https://raindrop.io/avatars/jordan.jpeg",
+	  "email": "jordan@fleuronic.com"
+	},
+	"sort": 42,
+	"cache": {
+	  "status": "ready",
+	  "size": 256,
+	  "created": "0001-01-01T0:00:00.000Z"
+	},
+	"collectionId": 456
+  },
+  "author": true
+}

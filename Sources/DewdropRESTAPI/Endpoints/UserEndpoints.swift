@@ -7,8 +7,10 @@ import struct Dewdrop.Group
 import struct Dewdrop.Network
 import protocol DewdropService.UserFields
 
-@API @Mock @JSON(encoder: .dewdrop, decoder: .dewdrop)
+@API @Mock @JSON(encoder: DewdropEncoder(), decoder: DewdropDecoder())
 public protocol UserEndpoints {
+	init(provider: Provider)
+
 	@GET("/user")
 	func getUser<Fields>() async throws -> AuthenticatedUserResponse<Fields>
 
@@ -33,4 +35,11 @@ public protocol UserEndpoints {
 
 	@GET("/user/connect/{provider}/revoke")
 	func disconnectSocialNetworkAccount(provider: Network.Provider) async throws -> SuccessResponse
+}
+
+// MARK: -
+public extension UserEndpointsMock {
+	convenience init(provider: Provider) {
+		self.init()
+	}
 }

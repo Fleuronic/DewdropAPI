@@ -10,7 +10,7 @@ import protocol Catenary.API
 extension API: ExportSpec {
 	public func exportRaindrops(inCollectionWith id: Collection.ID, as format: Raindrop.Format) async -> SingleResult<Data> {
 		await result {
-			try await raindrops.exportInFormat(
+			try await raindropEndpoints.exportInFormat(
 				collectionId: id,
 				format: format
 			)

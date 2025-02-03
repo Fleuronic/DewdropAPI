@@ -23,22 +23,22 @@ extension API: RaindropSpec {
 
 	public func fetchRaindrop(with id: Dewdrop.Raindrop.ID) async -> SingleResult<RaindropFetchSpecifiedFields> {
 		await result {
-			try await raindrops.getRaindrop(id: id).item
+			try await raindropEndpoints.getRaindrop(id: id).item
 		}
 	}
 
 	public func fetchContents(ofRaindropWith id: Raindrop.ID) async -> SingleResult<Data> {
 		await result {
-			try await raindrops.getPermanentCopy(ofRaindropWith: id)
+			try await raindropEndpoints.getPermanentCopy(ofRaindropWith: id)
 		}
 	}
 
-	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropsPerPage: Int? = nil) async -> Results<RaindropListSpecifiedFields> {
+	public func listRaindrops(inCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortedBy sort: Raindrop.Sort? = nil, onPage page: Int? = nil, listing raindropEndpointsPerPage: Int? = nil) async -> Results<RaindropListSpecifiedFields> {
 		await results {
-			try await raindrops.getRaindrops(
+			try await raindropEndpoints.getRaindrops(
 				collectionId: id,
 				sort: sort,
-				perpage: raindropsPerPage,
+				perpage: raindropEndpointsPerPage,
 				page: page,
 				search: query
 			).items
@@ -47,7 +47,7 @@ extension API: RaindropSpec {
 
 	public func createRaindrop(_ id: Raindrop.PendingID = .fromServer, for url: URL, with parameters: Raindrop.CreationParameters = .init()) async -> SingleResult<RaindropSpecifiedFields> {
 		await result {
-			try await raindrops.createRaindrop(
+			try await raindropEndpoints.createRaindrop(
 				link: url.absoluteString,
 				title: parameters.title,
 				type: parameters.itemType,
@@ -69,7 +69,7 @@ extension API: RaindropSpec {
 
 	public func createRaindrops(_ ids: [Raindrop.PendingID] = [.fromServer], for urls: [URL], with parameters: [Raindrop.CreationParameters]) async -> Results<RaindropSpecifiedFields> {
 		await results {
-			try await raindrops.createRaindrops(
+			try await raindropEndpoints.createRaindrops(
 				items: zip(urls, parameters).map { url, parameters in
 					.init(
 						link: url.absoluteString,
@@ -95,7 +95,7 @@ extension API: RaindropSpec {
 
 	public func updateRaindrop(with id: Raindrop.ID, to url: URL?, updating parameters: Raindrop.CreationParameters = .init()) async -> SingleResult<RaindropSpecifiedFields /* TODO */> {
 		await result {
-			try await raindrops.updateRaindrop(
+			try await raindropEndpoints.updateRaindrop(
 				id: id,
 				link: url?.absoluteString,
 				title: parameters.title,
@@ -118,7 +118,7 @@ extension API: RaindropSpec {
 
 	public func updateRaindrops(with ids: [Raindrop.ID], inCollectionWith collectionID: Collection.ID = .all, searchingFor query: String? = nil, updating parameters: Raindrop.UpdateParameters) async -> SingleResult<RaindropModificationFields> {
 		await result {
-			try await raindrops.updateRaindrops(
+			try await raindropEndpoints.updateRaindrops(
 				ids: ids,
 				search: query,
 				collectionId: collectionID,
@@ -132,7 +132,7 @@ extension API: RaindropSpec {
 
 	public func uploadCover(forRaindropWith id: Raindrop.ID, usingFileAt url: URL) async -> SingleResult<RaindropFetchSpecifiedFields> {
 		await result {
-			try await raindrops.uploadCover(
+			try await raindropEndpoints.uploadCover(
 				id: id,
 				cover: .init(
 					data: .init(contentsOf: url),
@@ -144,25 +144,25 @@ extension API: RaindropSpec {
 
 	public func findSuggestions(forRaindropWith id: Raindrop.ID) async -> SingleResult<RaindropSuggestionsFields> {
 		await result {
-			try await raindrops.suggestCollectionsAndTagsForExistingBookmark(id: id).item
+			try await raindropEndpoints.suggestCollectionsAndTagsForExistingBookmark(id: id).item
 		}
 	}
 
 	public func findSuggestions(forRaindropWith id: Raindrop.PendingID = .fromServer, createdFor url: URL) async -> SingleResult<RaindropSuggestionsFields> {
 		await result {
-			try await raindrops.suggestCollectionsAndTagsForNewBookmark(link: url.absoluteString).item
+			try await raindropEndpoints.suggestCollectionsAndTagsForNewBookmark(link: url.absoluteString).item
 		}
 	}
 
 	public func removeRaindrop(with id: Raindrop.ID) async -> SuccessResult {
 		await result {
-			try await raindrops.removeRaindrop(id: id).result
+			try await raindropEndpoints.removeRaindrop(id: id).result
 		}
 	}
 
 	public func removeRaindrops(fromCollectionWith collectionID: Collection.ID, matching ids: [Raindrop.ID]? = nil, searchingFor search: String? = nil) async -> SingleResult<RaindropModificationFields> {
 		await result {
-			try await raindrops.removeRaindrops(
+			try await raindropEndpoints.removeRaindrops(
 				collectionId: collectionID,
 				ids: ids,
 				search: search

@@ -72,7 +72,7 @@ private extension Error {
 }
 
 // MARK: -
-extension Response {
+public extension Response {
 	func apiError(validating: Bool) -> Error? {
 		func parseError() -> Error? {
 			let decoder = JSONDecoder()

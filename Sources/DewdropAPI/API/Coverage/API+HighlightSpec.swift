@@ -15,7 +15,7 @@ extension API: HighlightSpec {
 
 	public func listHighlights(ofRaindropWith id: Raindrop.ID) async -> Results<HighlightInRaindropSpecifiedFields> {
 		await result {
-			try await raindrops.getHighlightsOfRaindrop(id: id).item.highlights
+			try await raindropEndpoints.getHighlightsOfRaindrop(id: id).item.highlights
 		}
 	}
 
@@ -39,7 +39,7 @@ extension API: HighlightSpec {
 
 	public func addHighlights(with contents: [Highlight.Content], toRaindropWith id: Raindrop.ID) async -> Results<HighlightInRaindropSpecifiedFields> {
 		await results {
-			try await raindrops.addHighlight(
+			try await raindropEndpoints.addHighlight(
 				id: id,
 				highlights: contents
 			).items
@@ -49,7 +49,7 @@ extension API: HighlightSpec {
 	public func updateHighlights(with ids: [Highlight.ID], ofRaindropWith id: Raindrop.ID, to contents: [Highlight.Content]) async -> Results<HighlightInRaindropSpecifiedFields> {
 		let highlights = zip(ids, contents).map(Highlight.Content.Identified.init)
 		return await results {
-			try await raindrops.updateHighlight(
+			try await raindropEndpoints.updateHighlight(
 				id: id,
 				highlights: highlights
 			).items
@@ -65,7 +65,7 @@ extension API: HighlightSpec {
 		}
 
 		return await results {
-			try await raindrops.removeHighlight(
+			try await raindropEndpoints.removeHighlight(
 				id: id,
 				highlights: highlights
 			).items
