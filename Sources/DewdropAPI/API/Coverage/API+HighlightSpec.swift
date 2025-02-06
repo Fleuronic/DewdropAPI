@@ -23,12 +23,12 @@ extension API: HighlightSpec {
 		await results {
 			switch id {
 			case .all:
-				try await highlights.getAllHighlights(
+				try await highlightEndpoints.getAllHighlights(
 					page: page,
 					perpage: highlightsPerPage
 				).items
 			default:
-				try await highlights.getAllHighlightsInCollection(
+				try await highlightEndpoints.getAllHighlightsInCollection(
 					collectionId: id,
 					page: page,
 					perpage: highlightsPerPage

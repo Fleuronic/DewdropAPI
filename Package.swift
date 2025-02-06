@@ -19,7 +19,8 @@ let package = Package(
 		),
 	],
 	dependencies: [
-		.package(url: "https://github.com/Fleuronic/DewdropService", branch: "main"),
+		.package(path: "../.."),
+		.package(path: "../DewdropService"),
 		.package(url: "https://github.com/Fleuronic/Catenary", branch: "main"),
 		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "main"),
 		.package(url: "https://github.com/Fleuronic/URL", branch: "main"),

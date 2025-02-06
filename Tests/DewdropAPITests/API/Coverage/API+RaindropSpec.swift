@@ -4,16 +4,18 @@
 
 import class DewdropRESTAPI.RaindropEndpointsMock
 import typealias DewdropRESTAPI.RaindropResponse
+import typealias DewdropRESTAPI.RaindropsResponse
 
-public extension API where RaindropEndpoints == RaindropEndpointsMock {
-	func mockFetchRaindrop() {
-		raindropEndpoints.mockGetRaindrop { id -> RaindropResponse<RaindropFetchSpecifiedFields> in
-			let path = switch id {
-			case .invalid: "FetchInvalidRaindrop"
-			default: "FetchRaindrop"
-			}
+extension API where RaindropEndpoints == RaindropEndpointsMock {
+	func mockFetchRaindrop(byReturning fixture: Fixture) {
+		raindropEndpoints.mockGetRaindrop { _ -> RaindropResponse<RaindropFetchSpecifiedFields> in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
 
-			return try response(returnedFromPath: path)
+	func mockListRaindrops(byReturning fixture: Fixture) {
+		raindropEndpoints.mockGetRaindrops { _, _, _, _, _ -> RaindropsResponse<RaindropListSpecifiedFields> in
+			try response(returnedFromPath: fixture.path)
 		}
 	}
 }

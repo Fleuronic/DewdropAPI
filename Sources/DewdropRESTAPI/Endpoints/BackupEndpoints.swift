@@ -7,6 +7,8 @@ import struct DewdropService.IdentifiedBackup
 
 @API @Mock @JSON(decoder: DewdropDecoder())
 public protocol BackupEndpoints {
+	init(provider: Provider)
+
 	@GET("/backups")
 	func getAll<Fields>() async throws -> BackupsResponse<Fields>
 
@@ -15,4 +17,11 @@ public protocol BackupEndpoints {
 
 	@GET("/backup/{id}/{format}")
 	func downloadFile(id: Backup.ID, format: Backup.FileFormat) async throws -> Data
+}
+
+// MARK: -
+public extension BackupEndpointsMock {
+	convenience init(provider: Provider) {
+		self.init()
+	}
 }

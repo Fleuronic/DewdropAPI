@@ -15,19 +15,19 @@ extension API: BackupSpec {
 
 	public func listBackups() async -> Results<BackupSpecifiedFields> {
 		await results {
-			try await backups.getAll().items
+			try await backupEndpoints.getAll().items
 		}
 	}
 	
 	public func createBackup(using method: Self) async -> SingleResult<String> {
 		await result {
-			try await backups.generateNew().message
+			try await backupEndpoints.generateNew().message
 		}
 	}
 	
 	public func downloadBackup(with id: Backup.ID, as format: Backup.FileFormat) async -> SingleResult<Data> {
 		await result {
-			try await backups.downloadFile(
+			try await backupEndpoints.downloadFile(
 				id: id,
 				format: format
 			)

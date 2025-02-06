@@ -1,9 +1,4 @@
-//
-//  File.swift
-//  DewdropAPI
-//
-//  Created by Jordan Kay on 2/1/25.
-//
+// Copyright © Fleuronic LLC. All rights reserved.
 
 import struct DewdropAPI.API
 import struct Foundation.URL

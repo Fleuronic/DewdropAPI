@@ -1,0 +1,22 @@
+{
+	"result": true,
+	"items": [
+		{
+			"_id": 0,
+			"count": 500
+		},
+		{
+			"_id": -1,
+			"count": 7
+		},
+		{
+			"_id": -99,
+			"count": 3
+		}
+	],
+	"meta": {
+		"_id": 789,
+		"pro": true,
+		"changedBookmarksDate": "0001-01-01T0:00:00.000Z"
+	}
+}

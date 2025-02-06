@@ -1,0 +1,39 @@
+{
+	"result": true,
+	"item": {
+		"_id": 456,
+		"title": "Websites",
+		"description": "",
+		"user": {
+			"$ref": "users",
+			"$id": 789
+		},
+		"public": true,
+		"view": "masonry",
+		"count": 36,
+		"cover": ["https://www.websites.com/cover.jpg"],
+		"color": "abcdef",
+		"sort": 3,
+		"expanded": true,
+		"creatorRef": {
+			"_id": 789,
+			"name": "jordanekay",
+			"email": ""
+		},
+		"lastAction": "0001-01-01T0:00:00.000Z",
+		"created": "0001-01-01T0:00:00.000Z",
+		"lastUpdate": "0001-01-01T0:00:00.000Z",
+		"slug": "websites",
+		"collaborators": {
+			"$ref": "collaborators",
+			"$id": "abcdef"
+		},
+		"access": {
+			"for": 789,
+			"level": 4,
+			"root": true,
+			"draggable": true
+		},
+		"author": true
+	}
+}

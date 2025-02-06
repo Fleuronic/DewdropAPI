@@ -20,11 +20,15 @@ extension Raindrop: Swift.Decodable {
 	// MARK: Decodable
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		
+		let info = try Raindrop.Info(from: decoder)
+
 		try self.init(
 			url: container.decode(for: .url),
 			domain: container.decode(for: .domain),
-			info: .init(from: decoder),
+			title: info.title,
+			itemType: info.itemType,
+			excerpt: info.excerpt,
+			coverURL: info.coverURL,
 			note: container.decode(String.self, forKey: .note).filledValue,
 			media: container.decode(for: .media),
 			cache: container.decodeIfPresent(for: .cache),

@@ -5,9 +5,8 @@ import struct Foundation.URL
 
 extension User: Swift.Decodable {
 	public enum CodingKeys: String, CodingKey {
-		case name
+		case username = "name"
 		case fullName
-		case email
 		case avatarURL = "avatar"
 		case hasProSubscription = "pro"
 	}
@@ -15,10 +14,10 @@ extension User: Swift.Decodable {
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		try self.init(
-			fullName: container.decodeIfPresent(for: .fullName) ?? container.decode(for: .name),
-			email: container.decode(String.self, forKey: .email).filledValue,
+			username: container.decode(for: .username),
+			fullName: container.decode(for: .fullName),
 			avatarURL: container.decode(String.self, forKey: .avatarURL).filledValue.flatMap(URL.init(string:)),
-			hasProSubscription: container.decodeIfPresent(for: .hasProSubscription)
+			hasProSubscription: container.decode(for: .hasProSubscription)
 		)
 	}
 }

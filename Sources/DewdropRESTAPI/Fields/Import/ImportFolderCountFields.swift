@@ -18,15 +18,6 @@ public extension ImportFolderCountFields {
 }
 
 // MARK: -
-extension ImportFolderCountFields: ImportFields {
-	// MARK: Fields
-	public var undocumentedFields: [PartialKeyPath<Self>: Bool] {
-		[
-			\.count: undocumentedCount.isMissing
-		]
-	}
-}
-
 extension ImportFolderCountFields: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case folders = "items"
@@ -40,5 +31,14 @@ extension ImportFolderCountFields: Decodable {
 			folders: container.decode(for: .folders),
 			undocumentedCount: container.decodeIfPresent(for: .count).undocumented
 		)
+	}
+}
+
+extension ImportFolderCountFields: ImportFields {
+	// MARK: Fields
+	public var undocumentedFields: [PartialKeyPath<Self>: Bool] {
+		[
+			\.count: undocumentedCount.isMissing
+		]
 	}
 }

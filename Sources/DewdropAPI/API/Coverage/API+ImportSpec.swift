@@ -17,19 +17,19 @@ extension API: ImportSpec {
 
 	public func parse(url: URL) async -> SingleResult<InfoParseFields> {
 		await result {
-			try await `import`.parseURL(urlString: url.absoluteString).item
+			try await importEndpoints.parseURL(urlString: url.absoluteString).item
 		}
 	}
 
 	public func checkExistence(of urls: [URL]) async -> SingleResult<Raindrop.IDListFields> {
 		await result {
-			try await `import`.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
+			try await importEndpoints.checkURLsExistence(urlStrings: urls.map(\.absoluteString)).ids
 		}.map(IDListFields.init)
 	}
 
 	public func importFile(at url: URL, withName filename: String) async -> SingleResult<ImportSpecifiedFields> {
 		await result {
-			try await `import`.parseHTMLImportFile(
+			try await importEndpoints.parseHTMLImportFile(
 				file: .init(
 					data: try .init(contentsOf: url),
 					name: "import",

@@ -8,6 +8,8 @@ import protocol DewdropService.HighlightFields
 
 @API @Mock @JSON(decoder: DewdropDecoder())
 public protocol HighlightEndpoints {
+	init(provider: Provider)
+	
 	@GET("/highlights")
 	func getAllHighlights<Fields>(
 		page: Int?,
@@ -20,4 +22,11 @@ public protocol HighlightEndpoints {
 		page: Int?,
 		perpage: Int?
 	) async throws -> HighlightsResponse<Fields>
+}
+
+// MARK: -
+public extension HighlightEndpointsMock {
+	convenience init(provider: Provider) {
+		self.init()
+	}
 }

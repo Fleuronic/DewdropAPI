@@ -13,7 +13,7 @@ public struct InfoParseFields: InfoFields {
 
 // MARK: -
 public extension InfoParseFields {
-	struct Meta: Decodable, Sendable {
+	struct Meta: Sendable {
 		public let tags: [TagNameFields]
 	}
 
@@ -25,6 +25,10 @@ public extension InfoParseFields {
 // MARK: -
 extension InfoParseFields: Fields {
 	// MARK: Decodable
+	private enum CodingKeys: String, CodingKey {
+		case meta
+	}
+
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -36,15 +40,9 @@ extension InfoParseFields: Fields {
 }
 
 // MARK: -
-private extension InfoParseFields {
-	enum CodingKeys: String, CodingKey {
-		case meta
-	}
-}
-
-// MARK: -
-private extension InfoParseFields.Meta {
-	enum CodingKeys: String, CodingKey {
+extension InfoParseFields.Meta: Decodable {
+	// MARK: Decodable
+	private enum CodingKeys: String, CodingKey {
 		case tags
 	}
 }

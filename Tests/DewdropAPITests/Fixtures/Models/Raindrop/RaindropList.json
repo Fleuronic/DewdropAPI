@@ -1,0 +1,141 @@
+{
+	"result": true,
+	"items": [
+		{
+			"_id": 1,
+			"link": "https://www.website1.com",
+			"title": "Website 1",
+			"excerpt": "Excerpt from website 1.",
+			"note": "Note for raindrop 1.",
+			"type": "link",
+			"user": {
+				"$ref": "users",
+				"$id": 789
+			},
+			"cover": "https://www.website1.com/cover.jpg",
+			"media": [
+				{
+					"link": "https://www.website1.com/hero.jpg",
+					"type": "image"
+				},
+				{
+					"link": "https://www.website1.com/background.jpg",
+					"type": "image"
+				}
+			],
+			"tags": ["website"],
+			"broken": true,
+			"important": true,
+			"removed": false,
+			"file": {
+				"name": "filename",
+				"size": 256,
+				"type": "text/plain"
+			},
+			"highlights": [
+				{
+					"text": "highlighted text",
+					"note": "The note for the highlight.",
+					"color": "red",
+					"title": "Website 1",
+					"created": "0001-01-01T0:00:00.000Z",
+					"lastUpdate": "0001-01-01T0:00:00.000Z",
+					"creatorRef": 789,
+					"_id": "abc"
+				}
+			],
+			"reminder": {
+				"date": "4001-01-01T0:00:00.000Z"
+			},
+			"created": "0001-01-01T0:00:00.000Z",
+			"lastUpdate": "0001-01-01T0:00:00.000Z",
+			"domain": "website1.com",
+			"collection": {
+				"$ref": "collections",
+				"$id": 456,
+				"oid": 456
+			},
+			"creatorRef": {
+				"_id": 789,
+				"name": "jordanekay",
+				"avatar": "https://raindrop.io/avatars/jordan.jpeg",
+				"email": "jordan@fleuronic.com"
+			},
+			"sort": 42,
+			"cache": {
+				"status": "ready",
+				"size": 256,
+				"created": "0001-01-01T0:00:00.000Z"
+			},
+			"collectionId": 456
+		},
+		{
+			"_id": 2,
+			"link": "https://www.website2.com",
+			"title": "Website 2",
+			"excerpt": "Excerpt from website 2.",
+			"note": "Note for raindrop 2.",
+			"type": "link",
+			"user": {
+				"$ref": "users",
+				"$id": 789
+			},
+			"cover": "https://www.website2.com/cover.jpg",
+			"media": [
+				{
+					"link": "https://www.website2.com/hero.jpg",
+					"type": "image"
+				},
+				{
+					"link": "https://www.website2.com/background.jpg",
+					"type": "image"
+				}
+			],
+			"tags": ["website"],
+			"broken": true,
+			"important": true,
+			"removed": false,
+			"file": {
+				"name": "filename",
+				"size": 256,
+				"type": "text/plain"
+			},
+			"highlights": [
+				{
+					"text": "highlighted text",
+					"note": "The note for the highlight.",
+					"color": "blue",
+					"title": "Website 2",
+					"created": "0001-01-01T0:00:00.000Z",
+					"lastUpdate": "0001-01-01T0:00:00.000Z",
+					"creatorRef": 789,
+					"_id": "abc"
+				}
+			],
+			"reminder": {
+				"date": "4001-01-01T0:00:00.000Z"
+			},
+			"created": "0001-01-01T0:00:00.000Z",
+			"lastUpdate": "0001-01-01T0:00:00.000Z",
+			"domain": "website2.com",
+			"collection": {
+				"$ref": "collections",
+				"$id": 456,
+				"oid": 456
+			},
+			"creatorRef": {
+				"_id": 789,
+				"name": "jordanekay",
+				"avatar": "https://raindrop.io/avatars/jordan.jpeg",
+				"email": "jordan@fleuronic.com"
+			},
+			"sort": 42,
+			"cache": {
+				"status": "ready",
+				"size": 256,
+				"created": "0001-01-01T0:00:00.000Z"
+			},
+			"collectionId": 456
+		}
+	]
+}

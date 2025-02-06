@@ -3,7 +3,7 @@
 import struct Dewdrop.User
 import struct Dewdrop.Collection
 import struct DewdropService.IdentifiedCollection
-import protocol Catenary.Fields
+import protocol Catena.Fields
 
 @dynamicMemberLookup
 public struct ConfigFields {
@@ -28,10 +28,7 @@ public extension ConfigFields {
 }
 
 // MARK: -
-extension ConfigFields: Fields {
-	// MARK: Fields
-	public typealias Model = User.Config
-
+extension ConfigFields: Decodable {
 	// MARK: Decodable
 	private enum CodingKeys: String, CodingKey {
 		case lastViewedCollectionID = "lastCollection"
@@ -45,4 +42,9 @@ extension ConfigFields: Fields {
 			lastViewedCollectionID: container.decode(for: .lastViewedCollectionID)
 		)
 	}
+}
+
+extension ConfigFields: Fields {
+	// MARK: Fields
+	public typealias Model = User.Config
 }

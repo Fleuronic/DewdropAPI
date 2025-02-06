@@ -14,7 +14,7 @@ extension API: FilterSpec {
 
 	public func listFilters(forCollectionWith id: Collection.ID = .all, searchingFor query: String? = nil, sortingTagsBy tagSort: Tag.Sort? = nil) async -> SingleResult<FilterSpecifiedFields> {
 		await result {
-			try await filters.getFilters(
+			try await filterEndpoints.getFilters(
 				collectionId: id,
 				tagsSort: tagSort,
 				search: query

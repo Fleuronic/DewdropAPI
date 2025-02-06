@@ -29,12 +29,7 @@ public extension FilterOverviewTotalFields {
 
 // MARK: -
 extension FilterOverviewTotalFields: FilterFields {
-	// MARK: Fields
-	public var undocumentedFields: [PartialKeyPath<Self>: Bool] {
-		[
-			\.total: undocumentedTotal.isMissing
-		]
-	}
+
 }
 
 // MARK: -
@@ -52,6 +47,13 @@ extension FilterOverviewTotalFields: Fields {
 			broken: container.decodeIfPresent(for: .broken),
 			undocumentedTotal: container.decodeIfPresent(for: .total).undocumented
 		)
+	}
+
+	// MARK: Fields
+	public var undocumentedFields: [PartialKeyPath<Self>: Bool] {
+		[
+			\.total: undocumentedTotal.isMissing
+		]
 	}
 }
 

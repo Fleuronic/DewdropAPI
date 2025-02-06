@@ -14,7 +14,7 @@ extension API: TagSpec {
 
 	public func listTags(inCollectionWith id: Collection.ID? = nil) async -> Results<TagDetails> {
 		await results {
-			try await tags.getTags(collectionId: id).items
+			try await tagEndpoints.getTags(collectionId: id).items
 		}
 	}
 
@@ -24,7 +24,7 @@ extension API: TagSpec {
 
 	public func mergeTags(withNames tagNames: [String], intoTagNamed tagName: String, inCollectionWith id: Collection.ID? = nil) async -> SuccessResult {
 		await result {
-			try await tags.mergeTags(
+			try await tagEndpoints.mergeTags(
 				collectionId: id,
 				replace: tagName,
 				tags: tagNames
@@ -34,7 +34,7 @@ extension API: TagSpec {
 	
 	public func removeTags(withNames tagNames: [String], fromCollectionWith id: Collection.ID? = nil) async -> SuccessResult {
 		await result {
-			try await tags.removeTags(
+			try await tagEndpoints.removeTags(
 				collectionId: id,
 				tags: tagNames
 			).result

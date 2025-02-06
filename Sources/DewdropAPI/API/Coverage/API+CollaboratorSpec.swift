@@ -16,13 +16,13 @@ extension API: CollaboratorSpec {
 
 	public func listCollaborators(ofCollectionWith id: Collection.ID) async -> Results<CollaboratorDetails> {
 		await results {
-			try await collections.getCollaboratorsListOfCollection(id: id).items
+			try await collectionEndpoints.getCollaboratorsListOfCollection(id: id).items
 		}
 	}
 
 	public func shareCollection(with id: Collection.ID, toCollaborateAs role: Collaborator.Role, sendingTo emails: [String]) async -> SingleResult<Collaborator.Invitation> {
 		await result {
-			try await collections.shareCollection(
+			try await collectionEndpoints.shareCollection(
 				id: id,
 				role: role,
 				emails: emails
@@ -32,7 +32,7 @@ extension API: CollaboratorSpec {
 
 	public func acceptInvitation(forCollectionWith id: Collection.ID, usingToken token: String) async -> SingleResult<CollaboratorRoleFields> {
 		await result {
-			try await collections.acceptInvitation(
+			try await collectionEndpoints.acceptInvitation(
 				id: id,
 				token: token
 			).item
@@ -41,7 +41,7 @@ extension API: CollaboratorSpec {
 
 	public func changeRole(ofCollaboratorWith id: Collaborator.ID, inCollectionWith collectionID: Collection.ID, to role: Collaborator.Role) async -> SuccessResult {
 		await result {
-			try await collections.changeAccessLevelOfCollaborator(
+			try await collectionEndpoints.changeAccessLevelOfCollaborator(
 				id: collectionID,
 				userId: id,
 				role: role
@@ -51,7 +51,7 @@ extension API: CollaboratorSpec {
 
 	public func removeCollaborator(with id: Collaborator.ID, fromCollectionWith collectionID: Collection.ID) async -> SuccessResult {
 		await result {
-			try await collections.deleteCollaborator(
+			try await collectionEndpoints.deleteCollaborator(
 				id: collectionID,
 				userId: id
 			).result
@@ -60,7 +60,7 @@ extension API: CollaboratorSpec {
 
 	public func stopSharingCollection(with id: Collection.ID) async -> SuccessResult {
 		await result {
-			try await collections.unshareOrLeaveCollection(id: id).result
+			try await collectionEndpoints.unshareOrLeaveCollection(id: id).result
 		}
 	}
 }

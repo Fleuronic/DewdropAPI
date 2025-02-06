@@ -12,32 +12,56 @@ import struct Foundation.URL
 struct UserSpecTests {
 	@Test func fetchUserID() async throws {
 		let api = API.mock.specifyingUserFields(User.IDFields.self)
-		api.mockFetchUser()
-		
-		let user = try await api.fetchUser(with: .valid).resource
-		#expect(user.id == .valid)
+		api.mockFetchUser(byReturning: .model(.user()))
+
+		let id: User.ID = 789
+		let user = try await api.fetchUser(with: id).resource
+		#expect(user.id == id)
 	}
-	
+
+	@Test func fetchUserDetails() async throws {
+		let api = API.mock
+		api.mockFetchUser(byReturning: .model(.user()))
+
+		let id: User.ID = 789
+		let details = try await api.fetchUser(with: id).resource
+		let user = User(
+			username: "jordanekay",
+			fullName: "Jordan Kay",
+			avatarURL: .init(string: "https://raindrop.io/avatars/jordan.jpeg"),
+			hasProSubscription: true
+		)
+
+		#expect(details.id == id)
+		#expect(details.username == user.username)
+		#expect(details.fullName == user.fullName)
+		#expect(details.avatarURL == user.avatarURL)
+		#expect(details.hasProSubscription == user.hasProSubscription)
+	}
+
 	@Test func fetchAuthenticatedUserID() async throws {
-		let api = API.mock.specifyingUserAuthenticatedFields(User.IDFields.self)
-		api.mockFetchAuthenticatedUser()
-		
+		let api = API.mock.specifyingUserFields(User.IDFields.self)
+		api.mockFetchAuthenticatedUser(byReturning: .model(.user(authenticated: true)))
+
+		let id: User.ID = 789
 		let user = try await api.fetchAuthenticatedUser().resource
-		#expect(user.id == .valid)
+		#expect(user.id == id)
 	}
 
 	@Test func fetchAuthenticatedUserDetails() async throws {
 		let api = API.mock
-		api.mockFetchAuthenticatedUser()
-		
+		api.mockFetchAuthenticatedUser(byReturning: .model(.user(authenticated: true)))
+
+		let id: User.ID = 789
 		let details = try await api.fetchAuthenticatedUser().resource
 		let account = Account(
 			user: .init(
+				username: "jordanekay",
 				fullName: "Jordan Kay",
-				email: "jordanekay@mac.com",
 				avatarURL: .init(string: "https://raindrop.io/avatars/jordan.jpeg"),
 				hasProSubscription: true
 			),
+			email: "jordanekay@mac.com",
 			hasPassword: true,
 			fileStorage: .init(
 				usedSpace: 0,
@@ -54,7 +78,7 @@ struct UserSpecTests {
 			gdrive: .init(isEnabled: true)
 		)
 		
-		let collectionIDs: [[Collection.ID]] = [[.valid]]
+		let collectionIDs: [[Collection.ID]] = [[456]]
 		let groups = [
 			Group(
 				title: "Websites",
@@ -64,14 +88,16 @@ struct UserSpecTests {
 		]
 		
 		let config = User.Config(
-			fontSize: 0,
+			fontSize: 12,
 			fontColor: .sunset,
-			brokenLevel: .default,
+			brokenLevel: .strict,
 			languageCode: "en",
 			defaultRaindropSort: .criterion(.creationDate, .reverse),
 			defaultCollectionView: .simple
 		)
-		
+
+		#expect(details.id == id)
+		#expect(details.username == account.username)
 		#expect(details.fullName == account.fullName)
 		#expect(details.email == account.email)
 		#expect(details.avatarURL == account.avatarURL)

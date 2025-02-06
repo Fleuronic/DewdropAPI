@@ -1,30 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import DewdropRESTAPI
+
 import struct Dewdrop.User
-import struct DewdropRESTAPI.RaindropDetails
-import struct DewdropRESTAPI.CollectionDetails
-import struct DewdropRESTAPI.FilterOverviewFields
-import struct DewdropRESTAPI.HighlightDetails
-import struct DewdropRESTAPI.HighlightInRaindropDetails
-import struct DewdropRESTAPI.UserAuthenticatedDetails
-import struct DewdropRESTAPI.UserPublicDetails
-import struct DewdropRESTAPI.ImportFolderFields
-import struct DewdropRESTAPI.BackupDetails
-import struct DewdropRESTAPI.RaindropEndpointsAPI
-import struct DewdropRESTAPI.CollectionEndpointsAPI
-import struct DewdropRESTAPI.TagEndpointsAPI
-import struct DewdropRESTAPI.FilterEndpointsAPI
-import struct DewdropRESTAPI.HighlightEndpointsAPI
-import struct DewdropRESTAPI.UserEndpointsAPI
-import struct DewdropRESTAPI.BackupEndpointsAPI
-import struct DewdropRESTAPI.ImportEndpointsAPI
 import struct Identity.Identifier
 import struct Catena.IDFields
-import class DewdropRESTAPI.RaindropEndpointsMock
-import class DewdropRESTAPI.UserEndpointsMock
 import class PapyrusCore.Provider
-import protocol DewdropRESTAPI.RaindropEndpoints
-import protocol DewdropRESTAPI.UserEndpoints
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
 import protocol DewdropService.FilterFields
@@ -41,25 +22,31 @@ public struct API<
 	RaindropFetchSpecifiedFields: RaindropFields & Fields,
 	RaindropListSpecifiedFields: RaindropFields & Fields,
 	RaindropSpecifiedFields: RaindropFields & Fields,
+	CollectionEndpoints: DewdropRESTAPI.CollectionEndpoints,
 	CollectionSpecifiedFields: CollectionFields & Fields,
+	TagEndpoints: DewdropRESTAPI.TagEndpoints,
+	FilterEndpoints: DewdropRESTAPI.FilterEndpoints,
 	FilterSpecifiedFields: FilterFields & Fields,
+	HighlightEndpoints: DewdropRESTAPI.HighlightEndpoints,
 	HighlightSpecifiedFields: HighlightFields & Fields,
 	HighlightInRaindropSpecifiedFields: HighlightFields & Fields,
 	UserEndpoints: DewdropRESTAPI.UserEndpoints,
-	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Fields,
 	UserSpecifiedFields: UserFields & Fields,
+	UserAuthenticatedSpecifiedFields: UserAuthenticatedFields & Fields,
+	ImportEndpoints: DewdropRESTAPI.ImportEndpoints,
 	ImportSpecifiedFields: ImportFields & Fields,
+	BackupEndpoints: DewdropRESTAPI.BackupEndpoints,
 	BackupSpecifiedFields: BackupFields & Fields
 >: @unchecked Sendable {
 	let raindropEndpoints: RaindropEndpoints
-	let collections: CollectionEndpointsAPI
-	let tags: TagEndpointsAPI
-	let filters: FilterEndpointsAPI
-	let highlights: HighlightEndpointsAPI
+	let collectionEndpoints: CollectionEndpoints
+	let tagEndpoints: TagEndpoints
+	let filterEndpoints: FilterEndpoints
+	let highlightEndpoints: HighlightEndpoints
 	let userEndpoints: UserEndpoints
-	let backups: BackupEndpointsAPI
-	let `import`: ImportEndpointsAPI
-
+	let importEndpoints: ImportEndpoints
+	let backupEndpoints: BackupEndpoints
+	
 	private let provider: Provider
 }
 
@@ -72,25 +59,31 @@ public extension API {
 		Fields,
 		Fields,
 		Fields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
-		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -100,25 +93,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		Fields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
-		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -128,25 +127,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		Fields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
 		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -156,25 +161,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
+		HighlightEndpoints,
 		Fields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
-		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -184,25 +195,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		Fields,
 		UserEndpoints,
-		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -213,53 +230,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
-		HighlightSpecifiedFields,
-		HighlightInRaindropSpecifiedFields,
-		UserEndpoints,
-		UserAuthenticatedSpecifiedFields, // TODO: Switch
-		Fields,
-		ImportSpecifiedFields,
-		BackupSpecifiedFields
-	> {
-		.init(
-			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
-			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
-			provider: provider
-		)
-	}
-
-	func specifyingUserAuthenticatedFields<Fields>(_: Fields.Type) -> API<
-		RaindropEndpoints,
-		RaindropSpecifiedFields,
-		RaindropFetchSpecifiedFields,
-		RaindropListSpecifiedFields,
-		CollectionSpecifiedFields,
-		FilterSpecifiedFields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
 		Fields,
-		UserSpecifiedFields,
+		Fields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -269,25 +264,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
-		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		ImportEndpoints,
 		Fields,
+		BackupEndpoints,
 		BackupSpecifiedFields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -297,25 +298,31 @@ public extension API {
 		RaindropSpecifiedFields,
 		RaindropFetchSpecifiedFields,
 		RaindropListSpecifiedFields,
+		CollectionEndpoints,
 		CollectionSpecifiedFields,
+		TagEndpoints,
+		FilterEndpoints,
 		FilterSpecifiedFields,
+		HighlightEndpoints,
 		HighlightSpecifiedFields,
 		HighlightInRaindropSpecifiedFields,
 		UserEndpoints,
-		UserAuthenticatedSpecifiedFields,
 		UserSpecifiedFields,
+		UserAuthenticatedSpecifiedFields,
+		ImportEndpoints,
 		ImportSpecifiedFields,
+		BackupEndpoints,
 		Fields
 	> {
 		.init(
 			raindropEndpoints: raindropEndpoints,
-			collections: collections,
-			tags: tags,
-			filters: filters,
-			highlights: highlights,
+			collectionEndpoints: collectionEndpoints,
+			tagEndpoints: tagEndpoints,
+			filterEndpoints: filterEndpoints,
+			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
-			backups: backups,
-			import: `import`,
+			importEndpoints: importEndpoints,
+			backupEndpoints: backupEndpoints,
 			provider: provider
 		)
 	}
@@ -323,17 +330,23 @@ public extension API {
 
 public extension API<
 	RaindropEndpointsAPI,
+	RaindropDetails<UserBasicFields, HighlightInRaindropDetails<UserBasicFields>>,
+	RaindropDetails<UserBasicFields, HighlightInRaindropDetails<User.IDFields>>,
 	RaindropDetails<User.IDFields, HighlightInRaindropDetails<User.IDFields>>,
-	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<User.IDFields>>,
-	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
+	CollectionEndpointsAPI,
 	CollectionDetails,
+	TagEndpointsAPI,
+	FilterEndpointsAPI,
 	FilterOverviewFields,
+	HighlightEndpointsAPI,
 	HighlightDetails,
-	HighlightInRaindropDetails<UserPublicDetails>,
+	HighlightInRaindropDetails<UserDetails>,
 	UserEndpointsAPI,
+	UserDetails,
 	UserAuthenticatedDetails,
-	UserPublicDetails,
+	ImportEndpointsAPI,
 	ImportFolderFields,
+	BackupEndpointsAPI,
 	BackupDetails
 >{
 	init(apiKey: String) {
@@ -348,13 +361,13 @@ public extension API<
 		
 		self.init(
 			raindropEndpoints: .init(provider: provider),
-			collections: .init(provider: provider),
-			tags: .init(provider: provider),
-			filters: .init(provider: provider),
-			highlights: .init(provider: provider),
+			collectionEndpoints: .init(provider: provider),
+			tagEndpoints: .init(provider: provider),
+			filterEndpoints: .init(provider: provider),
+			highlightEndpoints: .init(provider: provider),
 			userEndpoints: .init(provider: provider),
-			backups: .init(provider: provider),
-			import: .init(provider: provider),
+			importEndpoints: .init(provider: provider),
+			backupEndpoints: .init(provider: provider),
 			provider: provider
 		)
 	}
@@ -362,32 +375,38 @@ public extension API<
 
 public extension API<
 	RaindropEndpointsMock,
+	RaindropDetails<UserBasicFields, HighlightInRaindropDetails<UserBasicFields>>,
+	RaindropDetails<UserBasicFields, HighlightInRaindropDetails<User.IDFields>>,
 	RaindropDetails<User.IDFields, HighlightInRaindropDetails<User.IDFields>>,
-	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<User.IDFields>>,
-	RaindropDetails<UserPublicDetails, HighlightInRaindropDetails<UserPublicDetails>>,
+	CollectionEndpointsMock,
 	CollectionDetails,
+	TagEndpointsMock,
+	FilterEndpointsMock,
 	FilterOverviewFields,
+	HighlightEndpointsMock,
 	HighlightDetails,
-	HighlightInRaindropDetails<UserPublicDetails>,
+	HighlightInRaindropDetails<UserDetails>,
 	UserEndpointsMock,
+	UserDetails,
 	UserAuthenticatedDetails,
-	UserPublicDetails,
+	ImportEndpointsMock,
 	ImportFolderFields,
+	BackupEndpointsMock,
 	BackupDetails
 >{
 	static var mock: Self {
 		let url = "https://api.raindrop.io/rest/v1"
 		let provider = Provider(baseURL: url)
-
+		
 		return self.init(
 			raindropEndpoints: .init(),
-			collections: .init(provider: provider),
-			tags: .init(provider: provider),
-			filters: .init(provider: provider),
-			highlights: .init(provider: provider),
+			collectionEndpoints: .init(),
+			tagEndpoints: .init(),
+			filterEndpoints: .init(),
+			highlightEndpoints: .init(),
 			userEndpoints: .init(),
-			backups: .init(provider: provider),
-			import: .init(provider: provider),
+			importEndpoints: .init(),
+			backupEndpoints: .init(),
 			provider: provider
 		)
 	}

@@ -3,21 +3,18 @@
 @testable import struct DewdropAPI.API
 
 import class DewdropRESTAPI.UserEndpointsMock
-import typealias DewdropRESTAPI.UserResponse
-import typealias DewdropRESTAPI.AuthenticatedUserResponse
+import struct DewdropRESTAPI.UserResponse
 
-public extension API where UserEndpoints == UserEndpointsMock {
-	func mockFetchUser() {
-		userEndpoints.mockGetUserByName { id -> UserResponse<UserSpecifiedFields> in
-			let path = "FetchUser"
-			return try response(returnedFromPath: path)
+extension API where UserEndpoints == UserEndpointsMock {
+	func mockFetchUser(byReturning fixture: Fixture) {
+		userEndpoints.mockGetUserByName { _ -> UserResponse<UserSpecifiedFields> in
+			try response(returnedFromPath: fixture.path)
 		}
 	}
 
-	func mockFetchAuthenticatedUser() {
-		userEndpoints.mockGetUser { () -> AuthenticatedUserResponse<UserAuthenticatedSpecifiedFields> in
-			let path = "FetchAuthenticatedUser"
-			return try response(returnedFromPath: path)
+	func mockFetchAuthenticatedUser(byReturning fixture: Fixture) {
+		userEndpoints.mockGetUser { () -> UserResponse<UserAuthenticatedSpecifiedFields> in
+			try response(returnedFromPath: fixture.path)
 		}
 	}
 }

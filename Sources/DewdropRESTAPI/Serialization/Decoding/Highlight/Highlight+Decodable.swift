@@ -19,11 +19,9 @@ extension Highlight: Swift.Decodable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
 		try self.init(
-			content: .init(
-				text: container.decode(for: .text),
-				color: container.decodeIfPresent(for: .color) ?? .yellow,
-				note: container.decode(String.self, forKey: .note).filledValue
-			),
+			text: container.decode(for: .text),
+			color: container.decodeIfPresent(for: .color) ?? .yellow,
+			note: container.decode(String.self, forKey: .note).filledValue,
 			title: container.decodeIfPresent(String.self, forKey: .title)?.filledValue,
 			creationDate: container.decode(for: .creationDate),
 			updateDate: container.decode(for: .updateDate)

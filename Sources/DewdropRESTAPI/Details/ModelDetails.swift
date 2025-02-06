@@ -7,7 +7,6 @@ import struct Dewdrop.User
 import struct Dewdrop.Collaborator
 import struct Dewdrop.Backup
 import protocol Catena.Valued
-import protocol Catenary.Fields
 import protocol Catenary.Details
 import protocol Identity.Identifiable
 import protocol DewdropService.TagFields

@@ -22,6 +22,11 @@ public extension FolderContentFields {
 // MARK: -
 extension FolderContentFields: Fields {
 	// MARK: Decodable
+	private enum CodingKeys: String, CodingKey {
+		case bookmarks
+		case subfolders = "folders"
+	}
+
 	public init(from decoder: any Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -30,13 +35,5 @@ extension FolderContentFields: Fields {
 			subfolders: container.decode(for: .subfolders),
 			folder: .init(from: decoder)
 		)
-	}
-}
-
-// MARK: -
-private extension FolderContentFields {
-	enum CodingKeys: String, CodingKey {
-		case bookmarks
-		case subfolders = "folders"
 	}
 }

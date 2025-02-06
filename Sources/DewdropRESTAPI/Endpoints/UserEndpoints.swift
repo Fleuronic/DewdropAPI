@@ -12,7 +12,7 @@ public protocol UserEndpoints {
 	init(provider: Provider)
 
 	@GET("/user")
-	func getUser<Fields>() async throws -> AuthenticatedUserResponse<Fields>
+	func getUser<Fields>() async throws -> UserResponse<Fields>
 
 	@GET("/user/stats")
 	func getSystemCollectionsCount() async throws -> SystemCollectionsCountResponse

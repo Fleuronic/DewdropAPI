@@ -10,7 +10,6 @@ import protocol DewdropService.RaindropFields
 import protocol DewdropService.UserFields
 import protocol DewdropService.HighlightFields
 import protocol Catena.Valued
-import protocol Catenary.Fields
 import protocol Catenary.Details
 
 @dynamicMemberLookup
@@ -23,7 +22,7 @@ public struct RaindropDetails<
 	public let creator: CreatorFields
 	public let collection: Collection.IDFields
 	public let tags: [TagNameFields]
-	public let highlights: [HighlightInRaindropFields]?
+	public let highlights: [HighlightInRaindropFields]
 
 	private let raindrop: Raindrop
 }
@@ -62,7 +61,7 @@ extension RaindropDetails: Details {
 			creator: container.decode(for: .creator),
 			collection: container.decode(for: .collection),
 			tags: container.decode(for: .tags),
-			highlights: container.decodeIfPresent(for: .highlights),
+			highlights: container.decodeIfPresent(for: .highlights) ?? [],
 			raindrop: .init(from: decoder)
 		)
 	}

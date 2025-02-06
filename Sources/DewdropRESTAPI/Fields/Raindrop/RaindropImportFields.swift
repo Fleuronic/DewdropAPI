@@ -7,7 +7,6 @@ import struct Dewdrop.Media
 import struct Foundation.URL
 import struct Foundation.Date
 import protocol DewdropService.RaindropFields
-import protocol Catenary.Fields
 
 public struct RaindropImportFields: RaindropFields {
 	public let url: URL

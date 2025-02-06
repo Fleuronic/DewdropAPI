@@ -12,7 +12,7 @@ import protocol Catenary.API
 
 extension API: UserSpec {
 	#if swift(<6.0)
-	public typealias PublicUserFetchFields = UserSpecifiedFields
+	public typealias UserFetchFields = UserSpecifiedFields
 	public typealias AuthenticatedUserFetchFields = UserAuthenticatedSpecifiedFields
 	public typealias AuthenticatedUserUpdatedFields = UserAuthenticatedSpecifiedFields
 	#endif

@@ -10,6 +10,8 @@ import protocol DewdropService.CollectionFields
 
 @API @Mock @JSON(decoder: DewdropDecoder())
 public protocol CollectionEndpoints {
+	init(provider: Provider)
+
 	@GET("/collections")
 	func getRootCollections<Fields>() async throws -> CollectionsResponse<Fields>
 
@@ -120,5 +122,12 @@ public extension Collection {
 extension Collection.Parent: Encodable {
 	private enum CodingKeys: String, CodingKey {
 		case id = "$id"
+	}
+}
+
+// MARK: -
+public extension CollectionEndpointsMock {
+	convenience init(provider: Provider) {
+		self.init()
 	}
 }

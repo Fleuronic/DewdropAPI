@@ -7,6 +7,8 @@ import struct DewdropService.IdentifiedCollection
 
 @API @Mock @JSON(decoder: DewdropDecoder())
 public protocol TagEndpoints {
+	init(provider: Provider)
+	
 	@GET("/tags/{collectionId}")
 	func getTags(collectionId: Collection.ID?) async throws -> TagsResponse
 
@@ -18,4 +20,11 @@ public protocol TagEndpoints {
 
 	@DELETE("/tags/{collectionId}")
 	func removeTags(collectionId: Collection.ID?, tags: Field<[String]>) async throws -> SuccessResponse
+}
+
+// MARK: -
+public extension TagEndpointsMock {
+	convenience init(provider: Provider) {
+		self.init()
+	}
 }
