@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "swift",
+			"args": [
+				"build",
+				"--build-tests",
+				"-Xswiftc",
+				"-diagnostic-style=llvm"
+			],
+			"env": {},
+			"cwd": "/Users/jordan/Files/Development/Dewdrop/Submodules/DewdropAPI",
+			"disableTaskQueue": true,
+			"showBuildStatus": "swiftStatus",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "never",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"problemMatcher": [],
+			"label": "Build Package",
+			"detail": "swift build --build-tests -Xswiftc -diagnostic-style=llvm"
+		}
+	]
+}
