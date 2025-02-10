@@ -4,8 +4,9 @@ import class DewdropRESTAPI.CollectionEndpointsMock
 import struct DewdropRESTAPI.CollectionResponse
 import struct DewdropRESTAPI.CollectionsResponse
 import struct DewdropRESTAPI.SuccessResponse
-import typealias DewdropRESTAPI.SystemCollectionsCountResponse
 import class DewdropRESTAPI.UserEndpointsMock
+import typealias DewdropRESTAPI.SystemCollectionsCountResponse
+import typealias DewdropRESTAPI.EmptyCollectionsRemovalResponse
 
 @testable import struct DewdropAPI.API
 
@@ -39,6 +40,12 @@ extension API where CollectionEndpoints == CollectionEndpointsMock, UserEndpoint
 
 	func mockRemoveCollection(byReturning fixture: Fixture) {
 		collectionEndpoints.mockRemoveCollection { _ -> SuccessResponse in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockRemoveEmptyCollections(byReturning fixture: Fixture) {
+		collectionEndpoints.mockRemoveAllEmptyCollections { () -> EmptyCollectionsRemovalResponse in
 			try response(returnedFromPath: fixture.path)
 		}
 	}

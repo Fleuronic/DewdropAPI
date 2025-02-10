@@ -162,6 +162,23 @@ struct CollectionSpecTests {
 		}
 	}
 
+	@Test func removeCollection() async throws {
+		let api = API.mock
+		api.mockRemoveCollection(byReturning: .success)
+
+		let id: Collection.ID = 456
+		let success = try await api.removeCollection(with: id).resource
+		#expect(success)
+	}
+
+	@Test func removeEmptyCollections() async throws {
+		let api = API.mock
+		api.mockRemoveEmptyCollections(byReturning: .count)
+
+		let removed = try await api.removeEmptyCollections().resource
+		#expect(removed.count == 3)
+	}
+
 	@Test func emptyTrash() async throws {
 		let api = API.mock
 		api.mockRemoveCollection(byReturning: .success)
