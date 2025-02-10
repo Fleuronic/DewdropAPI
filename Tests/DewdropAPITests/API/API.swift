@@ -5,11 +5,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import class Foundation.Bundle
 import class DewdropRESTAPI.DewdropDecoder
-import protocol DewdropRESTAPI.Response
 import typealias DewdropRESTAPI.RaindropResponse
 
 public extension API {
-	func response<T: DewdropRESTAPI.Response>(returnedFromPath path: String) throws -> T {
+	func response<T: Decodable>(returnedFromPath path: String) throws -> T {
 		let url = Bundle.module.url(forResource: path, withExtension: "json")!
 		let data = try Data(contentsOf: url)
 		let response = Response(body: data)

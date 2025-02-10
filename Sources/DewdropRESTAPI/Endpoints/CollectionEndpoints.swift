@@ -22,7 +22,7 @@ public protocol CollectionEndpoints {
 	func getCollection<Fields>(id: Collection.ID) async throws -> CollectionResponse<Fields>
 
 	@PUT("/collections/clean")
-	func removeAllEmptyCollections() async throws -> EmptyCollectionRemovalResponse
+	func removeAllEmptyCollections() async throws -> EmptyCollectionsRemovalResponse
 
 	@GET("/collection/{id}/sharing")
 	func getCollaboratorsListOfCollection(id: Collection.ID) async throws -> CollaboratorsResponse
