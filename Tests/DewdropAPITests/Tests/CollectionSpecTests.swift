@@ -175,8 +175,8 @@ struct CollectionSpecTests {
 		let api = API.mock
 		api.mockRemoveEmptyCollections(byReturning: .count)
 
-		let removed = try await api.removeEmptyCollections().resource
-		#expect(removed.count == 3)
+		let removal = try await api.removeEmptyCollections().resource
+		#expect(removal.count == 3)
 	}
 
 	@Test func emptyTrash() async throws {
