@@ -10,12 +10,12 @@ struct CollectionSpecTests {
 	@Test func fetchCollectionID() async throws {
 		let api = API.mock.specifyingCollectionFields(Collection.IDFields.self)
 		api.mockFetchCollection(byReturning: .model(.collection(.root)))
-		
+
 		let id: Collection.ID = 456
 		let collection = try await api.fetchCollection(with: id).resource
 		#expect(collection.id == id)
 	}
-	
+
 	@Test func fetchCollectionDetails() async throws {
 		let api = API.mock
 		api.mockFetchCollection(byReturning: .model(.collection(.root)))
@@ -58,7 +58,7 @@ struct CollectionSpecTests {
 	@Test func listSystemCollections() async throws {
 		let api = API.mock
 		api.mockListSystemCollections(byReturning: .list(.collection(.system)))
-		
+
 		let list = try await api.listSystemCollections().resource
 		let ids: [Collection.ID] = [.all, .unsorted, .trash]
 		let counts = [500, 7, 3]
@@ -107,6 +107,48 @@ struct CollectionSpecTests {
 		#expect(list.map(\.parent).allSatisfy { $0 == nil })
 	}
 
+	@Test func listChildCollections() async throws {
+		let api = API.mock
+		api.mockListChildCollections(byReturning: .list(.collection(.child)))
+
+		let ids: [Collection.ID] = [11, 21]
+		let parentIDs: [Collection.ID] = [1, 2]
+		let ownerID: User.ID = 789
+		let list = try await api.listChildCollections().resource
+		let collections = parentIDs.map { id in
+			Collection(
+				title: "Blogs \(id)",
+				count: 36,
+				coverURL: .init(string: "https://www.blogs\(id).com/cover.jpg"),
+				colorString: "abcdef",
+				view: .masonry,
+				access: .init(level: .owner, isDraggable: true),
+				sortIndex: 3,
+				isPublic: true,
+				isShared: true,
+				isExpanded: true,
+				creationDate: .distantPast,
+				updateDate: .distantPast
+			)
+		}
+
+		#expect(list.map(\.id) == ids)
+		#expect(list.map(\.title) == collections.map(\.title))
+		#expect(list.map(\.count) == collections.map(\.count))
+		#expect(list.map(\.coverURL) == collections.map(\.coverURL))
+		#expect(list.map(\.colorString) == collections.map(\.colorString))
+		#expect(list.map(\.view) == collections.map(\.view))
+		#expect(list.map(\.access) == collections.map(\.access))
+		#expect(list.map(\.sortIndex) == collections.map(\.sortIndex))
+		#expect(list.map(\.isPublic) == collections.map(\.isPublic))
+		#expect(list.map(\.isShared) == collections.map(\.isShared))
+		#expect(list.map(\.isExpanded) == collections.map(\.isExpanded))
+		#expect(list.map(\.creationDate) == collections.map(\.creationDate))
+		#expect(list.map(\.updateDate) == collections.map(\.updateDate))
+		#expect(list.map(\.owner.id).allSatisfy { $0 == ownerID })
+		#expect(list.map(\.parent?.id) == parentIDs)
+	}
+
 	@Test func fetchInvalidCollection() async throws {
 		let api = API.mock
 		api.mockFetchCollection(byReturning: .error(.notFound))
@@ -118,5 +160,13 @@ struct CollectionSpecTests {
 			#expect(error.statusCode == 404)
 			#expect(error.message == "Not found")
 		}
+	}
+
+	@Test func emptyTrash() async throws {
+		let api = API.mock
+		api.mockRemoveCollection(byReturning: .success)
+
+		let success = try await api.emptyTrash().resource
+		#expect(success)
 	}
 }

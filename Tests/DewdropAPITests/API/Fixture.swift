@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 enum Fixture {
+	case success
 	case model(Model)
 	case list(Model)
 	case error(Error)
@@ -17,6 +18,7 @@ extension Fixture {
 	enum CollectionType {
 		case root
 		case system
+		case child
 	}
 
 	enum Error {
@@ -25,12 +27,14 @@ extension Fixture {
 
 	var path: String {
 		switch self {
+		case .success:
+			return "Success"
 		case let .model(model):
-			model.path
+			return model.path
 		case let .list(model):
-			model.path + "List"
+			return model.path + "List"
 		case let .error(error):
-			error.path + "Error"
+			return error.path + "Error"
 		}
 	}
 }
@@ -57,6 +61,8 @@ extension Fixture.CollectionType {
 			.init()
 		case .system:
 			"System"
+		case .child:
+			"Child"
 		}
 	}
 }

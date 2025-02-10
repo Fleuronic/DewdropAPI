@@ -1,0 +1,85 @@
+{
+	"result": true,
+	"items": [
+		{
+			"_id": 11,
+			"title": "Blogs 1",
+			"description": "",
+			"user": {
+				"$ref": "users",
+				"$id": 789
+			},
+			"public": true,
+			"view": "masonry",
+			"count": 36,
+			"cover": ["https://www.blogs1.com/cover.jpg"],
+			"color": "abcdef",
+			"sort": 3,
+			"expanded": true,
+			"creatorRef": {
+				"_id": 789,
+				"name": "jordanekay",
+				"email": ""
+			},
+			"lastAction": "0001-01-01T0:00:00.000Z",
+			"created": "0001-01-01T0:00:00.000Z",
+			"lastUpdate": "0001-01-01T0:00:00.000Z",
+			"slug": "blogs1",
+			"parent": {
+        "$ref": "collections",
+        "$id": 1
+      },
+			"collaborators": {
+				"$ref": "collaborators",
+				"$id": "abcdef"
+			},
+			"access": {
+				"for": 789,
+				"level": 4,
+				"root": true,
+				"draggable": true
+			},
+			"author": true
+		},
+		{
+			"_id": 21,
+			"title": "Blogs 2",
+			"description": "",
+			"user": {
+				"$ref": "users",
+				"$id": 789
+			},
+			"public": true,
+			"view": "masonry",
+			"count": 36,
+			"cover": ["https://www.blogs2.com/cover.jpg"],
+			"color": "abcdef",
+			"sort": 3,
+			"expanded": true,
+			"creatorRef": {
+				"_id": 789,
+				"name": "jordanekay",
+				"email": ""
+			},
+			"lastAction": "0001-01-01T0:00:00.000Z",
+			"created": "0001-01-01T0:00:00.000Z",
+			"lastUpdate": "0001-01-01T0:00:00.000Z",
+			"slug": "blogs2",
+			"parent": {
+        "$ref": "collections",
+        "$id": 2
+      },
+			"collaborators": {
+				"$ref": "collaborators",
+				"$id": "abcdef"
+			},
+			"access": {
+				"for": 789,
+				"level": 4,
+				"root": true,
+				"draggable": true
+			},
+			"author": true
+		}
+	]
+}

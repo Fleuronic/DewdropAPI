@@ -24,7 +24,7 @@
 			"lastAction": "0001-01-01T0:00:00.000Z",
 			"created": "0001-01-01T0:00:00.000Z",
 			"lastUpdate": "0001-01-01T0:00:00.000Z",
-			"slug": "websites",
+			"slug": "websites1",
 			"collaborators": {
 				"$ref": "collaborators",
 				"$id": "abcdef"
@@ -60,7 +60,7 @@
 			"lastAction": "0001-01-01T0:00:00.000Z",
 			"created": "0001-01-01T0:00:00.000Z",
 			"lastUpdate": "0001-01-01T0:00:00.000Z",
-			"slug": "websites",
+			"slug": "websites2",
 			"collaborators": {
 				"$ref": "collaborators",
 				"$id": "abcdef"
