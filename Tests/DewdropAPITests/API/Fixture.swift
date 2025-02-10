@@ -2,6 +2,7 @@
 
 enum Fixture {
 	case success
+	case count
 	case model(Model)
 	case list(Model)
 	case error(Error)
@@ -29,6 +30,8 @@ extension Fixture {
 		switch self {
 		case .success:
 			return "Success"
+		case .count:
+			return "Count"
 		case let .model(model):
 			return model.path
 		case let .list(model):
