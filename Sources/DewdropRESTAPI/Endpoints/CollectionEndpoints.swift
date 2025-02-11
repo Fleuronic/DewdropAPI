@@ -78,7 +78,7 @@ public protocol CollectionEndpoints {
 	func mergeCollections(
 		to: Collection.ID,
 		ids: [Collection.ID]
-	) async throws -> SuccessResponse
+	) async throws -> CollectionsMergeResponse
 
 	@Multipart
 	@PUT("/collection/{id}/cover")

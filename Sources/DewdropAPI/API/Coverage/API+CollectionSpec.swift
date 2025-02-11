@@ -108,12 +108,12 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func mergeCollections(with ids: [Collection.ID], intoCollectionWith id: Collection.ID) async -> SuccessResult {
+	public func mergeCollections(with ids: [Collection.ID], intoCollectionWith id: Collection.ID) async -> SingleResult<CollectionModificationFields> {
 		await result {
 			try await collectionEndpoints.mergeCollections(
 				to: id,
 				ids: ids
-			).result
+			)
 		}
 	}
 
