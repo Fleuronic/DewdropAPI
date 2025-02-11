@@ -2,7 +2,7 @@
 
 import struct Dewdrop.Collection
 import struct DewdropRESTAPI.CollectionCountFields
-import struct DewdropRESTAPI.CollectionRemovalFields
+import struct DewdropRESTAPI.CollectionModificationFields
 import struct DewdropRESTAPI.EmptyCollectionRemovalFields
 import struct Catena.IDFields
 import struct Foundation.URL
@@ -123,7 +123,7 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func removeCollections(with ids: [Collection.ID]) async -> SingleResult<CollectionRemovalFields> {
+	public func removeCollections(with ids: [Collection.ID]) async -> SingleResult<CollectionModificationFields> {
 		await result {
 			try await collectionEndpoints.removeMultipleCollections(ids: ids)
 		}

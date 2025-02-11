@@ -4,13 +4,13 @@ import struct Dewdrop.Collection
 import struct DewdropService.IdentifiedCollection
 import protocol Catenary.Fields
 
-public struct CollectionRemovalFields {
+public struct CollectionModificationFields {
 	public let ids: [Collection.ID]
 	public let count: Int
 }
 
 // MARK: -
-extension CollectionRemovalFields: Fields {
+extension CollectionModificationFields: Fields {
 	// MARK: Fields
 	public typealias Model = Collection
 
