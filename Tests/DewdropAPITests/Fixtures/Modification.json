@@ -1,4 +1,5 @@
 {
 	"result": true,
-	"count": 3
+	"modified": 2,
+	"ids": [1, 2]
 }

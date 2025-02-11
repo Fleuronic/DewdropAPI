@@ -6,14 +6,14 @@ import struct DewdropRESTAPI.CollectionsResponse
 import struct DewdropRESTAPI.SuccessResponse
 import class DewdropRESTAPI.UserEndpointsMock
 import typealias DewdropRESTAPI.SystemCollectionsCountResponse
+import typealias DewdropRESTAPI.CollectionsRemovalResponse
 import typealias DewdropRESTAPI.EmptyCollectionsRemovalResponse
 
 @testable import struct DewdropAPI.API
 
 extension API where CollectionEndpoints == CollectionEndpointsMock, UserEndpoints == UserEndpointsMock {
 	func mockFetchCollection(byReturning fixture: Fixture) {
-		collectionEndpoints.mockGetCollection {
-			_ -> CollectionResponse<CollectionSpecifiedFields> in
+		collectionEndpoints.mockGetCollection { _ -> CollectionResponse<CollectionSpecifiedFields> in
 			try response(returnedFromPath: fixture.path)
 		}
 	}
@@ -25,21 +25,37 @@ extension API where CollectionEndpoints == CollectionEndpointsMock, UserEndpoint
 	}
 
 	func mockListRootCollections(byReturning fixture: Fixture) {
-		collectionEndpoints.mockGetRootCollections {
-			() -> CollectionsResponse<CollectionSpecifiedFields> in
+		collectionEndpoints.mockGetRootCollections { () -> CollectionsResponse<CollectionSpecifiedFields> in
 			try response(returnedFromPath: fixture.path)
 		}
 	}
 
 	func mockListChildCollections(byReturning fixture: Fixture) {
-		collectionEndpoints.mockGetChildCollections {
-			() -> CollectionsResponse<CollectionSpecifiedFields> in
+		collectionEndpoints.mockGetChildCollections { () -> CollectionsResponse<CollectionSpecifiedFields> in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockExpandCollections(byReturning fixture: Fixture) {
+		collectionEndpoints.mockExpandCollapseCollections { _ -> SuccessResponse in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockSortCollections(byReturning fixture: Fixture) {
+		collectionEndpoints.mockReorderCollections { _ -> SuccessResponse in
 			try response(returnedFromPath: fixture.path)
 		}
 	}
 
 	func mockRemoveCollection(byReturning fixture: Fixture) {
 		collectionEndpoints.mockRemoveCollection { _ -> SuccessResponse in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockRemoveCollections(byReturning fixture: Fixture) {
+		collectionEndpoints.mockRemoveMultipleCollections { _ -> CollectionsRemovalResponse in
 			try response(returnedFromPath: fixture.path)
 		}
 	}

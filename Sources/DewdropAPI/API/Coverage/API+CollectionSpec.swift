@@ -2,6 +2,7 @@
 
 import struct Dewdrop.Collection
 import struct DewdropRESTAPI.CollectionCountFields
+import struct DewdropRESTAPI.CollectionRemovalFields
 import struct DewdropRESTAPI.EmptyCollectionRemovalFields
 import struct Catena.IDFields
 import struct Foundation.URL
@@ -12,11 +13,11 @@ import protocol Catenary.API
 
 extension API: CollectionSpec {
 	#if swift(<6.0)
-	public typealias CollectionFetchFields = CollectionSpecifiedFields
-	public typealias RootCollectionListFields = CollectionSpecifiedFields
-	public typealias ChildCollectionListFields = CollectionSpecifiedFields
-	public typealias SystemCollectionListFields = CollectionCountFields
-	public typealias CollectionCreationFields = CollectionSpecifiedFields
+		public typealias CollectionFetchFields = CollectionSpecifiedFields
+		public typealias RootCollectionListFields = CollectionSpecifiedFields
+		public typealias ChildCollectionListFields = CollectionSpecifiedFields
+		public typealias SystemCollectionListFields = CollectionCountFields
+		public typealias CollectionCreationFields = CollectionSpecifiedFields
 	#endif
 
 	public func fetchCollection(with id: Collection.ID) async -> SingleResult<CollectionSpecifiedFields> {
@@ -122,9 +123,9 @@ extension API: CollectionSpec {
 		}
 	}
 
-	public func removeCollections(with ids: [Collection.ID]) async -> SuccessResult {
+	public func removeCollections(with ids: [Collection.ID]) async -> SingleResult<CollectionRemovalFields> {
 		await result {
-			try await collectionEndpoints.removeMultipleCollections(ids: ids).result
+			try await collectionEndpoints.removeMultipleCollections(ids: ids)
 		}
 	}
 

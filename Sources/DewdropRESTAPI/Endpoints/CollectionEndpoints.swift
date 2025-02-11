@@ -98,7 +98,7 @@ public protocol CollectionEndpoints {
 	func removeCollection(id: Collection.ID) async throws -> SuccessResponse
 
 	@DELETE("/collections")
-	func removeMultipleCollections(ids: Field<[Collection.ID]>) async throws -> SuccessResponse
+	func removeMultipleCollections(ids: Field<[Collection.ID]>) async throws -> CollectionsRemovalResponse
 
 	@DELETE("/collection/{id}/sharing")
 	func unshareOrLeaveCollection(id: Collection.ID) async throws -> SuccessResponse

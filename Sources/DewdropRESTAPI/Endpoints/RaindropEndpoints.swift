@@ -95,7 +95,7 @@ public protocol RaindropEndpoints {
 		tags: [String]?,
 		media: [Media]?,
 		important: Bool?
-	) async throws -> RaindropsModificationResponse
+	) async throws -> RaindropsRemovalResponse
 
 	@PUT("/raindrop/{id}")
 	func addHighlight<Fields>(
@@ -137,7 +137,7 @@ public protocol RaindropEndpoints {
 		collectionId: Collection.ID,
 		ids: [Raindrop.ID]?,
 		search: String?
-	) async throws -> RaindropsModificationResponse
+	) async throws -> RaindropsRemovalResponse
 }
 
 // MARK: -
