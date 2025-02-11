@@ -55,6 +55,19 @@ struct CollectionSpecTests {
 		#expect(details.parent == nil)
 	}
 
+	@Test func fetchInvalidCollection() async throws {
+		let api = API.mock
+		api.mockFetchCollection(byReturning: .error(.notFound))
+
+		do {
+			let id: Collection.ID = 654
+			try await api.fetchCollection(with: id).validate()
+		} catch let .api(error) {
+			#expect(error.statusCode == 404)
+			#expect(error.message == "Not found")
+		}
+	}
+
 	@Test func listSystemCollections() async throws {
 		let api = API.mock
 		api.mockListSystemCollections(byReturning: .list(.collection(.system)))
@@ -149,17 +162,42 @@ struct CollectionSpecTests {
 		#expect(list.map(\.parent?.id) == parentIDs)
 	}
 
-	@Test func fetchInvalidCollection() async throws {
+	@Test func listCovers() async throws {
 		let api = API.mock
-		api.mockFetchCollection(byReturning: .error(.notFound))
+		api.mockListCovers(byReturning: .list(.cover))
 
-		do {
-			let id: Collection.ID = 654
-			try await api.fetchCollection(with: id).validate()
-		} catch let .api(error) {
-			#expect(error.statusCode == 404)
-			#expect(error.message == "Not found")
+		let list = try await api.listCovers(searchingFor: "Cover").resource
+		let covers = [1, 2].map { index in
+			Collection.Cover(
+				title: "Cover \(index)",
+				icons: [
+					.init(png: .init(string: "https://www.website\(index).com/icon1.png")!),
+					.init(png: .init(string: "https://www.website\(index).com/icon2.png")!)
+				]
+			)
 		}
+
+		#expect(list.map(\.title) == covers.map(\.title))
+		#expect(list.map(\.icons) == covers.map(\.icons))
+	}
+
+	@Test func listFeaturedCovers() async throws {
+		let api = API.mock
+		api.mockListFeaturedCovers(byReturning: .list(.cover))
+
+		let list = try await api.listFeaturedCovers().resource
+		let covers = [1, 2].map { index in
+			Collection.Cover(
+				title: "Cover \(index)",
+				icons: [
+					.init(png: .init(string: "https://www.website\(index).com/icon1.png")!),
+					.init(png: .init(string: "https://www.website\(index).com/icon2.png")!)
+				]
+			)
+		}
+
+		#expect(list.map(\.title) == covers.map(\.title))
+		#expect(list.map(\.icons) == covers.map(\.icons))
 	}
 
 	@Test func expandCollections() async throws {

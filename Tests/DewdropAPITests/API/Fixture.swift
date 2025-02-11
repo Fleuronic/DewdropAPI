@@ -15,6 +15,7 @@ extension Fixture {
 	enum Model {
 		case raindrop
 		case collection(CollectionType)
+		case cover
 		case user(authenticated: Bool = false)
 	}
 
@@ -31,19 +32,19 @@ extension Fixture {
 	var path: String {
 		switch self {
 		case .success:
-			return "Success"
+			"Success"
 		case .count:
-			return "Count"
+			"Count"
 		case .removal:
-			return "Removal"
+			"Removal"
 		case .merge:
-			return "Merge"
+			"Merge"
 		case let .model(model):
-			return model.path
+			model.path
 		case let .list(model):
-			return model.path + "List"
+			model.path + "List"
 		case let .error(error):
-			return error.path + "Error"
+			error.path + "Error"
 		}
 	}
 }
@@ -56,6 +57,8 @@ extension Fixture.Model {
 			"Raindrop"
 		case let .collection(type):
 			type.path + "Collection"
+		case .cover:
+			"Cover"
 		case let .user(authenticated):
 			(authenticated ? "Authenticated" : .init()) + "User"
 		}

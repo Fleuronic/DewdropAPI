@@ -1,14 +1,6 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import class DewdropRESTAPI.CollectionEndpointsMock
-import struct DewdropRESTAPI.CollectionResponse
-import struct DewdropRESTAPI.CollectionsResponse
-import struct DewdropRESTAPI.SuccessResponse
-import class DewdropRESTAPI.UserEndpointsMock
-import typealias DewdropRESTAPI.SystemCollectionsCountResponse
-import typealias DewdropRESTAPI.CollectionsMergeResponse
-import typealias DewdropRESTAPI.CollectionsRemovalResponse
-import typealias DewdropRESTAPI.EmptyCollectionsRemovalResponse
+import DewdropRESTAPI
 
 @testable import struct DewdropAPI.API
 
@@ -33,6 +25,18 @@ extension API where CollectionEndpoints == CollectionEndpointsMock, UserEndpoint
 
 	func mockListChildCollections(byReturning fixture: Fixture) {
 		collectionEndpoints.mockGetChildCollections { () -> CollectionsResponse<CollectionSpecifiedFields> in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockListCovers(byReturning fixture: Fixture) {
+		collectionEndpoints.mockSearchForCover { _ -> CoversResponse in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockListFeaturedCovers(byReturning fixture: Fixture) {
+		collectionEndpoints.mockFeaturedCovers { () -> CoversResponse in
 			try response(returnedFromPath: fixture.path)
 		}
 	}

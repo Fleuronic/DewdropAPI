@@ -1,0 +1,27 @@
+{
+  "result": true,
+  "items": [
+    {
+      "title": "Cover 1",
+      "icons": [
+        {
+          "png": "https://www.website1.com/icon1.png"
+        },
+        {
+          "png": "https://www.website1.com/icon2.png"
+        }
+     ]
+    },
+    {
+      "title": "Cover 2",
+      "icons": [
+        {
+          "png": "https://www.website2.com/icon1.png"
+        },
+        {
+          "png": "https://www.website2.com/icon2.png"
+        }
+     ]
+    }
+  ]
+}
