@@ -4,6 +4,7 @@
 --enable isEmpty
 
 --indent tab
+--ifdef no-indent
 --tabwidth 4
 --stripunusedargs closure-only
 --trimwhitespace nonblank-lines

@@ -13,11 +13,11 @@ import protocol Catenary.API
 
 extension API: CollectionSpec {
 	#if swift(<6.0)
-		public typealias CollectionFetchFields = CollectionSpecifiedFields
-		public typealias RootCollectionListFields = CollectionSpecifiedFields
-		public typealias ChildCollectionListFields = CollectionSpecifiedFields
-		public typealias SystemCollectionListFields = CollectionCountFields
-		public typealias CollectionCreationFields = CollectionSpecifiedFields
+	public typealias CollectionFetchFields = CollectionSpecifiedFields
+	public typealias RootCollectionListFields = CollectionSpecifiedFields
+	public typealias ChildCollectionListFields = CollectionSpecifiedFields
+	public typealias SystemCollectionListFields = CollectionCountFields
+	public typealias CollectionCreationFields = CollectionSpecifiedFields
 	#endif
 
 	public func fetchCollection(with id: Collection.ID) async -> SingleResult<CollectionSpecifiedFields> {
