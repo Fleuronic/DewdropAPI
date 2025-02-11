@@ -178,6 +178,17 @@ struct CollectionSpecTests {
 		#expect(success)
 	}
 
+	@Test func mergeCollections() async throws {
+		let api = API.mock
+		api.mockMergeCollections(byReturning: .merge)
+
+		let id: Collection.ID = 2
+		let ids: [Collection.ID] = [1, 2]
+		let merge = try await api.mergeCollections(with: ids, intoCollectionWith: id).resource
+		#expect(merge.ids == [id])
+		#expect(merge.count == 1)
+	}
+
 	@Test func removeCollection() async throws {
 		let api = API.mock
 		api.mockRemoveCollection(byReturning: .success)
@@ -189,7 +200,7 @@ struct CollectionSpecTests {
 
 	@Test func removeCollections() async throws {
 		let api = API.mock
-		api.mockRemoveCollections(byReturning: .modification)
+		api.mockRemoveCollections(byReturning: .removal)
 
 		let ids: [Collection.ID] = [1, 2]
 		let removal = try await api.removeCollections(with: ids).resource

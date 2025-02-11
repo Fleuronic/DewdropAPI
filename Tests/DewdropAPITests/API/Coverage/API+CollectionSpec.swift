@@ -6,6 +6,7 @@ import struct DewdropRESTAPI.CollectionsResponse
 import struct DewdropRESTAPI.SuccessResponse
 import class DewdropRESTAPI.UserEndpointsMock
 import typealias DewdropRESTAPI.SystemCollectionsCountResponse
+import typealias DewdropRESTAPI.CollectionsMergeResponse
 import typealias DewdropRESTAPI.CollectionsRemovalResponse
 import typealias DewdropRESTAPI.EmptyCollectionsRemovalResponse
 
@@ -44,6 +45,12 @@ extension API where CollectionEndpoints == CollectionEndpointsMock, UserEndpoint
 
 	func mockSortCollections(byReturning fixture: Fixture) {
 		collectionEndpoints.mockReorderCollections { _ -> SuccessResponse in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockMergeCollections(byReturning fixture: Fixture) {
+		collectionEndpoints.mockMergeCollections { _, _ -> CollectionsMergeResponse in
 			try response(returnedFromPath: fixture.path)
 		}
 	}
