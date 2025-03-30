@@ -30,11 +30,11 @@ public protocol UserEndpoints {
 		groups: [GroupDetails]?
 	) async throws -> UserResponse<Fields>
 
-	@GET("/user/{provider}")
-	func connectSocialNetworkAccount(provider: Network.Provider) async throws -> SuccessResponse
+	@GET("/user/connect/{provider}")
+	func connectSocialNetworkAccount(provider: Network.Provider) async throws
 
 	@GET("/user/connect/{provider}/revoke")
-	func disconnectSocialNetworkAccount(provider: Network.Provider) async throws -> SuccessResponse
+	func disconnectSocialNetworkAccount(provider: Network.Provider) async throws
 }
 
 // MARK: -

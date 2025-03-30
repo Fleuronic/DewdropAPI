@@ -6,6 +6,7 @@ import struct Dewdrop.User
 import struct Dewdrop.Account
 import struct Dewdrop.Group
 import struct Dewdrop.Collection
+import struct Dewdrop.Network
 import struct DewdropAPI.API
 import struct Foundation.URL
 
@@ -122,5 +123,21 @@ struct UserSpecTests {
 		#expect(details.config.languageCode == config.languageCode)
 		#expect(details.config.defaultRaindropSort == config.defaultRaindropSort)
 		#expect(details.config.defaultCollectionView == config.defaultCollectionView)
+	}
+
+	@Test func connectSocialNetworkAccount() async throws {
+		let api = API.mock
+		api.mockConnectSocialNetworkAccount(byReturning: .empty)
+
+		let provider: Network.Provider = .facebook
+		try await api.connectSocialNetworkAccount(from: provider).validate()		
+	}
+
+	@Test func disconnectSocialNetworkAccount() async throws {
+		let api = API.mock
+		api.mockDisconnectSocialNetworkAccount(byReturning: .empty)
+
+		let provider: Network.Provider = .facebook
+		try await api.disconnectSocialNetworkAccount(from: provider).validate()
 	}
 }

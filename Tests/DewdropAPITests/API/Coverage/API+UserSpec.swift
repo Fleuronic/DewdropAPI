@@ -17,4 +17,16 @@ extension API where UserEndpoints == UserEndpointsMock {
 			try response(returnedFromPath: fixture.path)
 		}
 	}
+
+	func mockConnectSocialNetworkAccount(byReturning fixture: Fixture) {
+		userEndpoints.mockConnectSocialNetworkAccount { _ in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
+
+	func mockDisconnectSocialNetworkAccount(byReturning fixture: Fixture) {
+		userEndpoints.mockDisconnectSocialNetworkAccount { _ in
+			try response(returnedFromPath: fixture.path)
+		}
+	}
 }
