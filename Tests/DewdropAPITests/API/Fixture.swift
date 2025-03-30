@@ -8,6 +8,7 @@ enum Fixture {
 	case model(Model)
 	case list(Model)
 	case error(Error)
+	case empty
 }
 
 // MARK: -
@@ -45,6 +46,8 @@ extension Fixture {
 			model.path + "List"
 		case let .error(error):
 			error.path + "Error"
+		case .empty:
+			"Empty"
 		}
 	}
 }
