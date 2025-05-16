@@ -1,13 +1,13 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import Papyrus
+import DewdropRESTAPI
+
 import struct Dewdrop.AccessToken
 import struct Foundation.URL
 import protocol DewdropService.AccessTokenSpec
 import protocol Catena.ResultProviding
 import protocol Catenary.API
-import class PapyrusCore.Provider
-
-import struct DewdropRESTAPI.AuthenticationEndpointsAPI
 
 public extension Authentication {
 	struct API: @unchecked Sendable {

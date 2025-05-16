@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import Papyrus
+import Foundation
 import MemberwiseInit
 
 import struct Dewdrop.Collection

@@ -1,6 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import Papyrus
+import Foundation
 
 import struct Dewdrop.Backup
 import struct DewdropService.IdentifiedBackup

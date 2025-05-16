@@ -1,11 +1,11 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import Papyrus
 import DewdropRESTAPI
 
 import struct Dewdrop.User
 import struct Identity.Identifier
 import struct Catena.IDFields
-import class PapyrusCore.Provider
 import protocol DewdropService.RaindropFields
 import protocol DewdropService.CollectionFields
 import protocol DewdropService.FilterFields
@@ -46,8 +46,6 @@ public struct API<
 	let userEndpoints: UserEndpoints
 	let importEndpoints: ImportEndpoints
 	let backupEndpoints: BackupEndpoints
-	
-	private let provider: Provider
 }
 
 // MARK: -
@@ -83,8 +81,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 
@@ -117,8 +114,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 
@@ -151,8 +147,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 
@@ -185,8 +180,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 
@@ -219,8 +213,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 	
@@ -254,8 +247,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 
@@ -288,8 +280,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 
@@ -322,8 +313,7 @@ public extension API {
 			highlightEndpoints: highlightEndpoints,
 			userEndpoints: userEndpoints,
 			importEndpoints: importEndpoints,
-			backupEndpoints: backupEndpoints,
-			provider: provider
+			backupEndpoints: backupEndpoints
 		)
 	}
 }
@@ -367,8 +357,7 @@ public extension API<
 			highlightEndpoints: .init(provider: provider),
 			userEndpoints: .init(provider: provider),
 			importEndpoints: .init(provider: provider),
-			backupEndpoints: .init(provider: provider),
-			provider: provider
+			backupEndpoints: .init(provider: provider)
 		)
 	}
 }
@@ -395,10 +384,7 @@ public extension API<
 	BackupDetails
 >{
 	static var mock: Self {
-		let url = "https://api.raindrop.io/rest/v1"
-		let provider = Provider(baseURL: url)
-		
-		return self.init(
+		self.init(
 			raindropEndpoints: .init(),
 			collectionEndpoints: .init(),
 			tagEndpoints: .init(),
@@ -406,8 +392,7 @@ public extension API<
 			highlightEndpoints: .init(),
 			userEndpoints: .init(),
 			importEndpoints: .init(),
-			backupEndpoints: .init(),
-			provider: provider
+			backupEndpoints: .init()
 		)
 	}
 }

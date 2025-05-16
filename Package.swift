@@ -19,12 +19,10 @@ let package = Package(
 		),
 	],
 	dependencies: [
-		.package(path: "../.."),
 		.package(path: "../DewdropService"),
 		.package(url: "https://github.com/Fleuronic/Catenary", branch: "main"),
-		.package(url: "https://github.com/Fleuronic/AutoCodable", branch: "main"),
-		.package(url: "https://github.com/Fleuronic/URL", branch: "main"),
-		.package(url: "https://github.com/Fleuronic/papyrus", branch: "optional-path-parameters")
+		.package(url: "https://github.com/jordanekay/AutoCodable", branch: "main"),
+		.package(url: "https://github.com/jordanekay/papyrus", branch: "main")
 	],
 	targets: [
 		.target(
@@ -44,10 +42,7 @@ let package = Package(
 		),
 		.testTarget(
 			name: "DewdropAPITests",
-			dependencies: [
-				"DewdropAPI",
-				"URL"
-			],
+			dependencies: ["DewdropAPI"],
 			resources: [.process("Fixtures")]
 		)
 	],
@@ -56,6 +51,6 @@ let package = Package(
 		
 for target in package.targets {
 	target.swiftSettings = [
-		.enableUpcomingFeature("ExistentialAny")
+		.enableExperimentalFeature("StrictConcurrency")
 	]
 }

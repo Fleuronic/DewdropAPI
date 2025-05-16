@@ -1,9 +1,9 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
+import Papyrus
 import enum Catenary.Error
 import class Foundation.JSONDecoder
 import protocol Catenary.Fields
-import protocol PapyrusCore.Response
 
 public struct Error: Swift.Error, Equatable {
 	public let statusCode: Int
@@ -72,7 +72,7 @@ private extension Error {
 }
 
 // MARK: -
-public extension Response {
+public extension PapyrusResponse {
 	func apiError(validating: Bool) -> Error? {
 		func parseError() -> Error? {
 			let decoder = JSONDecoder()

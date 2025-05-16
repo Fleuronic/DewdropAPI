@@ -1,13 +1,13 @@
 {
-  "originHash" : "170fbb214be2e10fae548cc86bf74f7eb18b156db63bf5ca6ec344c09e0270c8",
+  "originHash" : "32ac11fc98e223fa553979e00d5427705e82306e6a257d0b27339e63abd6a85b",
   "pins" : [
     {
       "identity" : "autocodable",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/AutoCodable",
+      "location" : "https://github.com/jordanekay/AutoCodable",
       "state" : {
         "branch" : "main",
-        "revision" : "57f1f48b20d74e200f41b4460724a916fcb8e99b"
+        "revision" : "e47bd09b9b960d96c61de07b2ac6f99e3a973a5b"
       }
     },
     {
@@ -40,10 +40,10 @@
     {
       "identity" : "papyrus",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/papyrus",
+      "location" : "https://github.com/jordanekay/papyrus",
       "state" : {
-        "branch" : "optional-path-parameters",
-        "revision" : "77c80a3621b934b9465f2c222a5191242932f1db"
+        "branch" : "main",
+        "revision" : "ff604d6cca47a31a3e27588f6c5c155664175cb2"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/gohanlon/swift-memberwise-init-macro",
       "state" : {
-        "revision" : "21ca6d8c8f9e4ce27e92f82da294e0d91953b8b6",
-        "version" : "0.5.1"
+        "revision" : "47a2bdf45f1567e7324438f8482e362ee1c3fb44",
+        "version" : "0.5.2"
       }
     },
     {
@@ -60,26 +60,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dm-zharov/swift-security",
       "state" : {
-        "branch" : "main",
-        "revision" : "56808589e8b5b02095afdd23357df7915639c6a2"
+        "revision" : "56808589e8b5b02095afdd23357df7915639c6a2",
+        "version" : "2.4.0"
       }
     },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftlang/swift-syntax",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
       "state" : {
-        "revision" : "2bc86522d115234d1f588efe2bcb4ce4be8f8b82",
-        "version" : "510.0.3"
-      }
-    },
-    {
-      "identity" : "url",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/URL",
-      "state" : {
-        "branch" : "main",
-        "revision" : "743cd05f585541c93d11b3fdaa4c6d17f8f50d3c"
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
       }
     }
   ],
