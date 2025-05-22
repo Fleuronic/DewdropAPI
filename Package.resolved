@@ -1,5 +1,5 @@
 {
-  "originHash" : "32ac11fc98e223fa553979e00d5427705e82306e6a257d0b27339e63abd6a85b",
+  "originHash" : "459b918466df0260dadf4c956362200ced9a550264d36e7082570811357393f4",
   "pins" : [
     {
       "identity" : "autocodable",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/Fleuronic/Catena",
       "state" : {
         "branch" : "main",
-        "revision" : "d34d1fbc9e174317cbbde7dd07e87c134a5dc065"
+        "revision" : "62a7bc80248570364cf77d2e4fc7977fd0f3e5ae"
       }
     },
     {
@@ -25,16 +25,25 @@
       "location" : "https://github.com/Fleuronic/Catenary",
       "state" : {
         "branch" : "main",
-        "revision" : "c6f17d5b913c2bf242a1ca44a3eb2e26972ee460"
+        "revision" : "a4572411b7c1eaed8acbf6944d6f3c1785e14893"
+      }
+    },
+    {
+      "identity" : "dewdrop",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Fleuronic/Dewdrop",
+      "state" : {
+        "branch" : "main",
+        "revision" : "acbcbfcbebcdb05111fd30afe644e2e6f0803433"
       }
     },
     {
       "identity" : "identity",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Fleuronic/Identity",
+      "location" : "https://github.com/jordanekay/Identity",
       "state" : {
         "branch" : "master",
-        "revision" : "3c92c38d7a5f2134beaefa25c278ddda5d3fcf7a"
+        "revision" : "8764a54c8e5ef0d14f3dc2ec5c10223ed0411a4d"
       }
     },
     {
@@ -67,7 +76,7 @@
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
         "revision" : "0687f71944021d616d34d922343dcef086855920",
         "version" : "600.0.1"
